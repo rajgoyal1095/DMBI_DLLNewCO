@@ -1,0 +1,82 @@
+<apex:page id="orgPage">
+
+    <apex:stylesheet value="{!$Resource.collect__MFIStyles}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.sidebarMenuTemplate)}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+
+    <style>
+        .subDataImport {
+            left: 199px !important;
+            width: 150px !important;
+        }
+
+        div.createNewModule.sidebarModule.navMenu {
+            padding: 5px !important;
+        }
+
+    </style>
+    <script>
+    var j$ = jQuery.noConflict();
+    j$(document).ready(function(){
+       j$('.strategySetup').append(j$(addMenuHeader('Collection Strategies','90px')));
+       j$('.strategySetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.Collection_Configuration__c.New)}','createNewCollectionStrateggy','','New Collection Strategy'));
+       j$('.strategySetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.Collection_Configuration__c.List, $ObjectType.Collection_Configuration__c)}','browseCollectionConfigurations','','View/Edit Collection Strategies'));
+
+       j$('.mailMessageSetup').append(j$(addMenuHeader('Mail Message Setup','90px')));
+        
+       j$('.mailMessageSetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.clcommon__Template__c.List, $ObjectType.clcommon__Template__c)}','browseMessageConfigurations','','View/Edit Template Configurations'));
+       j$('.mailMessageSetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.clcommon__GatewayConfiguration__c.List, $ObjectType.clcommon__GatewayConfiguration__c)}','browseGatewayConfigurations','','View/Edit Gateway Configurations'));
+       j$('.mailMessageSetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.cnotify__Template__c.List, $ObjectType.cnotify__Template__c)}','browseMessageConfigurationsNotify','','View/Edit Notify Template Configurations'));
+
+       j$('.activities').append(j$(addMenuHeader('Collection Activities','70px')));
+       j$('.activities .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.Collection_Activity__c.List, $ObjectType.Collection_Activity__c)}','browseCollectionActiivities','','View/Edit Collection Actiivities'));
+
+       j$('.queueSetup').append(j$(addMenuHeader('Collection Queues','90px')));
+       j$('.queueSetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.Queue__c.New)}','createNewQueue','','New Queue Configuration'));
+       j$('.queueSetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.Queue__c.List, $ObjectType.Queue__c)}','viewQueueConfigurations','','View/Edit Queue Configurations'));
+
+       j$('.mainMenu').live('mouseenter', function() {
+       j$('.subMenu').hide();
+       j$(this).next('.subMenu').show();
+       });
+
+       j$(document).mouseup(function (e) {
+            var container = j$(".navMenu #createNewMenu");
+            if (container.has(e.target).length === 0) {
+                j$('.subMenu').hide();
+            }
+       });
+
+    });
+    </script>
+    <style></style>
+    <apex:form id="setupForm">
+        <div style="min-width: 800px">
+
+            <div class="mfiflexBlock"
+                style="height: 460px; float: left; width: 48%; margin-right: 1%;">
+                <div class="mfiflexBlockHeading" id="bottomWrapper">
+                    <h1 class="heading">Strategies</h1>
+                </div>
+                <div class="collapsible sidebar strategySetup" id="sidebarDiv"
+                    style="margin: auto;  margin-top: 30px"></div>
+                <div class="collapsible sidebar activities" id="sidebarDiv"
+                    style="margin: auto;"></div>
+                <div class="collapsible sidebar mailMessageSetup" id="sidebarDiv"
+                    style="margin: auto;"></div>
+            </div>
+
+            <div class="mfiflexBlock"
+                style="height: 460px; float: left; width: 48%; margin-left: 1%;">
+                <div class="mfiflexBlockHeading" id="bottomWrapper">
+                    <h1 class="heading">Queues</h1>
+                </div>
+                <div class="collapsible sidebar queueSetup" id="sidebarDiv"
+                    style="margin: auto;  margin-top: 30px"></div>
+            </div>
+
+        </div>
+    </apex:form>
+</apex:page>

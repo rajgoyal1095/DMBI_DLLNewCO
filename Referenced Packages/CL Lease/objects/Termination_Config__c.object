@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Default__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>true for enable configuration for product, false for disable</inlineHelpText>
+        <label>Enable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Lease Product</label>
+        <referenceTo>Lease_Product__c</referenceTo>
+        <relationshipLabel>Termination Config</relationshipLabel>
+        <relationshipName>Termination_Config</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>BUYOUT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>END OF LEASE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DESIGNATION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SETTLEMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EOL WRITE OFF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CANCELLATION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CASUALTY LOSSES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>E-LEASE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ROLL-OVER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CUSTOMER REQUESTED</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>INSURANCE</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+                <value>
+                    <fullName>SAME AS CASH</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Quote_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TERMINATION WITH PURCHASE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TERMINATION WITHOUT PURCHASE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ROLL-OVER WITH PURCHASE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ROLL-OVER WITHOUT PURCHASE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Termination_With_Purchase__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this flag is set then the quote type will be treated as termination with equipment purchase.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set this flag if it is a equipment purchase configuration.</inlineHelpText>
+        <label>Termination With Purchase</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Termination Config</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Termination Config Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Termination Config</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Duplicate_Term_Config_Name</fullName>
+        <active>true</active>
+        <description>Duplicate names not allowed.</description>
+        <errorConditionFormula>Name = VLOOKUP($ObjectType.Termination_Config__c.Fields.Name, $ObjectType.Termination_Config__c.Fields.Name, Name)
+ &amp;&amp; Id  &lt;&gt;  VLOOKUP($ObjectType.Termination_Config__c.Fields.Id, $ObjectType.Termination_Config__c.Fields.Name, Name)</errorConditionFormula>
+        <errorMessage>Name already exists.</errorMessage>
+    </validationRules>
+</CustomObject>

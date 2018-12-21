@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>All the error logs from the tax API processing requests are shown here</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Error_Due_Detail_Line__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This field points to the due detail line for which error processing was not done.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Error in this due detail line while processing tax</inlineHelpText>
+        <label>Error Due Detail Line</label>
+        <referenceTo>Due_Detail_Lines__c</referenceTo>
+        <relationshipLabel>Tax API Due Detail Error Logs</relationshipLabel>
+        <relationshipName>Tax_API_Due_Detail_Error_Logs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Error_Mesage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field will carry the error message thrown by the external APIs while processing the due lines for tax</description>
+        <externalId>false</externalId>
+        <label>Error Mesage</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_API_Status__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Error log response associated with Tax API Request</description>
+        <externalId>false</externalId>
+        <label>Tax API Status</label>
+        <referenceTo>Tax_API_Status__c</referenceTo>
+        <relationshipLabel>Tax API Due Detail Error Logs</relationshipLabel>
+        <relationshipName>Tax_API_Due_Detail_Error_Logs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Tax API Due Detail Error Log</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Tax_API_Due_Detail_Error_Logs_View</fullName>
+        <columns>NAME</columns>
+        <columns>Error_Due_Detail_Line__c</columns>
+        <columns>Error_Mesage__c</columns>
+        <columns>Tax_API_Status__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>Tax API Due Detail Error Logs View</label>
+    </listViews>
+    <nameField>
+        <label>Tax API Due Detail Error Log Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Tax API Due Detail Error Logs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

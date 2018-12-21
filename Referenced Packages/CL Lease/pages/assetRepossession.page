@@ -1,0 +1,54 @@
+<apex:page standardController="cllease__Repossession__c" id="repossessionListPage"
+    recordSetVar="repossessionSet">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:form >
+        <apex:sectionHeader title="Repossession" />
+        <apex:pageblock id="RepossessionList">
+            <apex:actionRegion >
+                <apex:outputText value="Records per page: "></apex:outputText>
+                <apex:selectList value="{!pagesize}" size="1">
+                    <apex:selectOption itemLabel="2" itemValue="2"></apex:selectOption>
+                    <apex:selectOption itemLabel="15" itemValue="15"></apex:selectOption>
+                    <apex:selectOption itemLabel="20" itemValue="20"></apex:selectOption>
+                    <apex:selectOption itemLabel="20" itemValue="25"></apex:selectOption>
+                    <apex:actionSupport event="onchange"
+                        rerender="repossessionTable, navigation" />
+                </apex:selectList>
+            </apex:actionRegion>
+
+            <apex:pageblockTable value="{!repossessionSet}" id="repossessionTable" var="repo">
+                <apex:column headerValue="Repossession Name">
+					<apex:commandLink value="{!repo.name}" reRender="repossessionListPage:repossessionDetail">
+						<apex:param name="repossessionID" value="{!repo.ID}" />
+					</apex:commandLink>
+				</apex:column>
+                <apex:repeat value="{!$ObjectType.cllease__Repossession__c.FieldSets.cllease__repossessionFieldSet}" var="field">
+                	<apex:column headerValue="{!field.Label}" >
+                    	<apex:outputField value="{!repo[field]}"  rendered="{!IF(field.Label == 'Id', false, true)}"/>
+                    </apex:column>
+                </apex:repeat>
+            </apex:pageblockTable>
+        </apex:pageblock>
+        <apex:panelGrid columns="2" id="navigation">
+            <apex:commandLink action="{!previous}" rendered="{!hasPrevious}"> Previous </apex:commandLink>
+            <apex:commandLink action="{!next}" rendered="{!hasNext}"> Next </apex:commandLink>
+        </apex:panelGrid>
+    </apex:form>
+
+    <apex:outputPanel id="repossessionDetail">
+        <apex:detail subject="{!$CurrentPage.parameters.repossessionID}"
+            inlineEdit="true"></apex:detail>
+    </apex:outputPanel>
+
+    <apex:sectionHeader title="Create New Repossession" />
+    <apex:pageblock >
+        <table>
+            <tr>
+                <td><a href="{!URLFOR($Action.Repossession__c.New)}"><br/>
+                    <b>Define New Repossession</b></a></td>
+            </tr>
+        </table>
+    </apex:pageblock>
+
+</apex:page>

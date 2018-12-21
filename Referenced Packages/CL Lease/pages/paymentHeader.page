@@ -1,0 +1,18 @@
+<apex:page standardController="cllease__Lease_Payment_Transaction__c">
+	<apex:include pageName="clcommon__mintTheme"/>
+    <c:HighlightsPanelMintTheme labels="Receviable, Fees, Excess,Tax"
+                        value1="{!cllease__Lease_Payment_Transaction__c.cllease__Rent_Amount__c}"
+				        value2="{!cllease__Lease_Payment_Transaction__c.cllease__Fees__c}"
+				        value3="{!cllease__Lease_Payment_Transaction__c.cllease__Excess__c}"
+				        value4="{!cllease__Lease_Payment_Transaction__c.cllease__Tax_Amount__c}"
+                        highlight="true"
+                        rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}" />
+
+    <c:HighlightsPanel labels="Receviable, Fees, Excess,Tax"
+                        value1="{!cllease__Lease_Payment_Transaction__c.cllease__Rent_Amount__c}"
+				        value2="{!cllease__Lease_Payment_Transaction__c.cllease__Fees__c}"
+				        value3="{!cllease__Lease_Payment_Transaction__c.cllease__Excess__c}"
+				        value4="{!cllease__Lease_Payment_Transaction__c.cllease__Tax_Amount__c}"
+                        highlight="true"
+                       rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}"/>
+</apex:page>

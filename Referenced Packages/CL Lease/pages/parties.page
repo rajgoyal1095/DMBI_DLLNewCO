@@ -1,0 +1,31 @@
+<apex:page standardController="cllease__Contract_Parties__c" showHeader="true"  tabStyle="cllease__Lease_Account__c" extensions="cllease.partiesController">
+<apex:include pageName="clcommon__mintTheme"/>
+ 
+    
+    <apex:form >
+        <apex:actionfunction name="doSearch" action="{!getContact}" rerender="partyEditDetails" />
+    <apex:pageblock title="Customer Details">
+        <!--<apex:pageblockTable var="parties" value="{!PartyList}" rendered="{recordFound }">
+            <!-- <apex:column headerValue="Code" value="{!parties.Party_Name__c}"  rendered="{!editPricing }" label="Contact"/>
+            <apex:column headerValue="Code" value="{!parties.Party_Account_Name__c}"  rendered="{!editPricing }" label="Account"/> -->
+        <!--    <apex:column headerValue="Contact" value="{!parties.Party_Name__c}"   />
+            <apex:column headerValue="Account" value="{!parties.Party_Account_Name__c}" />             
+            <apex:column headerValue="Type" value="{!parties.Party_Type__c}" />
+        </apex:pageblockTable>
+		-->
+        <apex:messages />
+        <apex:pageBlockButtons title="Contract Party Edit">
+            <apex:commandButton action="{!savePartyDetails}" value="Save" rendered="{!NOT(contractFunded)}"/>
+            <apex:commandButton action="{!cancelPartyCreation}" value="Cancel" rendered="{!NOT(contractFunded)}"/> 
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Information" id="partyEditDetails" columns="1">
+            <apex:inputfield value="{!party.cllease__Contract__c}" required="true" />
+            <apex:inputfield value="{!party.cllease__Party_Type__c}" />
+            <apex:inputfield value="{!party.cllease__Party_Account_Name__c}" onchange="doSearch();"/>
+            <apex:inputfield value="{!party.cllease__Party_Name__c}" />            
+        </apex:pageBlockSection>
+    </apex:pageblock>
+    
+    </apex:form>
+    
+</apex:page>

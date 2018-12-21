@@ -1,0 +1,25 @@
+<apex:page standardController="cllease__Cash_Account_Balance__c"
+extensions="cllease.CashBalancesController"
+ id="cashAccountBalancesPage">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:form >
+        <apex:sectionHeader title="Cash Balances" />
+        <apex:pageblock id="cashAccountBalancesList">
+            <apex:pageblockTable value="{!cashBalance}" id="cashAccountBalancesTable"
+                var="JA">
+                <apex:column value="{!JA.cllease__Opening_Balance_Amount__c}" />
+                <apex:column value="{!JA.cllease__Posted_Amount__c}" />
+                <apex:column value="{!JA.cllease__Paid_Amount__c}" />
+                <apex:column value="{!JA.cllease__Waived_Amount__c}" />
+                <apex:column value="{!JA.cllease__ChargedOff_Amount__c}" />
+                <apex:column value="{!JA.cllease__Adjusted_Positive_Amount__c}" />
+                <apex:column value="{!JA.cllease__Adjusted_Negative_Amount__c}" />
+                <apex:column value="{!JA.cllease__Closing_Balance_Amount__c}" />
+                
+            </apex:pageblockTable>
+        </apex:pageblock>
+
+    </apex:form>
+
+</apex:page>

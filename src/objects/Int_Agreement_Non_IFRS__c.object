@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>InDevelopment</deploymentStatus>
+    <description>Int Agreement Non IFRS</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Accounting_Type_Code__c</fullName>
+        <description>Accounting Type Code</description>
+        <externalId>false</externalId>
+        <label>Accounting Type Code</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Accrued_Interest_Amount__c</fullName>
+        <description>Accrued Interest Amount</description>
+        <externalId>false</externalId>
+        <label>Accrued Interest Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Agreement_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Agreement Name</description>
+        <externalId>false</externalId>
+        <label>Agreement Name</label>
+        <referenceTo>Int_Agreement__c</referenceTo>
+        <relationshipLabel>Int Agreements Non IFRS</relationshipLabel>
+        <relationshipName>Int_Agreements_Non_IFRS</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Agreement_Number__c</fullName>
+        <description>Agreement Number</description>
+        <externalId>false</externalId>
+        <label>Agreement Number</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Agreement_Source_System__c</fullName>
+        <description>Agreement Source System</description>
+        <externalId>false</externalId>
+        <label>Agreement Source System</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Arrears_Amount__c</fullName>
+        <description>Arrears Amount</description>
+        <externalId>false</externalId>
+        <label>Arrears Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Committed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Committed check box</description>
+        <externalId>false</externalId>
+        <label>Committed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FED_Flag_Only_Code__c</fullName>
+        <description>FED Flag Only Code</description>
+        <externalId>false</externalId>
+        <label>FED Flag Only Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FED_GL_Code_Block__c</fullName>
+        <description>FED GL Code Block</description>
+        <externalId>false</externalId>
+        <label>FED GL Code Block</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Net_Principal_Balance_Amount__c</fullName>
+        <description>Net Principal Balance Amount</description>
+        <externalId>false</externalId>
+        <label>Net Principal Balance Amount</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Int Agreement Non IFRS</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>ANI-{0000000000}</displayFormat>
+        <label>Agreement Non IFRS Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Int Agreements Non IFRS</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

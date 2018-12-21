@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>paymentTxnReversal</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>paymentTxnReversal</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>paymentTxnReversal</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Repayment Transaction Adjustment Object</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Adjusted_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Adjusted Amount (+ve or -ve). This is not yet implemented.
+Reversal Txn will reverse the master payment transaction&apos;s full amount.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Adjusted Amount (+ve or -ve). This is not yet implemented.
+Reversal Txn will reverse the master payment transaction&apos;s full amount.</inlineHelpText>
+        <label>Adjusted Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Adjustment_Txn_Date__c</fullName>
+        <defaultValue>$User.Current_Branch_s_System_Date__c</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Adjustment Txn Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Adjustment Txn Date</inlineHelpText>
+        <label>Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Cleared__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cleared</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Custom_Logic__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Custom Funding Logic</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GL_Posted_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>GL Posted</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GL_Process_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>GL Process Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>GL_Processing_Message__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>GL Processing Message</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GL_Transaction_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>GL Transaction Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>LS_Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>LS Contract</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipLabel>Repayment Transaction Reversal</relationshipLabel>
+        <relationshipName>Repayment_Transaction_Reversal</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Payment_Transaction__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Lease Payment Transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lease Payment Transaction</inlineHelpText>
+        <label>Lease Payment Transaction</label>
+        <referenceTo>Lease_Payment_Transaction__c</referenceTo>
+        <relationshipName>Repayment_Transaction_Adjustment</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Reason_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reason Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>NSF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Human Error</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Receipt_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <displayFormat>RATID-{0000000000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Receipt ID</label>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Reference__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Signed_Adjusted_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Lease_Payment_Transaction__r.Transaction_Amount__c * -1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Signed Adjusted Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transaction_Sub_Type__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Transaction Sub Type</label>
+        <referenceTo>Transaction_Sub_Type__c</referenceTo>
+        <relationshipLabel>Repayment Transaction Reversal</relationshipLabel>
+        <relationshipName>Repayment_Transaction_Reversal</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Payment Transaction Reversal</label>
+    <nameField>
+        <displayFormat>RTA-{0000000000}</displayFormat>
+        <label>Repayment Transaction Adjustment ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Repayment Transaction Reversal</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Check_Clear_Flag</fullName>
+        <active>true</active>
+        <errorConditionFormula>Lease_Payment_Transaction__r.Cleared__c == false</errorConditionFormula>
+        <errorMessage>An uncleared payment transaction cannot be reversed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Check_Existing_Reversal_Txn</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISNEW() &amp;&amp;  Lease_Payment_Transaction__r.Cleared_Reversal_Txn_Count__c &gt; 0</errorConditionFormula>
+        <errorMessage>This repayment transaction has already been reversed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Transaction_Date_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>Adjustment_Txn_Date__c &gt; TODAY()</errorConditionFormula>
+        <errorMessage>Transaction date cannot be greater than calendar date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Txn_Date_Against_System_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $User.Current_System_Date__c != null,
+$User.Current_System_Date__c !=  Adjustment_Txn_Date__c )</errorConditionFormula>
+        <errorMessage>Transaction Date must be the same as system date.</errorMessage>
+    </validationRules>
+</CustomObject>

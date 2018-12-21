@@ -1,0 +1,74 @@
+<apex:page controller="cllease.MultipleBranchDayProcessingAction"
+    tabStyle="Organization_Preference__tab">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:sectionHeader title="SOD-EOD Process" />
+    
+    <apex:form id="mFormId">
+        <apex:outputPanel id="processesPanel">
+        <apex:pageblock id="eodbodProcessId">
+            <apex:pageMessages />
+
+            <c:HighlightsPanel labels="Organization, System Date, Day Status, "
+                value1="{!loggedUser.cllease__Current_Branch__c}"
+                value2="{!dayProcessRecsForCurrentDate[0].Date__c}"
+                value3="{!dayProcessRecsForCurrentDate[0].Day_Status__c}"
+                value4="{!dummyMsg}"/>
+            <!-- This will run the jobs for today's dat without date change-->
+            <apex:commandButton value="Run Jobs for Today"
+                rerender="processesPanel,eodbodProcessId,branchDetailsSectionId,branchDetailsTable"
+                action="{!runBatchJobs}"
+                status="jobStatus" />
+            <!-- This will end the day, start next day and run the batch jobs-->
+            <apex:commandButton value="Start Next Day and Run Jobs"
+                rerender="processesPanel,eodbodProcessId,branchDetailsSectionId,branchDetailsTable"
+                action="{!moveDayAhead}"
+                status="jobStatus" />
+            <apex:commandButton value="Refresh View"
+                rerender="processesPanel,eodbodProcessId,branchDetailsSectionId,branchDetailsTable"
+                action="{!refreshView}"
+                status="refresh" />
+            <apex:actionStatus id="jobStatus" startText="Jobs started..." />
+            
+            <apex:actionStatus id="refresh" startText="Refreshing ..." />
+
+
+
+            <!--<apex:pageBlockSection title="Select Branch" columns="1" id="Branch">
+                <apex:selectRadio value="{!selected}">
+                        <apex:selectOptions value="{!items}"/>
+                        <apex:actionSupport action="{!setSelected}" event="onchange"/>
+                </apex:selectRadio><p/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1" id="BranchList" rendered="{!showBranches}">
+                <apex:selectList value="{!selectedBranch}" size="1" multiselect="false"  label="Branch">
+                        <apex:selectOptions value="{!Branches}" />
+                </apex:selectList>
+            </apex:pageBlockSection>-->
+            
+            <apex:pageblockSection title="Refresh Day Status" collapsible="false"
+                id="branchDetailsSectionId" columns="1">
+                <apex:pageblockTable value="{!dayProcessRecsForCurrentDate}"
+                    id="branchDetailsTable" var="JA">
+                    <apex:column value="{!loggedUser.cllease__Current_Branch__c}">
+                        <apex:facet name="header">Branch</apex:facet>
+                    </apex:column>
+                    <apex:column value="{!JA.cllease__Date__c}">
+                        <apex:facet name="header">System Date</apex:facet>
+                    </apex:column>
+                    <apex:column value="{!JA.cllease__Day_Started__c}">
+                        <apex:facet name="header">Day Started?</apex:facet>
+                    </apex:column>
+                    <apex:column value="{!JA.cllease__Day_Ended__c}">
+                        <apex:facet name="header">Day Ended?</apex:facet>
+                    </apex:column>
+                    <apex:column value="{!JA.cllease__Day_Status__c}">
+                        <apex:facet name="header">Day Status</apex:facet>
+                    </apex:column>
+                </apex:pageblockTable>
+            </apex:pageblockSection>
+
+        </apex:pageblock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,98 @@
+<apex:page id="calculationSetupPage" showHeader="true" sidebar="true" standardController="cllease__Page_Setup__c" extensions="cllease.CalculationSetupCtrl">
+    <apex:include pageName="clcommon__mintTheme"/>
+    <apex:outPutPanel id="page-title" layout="block">
+        <apex:sectionHeader title="{!$ObjectType.cllease__Page_Setup__c.Label}" subtitle="{!pageSetup.Name}"/>
+    </apex:outPutPanel>
+    <apex:form id="calculationSetupForm">
+        <script type="text/javascript">
+            function handleSaveClick() {
+                window.parent.postMessage({!statusOnSave}, '*');
+            };
+
+            function handleCancelClick() {
+                window.parent.postMessage({!statusOnCancel}, '*');
+            };                
+        </script>
+        <apex:pageBlock id="calculationSetupPageBlock">
+            <apex:pageMessages id="messages"/>
+            <apex:pageBlockButtons location="Top">
+                <apex:commandButton value="Save" action="{!save}" oncomplete="handleSaveClick()"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:outputPanel id="calculationSetupPanel">
+                <apex:pageBlockSection id="resultSection" title="Result Field" collapsible="false">
+                    <apex:selectList label="Object" value="{!resultFI.objectAPIName}" size="1" disabled="{!IF(lstFormulaOptions.size > 0, true, false)}">
+                        <apex:selectOptions value="{!lstResultObjectOptions}"/>
+                        <apex:actionSupport event="onchange" action="{!updateResultFields}" reRender="calculationSetupPanel"/>
+                    </apex:selectList>
+                    <apex:selectList label="Field" value="{!resultFI.fieldAPIName}" size="1" disabled="{!IF(lstFormulaOptions.size > 0, true, false)}">
+                        <apex:selectOptions value="{!lstResultObjectFieldOptions}"/>
+                        <apex:actionSupport event="onchange" reRender="calculationSetupPanel"/>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection id="sourceSection" title="Source Fields" columns="1" collapsible="false">
+                    <apex:pageblockTable id="calculationSetupTable" value="{!lstFormulaOptions}" var="fO" columnsWidth="50px, 20%, 30%, 35%, 4%">
+                        <apex:variable var="rowNumber" value="{!-1}" />
+                        <apex:column headerValue="Operator">
+                            <apex:selectList value="{!fO.fI.operator}" size="1">
+                                <apex:selectOptions value="{!lstOperators}"/>
+                                <apex:actionSupport event="onchange" reRender="calculationSetupPanel"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Object">
+                            <apex:selectList value="{!fO.fI.objectAPIName}" size="1">
+                                <apex:selectOptions value="{!fO.lstObjectOptions}"/>
+                                <apex:actionSupport event="onchange" action="{!updateFieldsAndRelations}" reRender="calculationSetupPanel"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Field">
+                            <apex:selectList value="{!fO.fI.fieldAPIName}" size="1">
+                                <apex:selectOptions value="{!fO.lstObjectFieldOptions}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Object Relation">
+                            <apex:selectList value="{!fO.fI.relatedListAPIName}" size="1">
+                                <apex:selectOptions value="{!fO.lstRelationshipObjectAPI}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}">
+                            <apex:commandButton title="Remove Row" 
+                                                value="Remove" 
+                                                image="{!URLFOR($Resource.cllease__Delete_Button_Red)}" 
+                                                action="{!deleteRow}" 
+                                                reRender="calculationSetupPanel,messages">
+                                <apex:param name="removeRec" value="{!rowNumber}" assignTo="{!numberOfRowClicked}"/>
+                            </apex:commandButton>
+                        </apex:column>                    
+                        <apex:column rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}">
+                            <apex:commandButton title="Remove Row" 
+                                                value="Remove" 
+                                                action="{!deleteRow}" 
+                                                reRender="calculationSetupPanel,messages">
+                                <apex:param name="removeRec" value="{!rowNumber}" assignTo="{!numberOfRowClicked}"/>
+                            </apex:commandButton>
+                        </apex:column>                                        
+                        <apex:column >
+                            <apex:variable var="rowNumber" value="{!rowNumber+1}" />
+                        </apex:column>
+                    </apex:pageblockTable>
+                    <apex:panelGrid columns="1" id="addAnotherRow">
+                        <apex:commandButton title="Add Another Row" 
+                                            value="Add Another Field" 
+                                            image="{!URLFOR($Resource.cllease__Add_Button_Green)}" 
+                                            action="{!addRow}" 
+                                            reRender="calculationSetupPanel,messages"
+                                            rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}"
+                                            disabled="{!IF(OR(resultFI.objectAPIName == null, resultFI.fieldAPIName == null), true, false)}"/>
+                        <apex:commandButton title="Add Another Row" 
+                                            value="Add Another Field"
+                                            action="{!addRow}" 
+                                            reRender="calculationSetupPanel,messages"
+                                            rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}"
+                                            disabled="{!IF(OR(resultFI.objectAPIName == null, resultFI.fieldAPIName == null), true, false)}"/>
+                    </apex:panelGrid>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

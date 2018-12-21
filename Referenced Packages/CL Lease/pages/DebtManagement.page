@@ -1,0 +1,114 @@
+<apex:page standardController="cllease__Lease_Account__c" extensions="cllease.DebtManagement" doctype="html-5.0">
+    <apex:form id="debtForm" html-novalidate="novalidate">
+        <apex:pageBlock id="debtPage" mode="detail">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="New Debt" action="{!newDebt}" reRender="debtDetails, debtSchedule"/>
+            </apex:pageBlockButtons>
+            <apex:outputPanel id="lstDebt">
+                <apex:pageBlockSection title="Debt Summary" columns="1" rendered="{!totalDebtAmount > 0}">
+                    <apex:pageBlockTable value="{!lstDebtDetail}" var="dD">
+                        <apex:variable var="debtNumber" value="{!-1}"/>
+                        <apex:column headerValue="Name" footerValue="Total" value="{!dD.name}"/>
+                        <apex:column headerValue="Amount" footerValue="{!totalDebtAmount}" value="{!dD.amount}"/>
+                        <apex:column headerValue="Percent" footerValue="100.00" value="{!dD.percentage}"/>
+                        <apex:column width="50px" style="font-size: 10px">
+                            <apex:commandButton value="Details" action="{!getDebtDetails}" immediate="true" reRender="debtDetails, debtSchedule">
+                                <apex:param name="showDetail" value="{!debtNumber}" assignTo="{!selectedDebtRow}"/>
+                            </apex:commandButton>
+                            <apex:variable var="debtNumber" value="{!debtNumber + 1}"/>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:pageMessages id="messages"/>
+            <apex:outputPanel id="debtDetails">
+                <apex:pageBlock id="debtDetailPage" rendered="{!OR(NOT(editMode) && debtDetails != null, editMode)}">
+                    <apex:pageBlockButtons >
+                        <apex:commandButton value="Edit" action="{!editDebt}" rendered="{!NOT(editMode) && debtDetails != null}" reRender="messages, lstDebt, debtDetails, debtSchedule"/>
+                        <apex:commandButton value="Get Schedule" action="{!getSchedule}" rendered="{!editMode && debtDetails != null}" reRender="messages, debtDetails, debtSchedule"/>
+                        <apex:commandButton value="Save" action="{!saveDebt}" rendered="{!editMode && debtDetails != null}" reRender="messages, lstDebt, debtDetails, debtSchedule"/>
+                        <apex:commandButton value="Cancel" action="{!viewDebt}" rendered="{!editMode}" reRender="messages, debtDetails, debtSchedule" immediate="true"/>
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockSection title="Debt Details" collapsible="false" rendered="{!NOT(editMode) && debtDetails != null}">
+                        <apex:outputField value="{!debtDetails.cllease__Debt_Name__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Type__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Amount__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Balloon_Payment__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Start_Date__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__End_Date__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__First_Payment_Date__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Repayment_Frequency__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Term__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Interest_Only_Term__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Interest_Rate__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Repayment_Computation_Method__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Interest_Compounding_Frequency__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__Day_Count_Method__c}"/>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection title="Debt Details" collapsible="false" rendered="{!editMode && debtDetails != null}">
+                        <apex:outputField value="{!debtDetails.cllease__Debt_Name__c}" rendered="{!editMode && debtDetails != null && NOT(ISBLANK(debtDetails.cllease__Debt_Name__c))}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Debt_Name__c}" rendered="{!editMode && debtDetails != null && ISBLANK(debtDetails.cllease__Debt_Name__c)}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Type__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Amount__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Balloon_Payment__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Start_Date__c}"/>
+                        <apex:outputField value="{!debtDetails.cllease__End_Date__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__First_Payment_Date__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Repayment_Frequency__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Term__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Interest_Only_Term__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Interest_Rate__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Repayment_Computation_Method__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Interest_Compounding_Frequency__c}"/>
+                        <apex:inputField value="{!debtDetails.cllease__Day_Count_Method__c}"/>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection id="repPlanView" title="Repayment Plan" collapsible="true" columns="1" rendered="{!NOT(editMode) && debtDetails != null}">
+                        <apex:pageBlockTable value="{!lstRepaymentPlan}" var="rP">
+                            <apex:column headerValue="No." value="{!rP.clcommon__Sequence_Number__c}"/>
+                            <apex:column headerValue="Payment Start Date" value="{!rP.clcommon__Payment_Start_Date__c}"/>
+                            <apex:column headerValue="Payment Amount" value="{!rP.clcommon__Payment_Amount__c}"/>
+                            <apex:column headerValue="Number of Payments" value="{!rP.clcommon__Number_Of_Payments__c}"/>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection id="repPlanEdit" title="Repayment Plan" collapsible="true" columns="1" rendered="{!editMode && debtDetails != null}">
+                        <apex:pageBlockTable value="{!lstRepaymentPlan}" var="rP">
+                            <apex:column headerValue="No.">
+                                <apex:outputField value="{!rP.clcommon__Sequence_Number__c}"/>
+                            </apex:column>
+                            <apex:column headerValue="Payment Start Date">
+                                <apex:inputField value="{!rP.clcommon__Payment_Start_Date__c}"/>
+                            </apex:column>
+                            <apex:column headerValue="Payment Amount">
+                                <apex:inputField value="{!rP.clcommon__Payment_Amount__c}"/>
+                            </apex:column>
+                            <apex:column headerValue="Number of Payments">
+                                <apex:inputField value="{!rP.clcommon__Number_Of_Payments__c}"/>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                        <apex:commandButton value="Add New Payment" action="{!newRepayment}" immediate="true" reRender="messages, repPlanEdit"/>
+                    </apex:pageBlockSection>
+                    <!--<script>
+                        twistSection(document.getElementById('{!$Component.debtForm.debtPage.debtDetailPage.repPlanView}').getElementsByTagName('img')[0])
+                    </script> -->
+                </apex:pageBlock>
+            </apex:outputPanel>
+            <apex:outputPanel id="debtSchedule">
+                <apex:pageBlockSection title="Debt Schedule" collapsible="false" columns="1" rendered="{!lstDebtSchedule != null}">
+                    <apex:pageBlockTable value="{!lstDebtSchedule}" var="dS">
+                        <apex:variable var="scheduleNumber" value="{!0}"/>
+                        <apex:column headerValue="No." value="{!scheduleNumber}"/>
+                        <apex:column headerValue="Date" value="{!dS.cllease__Date__c}"/>
+                        <apex:column headerValue="Opening Balance" value="{!dS.cllease__Opening_Balance__c}"/>
+                        <apex:column headerValue="Payment Amount" value="{!dS.cllease__Payment_Amount__c}"/>
+                        <apex:column headerValue="Principal Deduction" value="{!dS.cllease__Principal_Deduction__c}"/>
+                        <apex:column headerValue="Interest Deduction" value="{!dS.cllease__Interest_Deduction__c}"/>
+                        <apex:column headerValue="Closing Balance" value="{!dS.cllease__Closing_Balance__c}"/>
+                        <apex:column >
+                            <apex:variable var="scheduleNumber" value="{!scheduleNumber + 1}"/>
+                        </apex:column>                        
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

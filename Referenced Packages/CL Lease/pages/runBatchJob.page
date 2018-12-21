@@ -1,0 +1,36 @@
+<apex:page controller="cllease.RunBatchJobCtrl"
+    tabStyle="Finance_Management__tab">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:sectionHeader title="Job Process" />
+    
+    <apex:form id="mFormId">
+        <apex:outputPanel id="processesPanel">
+        <apex:pageblock id="eodbodProcessId">
+            <apex:pageMessages />
+
+            <apex:pageBlockButtons >            
+            <apex:commandButton value="Run Job" action="{!submitJobs}"/>
+            <apex:commandButton value="Refresh" action="{!Refresh}"/>
+            </apex:pageBlockButtons>
+            
+            
+
+
+           <apex:pageBlockSection title="Select Contract" columns="3" id="ContractBlockId">
+                <apex:inputField id="contract" value="{!assetWorkbench.cllease__Contract__c}"/>
+                <apex:selectList value="{!selectedBranch}" label="Branch" size="1">
+                    <apex:selectOptions value="{!branchOptions}"/>
+                </apex:selectList>
+                <apex:inputText id="batchSize" label="Batch Size" value="{!batchSize}"/>
+           </apex:pageBlockSection>
+            <apex:pageblockSection title="Select Jobs" collapsible="false"
+                id="branchDetailsSectionId" columns="1">
+               <apex:selectRadio value="{!selectedJob}"  layout="pageDirection">
+                   <apex:selectOptions value="{!runJobs}"/>
+               </apex:selectradio>
+            </apex:pageblockSection>
+        </apex:pageblock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

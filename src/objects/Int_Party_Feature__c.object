@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>InDevelopment</deploymentStatus>
+    <description>Int Party Feature</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Committed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Committed check box</description>
+        <externalId>false</externalId>
+        <label>Committed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Feature_Name__c</fullName>
+        <description>Feature Name</description>
+        <externalId>false</externalId>
+        <label>Feature Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Party_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Party Name</description>
+        <externalId>false</externalId>
+        <label>Party Name</label>
+        <referenceTo>Int_Party__c</referenceTo>
+        <relationshipLabel>Int Party Features</relationshipLabel>
+        <relationshipName>Int_Party_Features</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Party_Number__c</fullName>
+        <description>Party Number</description>
+        <externalId>false</externalId>
+        <label>Party Number</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Party_Source_System__c</fullName>
+        <description>Party Source System</description>
+        <externalId>false</externalId>
+        <label>Party Source System</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Value_AlphaNumeric__c</fullName>
+        <description>Value AlphaNumeric</description>
+        <externalId>false</externalId>
+        <label>Value AlphaNumeric</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Value_DateTime__c</fullName>
+        <description>Value DateTime</description>
+        <externalId>false</externalId>
+        <label>Value DateTime</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Value_Numeric__c</fullName>
+        <description>Value Numeric</description>
+        <externalId>false</externalId>
+        <label>Value Numeric</label>
+        <length>38</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Int Party Feature</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Party_Number__c</columns>
+        <columns>Party_Name__c</columns>
+        <columns>Value_AlphaNumeric__c</columns>
+        <columns>Value_DateTime__c</columns>
+        <columns>Value_Numeric__c</columns>
+        <columns>Party_Source_System__c</columns>
+        <columns>Feature_Name__c</columns>
+        <columns>Committed__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PFI-{0000000000}</displayFormat>
+        <label>Party Feature Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Int Party Features</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

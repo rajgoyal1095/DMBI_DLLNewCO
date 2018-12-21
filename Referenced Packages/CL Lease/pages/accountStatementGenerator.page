@@ -1,0 +1,117 @@
+<apex:page standardController="cllease__Lease_Account__c"
+    extensions="cllease.AccountStatementGeneratorController"
+    sidebar="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}"
+    showHeader="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}"
+    standardStylesheets="false">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:stylesheet value="{!$Resource.cllease__StatementStyleSheet}" />
+    <script
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script src="{!URLFOR($Resource.helperclose)}" />
+    <script>
+        j$ = jQuery.noConflict();
+     });
+    </script>
+    <script>
+        function setFocusOnLoad() {}
+    </script>
+    <apex:form id="statementGeneratorForm">
+
+        <apex:pageBlock title="Choose duration" mode="edit" rendered="false">
+            <apex:pageblockButtons location="bottom">
+
+                <c:BusyButton name="Preview" busyname="Generating Preview..."
+                    actionTo="{!submitDuration}"
+                    reRenderTo="statementPreviewId,accountActivity" />
+                <c:BusyButton name="Download Statement" busyname="Downloading..."
+                    actionTo="{!saveAsPdf}"
+                    oncomplete="({!closeModal}===true) ? function reload(){window.top.location.href='/apex/tabbedLeaseAccount?id=' + j$('#leaseRedirectId').text(); closeIframe();}() : {};" />
+            </apex:pageblockButtons>
+            <apex:pageBlockSection columns="2">
+                <apex:inputField label="StartDate" value="{!search.cllease__Start_Date__c}">
+                </apex:inputField>
+                <apex:inputField label="EndDate" value="{!search.cllease__End_Date__c}">
+                </apex:inputField>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <c:StatementHeader size="180px" />
+
+        <c:BusyButton name="Download Statement" busyname="Downloading..."
+            actionTo="{!saveAsPdf}"
+            oncomplete="({!closeModal}===true) ? function reload(){window.top.location.href='/apex/tabbedLeaseAccount?id=' + j$('#leaseRedirectId').text(); closeIframe();}() : {};"
+            id="submitButton" />
+
+        <br />
+        <apex:pageBlock title="Lease Account Statement">
+            <table class="mfiflex-namevaluetable" summary="Lease Details">
+                <tbody>
+                    <tr>
+                        <td class="mfiflex-fbold">Customer Name</td>
+                        <td>{!custName}</td>
+
+                    </tr>
+                    <tr>
+                        <td class="mfiflex-fbold">Lease Account</td>
+                        <td>{!leaseAccount.Name}</td>
+                    </tr>
+                    <tr>
+                        <td class="mfiflex-fbold">Financed Amount</td>
+                        <td>
+                            <apex:outputText value="{!leaseAccount.cllease__Financed_Amount__c}" rendered="true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mfiflex-fbold">Product</td>
+                        <td>{!leaseAccount.Lease_Product_Name__r.Name}</td>
+                    </tr>
+                    <tr>
+                        <td class="mfiflex-fbold">Yield</td>
+                        <td>{!leaseAccount.cllease__Yield__c}</td>
+                    </tr>
+                    <tr>
+                        <td class="mfiflex-fbold">Term</td>
+                        <td>{!leaseAccount.cllease__Term__c}</td>
+                    </tr>
+                    <tr>
+                        <td class="mfiflex-fbold">Balance Amount</td>
+                        <td>
+                            <apex:outputText value="{0, number, ###,##0.00}">
+                                <!--<apex:param value="{!leaseAccount.Pay_Off_Amount_As_Of_Today__c}"/>-->
+                            </apex:outputText> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Account Activity" id="accountActivity"
+            rendered="{! listOfLeasePaymentTransactions!=null}">
+            <apex:pageBlockTable value="{! listOfLeasePaymentTransactions}"
+                var="listItem" id="amzSch" headerClass="dkbkg denter"
+                style="font-size:12px;width: 100%;" border="0" cellpadding="8">
+
+                <apex:column headerClass="left" headerValue="Transaction Date"
+                    value="{! listItem.Transaction_Date__c}" styleClass="left" />
+                <!--<apex:column headerClass="left" headerValue="Payment Due Date" value="{! leaseAccount.Next_Installment_Date__c}" styleClass="left"/>-->
+                <apex:column headerClass="left" headerValue="Reference"
+                    value="{! listItem.Cheque_Number__c}" styleClass="left" />
+                <apex:column headerClass="right" headerValue="Transaction Amount"
+                    value="{! listItem.Transaction_Amount__c}" styleClass="right" />
+                <apex:column headerClass="right" headerValue="Rental"
+                    value="{! listItem.Receivable_Billed__c}" styleClass="right" />
+                <apex:column headerClass="right" headerValue="Tax"
+                    value="{! listItem.Tax_Billed__c}" styleClass="right" />
+                <apex:column headerClass="right" headerValue="Charges"
+                    value="{! listItem.Fees__c}" styleClass="right" />
+
+            </apex:pageBlockTable>
+
+        </apex:pageBlock>
+        <!--ends Account Activity -->
+    </apex:form>
+    <label id="leaseRedirectId" style="display: none;">{!
+        leaseAccount}</label>
+
+</apex:page>

@@ -1,0 +1,52 @@
+<apex:page standardController="cllease__Lease_Account__c" standardStylesheets="true" extensions="cllease.TermsAndConditionsController">
+<apex:include pageName="clcommon__mintTheme"/>
+
+<br/>
+<br/>
+<apex:pageBlock id="leaseTerms">
+<apex:pageBlockSection title="Lending Product Detail" columns="2" collapsible="true">
+<apex:outputfield value="{!product.Name}"/>
+<apex:outputfield value="{!product.cllease__Lease_Product_Code__c}"/>
+<apex:outputfield value="{!product.cllease__Frequency_of_Lease_Payment__c}"/>
+<apex:outputfield value="{!product.cllease__Lease_Product_Type__c}"/>
+<apex:outputfield value="{!product.cllease__Payment_Spread__c}"/>
+<apex:outputfield value="{!product.cllease__Status__c}"/>
+<apex:outputfield value="{!product.cllease__Approval_Date__c}"/>
+</apex:pageBlockSection> 
+
+<apex:pageBlockSection title="Fee" columns="2" collapsible="true">
+<apex:outputfield value="{!product.cllease__Fee_Set1__c}"/>
+</apex:pageBlockSection> 
+
+<apex:pageBlockSection title="Term" columns="2" collapsible="true">
+<apex:outputfield value="{!product.cllease__Pre_Bill_Days__c}"/>
+</apex:pageBlockSection> 
+
+<apex:pageBlockSection title="Grace and Tolerance" columns="2" collapsible="true">
+<apex:outputfield value="{!product.cllease__Late_Charge_Grace_Days__c}"/>
+<apex:outputfield value="{!product.cllease__Delinquency_Grace_Days__c}"/>
+<apex:outputfield value="{!product.cllease__Write_off_Tolerance_Amount__c}"/>
+</apex:pageBlockSection> 
+
+<apex:pageBlockSection title="Income Accural" columns="2" collapsible="true">
+<apex:outputfield value="{!product.cllease__Income_Accrual_Flag__c}"/>
+<apex:outputfield value="{!product.cllease__Income_Accrual_Frequency__c}"/>
+<apex:outputfield value="{!product.cllease__Residual_Accrual_Flag__c}"/>
+<apex:outputfield value="{!product.cllease__IDC_Accrual_Flag__c}"/>
+</apex:pageBlockSection> 
+
+<apex:pageBlockSection title="Evergreen Options" columns="2" collapsible="true">
+<apex:outputfield value="{!product.cllease__Evergreen_Term__c}"/>
+<apex:outputfield value="{!product.cllease__Evergreen_Frequency__c}"/>
+</apex:pageBlockSection> 
+
+<apex:pageBlockSection title="Termination Options" columns="2" collapsible="true">
+<apex:outputfield value="{!product.cllease__Termination_Discount_Rate__c}"/>
+<apex:outputfield value="{!product.cllease__Early_Termination_Fees__c}"/>
+<apex:outputfield value="{!product.cllease__GPS_Removal_Fee__c}"/>
+<apex:outputfield value="{!product.cllease__Equipment_Return_Fee__c}"/>
+<apex:outputfield value="{!product.cllease__Title_Transfer_Fee__c}"/>
+</apex:pageBlockSection> 
+
+</apex:pageBlock>
+</apex:page>

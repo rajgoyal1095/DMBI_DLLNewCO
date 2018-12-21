@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Contract_Equipment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract Equipment</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contract_Equipment__c.Contract__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Contract__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contract_Equipment__c</referenceTo>
+        <relationshipName>Dealer_Equipment_details</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipName>Dealer_Equipment_details</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Dealer_Charges__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dealer Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Funding_Transaction__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Dealer Funding Transaction ID will get updated once dealer funding transaction created during Fund Dealer or Dealer Funding Job.</description>
+        <externalId>false</externalId>
+        <label>Dealer Funding Transaction</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Mismatch in Dealer Funding Transaction&apos;s Contract to Dealer Funding Detail&apos;s Contract.</errorMessage>
+            <filterItems>
+                <field>Other_Transaction__c.Lease_Account__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Contract__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Other_Transaction__c</referenceTo>
+        <relationshipLabel>Dealer Funding Details</relationshipLabel>
+        <relationshipName>Dealer_Funding_Details</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dealer</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Only the contract&apos;s parties with type DEALER should be selected.</errorMessage>
+            <filterItems>
+                <field>Contract_Parties__c.Party_Type__c</field>
+                <operation>equals</operation>
+                <value>DEALER, VENDOR</value>
+            </filterItems>
+            <filterItems>
+                <field>Contract_Parties__c.Contract__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Contract__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contract_Parties__c</referenceTo>
+        <relationshipName>Dealer_Equipment_details</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Referral_Fee__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Referral Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Remark__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field helps to track failure message in case Dealer funding details not able to generate Dealer Funding Transaction</description>
+        <externalId>false</externalId>
+        <label>Remark</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>dealer_funded__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>dealer funded</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Dealer Funding Detail</label>
+    <nameField>
+        <displayFormat>DED-{000000000}</displayFormat>
+        <label>Dealer Equipment detail Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Dealer Funding Details</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Fund_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Fund Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/13.0/connection.js&quot;)}
+			{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+			var namespacePrefix = &quot;{!$Setup.Org_Parameters__c.Namespace_Prefix__c}&quot;; 
+			if (namespacePrefix != null &amp;&amp; namespacePrefix != &quot;&quot;) { 
+				 namespacePrefix += &quot;/&quot;; 
+			} 
+			var className = namespacePrefix + &quot;DealerFundCtrl&quot;;
+			var methodName = &quot;dealerFundTxn2&quot;;
+			var parameter1 = &quot;{!Dealer_Funding_Detail__c.Id}&quot;;
+			var parameter2 = &quot;{!Dealer_Funding_Detail__c.Dealer_Charges__c}&quot;;
+			var parameter3 = &quot;{!Dealer_Funding_Detail__c.Referral_Fee__c}&quot;;
+			var retVal = sforce.apex.execute(className,methodName, {dealerFundDetailId:parameter1,payableToDealer:parameter2,referralFee:parameter3});
+			window.alert(retVal);
+			window.location.reload();</url>
+    </webLinks>
+</CustomObject>

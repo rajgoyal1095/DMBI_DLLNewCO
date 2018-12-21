@@ -1,0 +1,57 @@
+<apex:page sidebar="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}">
+<apex:include pageName="clcommon__mintTheme"/>
+
+        <!-- <apex:stylesheet value="{!IF($CurrentPage.Parameters.modal == 'true', $Resource.modalheaderStyle,'')}" />
+        <script
+                src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+        <script src="{!URLFOR($Resource.helperclose)}" />
+
+        <script>
+        j$ = jQuery.noConflict();
+
+    </script>
+        <script>
+        function confirmCancel() {
+            var isConfirm = confirm("Are you sure you want to cancel?");
+            if(isConfirm){
+                return this.parent.parent.window.close();
+            }
+        }
+    </script>
+        <apex:sectionHeader title="One time ACH against the lease: {!Lease_Account__c.Name}" />
+        <apex:outputPanel >
+                <apex:form id="oneTimeACHForm">
+                        <apex:pageBlock id="achPBId" mode="edit">
+                                <apex:pageMessages />
+                                <apex:pageBlockButtons location="both">
+                                        <c:BusyButton name="Save" busyName="Saving"
+                                                actionTo="{!oneTimeACH}" id="sBtn"
+                                                oncomplete="({!closeModal}===true) ? closeIframe('{!achTxn.Lease_Account__c}') : {};"
+                                                reRenderTo="oneTimeACHForm" style="margin-left:120px;"
+                                                disabled="{!achTxn.Id != null}" />
+                                        <apex:commandButton value="Cancel" immediate="true"
+                                                action="{!URLFOR($Action.Lease_Account__c.View,Lease_Account__c.Id)}"
+                                                onclick="closeIframe()" />
+                                </apex:pageBlockButtons>
+                                <apex:outputpanel id="achLeasePanel">
+                                        <apex:pageBlockSection columns="2"
+                                                id="leaseTermsPanelPageBlockSection" title="ACH Parameters">
+                                                <apex:outputField id="LeaseId" value="{!achTxn.Lease_Account__c}" />
+                                                <apex:outputField id="txnTypeId"
+                                                    value="{!achSetup.Type__c}" />
+                                                <apex:outputField value="{!achTxn.Txn_Date__c}" />
+
+                                                <apex:inputField value="{!achSetup.Bank__c}" required="true" />
+                                                <apex:inputField value="{!achSetup.Debit_Date__c}"
+                                                    required="true" />
+                                                <apex:inputField value="{!achSetup.Debit_Amount__c}"
+                                                    required="true" />
+
+                                        </apex:pageBlockSection>
+                                </apex:outputpanel>
+
+                        </apex:pageBlock>
+                </apex:form>
+
+        </apex:outputPanel> -->
+</apex:page>

@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>chargeNew</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Charge is something that is applied.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Accrue_Interest_From__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the date from which the interest on the charge will be calculated. If this is not mentioned interest will be calculated from the date the charge was incurred.</inlineHelpText>
+        <label>Accrue Interest From</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Branch__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Lease_Account__r.Branch__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Branch</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Calculated_Interest2__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>(Original_Amount__c - Paid_Amount__c) * ( Interest_Rate__c ) *  ($User.Current_Branch_s_System_Date__c -  Accrue_Interest_From__c ) / (365)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calculated Interest (Formula)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_Interest3__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>View only field which shows the calculated interest from last accrual date from SOD process.</description>
+        <externalId>false</externalId>
+        <label>Calculated Interest</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Charge_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Charge Type_deprecated</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>LATE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NSF FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WIRE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAY-OFF FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OTHER</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract_Equipment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract Equipment</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Lease_Account__c</field>
+                <operation>equals</operation>
+                <valueField>Contract_Equipment__c.Contract__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contract_Equipment__c</referenceTo>
+        <relationshipLabel>Charges</relationshipLabel>
+        <relationshipName>Charges</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Fee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fee Schedule</label>
+        <referenceTo>Contract_Fees__c</referenceTo>
+        <relationshipLabel>Charges</relationshipLabel>
+        <relationshipName>Charges</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(Lease_Account__r.Lease_Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the date the charge was incurred.</inlineHelpText>
+        <label>Due Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Dues_Details__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dues Details</label>
+        <referenceTo>Lease_account_Due_Details__c</referenceTo>
+        <relationshipLabel>Charges</relationshipLabel>
+        <relationshipName>Charges</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Expense_Fee__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract Fee</label>
+        <referenceTo>Expense_Fees__c</referenceTo>
+        <relationshipLabel>Charges</relationshipLabel>
+        <relationshipName>Charges</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Definition__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The associated Fee. The Fee object is used in case of automatic application of a charge. For example, the late fees is charged automatically on a lease.</inlineHelpText>
+        <label>Fee</label>
+        <referenceTo>clcommon__Fee_Definition__c</referenceTo>
+        <relationshipLabel>Charges</relationshipLabel>
+        <relationshipName>Charges</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Due__c</fullName>
+        <defaultValue>0.00</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This is the same as Principal_Due__c going forward.</description>
+        <externalId>false</externalId>
+        <label>Fee Due (Deprecated)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Paid_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The amount paid towards fee for this charge</description>
+        <externalId>false</externalId>
+        <label>Fee Paid Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Fee__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Please use Fee Definition field that references Fee Definition from CL Common.</inlineHelpText>
+        <label>Fee Deprecated</label>
+        <referenceTo>Fee__c</referenceTo>
+        <relationshipLabel>Charges</relationshipLabel>
+        <relationshipName>Charges</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GL_Posted_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This flag will be set to True, once the gl accounting entry will be generated for this transaction</inlineHelpText>
+        <label>GL Posted</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GL_Process_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the batch job processed this record for GL posting.</inlineHelpText>
+        <label>GL Process Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>GL_Processing_Message__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will be populated with any error/messages happened while gl processing.</inlineHelpText>
+        <label>GL Processing Message</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GL_Reversal_Posted_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This flag will be set to True, once the gl accounting entry reversal will be generated for the reversed transaction</inlineHelpText>
+        <label>GL Reversal Posted</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GL_Reversal_Process_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the batch job processed this record for GL Reversal posting.</inlineHelpText>
+        <label>GL Reversal Process Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>GL_Transaction_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This flag will determine that gl entry will be generated for this transaction.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This flag will determine that gl entry will be generated for this transaction.</inlineHelpText>
+        <label>GL Transaction</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Interest_Bearing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this option if the charge is interest bearing.</inlineHelpText>
+        <label>Interest Bearing</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Interest_Due__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Interest due after a payment(txn amount insufficient to clear complete interest) on interest bearing charges</description>
+        <externalId>false</externalId>
+        <label>Interest Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Interest_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the interest rate to be applied on the charge (if applicable)</inlineHelpText>
+        <label>Interest Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Last_Accrual_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Last accrual Date on charge (Usually the last payment transaction date)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the last interest accrual was processed</inlineHelpText>
+        <label>Last Accrual Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LeaseApplicationNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; &amp;Lease_Account__c, Lease_Account__r.Name+&quot;-&quot;+ Lease_Account__r.application_number__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LeaseApplicationNumber</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lease_Account__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The associated lease.</inlineHelpText>
+        <label>Lease Account</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipLabel>Charges</relationshipLabel>
+        <relationshipName>Charges</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Maturity_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Lease_Account__r.Maturity_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Maturity Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Original_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The original amount of the charge.</inlineHelpText>
+        <label>Fee Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Original_Tax_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The original tax amount calculated for this charge (using either inclusive or exclusive methods)</description>
+        <externalId>false</externalId>
+        <label>Tax Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Paid_Amount__c</fullName>
+        <defaultValue>0.0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The amount that has been paid.</inlineHelpText>
+        <label>Total Paid Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Paid__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Paid</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Passthrough_Paid_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>using this field to track amount paid to dealer through passthrough. It helps in track paid  amount to dealer and also helps in distinguish Events: On Full Payment and On Partial Payment.</description>
+        <externalId>false</externalId>
+        <label>Passthrough Paid Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Passthrough_Paid__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Passthrough Paid</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Principal_Due__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Principal amount of charge that is yet to be paid.</description>
+        <externalId>false</externalId>
+        <label>Fee Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Quote_header__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote header</label>
+        <referenceTo>Termination_Quote_Header__c</referenceTo>
+        <relationshipLabel>Charges</relationshipLabel>
+        <relationshipName>Charges</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Reference__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This text can be used to provide additional information about the charge.</inlineHelpText>
+        <label>Reference</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Remarks__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Remarks</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Lease_Account__r.Contract_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Due__c</fullName>
+        <defaultValue>0.00</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Paid_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Tax amount that&apos;s already been paid for the charge</description>
+        <externalId>false</externalId>
+        <label>Tax Paid Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Processed__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Currently it is having only one value Tax Calculated, which specifies that the tax is calculated if fee is taxable</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Tax Calculated</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tax_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Rate</label>
+        <precision>15</precision>
+        <required>false</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Total_Due_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( Waive__c , 0 , (Principal_Due__c + Interest_Due__c + Calculated_Interest3__c + Tax_Due__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Due Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This filed hold the date on which transaction is created in the system</description>
+        <externalId>false</externalId>
+        <label>Transaction Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Sub_Type__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Transaction Sub Type</label>
+        <referenceTo>Transaction_Sub_Type__c</referenceTo>
+        <relationshipLabel>Charges</relationshipLabel>
+        <relationshipName>Charges</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Waive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this field if this charge must be waived off.</inlineHelpText>
+        <label>Waive</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Charge</label>
+    <nameField>
+        <displayFormat>CHG-{00000000}</displayFormat>
+        <label>Charge Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Charges</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Accrue_Interest_From_Date_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>Interest_Bearing__c = true &amp;&amp;
+ ISBLANK(Accrue_Interest_From__c)</errorConditionFormula>
+        <errorMessage>For an interest bearing charge, please enter the accrue interest from date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Check_Lease_Status</fullName>
+        <active>false</active>
+        <errorConditionFormula>NOT(ISPICKVAL( Lease_Account__r.Lease_Status__c , &apos;Active - Good Standing&apos;) ) &amp;&amp;
+NOT(ISPICKVAL( Lease_Account__r.Lease_Status__c , &apos;Active - Bad Standing&apos;) ) &amp;&amp;
+NOT(ISPICKVAL( Lease_Account__r.Lease_Status__c , &apos;Active - Matured&apos;) )</errorConditionFormula>
+        <errorMessage>Charges can only be applied to active leases.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Edit_Paid_Charge_Check</fullName>
+        <active>true</active>
+        <description>Charges that have a payment against them cannot be waived</description>
+        <errorConditionFormula>NOT(ISNEW()) &amp;&amp; Paid__c  = true  &amp;&amp;  
+NOT(ISCHANGED(Paid__c)) &amp;&amp; 
+(ISCHANGED(Original_Amount__c) || ISCHANGED(Paid_Amount__c) || ISCHANGED(Reference__c) || ISCHANGED(Interest_Bearing__c) || ISCHANGED(Principal_Due__c ) || ISCHANGED(Interest_Due__c ) || ISCHANGED(Fee_Definition__c) || ISCHANGED(Interest_Rate__c) || ISCHANGED( Accrue_Interest_From__c ))</errorConditionFormula>
+        <errorMessage>You cannot edit a paid charge.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Waive_Paid_Charges</fullName>
+        <active>true</active>
+        <description>Charges that have a payment against them cannot be waived</description>
+        <errorConditionFormula>Waive__c  = true  &amp;&amp; Paid_Amount__c  &lt;&gt; 0</errorConditionFormula>
+        <errorMessage>Charge cannot be waived as there is a payment made against it already</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Create_New_Charge</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create New Charge</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>showURLInModalWindow(&apos;/apex/chargeNew?leaseId=&quot;{!Charge__c.Lease_AccountId__c}&quot;&amp;modal=true&apos;)</url>
+    </webLinks>
+</CustomObject>

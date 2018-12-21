@@ -1,0 +1,58 @@
+<apex:page >
+<apex:include pageName="clcommon__mintTheme"/>
+</apex:page>
+<!-- <apex:page controller="cllease.GLFilterCtrl" id="glEntriesFilterPage"
+    tabStyle="Organization_Preference__tab" docType="html-5.0" >
+    <apex:form >
+    <apex:pageblock id="glEntriesFilter" title="Filter GL Entries">
+        <apex:pageblockButtons location="bottom">
+            <apex:commandButton action="{!Filter}" value="Filter"/>
+        </apex:pageblockButtons>
+        <apex:pageBlockSection columns="1" id="filterParameters">
+            <apex:inputText value="{!leaseAccount}" label="Lease Number" title="Enter Lease Contract Number"/>
+            <apex:inputText value="{!glAccount}" label="G/L Account" title="Enter either G/L Debit Account or G/L Credit Account"/>
+        </apex:pageBlockSection>
+    </apex:pageblock>
+    </apex:form>
+  <apex:form >        
+        <apex:pageblock id="glEntriesList">  
+            <apex:pageblockTable value="{!glEntriesSet}" id="glEntriesTable"
+                                 var="JA">
+                <apex:column headerValue="GL Entries" >
+                    <apex:commandLink value="{!JA.Name}"
+                                      reRender="glEntriesFilterPage:glEntriesDetail1">
+                        <apex:param name="glEntriesMode" value="{!JA.ID}" />
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column headerValue="Company"
+                             value="{!JA.Company__c}" />
+                <apex:column headerValue="Date"
+                             value="{!JA.GL_Date__c}" />
+                <apex:column headerValue="Contract"
+                             value="{!JA.Contract__c}" />
+                <apex:column headerValue="Transaction Type"
+                             value="{!JA.Transaction_Type__c}" />                      
+                
+                <apex:column headerValue="Debit GL Account"
+                             value="{!JA.Debit_GL_Account__c}" />
+                <apex:column headerValue="Debit Amount"
+                             value="{!JA.Debit_Amount__c}" />
+                <apex:column headerValue="Credit GL Account"
+                             value="{!JA.Credit_GL_Account__c}" />                    
+                <apex:column headerValue="Credit Amount"
+                             value="{!JA.Credit_Amount__c}" />   
+                
+                <apex:column headerValue="Exported"
+                             value="{!JA.Exported_Flag__c}" />                    
+                <apex:column headerValue="Exported Date"
+                             value="{!JA.Exported_Date__c}" />    
+                
+            </apex:pageblockTable>
+       </apex:pageblock>
+     </apex:form>
+
+    <apex:outputPanel id="glEntriesDetail1">
+        <apex:detail subject="{!$CurrentPage.parameters.glEntriesMode}"></apex:detail>
+    </apex:outputPanel>
+          
+</apex:page> -->

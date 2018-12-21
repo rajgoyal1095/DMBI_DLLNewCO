@@ -1,0 +1,25 @@
+<apex:page >
+<!--   <apex:sectionHeader title="Installation Process" /> -->
+  <!-- Begin Default Content REMOVE THIS -->
+  
+ 
+ <!--  <apex:form >
+  <apex:pageblock id="contractId">
+  <apex:pageMessages />
+  <apex:pageBlockSection title="Select Contract" columns="1" id="ContractBlockId">
+  
+                <apex:inputField id="contract" value="{!assetWorkbench.Contract__c}"/>
+                  
+                <apex:inputField label="Install Date" value="{!assetWorkbench.Date_Returned__c}"/><br/> 
+  </apex:pageBlockSection>
+  <apex:pageBlockButtons >
+            <apex:commandButton value="Save" action="{!updateInstallDate}" /> -->
+            <!--<apex:commandButton value="Re-Generate Streams" action="{!reGenerate}" disabled="{!NOT(saved)}"/>
+            <apex:commandButton value="Activate Contract" action="{!activate}" disabled="{!NOT(saved)}"/>-->
+            
+  <!-- </apex:pageBlockButtons>
+  
+  </apex:pageblock>
+  </apex:form> -->
+  <!-- End Default Content REMOVE THIS --><!-- -->
+</apex:page>

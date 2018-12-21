@@ -1,0 +1,5 @@
+<apex:page controller="cllease.DynamicPageGeneratorCtrl">
+<apex:include pageName="clcommon__mintTheme"/>
+
+<apex:dynamicComponent componentValue="{!dynamicPageBlock}"/>
+</apex:page>

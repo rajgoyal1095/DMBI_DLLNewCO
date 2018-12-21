@@ -1,0 +1,61 @@
+<apex:page controller="cllease.PricingDetailsController">
+<apex:include pageName="clcommon__mintTheme"/>
+
+<apex:outputPanel id="pdPanel">
+ <apex:form >
+         <apex:pageBlock title="Pricing detaills">
+         <apex:pageMessages ></apex:pageMessages>
+         <apex:pageblockbuttons >
+              <c:BusyButton name="Save" busyName="Saving" actionTo="{!save}"
+                        reRenderTo="pdPanel" rendered="{!AND(editPricing,contract.cllease__Active_flag__c != true)}"/>
+              <c:BusyButton name="Edit" busyName="Editing" actionTo="{!edit}"
+                        reRenderTo="pdPanel" rendered="{!AND(NOT(editPricing),contract.cllease__Active_flag__c != true)}"/>
+              <c:BusyButton name="Cancel" busyName="Cancel" actionTo="{!cancel}"
+                        reRenderTo="pdPanel" rendered="{!AND(editPricing,contract.cllease__Active_flag__c != true)}"/>   
+               <c:BusyButton name="Fund Dealer" busyName="Funding..." actionTo="{!fundDealer}" reRenderTo="pdPanel,OLTList,cashAccBalList"
+                   rendered="{!IF(AND(contract.cllease__Active_flag__c =true,contract.cllease__Dealer_Funded__c != true) , true, false)}"/>                           
+         </apex:pageblockbuttons>
+         
+         <apex:pageblockSection columns="2">
+           <apex:outputField value="{!contract.cllease__Dealer__c}"/>
+           <apex:outputField value="{!contract.cllease__Dealer_Funded__c}"/>
+           </apex:pageblockSection>
+           
+         <apex:pageblockSection columns="1" title="Transaction details">
+             <apex:outputField value="{!contract.cllease__Number_of_Pieces_of_Equipment__c}"/>
+             <br/>
+             <apex:outputField label="Final Sale Price " value="{!contract.cllease__Estimated_Selling_Price__c}"/>
+             <apex:outputField value="{!contract.cllease__Tax_Amount__c}"/>
+             <apex:outputField value="{!contract.cllease__Dealer_Fees__c}"/>
+             <apex:outputField value="{!contract.cllease__Security_Deposit_Amount__c}"/>
+             <apex:outputField value="{!contract.cllease__Warranty_Amount__c}"/>
+             <apex:outputField value="{!contract.cllease__Documentation_Fees_Amount__c}" label="Documentation Fees(+)"/>             
+             <apex:outputField value="{!contract.cllease__Total_Dealer_Charges__c}"/>
+             <br/>
+             <apex:outputField value="{!contract.cllease__Other_Financed_Fees__c}" label="Other Financed Fees(+)"/>
+             <apex:inputField value="{!contract.cllease__Cap_Reduction__c}" rendered="{!editPricing }"/>
+             <apex:outputField value="{!contract.cllease__Cap_Reduction__c}" rendered="{!NOT(editPricing)}"/>
+             <br/>
+             <apex:outputField value="{!contract.cllease__Financed_Amount__c}" label="Financed Amount(=)"/>
+         </apex:pageblockSection>
+         
+         <apex:pageblockSection columns="1" title="Cash Settlement">
+             <apex:outputField value="{!contract.cllease__Total_Dealer_Charges__c}" label="Total Dealer Charges"/>
+             <apex:inputField value="{!contract.cllease__Cash_Collected_By_Dealer__c}" rendered="{!editPricing }" label="Cash Collected By Dealer(-)"/>
+             <apex:outputField value="{!contract.cllease__Cash_Collected_By_Dealer__c}" rendered="{!NOT(editPricing)}" label="Cash Collected By Dealer(-)"/>
+             <apex:outputField value="{!contract.cllease__Payable_To_Dealer__c}"/>
+             <apex:outputField value="{!contract.cllease__Referral_Fee_Amount__c}" label="Payable To Dealer Referral(+)"/>
+           <!--  <apex:outputField value="{!contract.Total_Payable_to_Dealer__c}"/> -->
+           <apex:pageblockSectionItem >
+           <apex:outputlabel value="Total Payable to Dealer(=)"> </apex:outputlabel>
+           <apex:outputlabel value="{!totalDealerPayable }"> </apex:outputlabel>
+           </apex:pageblockSectionItem>
+           </apex:pageblockSection>
+           
+           
+         </apex:pageBlock>
+       </apex:form>
+
+
+</apex:outputPanel>
+</apex:page>

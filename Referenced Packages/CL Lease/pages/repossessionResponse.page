@@ -1,0 +1,54 @@
+<apex:page standardController="cllease__Repossession__c" extensions="cllease.RepossessionCtrl">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:outputpanel >
+        <apex:form id="RepoResForm" >
+            <apex:pageBlock >
+                <apex:messages />
+                <apex:pageBlockButtons location="top">
+                    <apex:CommandButton value="Save Response" action="{!saveRepResponse}"/>
+                    <apex:CommandButton value="Cancel" action="{!cancelRepResponse}"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection title="Repossession Response">
+                    <apex:outputField value="{!reposessionRequest.cllease__Contract__c}"/><br/>
+                    <apex:outputField value="{!reposessionRequest.cllease__Customer__c}"/><br/>
+                    <apex:outputField value="{!reposessionRequest.cllease__Repossession_Agent__c}"/>
+                    <apex:outputField value="{!reposessionRequest.cllease__Email_ID__c}"/>
+                    <apex:inputField value="{!reposessionRequest.cllease__Status__c}"/>
+                    <apex:inputField value="{!reposessionRequest.cllease__Response__c}"/>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <apex:pageBlock >
+                <apex:pageBlockSection columns="1" title="Attachments">
+                    <apex:pageBlockTable value="{!attachments}" var="doc">
+                        <apex:column headerValue="Name" width="40%">
+                             <apex:outputLabel value="{!doc.name}"></apex:outputLabel>
+                       </apex:column>
+                        <apex:column headerValue="Attachment" width="40%">
+                             <apex:outputLink value="/servlet/servlet.FileDownload?file={!doc.Id}" target="_blank">
+                                <apex:outputtext value="{!doc.name}"></apex:outputtext>
+                            </apex:outputLink>
+                        </apex:column>
+                        <apex:column width="20%" headerValue="Action">
+                            <apex:commandLink value="delete" action="{!deleteAttachment}" styleClass="btn" 
+                            onclick="return confirm('You will not able to Edit application once finalize. Please confirm:  \'OK\' to Proceed \'Cancel\' to Revert');">
+                                <apex:param name="AttachmentId" value="{!doc.Id}" assignTo="{!attachmentId}"/>
+                            </apex:commandLink>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>      
+            </apex:pageBlock>
+        </apex:form>
+    </apex:outputpanel>
+    <apex:outputpanel id="attachmentForm">
+        <apex:form >
+            <apex:pageBlock title="Add Attachment">
+                <apex:messages />
+                <apex:pageBlockSection >
+                    <apex:inputFile filename="{!att.name}" value="{!att.body}" />
+                    <apex:commandButton value="Save Attachment" action="{!addAttachment}"/>
+                </apex:pageBlockSection>      
+            </apex:pageBlock>
+        </apex:form>
+    </apex:outputpanel>
+</apex:page>

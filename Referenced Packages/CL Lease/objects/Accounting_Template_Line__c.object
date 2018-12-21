@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Accounting_Template_Header__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Accounting Template Header</label>
+        <referenceTo>Accounting_Template_Header__c</referenceTo>
+        <relationshipLabel>Accounting Template Lines</relationshipLabel>
+        <relationshipName>Accounting_Template_Lines</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Amount_Object_Column__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amount Object Column</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Amount_Object__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Amortized Fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cash Received</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Charge Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dealer Payable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dealer Payable Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Depreciation Accrued</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disbursement Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Documentation Fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Equipment Cost</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Excess Payment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fees Billed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gross Rent Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Idc Expense Accrued</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Initial Direct Cost Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Interim Rent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Late Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lease Income Accrued</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Maintenance Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NSF Fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pay Off fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Periodic Fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Periodic Rent Due</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Referral Fee Payable Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rent Billed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rental Accrued</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Residual Income Accrued</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Residual Receivable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security Deposit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Billed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax on Stream Due</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Upfront Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unearned Lease Income</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unearned Residual Income</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wire Fees</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accrual Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Subsidy Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Adjusted Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Due</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Payment Transaction Reversal</controllingFieldValue>
+                <valueName>Adjusted Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Accrual Transaction</controllingFieldValue>
+                <valueName>Accrual Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Billing Transaction</controllingFieldValue>
+                <valueName>Periodic Rent Due</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Billing Transaction</controllingFieldValue>
+                <valueName>Tax on Stream Due</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Billing Transaction</controllingFieldValue>
+                <valueName>Subsidy Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <valueName>Cash Received</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <controllingFieldValue>Funding Transaction</controllingFieldValue>
+                <valueName>Dealer Payable Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <valueName>Documentation Fees</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <valueName>Equipment Cost</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <valueName>Gross Rent Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <valueName>Initial Direct Cost Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <controllingFieldValue>Funding Transaction</controllingFieldValue>
+                <valueName>Referral Fee Payable Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <valueName>Residual Receivable</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <valueName>Tax Upfront Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <valueName>Unearned Lease Income</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Booking Transaction</controllingFieldValue>
+                <valueName>Unearned Residual Income</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Charge Transaction</controllingFieldValue>
+                <valueName>Charge Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Charge Transaction</controllingFieldValue>
+                <valueName>Tax Due</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Disbursement Transaction</controllingFieldValue>
+                <valueName>Disbursement Amount</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Payment Transaction</controllingFieldValue>
+                <valueName>Excess Payment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Payment Transaction</controllingFieldValue>
+                <valueName>Fees Billed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Payment Transaction</controllingFieldValue>
+                <valueName>Rent Billed</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Payment Transaction</controllingFieldValue>
+                <valueName>Tax Billed</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Amount_Object__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amount Object</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accrual Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Asset Sale Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Billing Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Booking Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Charge Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disbursement Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Funding Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payment Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Restructure Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Termination Transaction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Payment Transaction Reversal</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Bill_As_Invoice__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Use this field in Accounting setup when Bill as invoice in accounting configuration</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field in Accounting setup when Bill as invoice in accounting configuration</inlineHelpText>
+        <label>Bill As Invoice</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Credit_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit GL Account</label>
+        <referenceTo>GL_Account__c</referenceTo>
+        <relationshipName>Accounting_Rule_Lines1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Debit_GL_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Debit GL Account</label>
+        <referenceTo>GL_Account__c</referenceTo>
+        <relationshipName>Accounting_Rule_Lines</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Enabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enabled</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Item_Id__c</fullName>
+        <defaultValue>&quot;1&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Valid only for &quot;Bill as invoice&quot;</inlineHelpText>
+        <label>Item Id</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Item_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Valid only for &quot;Bill as invoice&quot;</inlineHelpText>
+        <label>Item Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sub_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Transaction Sub Type(DoNotUse)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ADVANCE PAYMENTS RECEIVED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILL STREAM TAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DEALER PAYABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DEPRECIATION ACCRUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DOCUMENTATION FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EQUIPMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GROSS RENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IDC EXPENSE ACCRUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>INITIAL DIRECT COST</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LEASE INCOME ACCRUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LEASE RESIDUAL RECEIVABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT - EXCESS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT - FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT - RENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT - TAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAY-OFF FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE – BROKER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE – DEALER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE – OTHER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE – PROGRAM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RENT BILLING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RENTAL ACCRUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RESIDUAL INCOME ACCRUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UNEARNED INCOME LEASE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UNEARNED INCOME RESIDUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UPFRONT TAX DUE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Late Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NSF Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pay Off Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prepayment Penalty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Security deposit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Interim Rent</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Transaction_Sub_Type__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Transaction Sub Type</label>
+        <referenceTo>Transaction_Sub_Type__c</referenceTo>
+        <relationshipLabel>Accounting Template Lines</relationshipLabel>
+        <relationshipName>Accounting_Template_Lines</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amount to be Accounted(DoNotUse)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ADVANCE PAYMENTS RECEIVED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AMORTIZED FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILL TAX ON STREAM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DEALER PAYABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DOCUMENTATION FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EQUIPMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GROSS RENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>INITIAL DIRECT COST</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>INITIAL RENT DUE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>INTERIM RENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LATE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LEASE INCOME</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LEASE RESIDUAL RECEIVABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MAINTENANCE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NSF FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OTHER FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT - ADVANCE RENTAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT - EXCESS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT - FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT - RENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT - TAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAY-OFF FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PERIODIC FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RESIDUAL INCOME</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UNEARNED INCOME LEASE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UNEARNED INCOME RESIDUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UPFRONT TAX DUE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WIRE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE – DEALER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE – BROKER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE – PROGRAM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL FEE PAYABLE – OTHER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DEPRECIATION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RENTAL ACCRUAL</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>UniqueKey_Formula__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is added for generating unique key for a record</description>
+        <externalId>false</externalId>
+        <formula>IF(Enabled__c,
+
+&apos;#&apos;+Accounting_Template_Header__c+&apos;#&apos;+TEXT(Amount_Object_Column__c)+&apos;#&apos;+Credit_GL_Account__c+&apos;#&apos;+ Debit_GL_Account__c+&apos;#&apos;+ Transaction_Sub_Type__c +&apos;#1&apos; ,
+
+&apos;#&apos;+Accounting_Template_Header__c+&apos;#&apos;+TEXT(Amount_Object_Column__c)+&apos;#&apos;+Credit_GL_Account__c+&apos;#&apos;+ Debit_GL_Account__c+&apos;#&apos;+ Transaction_Sub_Type__c +&apos;#2&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UniqueKey Formula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unique_RuleLine_Key__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unique RuleLine Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Accounting Template Line</label>
+    <nameField>
+        <label>Accounting Rule Line Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Accounting Template Lines</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

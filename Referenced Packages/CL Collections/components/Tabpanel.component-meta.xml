@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>27.0</apiVersion>
+    <description>Easy jquery tab implementation for visualforce pages</description>
+    <label>Tabpanel</label>
+    <packageVersions>
+        <majorNumber>2</majorNumber>
+        <minorNumber>1007</minorNumber>
+        <namespace>clcommon</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>2</majorNumber>
+        <minorNumber>1001</minorNumber>
+        <namespace>cnotify</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>2</majorNumber>
+        <minorNumber>1001</minorNumber>
+        <namespace>mfiflexUtil</namespace>
+    </packageVersions>
+    <packageVersions>
+        <majorNumber>2</majorNumber>
+        <minorNumber>1001</minorNumber>
+        <namespace>staging</namespace>
+    </packageVersions>
+</ApexComponent>

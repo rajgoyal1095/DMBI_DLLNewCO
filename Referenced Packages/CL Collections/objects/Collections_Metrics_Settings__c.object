@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Contact_Count_Threshold__c</fullName>
+        <defaultValue>1</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The maximum number of contacts permitted for a borrower within a contact period.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The maximum number of contacts permitted for a borrower within a contact period.</inlineHelpText>
+        <label>Contact Count Threshold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field specifies the location for which the counter is set up.</description>
+        <externalId>false</externalId>
+        <label>Location</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Threshold_Days__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number of days for which the contact counter is set up. For example, a 7 day contact period counts the number of contacts made with the borrower during the past 7 days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of days for which the contact counter is set up. For example, a 7 day contact period counts the number of contacts made with the borrower during the past 7 days.</inlineHelpText>
+        <label>Threshold Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Collections Metrics Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

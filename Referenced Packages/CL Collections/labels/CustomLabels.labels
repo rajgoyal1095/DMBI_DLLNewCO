@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Action_Code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Action_Code</shortDescription>
+        <value>Action_Code</value>
+    </labels>
+    <labels>
+        <fullName>CL050101</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSUFFICIENT_ACCESS_ON_OBJECT</shortDescription>
+        <value>You need permission to edit the object: {0}. Please contact your system administrator.</value>
+    </labels>
+    <labels>
+        <fullName>CL050102</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EXCEPTION_INSIDE_CLASS/METHOD</shortDescription>
+        <value>An exception occurred inside {0} class. Please check the error log.</value>
+    </labels>
+    <labels>
+        <fullName>CL050181</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NOT_AN_ALLOWED_ACTION</shortDescription>
+        <value>{0} is not an allowed action code for Contact Metrics</value>
+    </labels>
+    <labels>
+        <fullName>CL050182</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ENTER_VALUE_FOR_ALLOWED_ACTION_CODES</shortDescription>
+        <value>Allowed Action Codes: Please select the action to be performed.</value>
+    </labels>
+    <labels>
+        <fullName>CL050183</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NO_LOCATION_SPECIFIC_CONTACT_METRICS_PRESENT</shortDescription>
+        <value>Location based collection metrics is enabled, but there are no collection metric settings which are location specific</value>
+    </labels>
+    <labels>
+        <fullName>CL050302</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PROCESSING_METHOD_IN_JOB</shortDescription>
+        <value>Processing the {0} method of the {1} job.</value>
+    </labels>
+    <labels>
+        <fullName>CL050303</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FAILED_DUE_TO_UNKNOWN_EXCEPTION</shortDescription>
+        <value>Failed Due to Unknown Exception.</value>
+    </labels>
+    <labels>
+        <fullName>CL050304</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EXCEPTION_COMMIT_TO_DB</shortDescription>
+        <value>{0} Exception Occurred while committing to database.</value>
+    </labels>
+    <labels>
+        <fullName>CL050402</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EXCEPTION_WHILE_PROCESSING_RECORDS</shortDescription>
+        <value>Exception occurred while processing records for {0}. Exception :</value>
+    </labels>
+    <labels>
+        <fullName>CL050505</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTP_HANDLER_LOAN</shortDescription>
+        <value>Processing PromiseToPayStatusCheckHandler constructor.</value>
+    </labels>
+    <labels>
+        <fullName>CL050506</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>COLLECTION_CONFIG_LIST_SIZE</shortDescription>
+        <value>Total number of collection configurations is: {0}</value>
+    </labels>
+    <labels>
+        <fullName>CL050507</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTPLIST_METHOD_PTP_HANDLER_LOAN</shortDescription>
+        <value>Processing processPromiseToPayList() method of PromiseToPayStatusCheckHandler</value>
+    </labels>
+    <labels>
+        <fullName>CL050508</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTPLIST_METHOD_PTP_HANDLER_LOAN_CONTRACT_ID_NULL</shortDescription>
+        <value>Processing processPromiseToPayList() method of PromiseToPayStatusCheckHandler. ContractId is null.</value>
+    </labels>
+    <labels>
+        <fullName>CL050509</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTPLIST_METHOD_PTP_HANDLER_LOAN_KEPT_PROMISES_SIZE</shortDescription>
+        <value>Processing processPromiseToPayList() method of PromiseToPayStatusCheckHandler. Kept Promises Size: {0}</value>
+    </labels>
+    <labels>
+        <fullName>CL050511</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTP_HANDLER_THIRD_PARTY</shortDescription>
+        <value>Processing PromiseToPayStatusCheckThirdPartyHandler constructor.</value>
+    </labels>
+    <labels>
+        <fullName>CL050512</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTPLIST_METHOD_PTP_HANDLER_THIRD_PARTY</shortDescription>
+        <value>Processing processPromiseToPayList() method of PromiseToPayStatusCheckThirdPartyHandler</value>
+    </labels>
+    <labels>
+        <fullName>CL050513</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTPLIST_METHOD_PTP_HANDLER_THIRD_PARTY_KEPT_PROMISES_SIZE</shortDescription>
+        <value>Processing processPromiseToPayList() method of PromiseToPayStatusCheckThirdPartyHandler. Kept Promises Size: {0}</value>
+    </labels>
+    <labels>
+        <fullName>CL050517</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTP_REVERSAL_HANDLER</shortDescription>
+        <value>Processing PromiseToPayStatusReversalHandler constructor.</value>
+    </labels>
+    <labels>
+        <fullName>CL050518</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTPREVERSALLIST_METHOD_PTP_REVERSAL_HANDLER</shortDescription>
+        <value>Processing processPaymentReversalList() method of PromiseToPayStatusReversalHandler</value>
+    </labels>
+    <labels>
+        <fullName>CL050519</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PTPREVERSALLIST_METHOD_PTP_REVERSAL_HANDLER_LPT_ID_NULL</shortDescription>
+        <value>Processing processPaymentReversalList() method of PromiseToPayStatusReversalHandler. lptID is null.</value>
+    </labels>
+    <labels>
+        <fullName>CL050621</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USER_ASSIGNMENT_FAILED_NO_CONTRACTS_SELECTED</shortDescription>
+        <value>Please select at least one contract to be assigned.</value>
+    </labels>
+    <labels>
+        <fullName>CL050622</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USER_ASSIGNMENT_SUCCESSFUL</shortDescription>
+        <value>The selected contract(s) are assigned successfully</value>
+    </labels>
+    <labels>
+        <fullName>CL050623</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>USER_ASSIGNMENT_FAILED_ASSIGNMENT_EXISTS_OR_CREATION_FAILED</shortDescription>
+        <value>Either this contract is already assigned or an error occurred during assignment. Please check the error log.</value>
+    </labels>
+    <labels>
+        <fullName>CL050641</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UNEXPECTED_TOKEN</shortDescription>
+        <value>Unexpected operator: {0}. Please specify correct operator.</value>
+    </labels>
+    <labels>
+        <fullName>CL050642</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INVALID_OPERATOR</shortDescription>
+        <value>The operator {0} is not valid. Please select the correct operator or check the error log.</value>
+    </labels>
+    <labels>
+        <fullName>CL050643</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INVALID_CRITERIA_NUMBER</shortDescription>
+        <value>The criteria number {0} is invalid.</value>
+    </labels>
+    <labels>
+        <fullName>CL050644</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INVALID_TOKEN</shortDescription>
+        <value>Invalid Token encountered: {0}</value>
+    </labels>
+    <labels>
+        <fullName>CL050645</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INVALID_FORMAT</shortDescription>
+        <value>Please provide the evaluation rule in correct format: Operand1 operator1 Operand2 operator2..</value>
+    </labels>
+    <labels>
+        <fullName>CL050661</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EXCEPTION_CONTRACT_ASSIGNED_TO_MULTIPLE_QUEUES</shortDescription>
+        <value>The selected contract is assigned to more than one queue. Please assign the contract to only one queue to proceed with the temporary assignment.</value>
+    </labels>
+    <labels>
+        <fullName>CL050681</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INTERACTION_DATE_CANT_BE_NULL</shortDescription>
+        <value>Please specify the interaction date.</value>
+    </labels>
+    <labels>
+        <fullName>CL050682</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PROVIDE_DESCRIPTION</shortDescription>
+        <value>Please provide a description.</value>
+    </labels>
+    <labels>
+        <fullName>CL050683</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MANUAL_ACTIVITY_COMPLETED</shortDescription>
+        <value>Selected manual activity is completed successfully.</value>
+    </labels>
+    <labels>
+        <fullName>CL050684</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FAILED_MARKING_MANUAL_ACTIVITY_COMPLETED</shortDescription>
+        <value>The manual activity could not be marked as Completed. Please check the error log.</value>
+    </labels>
+    <labels>
+        <fullName>CL050685</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INTERACTION_LOG_SAVED</shortDescription>
+        <value>Interaction Logs are saved successfully.</value>
+    </labels>
+    <labels>
+        <fullName>CL050686</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INTERACTION_LOG_INSERT_FAILURE</shortDescription>
+        <value>Interaction log is not saved to database. Please check the error log.</value>
+    </labels>
+    <labels>
+        <fullName>CL050687</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CONTRACT_STATUS_UPDATED</shortDescription>
+        <value>The contract status is updated successfully.</value>
+    </labels>
+    <labels>
+        <fullName>CL050688</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CONTRACT_STATUS_UPDATE_FAILURE</shortDescription>
+        <value>The contract status is not updated in the database. Please check the error log.</value>
+    </labels>
+    <labels>
+        <fullName>CL050721</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SPECIFY_PAYMENT_MODE</shortDescription>
+        <value>Payment modes must be set up in order to create a payment arrangement. Please contact your system administrator.</value>
+    </labels>
+    <labels>
+        <fullName>CL050722</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ENTER_BANK_ACCOUNT_DETAILS</shortDescription>
+        <value>This contact has no existing bank accounts associated with it. Please enter bank account details.</value>
+    </labels>
+    <labels>
+        <fullName>CL050723</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INVALID_TRANSACTION_AMOUNT</shortDescription>
+        <value>Transaction amount must be a positive non-zero number.</value>
+    </labels>
+    <labels>
+        <fullName>CL050724</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NINE_DIGIT_ROUTING_NUMBER</shortDescription>
+        <value>Routing Number must be 9 digits</value>
+    </labels>
+    <labels>
+        <fullName>CL050725</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NUMERIC_BANK_ACCOUNT_NUMBER</shortDescription>
+        <value>Bank account number must be a numeric value.</value>
+    </labels>
+    <labels>
+        <fullName>CL050726</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACCOUNT_OR_CONTACT_NOT_SPECIFIED</shortDescription>
+        <value>Please select an account or contact.</value>
+    </labels>
+    <labels>
+        <fullName>CL050727</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OTACH_DETAILS_SAVED</shortDescription>
+        <value>One Time ACH details are saved successfully.</value>
+    </labels>
+    <labels>
+        <fullName>CL050728</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OTACH_ALREADY_EXISTS</shortDescription>
+        <value>A one time ACH is already setup on this account.</value>
+    </labels>
+    <labels>
+        <fullName>CL050741</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PAYMENT_ARRANGEMENT_AMOUNT_CANT_BE_NULL</shortDescription>
+        <value>Please specify the payment amount for the payment arrangement.</value>
+    </labels>
+    <labels>
+        <fullName>CL050742</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>START_DATE_CANT_BE_NULL</shortDescription>
+        <value>Please specify the payment arrangement start date.</value>
+    </labels>
+    <labels>
+        <fullName>CL050743</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OCCURRENCE_CANT_BE_NULL</shortDescription>
+        <value>Please specify the number of occurrences for the payment arrangement.</value>
+    </labels>
+    <labels>
+        <fullName>CL050744</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FREQUENCY_CANT_BE_NULL</shortDescription>
+        <value>Please specify the frequency at which the payments are expected to occur.</value>
+    </labels>
+    <labels>
+        <fullName>CL050745</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PROMISE_TO_PAY_RECORDS_GENERATED</shortDescription>
+        <value>Successfully generated {0} Promise to Pay records.</value>
+    </labels>
+    <labels>
+        <fullName>CL050746</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APS_NOT_CREATED</shortDescription>
+        <value>Error Occurred While APS Creation : {0}</value>
+    </labels>
+    <labels>
+        <fullName>CL050761</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PAYMENT_ARRANGEMENT_SERVICE_P2P_DATE_NULL_OR_ERROR_WITH_ARRANGEMENT_AMT</shortDescription>
+        <value>Either the Promise to Pay date is not provided or the total payment arrangement amount is not equal to the sum of all the promise to pay amounts.</value>
+    </labels>
+    <labels>
+        <fullName>CL050762</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PAYMENT_ARRANGEMENT_SERVICE_P2P_LIST_SIZE_ZERO</shortDescription>
+        <value>Please set up at least one promise to pay for the payment arrangement.</value>
+    </labels>
+    <labels>
+        <fullName>CL050763</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PAYMENT_ARRANGEMENT_SERVICE_P2P_PROCESSED_OR_PA_NULL</shortDescription>
+        <value>Processing Payment Arrangement Service: P2P is processed or payment arrangement is null.</value>
+    </labels>
+    <labels>
+        <fullName>CL050764</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PAYMENT_ARRANGEMENT_SERVICE_PA_AMT_NOT_EQUAL_TO_EXISTING_APS_AMT</shortDescription>
+        <value>Processing Payment Arrangement Service: The provided payment arrangement amount is not equal to the transaction amount on the related Automated Payment Setup.</value>
+    </labels>
+    <labels>
+        <fullName>CL050765</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PAYMENT_ARRANGEMENT_SERVICE_NEW_APS_STARTDATE_LESSER_THAN_LEASE_SYSDATE</shortDescription>
+        <value>The Payment Arrangement start date cannot be lesser than the Lease system date when generating new APS.</value>
+    </labels>
+    <labels>
+        <fullName>CL050766</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INSIDE_PAYMENT_ARRANGEMENT_SERVICE_PA_DATE_CANNOT_MODIFY_EXISTING_APS</shortDescription>
+        <value>The Payment Arrangement start date cannot modify the existing APS.</value>
+    </labels>
+    <labels>
+        <fullName>CL050781</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ENTER_QUEUE_NAME</shortDescription>
+        <value>Please specify a queue name.</value>
+    </labels>
+    <labels>
+        <fullName>CL050782</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QUEUE/STRATEGY_APPROVER_SHOULD_BE_DIFFERENT_FROM_QUEUE/STRATEGY_OWNER</shortDescription>
+        <value>{0} approver must be a different user from the {0} owner!</value>
+    </labels>
+    <labels>
+        <fullName>CL050783</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ADD_USER_TO_QUEUE</shortDescription>
+        <value>Please add at least one active user to the queue.</value>
+    </labels>
+    <labels>
+        <fullName>CL050785</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UNASSIGN_QUEUE_FROM_STARTEGY_BEFORE_DELETE/DISABLE</shortDescription>
+        <value>The queue {0} is already assigned to following strategies: {1}. You must unassign it in order to disable or delete it.</value>
+    </labels>
+    <labels>
+        <fullName>CL050786</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QUEUE_ALREADY_ASSIGNED</shortDescription>
+        <value>Queue name : {0} is already assigned to a queue!</value>
+    </labels>
+    <labels>
+        <fullName>CL050787</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QUEUE/STRATEGY_ALREADY_APPROVED</shortDescription>
+        <value>This {0} is already approved!</value>
+    </labels>
+    <labels>
+        <fullName>CL050788</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SET_APPROVER</shortDescription>
+        <value>Please select an approver for this {0}.</value>
+    </labels>
+    <labels>
+        <fullName>CL050789</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QUEUE/STRATEGY_APPROVER_SHOULD_BE_DIFFERENT_FROM_SUBMITTING_USER</shortDescription>
+        <value>{0} approver must be a different user from the user submitting for approval!</value>
+    </labels>
+    <labels>
+        <fullName>CL050790</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QUEUE/STRATEGY_ALREADY_SUBMITTED_FOR_APPROVAL</shortDescription>
+        <value>This {0} is already submitted for approval!</value>
+    </labels>
+    <labels>
+        <fullName>CL050791</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QUEUE/STRATEGY_SUCCESSFULLY_SUBMITTED_FOR_APPROVAL</shortDescription>
+        <value>This {0} is successfully submitted for approval</value>
+    </labels>
+    <labels>
+        <fullName>CL050792</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SUBMIT_FOR_APPROVAL_FAILED</shortDescription>
+        <value>Failed to submit the strategy for approval. Check the error logs for details. Error: {0}!</value>
+    </labels>
+    <labels>
+        <fullName>CL050793</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APPROVAL_PROCESS_NOT_ENABLED</shortDescription>
+        <value>The approval process is not enabled for {0}. Please contact your system administrator.</value>
+    </labels>
+    <labels>
+        <fullName>CL050801</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SEARCH_CONFIGURATION_NOT_FOUND</shortDescription>
+        <value>Either a search configuration is not set up or has an error. Please contact your system administrator or review the search configuration using the Documents tab.</value>
+    </labels>
+    <labels>
+        <fullName>CL050802</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FAILED_TO_PARSE_CONFIGURATION</shortDescription>
+        <value>Error encountered while parsing the search configuration. Check the error log for details.</value>
+    </labels>
+    <labels>
+        <fullName>CL050803</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INVALID_CONFIGURATION</shortDescription>
+        <value>Invalid configuration!</value>
+    </labels>
+    <labels>
+        <fullName>CL050804</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SEARCH_TEXT_LENGTH</shortDescription>
+        <value>You must enter at least three characters in the search field.</value>
+    </labels>
+    <labels>
+        <fullName>CL050805</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NO_RECORDS_FOUND</shortDescription>
+        <value>No records found!</value>
+    </labels>
+    <labels>
+        <fullName>CL050806</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MAX_SEARCH_LIMIT_REACHED</shortDescription>
+        <value>Maximum search character limit of 1000 is reached. Shorten the search text and try again.</value>
+    </labels>
+    <labels>
+        <fullName>CL050821</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>COLLECTION_STATUS_WITHOUT_STATUS_FIELDS</shortDescription>
+        <value>At least one status must be available in the Collection Status picklist.</value>
+    </labels>
+    <labels>
+        <fullName>CL050822</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ENTER_VALUE_FOR_ALLOWED_STATUSES</shortDescription>
+        <value>Please select at least one Allowed Status for the selected collection status, in order to create the status configuration.</value>
+    </labels>
+    <labels>
+        <fullName>CL050823</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>STATUS_CONFIG_ALREADY_EXISTS</shortDescription>
+        <value>This status configuration already exists. Please define a different status configuration.</value>
+    </labels>
+    <labels>
+        <fullName>CL050824</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SELECT_SOURCE_SYSTEM_FOR_STRATEGY</shortDescription>
+        <value>Please select a source system in order to set up a strategy.</value>
+    </labels>
+    <labels>
+        <fullName>CL050825</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LOAN_INTEGRATION_NOT_ENABLED</shortDescription>
+        <value>Please enable CL Loan integration in custom settings to proceed.</value>
+    </labels>
+    <labels>
+        <fullName>CL050826</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LOAN_NOT_INSTALLED</shortDescription>
+        <value>Please install CL Loan to continue.</value>
+    </labels>
+    <labels>
+        <fullName>CL050827</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LEASE_INTEGRATION_NOT_ENABLED</shortDescription>
+        <value>Please enable CL Lease integration in custom settings to proceed.</value>
+    </labels>
+    <labels>
+        <fullName>CL050828</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LEASE_NOT_INSTALLED</shortDescription>
+        <value>Please install CL Lease to continue.</value>
+    </labels>
+    <labels>
+        <fullName>CL050829</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>THIRD-PARTY_INTEGRATION_NOT_ENABLED</shortDescription>
+        <value>Please enable Third Party integration in custom settings to proceed.</value>
+    </labels>
+    <labels>
+        <fullName>CL050830</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SELECT_SOURCE_SYSTEM_TO_ENTER_CRITERIA</shortDescription>
+        <value>Specify a source system to enter the criteria.</value>
+    </labels>
+    <labels>
+        <fullName>CL050831</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EVALUATION_RULE_SHOULD_NOT_BE_BLANK</shortDescription>
+        <value>Evaluation rule can not be left blank!</value>
+    </labels>
+    <labels>
+        <fullName>CL050832</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EVALUATION_RULE_FORMAT_INVALID</shortDescription>
+        <value>Enter a valid format for the evaluation rule.</value>
+    </labels>
+    <labels>
+        <fullName>CL050833</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EVALUATION_RULE_CANT_BE_PARSED</shortDescription>
+        <value>Evaluation rule could not be parsed. Please contact Administrator. Error details: {0}</value>
+    </labels>
+    <labels>
+        <fullName>CL050834</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SELECT_SOURCE_SYSTEM_NAME</shortDescription>
+        <value>Please select a source system.</value>
+    </labels>
+    <labels>
+        <fullName>CL050835</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ENTER_STRATEGY_NAME</shortDescription>
+        <value>Please enter a strategy name</value>
+    </labels>
+    <labels>
+        <fullName>CL050837</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>STRATEGY_ALREADY_ASSIGNED</shortDescription>
+        <value>The name {0} is already assigned to a strategy. Please specify a unique strategy name.</value>
+    </labels>
+    <labels>
+        <fullName>CL050838</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PRIORITY_NOT_SET</shortDescription>
+        <value>Please specify the priority for the strategy.</value>
+    </labels>
+    <labels>
+        <fullName>CL050839</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PRIORITY_MUST_BE_POSITIVE_NUMBER</shortDescription>
+        <value>Please specify a positive, non zero number for Priority.</value>
+    </labels>
+    <labels>
+        <fullName>CL050841</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PRIORITY_ALREADY_ASSIGNED_TO_STRATEGY</shortDescription>
+        <value>The priority {0} is already assigned to strategy {1}. Please specify a unique priority number to proceed.</value>
+    </labels>
+    <labels>
+        <fullName>CL050842</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CRITERIA_NOT_DEFINED</shortDescription>
+        <value>Please specify at least one criteria, evaluation rule and action to create the strategy.</value>
+    </labels>
+    <labels>
+        <fullName>CL050843</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CRITERIA_OBJECT_CANT_BE_BLANK</shortDescription>
+        <value>Select an object to define the criteria {0}!</value>
+    </labels>
+    <labels>
+        <fullName>CL050844</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CRITERIA_FIELD_CANT_BE_BLANK</shortDescription>
+        <value>Select a field to define the criteria {0}!</value>
+    </labels>
+    <labels>
+        <fullName>CL050845</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SELECT_OPERATOR_FOR_CRITERIA</shortDescription>
+        <value>An operator must be selected for criteria {0}!</value>
+    </labels>
+    <labels>
+        <fullName>CL050846</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ENTER_VALUE_FOR_CRITERIA</shortDescription>
+        <value>Value must be entered for criteria {0}!</value>
+    </labels>
+    <labels>
+        <fullName>CL050847</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VALUE_FOR_CRITERIA_MUST_BE_OF_PARTICULAR_TYPE</shortDescription>
+        <value>Value must be of type {0} for criteria {1}!</value>
+    </labels>
+    <labels>
+        <fullName>CL050848</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DUPLICATE_CRITERIA</shortDescription>
+        <value>Criterion {0} and {1} are duplicates. Please retain only one of these.</value>
+    </labels>
+    <labels>
+        <fullName>CL050849</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACTION_OBJECT_NOT_SET</shortDescription>
+        <value>Select an object to define the strategy action.</value>
+    </labels>
+    <labels>
+        <fullName>CL050850</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACTION_FIELD_NOT_SET</shortDescription>
+        <value>Action field not set!</value>
+    </labels>
+    <labels>
+        <fullName>CL050851</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SELECT_OPERATOR_FOR_ACTION</shortDescription>
+        <value>Please select an operator for all the actions.</value>
+    </labels>
+    <labels>
+        <fullName>CL050852</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SELECT_VALUE_FOR_ACTION</shortDescription>
+        <value>Value must be entered for action!</value>
+    </labels>
+    <labels>
+        <fullName>CL050853</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VALUE_FOR_ACTION_MUST_BE_OF_PARTICULAR_TYPE</shortDescription>
+        <value>Value must be of type {0} for action {1}!</value>
+    </labels>
+    <labels>
+        <fullName>CL050854</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SELECT_ACTION_VALUE_FOR_ACTION</shortDescription>
+        <value>Please select an action for all the selected fields.</value>
+    </labels>
+    <labels>
+        <fullName>CL050855</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACTION_MUST_BE_MANUAL_ACTIVITY</shortDescription>
+        <value>The action you selected needs to be completed manually. Please select the Manual Activity check box for it.</value>
+    </labels>
+    <labels>
+        <fullName>CL050856</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SELECT_TEMPLATE_FOR_ACTION</shortDescription>
+        <value>Select a template for each of the selected actions.</value>
+    </labels>
+    <labels>
+        <fullName>CL050857</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SELECT_QUEUE_FOR_ASSIGN_TO_QUEUE_ACTION</shortDescription>
+        <value>Please select the queue to which the contract must be assigned.</value>
+    </labels>
+    <labels>
+        <fullName>CL050858</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DUPLICATE_ACTION</shortDescription>
+        <value>The action {0} and {1} are duplicates. Please retain any one of these.</value>
+    </labels>
+    <labels>
+        <fullName>CL050859</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACTION_NOT_DEFINED</shortDescription>
+        <value>Please define at least one action for the collection strategy.</value>
+    </labels>
+    <labels>
+        <fullName>CL050860</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INVALID_OPERATOR</shortDescription>
+        <value>Operator is invalid for the selected field type for criteria {0}!</value>
+    </labels>
+    <labels>
+        <fullName>CL050861</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INVALID_OPERATOR</shortDescription>
+        <value>Operator is invalid for the selected field type for Action{0}!</value>
+    </labels>
+    <labels>
+        <fullName>Collections_Metrics_Settings</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Collections_Metrics_Settings</shortDescription>
+        <value>Collections_Metrics_Settings</value>
+    </labels>
+    <labels>
+        <fullName>CreateCollectionActivityJob</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CreateCollectionActivityJob</shortDescription>
+        <value>CreateCollectionActivityJob</value>
+    </labels>
+    <labels>
+        <fullName>CreateLeaseCollectionActivityJob</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CreateLeaseCollectionActivityJob</shortDescription>
+        <value>CreateLeaseCollectionActivityJob</value>
+    </labels>
+    <labels>
+        <fullName>CreateOtherCollectionActivityJob</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CreateOtherCollectionActivityJob</shortDescription>
+        <value>CreateOtherCollectionActivityJob</value>
+    </labels>
+    <labels>
+        <fullName>ProcessCollectionActivityJob</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProcessCollectionActivityJob</shortDescription>
+        <value>ProcessCollectionActivityJob</value>
+    </labels>
+    <labels>
+        <fullName>PromiseToPayStatusCheckJob</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PromiseToPayStatusCheckJob</shortDescription>
+        <value>PromiseToPayStatusCheckJob</value>
+    </labels>
+    <labels>
+        <fullName>PromiseToPayStatusCheckLeaseJob</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PromiseToPayStatusCheckLeaseJob</shortDescription>
+        <value>PromiseToPayStatusCheckLeaseJob</value>
+    </labels>
+    <labels>
+        <fullName>PromiseToPayStatusCheckThirdPartyJob</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PromiseToPayStatusCheckThirdPartyJob</shortDescription>
+        <value>PromiseToPayStatusCheckThirdPartyJob</value>
+    </labels>
+    <labels>
+        <fullName>Source_System</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Source_System</shortDescription>
+        <value>Source_System</value>
+    </labels>
+    <labels>
+        <fullName>Status_Config</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status_Config</shortDescription>
+        <value>Status_Config</value>
+    </labels>
+    <labels>
+        <fullName>configActions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>configActions</shortDescription>
+        <value>configActions</value>
+    </labels>
+    <labels>
+        <fullName>statusConfiguration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>statusConfiguration</shortDescription>
+        <value>statusConfiguration</value>
+    </labels>
+</CustomLabels>

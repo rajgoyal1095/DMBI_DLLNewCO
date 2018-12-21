@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Debt schedule</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Closing_Balance__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Closing balance of debt</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Closing balance of debt</inlineHelpText>
+        <label>Closing Balance</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date</inlineHelpText>
+        <label>Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Debt_Detail__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Debt detail</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Debt detail</inlineHelpText>
+        <label>Debt Detail</label>
+        <referenceTo>Debt_Detail__c</referenceTo>
+        <relationshipLabel>Debt Schedule</relationshipLabel>
+        <relationshipName>Debt_Schedule</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Interest_Deduction__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Interest deduction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Interest deduction</inlineHelpText>
+        <label>Interest Deduction</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opening_Balance__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Opening balance of debt</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Opening balance of debt</inlineHelpText>
+        <label>Opening Balance</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Payment amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Payment amount</inlineHelpText>
+        <label>Payment Amount</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Principal_Deduction__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Principal deduction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Principal deduction</inlineHelpText>
+        <label>Principal Deduction</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Debt Schedule</label>
+    <nameField>
+        <displayFormat>DS-{00000000}</displayFormat>
+        <label>Debt Schedule Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Debt Schedule</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

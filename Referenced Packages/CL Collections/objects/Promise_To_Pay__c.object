@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to Collection&apos;s     Account</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Promise To Pay</relationshipLabel>
+        <relationshipName>Promise_To_Pay</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to Collection&apos;s Contact</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Promise To Pay</relationshipLabel>
+        <relationshipName>Promise_To_Pay</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the contract associated with the Promise to pay</description>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Create_Payment_Plan_Task__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether a payment plan task  for the promise to pay needs to be created or not</description>
+        <externalId>false</externalId>
+        <label>Create Payment Plan Task</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Days_Past_Due__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of Days past the due date when the payment had to be made</description>
+        <externalId>false</externalId>
+        <label>Days Past Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dev_Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to Collection&apos;s Contract</description>
+        <externalId>false</externalId>
+        <label>Dev Contract</label>
+        <referenceTo>Loan_Account__c</referenceTo>
+        <relationshipLabel>Promise To Pay</relationshipLabel>
+        <relationshipName>Promise_To_Pay</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Interaction_Log__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to collections interaction log for the promise to pay</description>
+        <externalId>false</externalId>
+        <label>Interaction Log</label>
+        <referenceTo>Interaction_Log__c</referenceTo>
+        <relationshipLabel>Promise To Pay</relationshipLabel>
+        <relationshipName>Promise_To_Pay</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Account_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ID of the Associated Contract
+,if stored for lease contract</description>
+        <externalId>false</externalId>
+        <label>Lease Account Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Loan_Account_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ID of the Associated Contract
+,if stored for loan contract</description>
+        <externalId>false</externalId>
+        <label>Loan Account Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mode_of_Payment__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Mode through which payment will be made such as Cash,ACH,check etc</description>
+        <externalId>false</externalId>
+        <label>Payment Mode</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ACH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cash</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Check</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit Card</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Direct Debit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wire</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Payment_Arrangement__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to collections payment arrangement for the promise to pay</description>
+        <externalId>false</externalId>
+        <label>Payment Arrangement</label>
+        <referenceTo>Payment_Arrangement__c</referenceTo>
+        <relationshipLabel>Promise To Pay</relationshipLabel>
+        <relationshipName>Promise_To_Pay</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Mode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Mode of Payment (text field)</description>
+        <externalId>false</externalId>
+        <label>Payment Mode (Deprecated)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Promise_Broken__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked Indicates that the promise to pay was broken</description>
+        <externalId>false</externalId>
+        <label>Promise Broken</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promise_Kept__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>if checked Indicates that the promise to pay was kept</description>
+        <externalId>false</externalId>
+        <label>Promise Kept</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Promise_Made_On__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which promise to pay was made</description>
+        <externalId>false</externalId>
+        <label>Promise Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Promise_Met_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which promise is met.</description>
+        <externalId>false</externalId>
+        <label>Promise Met Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Promise_To_Pay_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Amount which was promised to pay</description>
+        <externalId>false</externalId>
+        <label>Promise To Pay Amount</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Promise_To_Pay_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which  the amount promised will be paid</description>
+        <externalId>false</externalId>
+        <label>Promise To Pay Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Tolerance_Amount__c</fullName>
+        <defaultValue>0.00</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Deprecated</description>
+        <externalId>false</externalId>
+        <label>Tolerance Amount(DEPRECATED)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tolerance_Days__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Deprecated</description>
+        <externalId>false</externalId>
+        <label>Tolerance Days(DEPRECATED)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Promise To Pay</label>
+    <nameField>
+        <displayFormat>PTPID-{0000000000}</displayFormat>
+        <label>Promise To Pay ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Promise To Pay</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

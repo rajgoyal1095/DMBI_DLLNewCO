@@ -1,0 +1,3 @@
+<!--@deprecating-->
+<apex:page controller="cllease.DueDetailController">
+</apex:page>

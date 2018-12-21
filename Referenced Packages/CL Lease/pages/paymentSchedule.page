@@ -1,0 +1,221 @@
+<apex:page id="paymentScheduleSetupPage" standardController="cllease__Lease_Account__c" extensions="cllease.PaymentScheduleSetupController" tabStyle="cllease__Lease_Account__c">
+    <apex:include pageName="clcommon__mintTheme"/>
+    <!-- <apex:stylesheet value="{!IF($CurrentPage.Parameters.modal == 'true', $Resource.modalheaderStyle,'')}" />
+    <apex:stylesheet value="{!$Resource.MFIStyles}" />
+    <script
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script src="{!URLFOR($Resource.helperclose)}" />
+    <script>
+        j$ = jQuery.noConflict();
+    </script>
+    <script>
+        function confirmCancel() {
+            var isConfirm = confirm("Are you sure you want to cancel?");
+            if(isConfirm){
+                return this.parent.parent.window.close();
+            }
+        }
+
+
+    </script>
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+
+    <script>
+        function testify(){
+            alert(j$('').length);
+        };
+      function scrolify(tblAsJQueryObject, height){
+        var oTbl = tblAsJQueryObject;
+
+        // for very large tables you can remove the four lines below
+        // and wrap the table with <div> in the mark-up and assign
+        // height and overflow property
+        var oTblDiv = $("<div/>");
+        oTblDiv.css('height', height);
+        oTblDiv.css('overflow-y','scroll');
+        oTbl.wrap(oTblDiv);
+
+        // save original width
+        oTbl.attr("data-item-original-width", oTbl.width());
+        oTbl.find('thead tr td').each(function(){
+            $(this).attr("data-item-original-width",$(this).width());
+        });
+        oTbl.find('tbody tr:eq(0) td').each(function(){
+            $(this).attr("data-item-original-width",$(this).width());
+        });
+
+
+        // clone the original table
+        var newTbl = oTbl.clone();
+
+        // remove table header from original table
+        oTbl.find('thead tr').remove();
+        // remove table body from new table
+        newTbl.find('tbody tr').remove();
+
+        oTbl.parent().parent().prepend(newTbl);
+        newTbl.wrap("<div/>");
+
+        // replace ORIGINAL COLUMN width
+        newTbl.width(newTbl.attr('data-item-original-width'));
+        newTbl.find('thead tr td').each(function(){
+            $(this).width($(this).attr("data-item-original-width"));
+        });
+        oTbl.width(oTbl.attr('data-item-original-width'));
+        oTbl.find('tbody tr:eq(0) td').each(function(){
+            $(this).width($(this).attr("data-item-original-width"));
+        });
+    }
+
+    function callScroll() {
+        scrolify($('.scrollableFixedHeader'), 300); // 160 is height
+    }
+    </script> -->
+    <apex:form >
+        <apex:pageBlock mode="maindetail">
+            <apex:pageMessages />
+            <apex:pageBlockButtons rendered="{!(leaseAccount.cllease__Active_flag__c == false)}" location="Top">
+                <apex:commandButton value="Validate" action="{!validate}" rendered="{!AND(showInEditMode,leaseAccount.cllease__Active_flag__c == false)}"/>
+                <apex:commandButton value="Save" action="{!saveSchedule}" rendered="{!AND(showInEditMode,leaseAccount.cllease__Active_flag__c == false)}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" rendered="{!AND(showInEditMode,leaseAccount.cllease__Active_flag__c == false)}"/>
+                <apex:commandButton value="Edit" action="{!showFormInEditMode}" rendered="{!AND(NOT(showInEditMode),leaseAccount.cllease__Active_flag__c == false)}"/>
+            </apex:pageBlockButtons>
+
+            <apex:outputPanel id="pmntSchedulePanelNotEdit" rendered="{!AND(NOT(showInEditMode),leaseAccount.cllease__Active_flag__c == false)}">
+                <apex:pageblockTable id="defCommHierarchyNewViewTableNonEdit" value="{!paymentScheduleList}" var="pmtSch" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                    <apex:variable var="rowNumber" value="{!-1}" />
+                    <apex:column headerValue="Sequence">
+                        <apex:outputField value="{!pmtSch.cllease__Sequence__c}" />
+                    </apex:column>
+                    <apex:column headerValue="No of Payments">
+                        <apex:outputField value="{!pmtSch.cllease__Number_Of_Payments__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Frequency">
+                        <apex:outputField value="{!pmtSch.cllease__Frequency__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Payment Amount">
+                        <apex:outputField value="{!pmtSch.cllease__Total_Payment__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Tax" rendered="{!IF(AND(leaseAccount.Branch__r.cllease__Tax_Basis__c == 'VAT', leaseAccount.Branch__r.cllease__Tax_Method__c != null),true, false)}">
+                        <apex:outputField value="{!pmtSch.cllease__VAT__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Rent" rendered="{!IF(AND(leaseAccount.Branch__r.cllease__Tax_Basis__c == 'VAT', leaseAccount.Branch__r.cllease__Tax_Method__c != null),true, false)}">
+                        <apex:outputField value="{!pmtSch.cllease__Payment_Amount__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Start Date">
+                        <apex:outputField value="{!pmtSch.cllease__Payment_Date__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Due Day">
+                        <apex:outputField value="{!pmtSch.cllease__Due_Day__c}" style="width:30px"/>
+                    </apex:column>
+                    <apex:column >
+                      <!--<apex:commandButton title="Remove Row" value="Remove" image="{!URLFOR($Resource.cllease__Delete_Button_Red)}" action="{!deleteRow}" reRender="leaseDetailPanel,pmntSchedulePanel">-->
+                    </apex:column>
+                    <apex:column >
+                        <apex:variable var="rowNumber" value="{!rowNumber+1}" />
+                    </apex:column>
+                </apex:pageblockTable>
+            </apex:outputPanel>
+
+            <apex:outputPanel id="pmntSchedulePanel" rendered="{!AND(showInEditMode,leaseAccount.cllease__Active_flag__c == false)}">
+                <apex:pageblockTable id="defCommHierarchyNewViewTable" value="{!paymentScheduleList}" var="pmtSch" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                    <apex:variable var="rowNumber" value="{!-1}" />
+                    <apex:column headerValue="Sequence">
+                        <apex:outputField value="{!pmtSch.cllease__Sequence__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="No of Payments">
+                        <apex:inputField value="{!pmtSch.cllease__Number_Of_Payments__c}" style="width:70px" rendered="{!NOT(AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c))}"/>
+                        <apex:outputField value="{!pmtSch.cllease__Number_Of_Payments__c}" style="width:70px" rendered="{!AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c)}"/>
+                    </apex:column>
+                    <apex:column headerValue="Frequency">
+                        <apex:inputField value="{!pmtSch.cllease__Frequency__c}" rendered="{!NOT(AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c))}"/>
+                        <apex:outputField value="{!pmtSch.cllease__Frequency__c}" rendered="{!AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c)}"/>
+                    </apex:column>
+                    <apex:column headerValue="Payment Amount">
+                        <apex:inputField value="{!pmtSch.cllease__Total_Payment__c}" style="width:70px" rendered="{!NOT(AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c))}"/>
+                        <apex:outputField value="{!pmtSch.cllease__Total_Payment__c}" style="width:70px" rendered="{!AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c)}"/>
+                    </apex:column>
+                    <apex:column headerValue="Start Date">
+                        <apex:inputField value="{!pmtSch.cllease__Payment_Date__c}" rendered="{!NOT(AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c))}"/>
+                        <apex:outputField value="{!pmtSch.cllease__Payment_Date__c}" rendered="{!AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c)}"/>
+                    </apex:column>
+                    <apex:column headerValue="Due Day">
+                        <apex:inputField value="{!pmtSch.cllease__Due_Day__c}" style="width:20px" rendered="{!NOT(AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c))}"/>
+                        <apex:outputField value="{!pmtSch.cllease__Due_Day__c}" style="width:20px" rendered="{!AND(pmtSch.cllease__Primary_Flag__c, leaseAccount.cllease__Is_Rescheduled__c)}"/>
+                    </apex:column>
+                    <apex:column >
+                      <apex:commandButton title="Remove Row" 
+                      		value="Remove" 
+                      		image="{!URLFOR($Resource.cllease__Delete_Button_Red)}" 
+                      		action="{!deleteRow}" 
+                      		reRender="leaseDetailPanel,pmntSchedulePanel"
+                      		rendered="{!NOT(OR(AND(pmtSch.Primary_Flag__c, leaseAccount.Is_Rescheduled__c), 
+                      				  $Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'))}">
+                          <apex:param name="removeRec" value="{!rowNumber}" assignTo="{!numberOfRowClicked}"/>
+                      </apex:commandButton>
+                      <apex:commandButton title="Remove Row" 
+                      		value="Remove" 
+                      		action="{!deleteRow}" 
+                      		reRender="leaseDetailPanel,pmntSchedulePanel"
+                      		rendered="{!AND(NOT(AND(pmtSch.Primary_Flag__c, leaseAccount.Is_Rescheduled__c)), 
+                      				   $Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}">
+                          <apex:param name="removeRec" value="{!rowNumber}" assignTo="{!numberOfRowClicked}"/>
+                      </apex:commandButton>
+                    </apex:column>
+                    <apex:column >
+                        <apex:variable var="rowNumber" value="{!rowNumber+1}" />
+                    </apex:column>
+                </apex:pageblockTable>
+                <apex:panelGrid columns="1" id="addAnotherRow">
+                <apex:commandButton title="Add Another Row" 
+                		value="Add Another Row" 
+                		image="{!URLFOR($Resource.cllease__Add_Button_Green)}" 
+                		action="{!addRow}" 
+                		reRender="leaseDetailPanel,pmntSchedulePanel"
+                		rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}"/>
+                <apex:commandButton title="Add Another Row" 
+                		value="Add Another Row" 
+                		action="{!addRow}" 
+                		reRender="leaseDetailPanel,pmntSchedulePanel"
+                		rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}"/>
+                <!--<apex:commandButton title="Add Another Row" value="Add Another Row" action="{!addRow}" reRender="leaseDetailPanel,pmntSchedulePanel"/>                    -->
+
+                </apex:panelGrid>
+            </apex:outputPanel>
+             <apex:outputPanel id="pmntSchedulePanelReadOnly" rendered="{!(leaseAccount.cllease__Active_flag__c)}" >
+                <apex:pageblockTable id="defCommHierarchyNewViewTableRo" value="{!paymentScheduleList}" var="pmtSch" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                    <apex:variable var="rowNumber" value="{!-1}" />
+                    <apex:column headerValue="Sequence">
+                        <apex:outputField value="{!pmtSch.cllease__Sequence__c}" />
+                    </apex:column>
+                    <apex:column headerValue="No of Payments">
+                        <apex:outputField value="{!pmtSch.cllease__Number_Of_Payments__c}"  style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Frequency">
+                        <apex:outputField value="{!pmtSch.cllease__Frequency__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Payment Amount">
+                        <apex:outputField value="{!pmtSch.cllease__Total_Payment__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Tax">
+                        <apex:outputField value="{!pmtSch.cllease__VAT__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Rent">
+                        <apex:outputField value="{!pmtSch.cllease__Payment_Amount__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Start Date">
+                        <apex:outputField value="{!pmtSch.cllease__Payment_Date__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Due Day">
+                        <apex:outputField value="{!pmtSch.cllease__Due_Day__c}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:variable var="rowNumber" value="{!rowNumber+1}" />
+                    </apex:column>
+                </apex:pageblockTable>
+            </apex:outputPanel>
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,125 @@
+<apex:page standardController="cllease__Lease_Account__c" extensions="cllease.RestructureController" action="{!restructureContract}"
+    standardStylesheets="true" tabStyle="cllease__Lease_Account__c"  docType="html-5.0" >
+    <apex:include pageName="clcommon__mintTheme"/>
+    <apex:outputpanel >
+        <apex:form >
+        <apex:pageBlock id="restructureBlockId">
+            <apex:pageMessages />
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Regenerate Streams" action="{!generateStreams}" 
+                        reRender="restructurePanel,theTabPanel,restructureBlockId"
+                        disabled="{!NOT(restructureAllowed)}"/>
+
+                <apex:commandButton value="Approve" action="{!approve}" disabled="{!NOT(restructureAllowed)}"/>
+                <apex:commandButton value="Delete" action="{!deleteRestructure}" disabled="{!NOT(restructureAllowed)}"/>
+                <apex:commandButton value="Cancel" action="{!cancelRestructure}" immediate="true" />
+            </apex:pageBlockButtons>
+            <!--LS Contract read only fields display-->
+            <apex:pageBlockSection columns="2" title="Contract Details">
+                <apex:outputField value="{!leaseAccount.name}"/>
+                <apex:outputField value="{!leaseAccount.cllease__Financed_Amount__c}"/>
+                <apex:outputField value="{!leaseAccount.cllease__First_Payment_Date__c}"/>
+                <apex:outputField value="{!leaseAccount.cllease__Residual_Amount__c}"/>
+                <apex:outputField value="{!leaseAccount.cllease__Maturity_Date__c}"/>
+                <apex:outputField value="{!leaseAccount.cllease__Term__c}"/>
+                <apex:outputField value="{!leaseAccount.cllease__Yield__c}"/>
+                <apex:outputField value="{!leaseAccount.cllease__Account__c}"/>
+            </apex:pageBlockSection>
+            <!--LS Contract's Payment schedyle read only mode display-->
+            <apex:pageBlockTable value="{!leaseAccount.Payment_Schedule__r}" var="pmtSch">
+                <apex:column headerValue="Sequence">
+                    <apex:outputField value="{!pmtSch.cllease__Sequence__c}" />
+                </apex:column>
+                <apex:column headerValue="No of Payments">
+                    <apex:outputField value="{!pmtSch.cllease__Number_Of_Payments__c}" style="width:70px" />
+                </apex:column>
+                <apex:column headerValue="Frequency">
+                    <apex:outputField value="{!pmtSch.cllease__Frequency__c}" />
+                </apex:column>
+                <apex:column headerValue="Payment Amount">
+                    <apex:outputField value="{!pmtSch.cllease__Total_Payment__c}" style="width:70px" />
+                </apex:column>
+                <apex:column headerValue="Tax" rendered="{!IF(AND(leaseAccount.Branch__r.cllease__Tax_Basis__c == 'VAT', leaseAccount.Branch__r.cllease__Tax_Method__c == 'Inclusive'),true, false)}">
+                    <apex:outputField value="{!pmtSch.cllease__VAT__c}" style="width:70px" />
+                </apex:column>
+                <apex:column headerValue="Rent" rendered="{!IF(AND(leaseAccount.Branch__r.cllease__Tax_Basis__c == 'VAT', leaseAccount.Branch__r.cllease__Tax_Method__c == 'Inclusive'),true, false)}">
+                    <apex:outputField value="{!pmtSch.cllease__Payment_Amount__c}" style="width:70px" />
+                </apex:column>
+                <apex:column headerValue="Start Date">
+                    <apex:outputField value="{!pmtSch.cllease__Payment_Date__c}" />
+                </apex:column>
+            </apex:pageBlockTable>
+            <!--RESTRUCTURE CONTRACT details -->
+            <apex:pageBlockSection columns="2" title="Restructure Contract Details" id="restructurePanel">
+                <apex:inputField label="Reason" value="{!restructureContract.cllease__Restructure_Reason__c}"/>
+                <apex:inputField label="Restructure Date" value="{!restructureContract.cllease__Restructure_Date__c}"/>
+                <!-- <apex:inputField label="Due Day" value="{!restructureContract.Due_Day__c}"/> -->
+                <!-- <apex:inputField label="Rental Term Unit" value="{!restructureContract.Payment_Frequency__c}"/> -->
+                <!-- <apex:inputField label="Remaining Rental Terms " value="{!restructureContract.term__c}"/> -->
+                <!-- <apex:inputField label="Residual Type" value="{!restructureContract.Residual_Type__c}"/> -->
+                <apex:inputField label="Residual Amount" value="{!restructureContract.cllease__Residual_Amount__c}"/>
+                <apex:OutputField label="Revised Yield" value="{!restructureContract.cllease__Yield__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        </apex:form>
+        <apex:include pageName="cllease__paymentSchedule" rendered="{!restructureAllowed}"/>
+
+        <apex:stylesheet value="/sCSS/Theme3/default/versioning.css" />
+        <apex:stylesheet value="/sCSS/Theme3/default/extended.css" />
+        <apex:tabPanel switchType="client"
+            value="{!IF($CurrentPage.Parameters.selectedTab==null, 'AccDetails', $CurrentPage.Parameters.selectedTab)}"
+            id="theTabPanel" styleClass="theTabPanel" tabClass="theTabPanel"
+            contentClass="tabContent" activeTabClass="activeTab"
+            inactiveTabClass="inactiveTab">
+
+                <apex:tab label="Payment Streams" name="PaymentTab" id="tabPaymentStrm" >
+                        <apex:relatedList list="Payment_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Lease Income Streams" name="LeaseIncomeTab"
+                    id="LeasetabIncome" rendered="{!IF(AND(cllease__Lease_Account__c.cllease__Calculation_Method__c!="SYD", incomeStream),  true, false)}">
+                        <apex:relatedList list="Rental_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Amortization Streams" name="AmzTab" id="tabAmzStrm" rendered="{!IF(cllease__Lease_Account__c.cllease__Calculation_Method__c == "SYD",  true, false)}">
+                    <apex:relatedList list="Amz_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Rental Accrual Streams" name="RentAccrTab"
+                    id="tabRentAccr" rendered="{!rentStream}">
+                        <apex:relatedList list="Rental_Accrual_Streams__r" pageSize="100" />
+                </apex:tab>
+
+                <apex:tab label="Residual Streams" name="ResidualTab"
+                    id="residual" rendered="{!residualStream}">
+                        <apex:relatedList list="Residual_Streams__r" pageSize="100" />
+                </apex:tab>
+
+                <apex:tab label="Depreciation Streams" name="depTab"
+                    id="dep" rendered="{!depreciationStream}">
+                        <apex:relatedList list="Dep_Streams__r" pageSize="100" />
+                </apex:tab>
+
+                <apex:tab label="IDC Streams" name="idcTab"
+                    id="idc" rendered="{!idcStream}">
+                        <apex:relatedList list="IDC_Stream__r" pageSize="100" />
+                </apex:tab>
+
+                <apex:tab label="Fee Streams" name="feeTab"
+                    id="fee" >
+                        <apex:relatedList list="Fee_Streams__r" pageSize="100" />
+                </apex:tab>
+
+                <apex:tab label="Subsidy/Subvention Streams" name="subsidyTab"
+                    id="subsidy" >
+                        <apex:relatedList list="Subsidy_Streams__r" pageSize="100" />
+                </apex:tab>
+
+                <apex:tab label="Tax Depreciation Streams" name="taxDepTab"
+                    id="taxDepTab" >
+                        <apex:relatedList list="Tax_Dep_Streams__r" pageSize="100" />
+                </apex:tab>
+
+        </apex:tabPanel>
+    </apex:outputpanel>
+</apex:page>

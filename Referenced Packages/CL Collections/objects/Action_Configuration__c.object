@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>This is used in creating configurable actions that will later be referred to by the strategy actions and collection activities. Eliminating the hard-coded actions.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Action_Category__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The main category of action under which the current action being configured falls.</description>
+        <externalId>false</externalId>
+        <label>Action Category</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Notify</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contract Action</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manual Action</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Action_Input_API_Choices__c</fullName>
+        <deprecated>false</deprecated>
+        <description>User can enter one or more new line separated API names if the Action Input is API only.
+API entered here should belong to the source system specified in the &apos;Source System&apos; lookup.
+If the Source System is &apos;Other&apos; i.e, its a custom API, and if the org has a local namespace, append the namespace to the APIs entered here.</description>
+        <externalId>false</externalId>
+        <label>Action Input API Choices</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Action_Input_Template_Object__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The object (not belonging to any source system) whose records are used to select a template.</description>
+        <externalId>false</externalId>
+        <label>Action Input Template Object</label>
+        <length>64</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Action_Input__c</fullName>
+        <deprecated>false</deprecated>
+        <description>What input is expected for the particular action being configured.</description>
+        <externalId>false</externalId>
+        <label>Action Input</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Template</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>API</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Date</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Action_Name__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Name of the action configuration</description>
+        <externalId>false</externalId>
+        <label>Action Name</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Source_System__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Has the source system name. This field is populated only if the &apos;Action Category&apos; is Contract Action.</description>
+        <externalId>false</externalId>
+        <label>Source System</label>
+        <length>32</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Action Configuration</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Action_Name__c</columns>
+        <columns>Action_Category__c</columns>
+        <columns>Action_Input__c</columns>
+        <columns>Action_Input_Template_Object__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>AC-{0000}</displayFormat>
+        <label>Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Action Configurations</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

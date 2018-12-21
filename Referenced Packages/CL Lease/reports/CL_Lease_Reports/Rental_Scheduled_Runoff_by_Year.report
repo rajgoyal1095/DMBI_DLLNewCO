@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <block>
+        <blockInfo>
+            <blockId>B1</blockId>
+            <joinTable>Lease_Account__c</joinTable>
+        </blockInfo>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Lease_Account__c.Rental_Streams__r$Payment_Amount__c</field>
+        </columns>
+        <format>Summary</format>
+        <name>Contracts with Income Streams block 1</name>
+        <params>
+            <name>co</name>
+            <value>0</value>
+        </params>
+        <reportType>Contracts_with_Income_Streams__c</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>Lease_Account__c$ACH_End_Date__c</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>Lease_Account__c</joinTable>
+    </blockInfo>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lease_Account__c.Rental_Streams__r$Year_Of_Stream__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Rental Scheduled Runoff by Year</name>
+    <reportType>Contracts_with_Income_Streams__c</reportType>
+    <showDetails>false</showDetails>
+</Report>

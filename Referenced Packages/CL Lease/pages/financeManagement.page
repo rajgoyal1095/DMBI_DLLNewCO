@@ -1,0 +1,72 @@
+<apex:page id="orgPage">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:stylesheet value="{!$Resource.cllease__MFIStyles}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.sidebarMenuTemplate)}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+
+    <style>
+.subDataImport {
+    left: 199px !important;
+    width: 150px !important;
+}
+
+div.createNewModule.sidebarModule.navMenu {
+    padding: 5px !important;
+}
+
+.manageActivities {
+    margin-left: 70px !important;
+    margin-top: 1px !important;
+}
+
+
+</style>
+    <script>
+    var j$ = jQuery.noConflict();    
+    j$(document).ready(function(){
+       
+       j$('.manageActivities').append(j$(addMenuHeader('Finance Management...','140px')));
+       j$('.manageActivities .quickleasemenu').append(addMenuItemWithLink('glEntries','glEntriesMru','','GL Accounting Entries'));
+       j$('.manageActivities .quickleasemenu').append(addMenuItemWithLink('updateInstallationOrSale','updateInstallationOrSaleProcessMru','','Update Installation or Sale'));
+
+       j$('.achSetup').append(j$(addMenuHeader('Processing..','140px')));
+       j$('.achSetup .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.clcommon__Automated_Payment_Configuration__c.List, $ObjectType.clcommon__Automated_Payment_Configuration__c)}','AutomatedPaymentConfigMru','','Automated Payment Configuration'));
+       j$('.achSetup .quickleasemenu').append(addMenuItemWithLink('achProcess','achProcessACHMru','','Process ACH Return File'));
+       j$('.achSetup .quickleasemenu').append(addMenuItemWithLink('multipleBranchDayProcess','sodEODProcessMru','','Schedule/Run SOD/EOD Process'));
+       j$('.achSetup .quickleasemenu').append(addMenuItemWithLink('runBatchJob','runBatchJobsMru','','Run Batch Jobs'));
+
+
+       j$('.batchJobs').append(j$(addMenuHeader('Accounting Configuration...','140px')));
+       j$('.batchJobs .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Calendar__c.List, $ObjectType.Calendar__c)}','CalenderMru','','Accounting Periods'));
+       j$('.batchJobs .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Amount_Object__c.List, $ObjectType.Amount_Object__c)}','ObjectMru','','Accounting Amount Objects'));
+       j$('.batchJobs .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Transaction_sub_type__c.List, $ObjectType.Transaction_Sub_type__C)}','SubMru','','Transaction Sub Types'));
+       j$('.batchJobs .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Accounting_Template_Header__c.List, $ObjectType.Accounting_Template_Header__c)}','accountingSetupMru','','Accounting Templates Setup'));
+       j$('.batchJobs .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.GL_Account__c.List, $ObjectType.GL_Account__c)}','runBatchJobsMru','','GL Accounts'));
+       });
+
+</script>
+    <style>
+</style>
+    <apex:form id="setupForm">
+        <div style="min-width: 800px">
+            <div class="mfiflexBlock" style="height: 280px; float: left; width: 98%;">                
+                    <div class="mfiflexBlockHeading" id="bottomWrapper">
+                        <h1 class="heading">Finance Management...</h1>
+                    </div>
+                    <div style="text-align: center; margin-top: 40px">
+                        <div class="collapsible sidebar manageActivities" id="sidebarDiv"
+                        	style="display: inline-block;margin: auto;padding-right: 40px;"></div>
+                    	<div class="collapsible sidebar achSetup" id="sidebarDiv"
+                        	style="display: inline-block;margin: auto; position: relative;padding-right: 40px;padding-left: 40px;"></div>
+                    	<div class="collapsible sidebar batchJobs" id="sidebarDiv"
+                        	style="display: inline-block;margin: auto; position: relative;padding-left: 40px;"></div>
+                    </div>
+
+
+            </div>
+        </div>
+    </apex:form>
+</apex:page>

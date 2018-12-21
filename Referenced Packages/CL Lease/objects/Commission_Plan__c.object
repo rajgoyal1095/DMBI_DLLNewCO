@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Buy_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Percentage Rate for Commission</inlineHelpText>
+        <label>Buy Rate</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Calculation_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Method of how commission will be calculated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Method of how commission will be calculated.</inlineHelpText>
+        <label>Calculation Method</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Flat Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Percentage Of Financed Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Spread</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Commission_Disbursement_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Method how commission will be disbursed to broker.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Method how commission will be disbursed to broker.</inlineHelpText>
+        <label>Commission Disbursement Method</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Upfront</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Upfront at month end</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pay as received</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Enabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If the commission plan enabled.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the commission plan enabled.</inlineHelpText>
+        <label>Enabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Factor__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If the calculation method is percentage of lease amount or spread, then this will be used while calculating the commission amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the calculation method is percentage of lease amount or spread, then this will be used while calculating the commission amount</inlineHelpText>
+        <label>Factor</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Flat_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Flat Amount which gives as commission for lease</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flat Amount which gives as commission for lease</inlineHelpText>
+        <label>Flat Amount</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Maximum_Commission_Percentage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The maximum percentage of commission can be given</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The maximum percentage of commission can be given</inlineHelpText>
+        <label>Maximum Commission Percentage</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Plan_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of Commission Plan</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of Commission Plan</inlineHelpText>
+        <label>Plan Description</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Upfront_Percentage__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Percentage of commission which will be disbursed to broker upfront.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Percentage of commission which will be disbursed to broker upfront.</inlineHelpText>
+        <label>Upfront Percentage</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <label>Commission Plan</label>
+    <nameField>
+        <displayFormat>LCP-{00000000}</displayFormat>
+        <label>Commission Plan Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Commission Plans</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

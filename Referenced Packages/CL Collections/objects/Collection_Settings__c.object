@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Activate_Broken_Promise_Alerts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Activate Broken Promise Alerts</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Activity_Completion_MaxRetries__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Notification Reattempt Allowed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Batch_Size__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Batch size for CreateActivity, ProcessActivity, and PromiseToPay jobs</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Batch size for CreateActivity, ProcessActivity, and PromiseToPay jobs</inlineHelpText>
+        <label>Batch Size</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Charge_Debt_Collection_Fee_Loan__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Charge Debt Collection Fee(Loan)</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Create_Automated_Payment_Setup__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Create Automated Payment Setup</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Days_To_Delete_Interface_Records__c</fullName>
+        <defaultValue>10</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The number of days after which data in the Interface Objects will be deleted with respect to CreatedDate, provided they are processed and moved to CL Collection objects.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of days after which data in the Interface Objects will be deleted with respect to CreatedDate, provided they are processed and moved to CL Collection objects.</inlineHelpText>
+        <label>Days To Delete Interface Records</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Enable_Customer_Centric_Collection__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>When Checked , all the related contracts will be assigned to single user and single queue.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When Checked , all the related contracts will be assigned to single user and single queue.</inlineHelpText>
+        <label>Enable Customer Centric Collection</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Lease_Integration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable Lease Integration</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Loan_Integration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable Loan Integration</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Notify__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>When Checked , enables notify to send emails and SMS.</description>
+        <externalId>false</externalId>
+        <label>Enable Notify</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Priority_Behavior__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>When checked, strategies and queues will pick first applicable strategy or queue based on priority. Else, multiple strategies and queues may be applicable to a contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, strategies and queues will pick first applicable strategy or queue based on priority. Else, multiple strategies and queues may be applicable to a contract.</inlineHelpText>
+        <label>Enable Priority Behavior</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Salesforce_Task_Integration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this to enable Salesforce Task integration</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this to enable Salesforce Task integration</inlineHelpText>
+        <label>Enable Salesforce Task Integration</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Third_Party_Integration__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable Third Party Integration</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Ignore_Collections_Metrics_Threshold__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If selected, system continues to process collection strategy actions (SMS, Email, Letters &amp; Dialer) even after collections metrics threshold is reached.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If selected, system continues to process collection strategy actions (SMS, Email, Letters &amp; Dialer) even after collections metrics threshold is reached.</inlineHelpText>
+        <label>Ignore Collections Metrics Threshold</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Location_Based_Collection_Metrics__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This checkbox when ticked allows location specific contact counters to be set up and recorded.</description>
+        <externalId>false</externalId>
+        <label>Use Location Based Collection Metrics</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Location_Field__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field allows users to enter the field API name (field type should be text) on either account or contact, that has to be considered as the location for which specific counters are incremented.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide location fields in a comma separated format for Account and Contact respectively. 
+Ex: BillingState,MailingState
+If nothing is provided here, BillingState field is considered for Account and MailingState field is considered for Contact.</inlineHelpText>
+        <label>Location Field for Collection Metrics</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Namespace_Prefix_Collections__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Namespace_Prefix_Collections field contains the namespace of the collections package.</description>
+        <externalId>false</externalId>
+        <label>Namespace Prefix Collections</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Save_Dunning_Letters__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Save Letters</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Track_Borrower_Schedule_for_Notification__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This is a checkbox when checked, allows the management of collection activities based on borrower schedule.</description>
+        <externalId>false</externalId>
+        <label>Track Borrower Schedule for Notification</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Collection Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Search</relationshipLabel>
+        <relationshipName>Search</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Branch__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Company</label>
+        <referenceTo>Office_Name__c</referenceTo>
+        <relationshipLabel>Search</relationshipLabel>
+        <relationshipName>Search</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Day_Operation__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Day Operation</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Start of Day</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>End of Day</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Document_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Voucher Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Interface_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Interface Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Lease Payment Transaction Interface</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Due Details Interface</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Charges Interface</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Repayment Schedule Summary Interface</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consolidated Lease Payment Interface</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lease Account Interface</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Flexible Rate Schedule Setup Interface</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Disbursal Transaction Interface</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ACH Return Transaction Interface</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Interface_batch_size__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Interface batch size</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>200</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>300</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>400</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>600</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>700</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>800</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>900</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>999</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>1500</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2000</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5000</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LeaseApplicationNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; &amp;Lease_Account__c, Lease_Account__r.Name+&quot;-&quot;+ Lease_Account__r.application_number__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LeaseApplicationNumber</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lease_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract Account</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipLabel>Search</relationshipLabel>
+        <relationshipName>Search</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Lending Product</label>
+        <referenceTo>Lease_Product__c</referenceTo>
+        <relationshipLabel>Search</relationshipLabel>
+        <relationshipName>Search</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Report_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Report Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Financial Reports</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Performance Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Statistical Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Periodic Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Exception Reports</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Report__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Report</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Report_Type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Lease Portfolio Report</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Summary of Key Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Balance Sheet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trial Balance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Staffing Summary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Outreach Summary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Savings Product Summary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Performance Ratio</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cash Flow Statement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General Ledger</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Profit &amp; Loss</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Voluntary Savings Product Summary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SACCO Balance Sheet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portfolio Aging Schedule</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Liquidity ratio</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Solvency Ratio</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>rca report</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Income Statement</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Financial Reports</controllingFieldValue>
+                <valueName>Balance Sheet</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Reports</controllingFieldValue>
+                <valueName>Trial Balance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Reports</controllingFieldValue>
+                <valueName>Cash Flow Statement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Reports</controllingFieldValue>
+                <valueName>General Ledger</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Reports</controllingFieldValue>
+                <valueName>Profit &amp; Loss</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Reports</controllingFieldValue>
+                <valueName>SACCO Balance Sheet</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance Reports</controllingFieldValue>
+                <valueName>Lease Portfolio Report</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance Reports</controllingFieldValue>
+                <valueName>Savings Product Summary</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance Reports</controllingFieldValue>
+                <valueName>Performance Ratio</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance Reports</controllingFieldValue>
+                <valueName>Voluntary Savings Product Summary</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Performance Reports</controllingFieldValue>
+                <valueName>Portfolio Aging Schedule</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Statistical Reports</controllingFieldValue>
+                <valueName>Summary of Key Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Statistical Reports</controllingFieldValue>
+                <valueName>Staffing Summary</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Statistical Reports</controllingFieldValue>
+                <valueName>Outreach Summary</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Statistical Reports</controllingFieldValue>
+                <valueName>Liquidity ratio</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Statistical Reports</controllingFieldValue>
+                <valueName>Solvency Ratio</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Statistical Reports</controllingFieldValue>
+                <valueName>rca report</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Source__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Transaction Source</label>
+        <referenceTo>Transaction_Source__c</referenceTo>
+        <relationshipLabel>Search</relationshipLabel>
+        <relationshipName>Search</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Search</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Search</label>
+    <nameField>
+        <label>Saved Search Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Search</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

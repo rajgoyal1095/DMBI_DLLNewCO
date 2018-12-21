@@ -1,0 +1,50 @@
+<apex:page standardController="cllease__Calculation_Set__c" id="calculationSetPage"
+	recordSetVar="calculationSetSet" tabStyle="Organization_Preference__tab">
+<apex:include pageName="clcommon__mintTheme"/>
+
+		<apex:form >
+		<apex:sectionHeader title="Calculation Set" />
+		<apex:pageblock id="calculationSetList">
+			<apex:actionRegion >
+				<apex:outputText value="Records per page: "></apex:outputText>
+				<apex:selectList value="{!pagesize}" size="1">
+					<apex:selectOption itemLabel="2" itemValue="2"></apex:selectOption>
+					<apex:selectOption itemLabel="15" itemValue="15"></apex:selectOption>
+					<apex:selectOption itemLabel="20" itemValue="20"></apex:selectOption>
+					<apex:selectOption itemLabel="25" itemValue="25"></apex:selectOption>
+					<apex:actionSupport event="onchange"
+						rerender="calculationSetTable, navigation" />
+				</apex:selectList>
+			</apex:actionRegion>
+
+			<apex:pageblockTable value="{!calculationSetSet}" id="calculationSetTable" var="JA">
+				<apex:column headerValue="Calculation Set">
+					<apex:commandLink value="{!JA.Name}"
+						reRender="calculationSetPage:calculationSetDetail">
+						<apex:param name="calculationSet" value="{!JA.ID}" />
+					</apex:commandLink>
+				</apex:column>
+				<apex:column value="{!JA.cllease__Calculation_Set_Category__c}" />
+			</apex:pageblockTable>
+		</apex:pageblock>
+		<apex:panelGrid columns="2" id="navigation">
+			<apex:commandLink action="{!previous}" rendered="{!hasPrevious}"> Previous </apex:commandLink>
+			<apex:commandLink action="{!next}" rendered="{!hasNext}"> Next </apex:commandLink>
+		</apex:panelGrid>
+	</apex:form>
+
+	<apex:outputPanel id="calculationSetDetail">
+		<apex:detail subject="{!$CurrentPage.parameters.calculationSet}"></apex:detail>
+	</apex:outputPanel>
+
+	<apex:sectionHeader title="Define a New Calculation Set" />
+	<apex:pageblock >
+		<table>
+			<tr>
+				<td><a href="{!URLFOR($Action.Calculation_Set__c.New)}"><br></br>
+					<b>Define New Calculation Set</b></a></td>
+			</tr>
+		</table>
+	</apex:pageblock>
+	
+</apex:page>

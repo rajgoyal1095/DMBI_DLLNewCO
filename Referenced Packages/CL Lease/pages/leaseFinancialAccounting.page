@@ -1,0 +1,45 @@
+<apex:page id="orgPage" tabStyle="Organization_Preference__tab">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:stylesheet value="{!$Resource.cllease__MFIStyles}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.sidebarMenuTemplate)}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script>
+    var j$ = jQuery.noConflict();    
+    j$(document).ready(function(){
+       j$('.accounts').append(j$(addMenuHeader('Accounts...','80px')));       
+       j$('.accounts .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.GL_Account__c.New)}','createGeneralLedgerMru','','Create General Ledger Account'));
+    });   
+    </script>
+    
+    <!-- 
+    <script>
+    var j$ = jQuery.noConflict();    
+    j$(document).ready(function(){
+       j$('.accounts').append(j$(addMenuHeader('Accounts...','80px')));       
+       j$('.accounts .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.GL_Account__c.New)}','createGeneralLedgerMru','','Create General Ledger Account'));
+       j$('.accounts .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Accounting_Rule_Header__c.New)}','createAccRuleHeaderMru','','Create Account Rule Header')); 
+       j$('.accounts .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Accounting_Rule_Header__c.List, $ObjectType.Accounting_Rule_Header__c)}','AccRuleHdrMru','','List of Account Rule Header'));
+    });   
+    </script> -->
+
+    <apex:form id="managementForm">
+        <div style="min-width: 800px">
+            <div class="mfiflexBlock"
+                style="height: 200px; float: left; width: 98%;">
+                <div class="mfiflexBlockHeading" id="bottomWrapper">
+                    <h1 class="heading">Accounting</h1>
+                </div>
+                <div style="text-align: center; margin-top: 30px">
+                    <div class="collapsible sidebar accounts" id="sidebarDiv"
+                        style="display: inline-block;"></div>
+                    <div class="collapsible sidebar accountingTransactions"
+                        id="sidebarDiv" style="display: inline-block; margin-left: 30px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </apex:form>
+</apex:page>

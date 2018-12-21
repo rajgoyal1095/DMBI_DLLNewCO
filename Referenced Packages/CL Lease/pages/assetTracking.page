@@ -1,0 +1,37 @@
+<apex:page id="orgPage">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:stylesheet value="{!$Resource.cllease__MFIStyles}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.sidebarMenuTemplate)}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script>
+    var j$ = jQuery.noConflict();
+    j$(document).ready(function(){
+       j$('.leaseProducts').append(j$(addMenuHeader('Equipment Management...','140px')));
+       /*j$('.leaseProducts .quickleasemenu').append(addMenuItemWithLink('insurance','insuranceMru','','Insurance'));*/
+       j$('.leaseProducts .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Asset_Return__c.List, $ObjectType.Asset_Return__c)}','AssetReturnMru','','Equipment Return'));
+        j$('.leaseProducts .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Repossession__c.List, $ObjectType.Repossession__c)}','assetRepossessionMru','','Repossession'));
+        j$('.leaseProducts .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Asset_workbench__c.List, $ObjectType.Asset_workbench__c)}','assetProcessingMru','','Manage Equipment'));
+
+
+
+    });
+</script>
+    <style>
+</style>
+
+    <apex:form id="managementForm">
+        <div style="min-width: 800px">
+            <div class="mfiflexBlock"
+                style="height: 200px; float: left; width: 98%;">
+                <div class="mfiflexBlockHeading" id="bottomWrapper">
+                    <h1 class="heading">Equipment Tracking</h1>
+                </div>
+                <div class="collapsible sidebar leaseProducts" id="sidebarDiv"
+                    style="margin: auto; margin-top: 30px"></div>
+            </div>
+        </div>
+    </apex:form>
+</apex:page>

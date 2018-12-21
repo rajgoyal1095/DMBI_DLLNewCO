@@ -1,0 +1,4962 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>leaseApplication</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>tabbedLeaseAccount</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Lending Account</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>ACH_Account_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Account number</description>
+        <externalId>false</externalId>
+        <label>ACH Account Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ACH_Account_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Account type: Saving or checking</description>
+        <externalId>false</externalId>
+        <label>ACH Account Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CHECKING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAVING</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ACH_Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Is ACH on for this account</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ACH (Automated Clearing House) is an electronic funds-transfer system. This payment system deals with payroll, direct deposit, tax refunds, consumer bills, tax payments to name a few.</inlineHelpText>
+        <label>ACH</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ACH_Bank_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Bank name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the bank</inlineHelpText>
+        <label>ACH Bank Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ACH_Bank__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>ACH Bank is the bank that processes the NACHA file.</inlineHelpText>
+        <label>ACH Bank</label>
+        <referenceTo>Bank__c</referenceTo>
+        <relationshipName>Lease_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ACH_Debit_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Debit amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Debit amount</inlineHelpText>
+        <label>ACH Debit Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ACH_Drawer_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ACH Drawer Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ACH Drawer Name</inlineHelpText>
+        <label>ACH Drawer Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ACH_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>ACH End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ACH_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>ACH Frequency</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI-WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ACH_Next_Debit_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>It is the next date on which the installment amount will be deducted from the borrower&apos;s account.</inlineHelpText>
+        <label>ACH Next Debit Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ACH_Relationship_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ACH relationship type</description>
+        <externalId>false</externalId>
+        <label>ACH Relationship Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PRIMARY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SPOUSE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SECONDARY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COSIGNER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COSIGNER SPOUSE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COSIGNER2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COSIGNER2 SPOUSE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>THIRD PARTY</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ACH_Routing_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Routing number</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ACH routing number is a nine digit number used to clear electronic transactions to and from your bank account.</inlineHelpText>
+        <label>ACH Routing Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ACH_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>ACH Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Lease_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Accrual_Streams__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Value is carried over from &apos;Streams to Accrue&apos; multi picklist field in Product.</description>
+        <externalId>false</externalId>
+        <label>Accrual Streams</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Income</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Residual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IDC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Depreciation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Subsidy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Subvention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fee</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Accrue_Fee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Accrue Fee</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Accrue_Lease_Income__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Accrue Lease Income</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Ach_Debit_Day__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Debit day for ACH payment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Ach Debit Day</inlineHelpText>
+        <label>ACH Debit Day</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Active_flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates if the account is Active.</inlineHelpText>
+        <label>Active</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Address__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>clcommon__Address__c.clcommon__Account__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Account__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>clcommon__Address__c</referenceTo>
+        <relationshipLabel>LS Contracts</relationshipLabel>
+        <relationshipName>LS_Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Advance_Payments__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Advance Payments</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1ST AND LAST</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1ST AND LAST2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1ST AND LAST3</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Aging__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(AND(Days_Past_Due__c&gt;0,Days_Past_Due__c&lt;=30), &quot;0-30&quot;, IF(AND(Days_Past_Due__c&gt;30,Days_Past_Due__c&lt;=60),&quot;31-60&quot;,
+IF(AND(Days_Past_Due__c&gt;60,Days_Past_Due__c&lt;=90),&quot;61-90&quot;,
+IF(AND(Days_Past_Due__c&gt;90,Days_Past_Due__c&lt;=120),&quot;91-120&quot;,
+IF(AND(Days_Past_Due__c&gt;120,Days_Past_Due__c&lt;=180),&quot;121-180&quot;,
+IF(Days_Past_Due__c&gt;180,&quot;180+&quot;,
+&quot;&quot;))))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>It is used to determine whether a company carries overdue debtors that may never repay their bills.</inlineHelpText>
+        <label>Aging</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amort_Finance_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amort Finance Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amort_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Date Accruals Start</inlineHelpText>
+        <label>Amortization Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amortized_Yield__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amortized Yield</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Amount_Due_at_Signing__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amount Due at Signing</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Amount_to_Current__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Net_Fee_Balance__c +  Net_Balance_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This includes delinquent amount + any unpaid fees on the account.</inlineHelpText>
+        <label>Amount to Current</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Application_Date__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Application Received Date.</inlineHelpText>
+        <label>Application Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approval_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The date on which the lease is approved.</inlineHelpText>
+        <label>Approval Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Average_Monthly_Income__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Average Monthly Income</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Balloon_Payment__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Heavy payment at the end of a lease payment schedule.</inlineHelpText>
+        <label>Balloon Payment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Bill_Rent__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Bill Rent</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Borrower_ACH__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Borrower_ACH</label>
+        <referenceTo>Bank_Account__c</referenceTo>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Branch__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The branch name of the lease account.</inlineHelpText>
+        <label>Branch</label>
+        <referenceTo>Office_Name__c</referenceTo>
+        <relationshipName>Lease_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CL_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>CL Product</label>
+        <referenceTo>clcommon__CL_Product__c</referenceTo>
+        <relationshipLabel>LS Contracts</relationshipLabel>
+        <relationshipName>LS_Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Calculation_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Calculation Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>IRR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SYD</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cap_Reduction__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cap Reduction(-)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cash_Collected_By_Dealer__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cash Collected By Dealer</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Charged_Off_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the account was charged off.</inlineHelpText>
+        <label>Charged Off Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>City_Surcharge_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>City Surcharge Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>City_Tax_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>City Tax Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>City_Tax_Rate__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>City Tax Rate, populated from setup</inlineHelpText>
+        <label>City Tax Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Closed_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when the lease was closed</inlineHelpText>
+        <label>Paid Off Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Commencement_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Contract_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Commencement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Commission_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Commission Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <lookupFilter>
+            <active>false</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Account__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Lease_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Contract Date on the Lease account, this will be updated at the time of funding with the Expected Disbursal Date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract date on the lease. This will be updated at the time of funding with the expected disbursal date.</inlineHelpText>
+        <label>Contract Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Restructured__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicator for Contract Restructured...</description>
+        <externalId>false</externalId>
+        <inlineHelpText>true for contract restructured</inlineHelpText>
+        <label>Contract Restructured</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>County_Surcharge_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>County Surcharge Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>County_Tax_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>County Tax Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>County_Tax_Rate__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>County Tax Rate, populated from setup</inlineHelpText>
+        <label>County Tax Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Currency_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field will be using to track currency code selection during contract creation.
+If Currency selected during contract creation from picklist (UI), Contract sets to selected currency.
+else CL Lease company default company code will be used while creating contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>(Internal CL Lease): Field will be using to track currency code selection during contract creation.
+If Currency selected during contract creation from picklist (UI), Contract sets to selected currency.
+else CL Lease company default company</inlineHelpText>
+        <label>(Internal Use)Currency Code</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Due_Day__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Due Day for the lease account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The day on which the lease payment is due.</inlineHelpText>
+        <label>Current Due Day</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Evergreen_Term__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Current Evergreen Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Payment_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Current Payment Amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the current installment amount that needs to be paid.</inlineHelpText>
+        <label>Current Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Current_Term_Rental_Payment__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Current Term Rental Payment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Current_Term_Surcharge_On_Stream__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Current Term Surcharge On Stream</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Current_Term_Tax_On_Stream__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Current Term Tax On Stream</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Current_Term_Total_Payment__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Current_Term_Rental_Payment__c + Current_Term_Tax_On_Stream__c + Current_Term_Surcharge_On_Stream__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Current Term Total Payment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Current_Term__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Current Term</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Current lease account term.</inlineHelpText>
+        <label>Current Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Yield__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Current Yield</inlineHelpText>
+        <label>Current Yield (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Days_Convention__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Days Convention</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>365/365</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>30/360</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>ACTUAL/ACTUAL</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Days_Past_Due__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of days for which there has been an overdue on the lease account.</inlineHelpText>
+        <label>Days Past Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Fees__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dealer Fees (+)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Funded__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dealer Funded</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Payment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dealer Payment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Contracts_Dealer</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Delinquency_Grace_Days__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>It is the number of days for which the system will wait before categorizing the account as a delinquent account.</inlineHelpText>
+        <label>Delinquency Grace Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Delinquency_flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Checked if the Account is Delinquent</inlineHelpText>
+        <label>Delinquent</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Delinquent_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Total Unpaid bills/invoices amount on this account.</inlineHelpText>
+        <label>Delinquent Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Delivery_and_Acceptance_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Delivery and Acceptance Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Depreciate_Over_Asset_Life__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Depreciate Over Asset Life</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Depreciation_Calculation_Basis__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Depreciation Calculation Basis</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Equipment Cost</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Booked Lease Value</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Depreciation_Expense_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Depreciation Expense</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Depreciation_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Depreciation Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>STRAIGHT LINE</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Documentation_Fees_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Documentation Fees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Down_Payment__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Down Payment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Due_Day__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Contractual Due Day for payments.</inlineHelpText>
+        <label>Due Day</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Early_Pre_Payment_Penalty_Indicator__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this is checked and account is passed it&apos;s maturity date then we do not asses pre payment penalty fees.</description>
+        <externalId>false</externalId>
+        <label>Early Pre Payment Penalty Indicator</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Early_Termination_Fees__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Early Termination Fees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Effective_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Effective Date of Lease account.</description>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Effective_Term__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Equipment_Cost__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Equipment Cost</label>
+        <summarizedField>Contract_Equipment__c.Equipment_Cost__c</summarizedField>
+        <summaryForeignKey>Contract_Equipment__c.Contract__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Equipment_Return_Fee__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Equipment Return Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Equipment_Selling_Price__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Equipment Selling Price</label>
+        <summarizedField>Contract_Equipment__c.Estimated_Selling_Price__c</summarizedField>
+        <summaryFilterItems>
+            <field>Contract_Equipment__c.Status__c</field>
+            <operation>equals</operation>
+            <value>LEASED</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Contract_Equipment__c.Contract__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Equipment_returned_flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Equipment Returned</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Selling_Price__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated Selling Price (+)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Count__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Current_Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen Current Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Evergreen_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen Frequency</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Last_Due_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen Last Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Next_Due_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen Next Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Next_Due_Generation_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen Next Due Generation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Term__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Evergreen Term Setup</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Excess__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Excess field will store the excess amount at that point of instance.</description>
+        <externalId>false</externalId>
+        <label>Excess</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Set1__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Fee Set</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A Fee Set is a collection of Fees that can be created using the Setup tab. All fees applied to a lease must be present in the corresponding set.</inlineHelpText>
+        <label>Fee Set</label>
+        <referenceTo>clcommon__Fee_Set__c</referenceTo>
+        <relationshipName>Lease_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Set__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Fee Set</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please use Fee Set field that references Fee Set from CL Common.</inlineHelpText>
+        <label>Fee Set Deprecated</label>
+        <referenceTo>Fee_Set__c</referenceTo>
+        <relationshipName>Lease_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fees_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fees Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Financed_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Financed Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>First_Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>First Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>First_Payment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date of the first installment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the desired start date of the repayment schedule that is provided while creating the lease application.</inlineHelpText>
+        <label>First Payment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Fund_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field will update when contract funded from pricingdetails page</description>
+        <externalId>false</externalId>
+        <label>Fund Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>GPS_Removal_Fee__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>GPS Removal Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Grace_Period_for_Repayments__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the number of grace days for which the system waits, before applying late charges on the lease.</inlineHelpText>
+        <label>Late Charge Grace Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>If_Other_Describe__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>If Other Describe</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Income_Accrual_Flag__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Income Accrual</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Income_Accrual_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Income Accrual Frequency</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>END OF MONTH</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>ON DUE DATE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Initial_Direct_Cost_Amount1__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Initial Direct Cost Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Initial_Direct_Cost_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Initial_Direct_Cost__c  *  Financed_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Initial Direct Cost Amount (deprecated)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Initial_Direct_Cost__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Initial Direct Cost(%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Install_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Install Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Installation_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Installation Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Invalid_Data__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Invalid Data</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Rescheduled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Rescheduled Indicator for internal processing purpose.</inlineHelpText>
+        <label>Restructured(Internal)</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Last_Current_To_NPA_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This field indicates the date on which the contract&apos;s NPA status became NPA from Current.</inlineHelpText>
+        <label>Last Current To NPA Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Due_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Last Billing Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Last Bill Date</inlineHelpText>
+        <label>Last Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Income_Accrual_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Income Accrual Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_NPA_To_Current_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This fields indicates the date on which the contract&apos;s NPA status became Current from NPA.</inlineHelpText>
+        <label>Last NPA To Current Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Payment_Amount__c</fullName>
+        <defaultValue>0.00</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Last Payment Received on this Account.</inlineHelpText>
+        <label>Last Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Last_Payment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date when last payment was received.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when the  last payment was received.</inlineHelpText>
+        <label>Last Payment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Transaction_Timestamp__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Transaction Timestamp</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Last_Transaction_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Transaction Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>RESCHEDULE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EXTENSION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFUND</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STOP ACCRUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>START ACCRUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT TRANSACTION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAYMENT REVERSAL</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lease_Account_External_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Contract External Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lease_Product_Name__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lease Product Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Associated Lending Product.</inlineHelpText>
+        <label>Product Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select active lending product.</errorMessage>
+            <filterItems>
+                <field>Lease_Product__c.Status__c</field>
+                <operation>equals</operation>
+                <value>Active</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Lease_Product__c</referenceTo>
+        <relationshipName>Lease_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Receivable_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Lease Receivable Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of the Account, expected values are :
+Pending Approval
+Active - Good Standing
+Active - Bad Standing
+Active - Matured
+Approved
+Canceled
+Closed- Written Off
+Partial Application
+Terminated</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PENDING APPROVAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ACTIVE - GOOD STANDING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ACTIVE - BAD STANDING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>APPROVED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PARTIAL APPLICATION</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>ACTIVE - MATURED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TERMINATED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>INSTALLATION</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CHARGED OFF</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Manually_Override_NPA_Status__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This field indicates if the NPA Status is manually overridden. If this is true, the NPA Processing Job will ignore this contract.</inlineHelpText>
+        <label>Manually Override NPA Status</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Matured_flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates if the account has gone past maturity date.</inlineHelpText>
+        <label>Matured</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Maturity_Date_Current__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the date on which the the lease matures</inlineHelpText>
+        <label>Current Maturity Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Maturity_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maturity Date of Lease account</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maturity date as per contract.</inlineHelpText>
+        <label>Maturity Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Metro2_First_Delinquency_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This will be reported only if the Account Status Code is 61-65, 71, 78, 80, 82-84, 88-89 and 93-97.
+This field gets updated only when the status of lease account changes from Active-Good Standing to Active-Bad Standing.</inlineHelpText>
+        <label>Date of First Delinquency</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Metro2_Payment_History__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Report one month’s payment record in each byte from the left to right in least recent to most recent order.</inlineHelpText>
+        <label>Payment History</label>
+        <length>180</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Metro2_Payment_Rating__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The Payment Rating contains a code that properly identifies whether the account is current, past due, in collections or charged off within the activity period being reported.</inlineHelpText>
+        <label>Payment Rating</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Metro2_Portfolio_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Contains the one-character abbreviation for type of portfolio. Values available:
+C = Line of credit
+I = Installment
+M = Mortgage
+O = Open account
+R = Revolving</inlineHelpText>
+        <label>Portfolio Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>INSTALLMENT</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>LINE OF CREDIT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MORTGAGE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OPEN ACCOUNT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REVOLVING</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Migration_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Migration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NPA_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This field indicates the contract&apos;s Non Performing Asset Status. It has 2 possible values: 
+Current
+NPA</inlineHelpText>
+        <label>NPA Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>NPA_Status</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Net_Balance_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Net Balance Amount</label>
+        <summarizedField>Lease_account_Due_Details__c.Balance_Amount__c</summarizedField>
+        <summaryForeignKey>Lease_account_Due_Details__c.Lease_Account__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Net_Fee_Balance__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Net Fee Balance</label>
+        <summarizedField>Charge__c.Total_Due_Amount__c</summarizedField>
+        <summaryForeignKey>Charge__c.Lease_Account__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Next_Commission_Payment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Next Payment Date For Commission</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Next Payment Date For Commission.</inlineHelpText>
+        <label>Next Commission Payment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Due_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Next Due Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date of the Next Due</inlineHelpText>
+        <label>Next Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Due_Generation_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Next Due Generation Date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is determined by using the pre- bill days.</inlineHelpText>
+        <label>Next Due Generation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Income_Accrual_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Next Income Accrual Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Pieces_of_Equipment__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of Pieces of Equipment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Account_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH account number</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH account number</inlineHelpText>
+        <label>OT ACH Account Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Account_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH Account type: Saving or checking</description>
+        <externalId>false</externalId>
+        <label>OT ACH Account Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CHECKING</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAVING</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Bank_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH Bank Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH Bank&apos;s name</inlineHelpText>
+        <label>OT ACH Bank Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Debit_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>OT ACH Debit Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Drawer_Address1__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH Drawer Address Line 1</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH Drawer Address Line 1</inlineHelpText>
+        <label>OT ACH Drawer Address Line 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Drawer_Address2__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH Drawer Address Line 2</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH Drawer Address Line 2</inlineHelpText>
+        <label>OT ACH Drawer Address Line 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Drawer_City__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH Drawer City</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH Drawer city</inlineHelpText>
+        <label>OT ACH Drawer City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Drawer_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH Drawer Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH drawer name</inlineHelpText>
+        <label>OT ACH Drawer Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Drawer_State__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH Drawer State</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH Drawer State</inlineHelpText>
+        <label>OT ACH Drawer State</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Drawer_Zip__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH Drawer Zip</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH Drawer Zip</inlineHelpText>
+        <label>OT ACH Drawer Zip</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Fee_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH fee amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH fee amount</inlineHelpText>
+        <label>OT ACH Fee Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH payment amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH payment amount</inlineHelpText>
+        <label>OT ACH Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Relationship_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH relationship type</description>
+        <externalId>false</externalId>
+        <label>OT ACH Relationship Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PRIMARY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SPOUSE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SECONDARY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COSIGNER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COSIGNER SPOUSE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COSIGNER2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COSIGNER2 SPOUSE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>THIRD PARTY</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Routing_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>One time ACH Routing number</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One time ACH Routing number</inlineHelpText>
+        <label>OT ACH Routing Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Oldest_Due_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Oldest Due Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Oldest due date on the lease account.</inlineHelpText>
+        <label>Oldest Unpaid  Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Origin_Source__c</fullName>
+        <defaultValue>&quot;None&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Origin Source of the lease account.</description>
+        <externalId>false</externalId>
+        <label>Origin</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Financed_Fees__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Other Financed Fees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Overdue_Amount_As_Of_Today__c</fullName>
+        <defaultValue>0.0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Tells the amount overdue for this account as of today</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Tells the amount overdue for this account as of today</inlineHelpText>
+        <label>Overdue Amount As Of Today</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Override_Tax_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this flag is checked the use Override_Tax_Rate__c</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this flag is checked the system will use Override Tax Rate</inlineHelpText>
+        <label>Override Tax</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Override_Tax_Rate__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Override Tax Rate, populated from setup</inlineHelpText>
+        <label>Override Tax Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>PV_Rate__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Field to get the value of PV rate in order to get the present value of the finance amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field to get the value of PV rate in order to get the present value</inlineHelpText>
+        <label>PV Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Payable_To_Dealer__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payable To Dealer Equipment (=)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Lease payment amount. It excludes any fee that is gathered as a part of EMI.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contractual payment amount</inlineHelpText>
+        <label>Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This decides the Payment Frequency, below are the supported ones:
+Daily
+Weekly
+Bi-weekly
+Semi-Monthly
+Monthly
+Bi-Monthly
+Quarterly
+Semi-Annual
+Annual
+SinglePmt</inlineHelpText>
+        <label>Rental Term Unit</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SEMI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MONTHLY</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>QUARTERLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI-WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Payment_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ADVANCE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ARREARS</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Payment_Spread__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Spread</label>
+        <referenceTo>Payment_Spread__c</referenceTo>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Tolerance_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>End date for the payment tolerance</description>
+        <externalId>false</externalId>
+        <inlineHelpText>End date for the payment tolerance</inlineHelpText>
+        <label>Payment Tolerance End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Tolerance_Rate__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the percentage of amount that is tolerable for not marking the account as a delinquent account.</inlineHelpText>
+        <label>Payment Tolerance Rate</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_Tolerance_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Start date to apply the payment tolerance</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Start date to apply the payment tolerance</inlineHelpText>
+        <label>Payment Tolerance Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_in_Arrears__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment in Arrears</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payoff_Fee_Indicator__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This flag indicates whether we need to assess payoff fee or not.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checked if the Payoff fees needs to be assessed on the Lease account.</inlineHelpText>
+        <label>Payoff Fee</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Periodic_Fee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Periodic Fee</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Periodic_Payment_Starts__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Periodic Payment Starts</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pre_Bill_Days__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Number of days before due date to have the bill generated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of days for the bill to be generated before the actual installment date</inlineHelpText>
+        <label>Pre Bill Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prefund_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Prefund Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Prepayment_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Prepayment Penalty Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AMOUNT CALCULATED AS % OF FINANCED AMOUNT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AMOUNT CALCULATED AS % OF PAYOFF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AMOUNT CALCULATED AS % OF RECEIVABLE BALANCE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FIXED</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Prepayment_Penalty_Indicator__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Prepayment Penalty Indicator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to enable prepayment penalties on this lease. The prepayment penalty is only applicable to lease payoffs.</inlineHelpText>
+        <label>Prepayment Penalty Indicator</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Prepayment_Penalty_Periods__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This determines the number of payment periods for which the prepayment penalty is applicable.
+For example, if a lease payoff occurs before the number of periods in this field has passed by, a prepayment penalty will be charged for the lease.</inlineHelpText>
+        <label>Prepayment Penalty Periods</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prepayment_Value__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Prepayment Penalty Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Present_Value__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Field will provide the present value if the based on the present value calculation method in the product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field will provide the present value if the based on the present value calculation method in the product</inlineHelpText>
+        <label>Present Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Private_Label__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( AND(Lease_Product_Name__c != null,  Lease_Product_Name__r.Private_Label__c != null),Lease_Product_Name__r.Private_Label__r.Name , &apos;&apos;)</formula>
+        <label>Private Label</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Process_Fee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Process Fee</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Product_Sub_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Product Sub Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>FINANCE LEASE</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>OPERATING LEASE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of Product, only Lease supported.</description>
+        <externalId>false</externalId>
+        <label>Product Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>LEASE</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Referral_Category__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(OR(Referral_Payee__r.RecordType.Name==&quot;Dealer – Truck/Trailer&quot;,Referral_Payee__r.RecordType.Name==&quot;Broker&quot;, Referral_Payee__r.RecordType.Name==&quot;Program&quot;),Referral_Payee__r.RecordType.Name, &quot;Other&quot;)</formula>
+        <label>Referral Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Referral_Fee_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>(Referral_Fee_Points__c/100) *  Referral_Fee_Paid_On_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Referral Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Referral_Fee_Paid_On_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Pay Points On $$$</inlineHelpText>
+        <label>Referral Fee Paid On</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Referral_Fee_Points_ReadOnly__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Referral_Payee__r.Number_of_Referral_Points__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Referral Fee (Points) ReadOnly</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Referral_Fee_Points__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Applicable only of referral fees is being paid.</inlineHelpText>
+        <label>Referral Fee (Points)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Referral_Fee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Checked, if need to pay referral fees.</inlineHelpText>
+        <label>Referral Fee</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Referral_Payee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Referral Payee</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Contracts1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Rent_Maturity_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Rent Maturity Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Rental_Accrual_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Rental Accrual</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Repayment_Billing_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Repayment Billing Method to Line of Credit</description>
+        <externalId>false</externalId>
+        <label>Repayment Billing Method</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Interest Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Percentage Of Remaining Balance</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Principal Plus Interest</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Repayment_Procedure__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the procedure to be followed to create the Installment schedule.</inlineHelpText>
+        <label>Repayment Procedure</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Equal Monthly Installments</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Flexible</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Repayment_Term_Payment_Percent__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Repayment Term Payment Percentage, for Line of credit</description>
+        <externalId>false</externalId>
+        <label>Repayment Term Payment (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Residual_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Residual Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Residual_Owner__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Residual Owner</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>LESSOR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LESSEE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DEALER</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Residual_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Residual Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Product_Sub_Type__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>FMV</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>FINANCE LEASE</controllingFieldValue>
+                <valueName>FMV</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Restructure_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Restructure Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Restructure_Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Restructure Reason</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Restructured_Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Restructured Contract</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipLabel>LS Contracts</relationshipLabel>
+        <relationshipName>LS_Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Division__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sales Division.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sales Division.</inlineHelpText>
+        <label>Sales Division</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>DEALER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DIRECT</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sales_Rep__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Sales Rep</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Secondary_Term__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Secondary Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Security_Deposit_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Security Deposit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>State_Surcharge_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>State Surcharge Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>State_Tax_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>State Tax Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>State_Tax_Rate__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>State Tax Rate, populated from setup</inlineHelpText>
+        <label>State Tax Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Status_Order__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>CASE(
+  Lease_Status__c, &apos;Active - Bad Standing&apos;, 1,
+    100)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Status Order</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subsidized_Yield__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Subsidized Yield</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Subsidy1__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Subsidy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Subsidy__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Subsidy Deprecated</label>
+        <summarizedField>Subsidy__c.Amount__c</summarizedField>
+        <summaryForeignKey>Subsidy__c.Contract__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Subvention_Stream_Basis__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Subvention Stream Basis</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Income Basis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Straight Line</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Subvention__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Subvention</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Amount(+)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Treatment__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Treatment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>UPFRONT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UPFRONT GROSS RECEIPTS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STREAM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EXEMPT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MIXED</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tax_Upfront__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Upfront</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Term_Residual_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Term Residual Frequency</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI-WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUARTERLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Term_Residual_Months__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of Term Residual Months, applicable only if the residual type is &quot;TERM RESIDUAL&quot;</inlineHelpText>
+        <label>Term Residual</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Term__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Contractual Term Of the Lease Account</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of payments not including residual payments</inlineHelpText>
+        <label>Rental Term</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Termination_Discount_Rate__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Discount Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Termination_Quote_accepted_flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This flag will be set to true if termination quote is accepted and bill is generated for termination quote</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This flag will be set to true if termination quote is accepted and bill is generated for termination quote</inlineHelpText>
+        <label>Termination Quote accepted</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Title_Transfer_Fee__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Title Transfer Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Amount_Paid__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Amount Paid</label>
+        <summarizedField>Cash_Account_Balance__c.Paid_Amount__c</summarizedField>
+        <summaryForeignKey>Cash_Account_Balance__c.Contract__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Charges_Due__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Charges Due</label>
+        <summarizedField>Charge__c.Total_Due_Amount__c</summarizedField>
+        <summaryFilterItems>
+            <field>Charge__c.Paid__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Charge__c.Waive__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Charge__c.Lease_Account__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Dealer_Charges__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Dealer Charges (=)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Surcharge_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Surcharge Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Tax_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Tax Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Tax_Rate_Derived__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This is not a formula column</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is not a formula column</inlineHelpText>
+        <label>Total Tax Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Total_Tax_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>City_Tax_Rate__c +
+County_Tax_Rate__c +
+State_Tax_Rate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Tax Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Upfront_Rental_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Upfront Rent</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Upfront Rent</inlineHelpText>
+        <label>Upfront Rent</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Upfront_Tax_Basis__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Upfront Tax Basis</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Upfront_Tax_Flag__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GROSS RENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EQUIPMENT COST</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>GROSS RENT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>EQUIPMENT COST</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Upfront_Tax_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Upfront Tax (Yes/No)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is the tax charged upfront on this account.</inlineHelpText>
+        <label>Upfront Tax (Yes/No)</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Warranty_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Warranty Amount(+)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Who_remitted_Upfront_Tax__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Who remitted Upfront Tax</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>LESSOR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VENDOR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OTHER</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Write_off_Tolerance_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The tolerances determine the maximum amount that the system can write off to make the account as &quot;Closed - Obligations met&quot;.</inlineHelpText>
+        <label>Write off Tolerance Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Yield__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Contractual Yield</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contractual Yield</inlineHelpText>
+        <label>Yield (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>application_number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Application Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>batch_job_completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field useful for tracking batch job completed for the record or not.</description>
+        <externalId>false</externalId>
+        <label>batch job completed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>enable_calculation_setup_logs__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If true, system ignores the calculation setup configured on the product if any.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is internally used by the system.</inlineHelpText>
+        <label>Skip calculation setups</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>generated_Streams_for_Restructure__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field will be used for backend logic.
+if true, streams regenerated for the restructured contract.
+if false, either streams not generated or streams has issues while generating.</description>
+        <externalId>false</externalId>
+        <label>generated Streams for Restructure</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>needStreamRegenerated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>needStreamRegenerated</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>sample__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>sample</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>temp_payment__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>temp payment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the field used for storing temp amount for storing termination quote</inlineHelpText>
+        <label>Temp payment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>LS Contract</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>application_number__c</columns>
+        <columns>Account__c</columns>
+        <columns>Lease_Product_Name__c</columns>
+        <columns>Amount_to_Current__c</columns>
+        <columns>Days_Past_Due__c</columns>
+        <columns>Next_Due_Date__c</columns>
+        <columns>Payment_Amount__c</columns>
+        <columns>Excess__c</columns>
+        <columns>Lease_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>User</fullName>
+        <columns>NAME</columns>
+        <columns>Lease_Product_Name__c</columns>
+        <columns>Product_Type__c</columns>
+        <columns>Maturity_Date_Current__c</columns>
+        <columns>Lease_Status__c</columns>
+        <columns>Days_Past_Due__c</columns>
+        <columns>Delinquent_Amount__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Product_Type__c</field>
+            <operation>equals</operation>
+            <value>Line of Credit</value>
+        </filters>
+        <label>User</label>
+    </listViews>
+    <nameField>
+        <displayFormat>LES-{0000000000}</displayFormat>
+        <label>Lending Account ID</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>LS Contracts</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Contract_Record_Type</fullName>
+        <active>true</active>
+        <description>Contract Record Type</description>
+        <label>Contract</label>
+        <picklistValues>
+            <picklist>ACH_Account_Type__c</picklist>
+            <values>
+                <fullName>CHECKING</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAVING</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ACH_Frequency__c</picklist>
+            <values>
+                <fullName>BI-MONTHLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BI-WEEKLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MONTHLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEMI-MONTHLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WEEKLY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ACH_Relationship_Type__c</picklist>
+            <values>
+                <fullName>COSIGNER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COSIGNER SPOUSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COSIGNER2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COSIGNER2 SPOUSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PRIMARY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SECONDARY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SPOUSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>THIRD PARTY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Accrual_Streams__c</picklist>
+            <values>
+                <fullName>Depreciation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IDC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Income</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subvention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Advance_Payments__c</picklist>
+            <values>
+                <fullName>1ST AND LAST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1ST AND LAST2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1ST AND LAST3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calculation_Method__c</picklist>
+            <values>
+                <fullName>IRR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SYD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Days_Convention__c</picklist>
+            <values>
+                <fullName>30%2F360</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>365%2F365</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>ACTUAL%2FACTUAL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Depreciation_Calculation_Basis__c</picklist>
+            <values>
+                <fullName>Booked Lease Value</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Cost</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Depreciation_Method__c</picklist>
+            <values>
+                <fullName>STRAIGHT LINE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Evergreen_Frequency__c</picklist>
+            <values>
+                <fullName>MONTHLY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Income_Accrual_Frequency__c</picklist>
+            <values>
+                <fullName>END OF MONTH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ON DUE DATE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Last_Transaction_Type__c</picklist>
+            <values>
+                <fullName>EXTENSION</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PAYMENT REVERSAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PAYMENT TRANSACTION</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>REFUND</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RESCHEDULE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>START ACCRUAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>STOP ACCRUAL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lease_Status__c</picklist>
+            <values>
+                <fullName>ACTIVE - BAD STANDING</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ACTIVE - GOOD STANDING</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ACTIVE - MATURED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>APPROVED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHARGED OFF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PARTIAL APPLICATION</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>PENDING APPROVAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TERMINATED</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Metro2_Portfolio_Type__c</picklist>
+            <values>
+                <fullName>INSTALLMENT</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>LINE OF CREDIT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MORTGAGE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OPEN ACCOUNT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>REVOLVING</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NPA_Status</picklist>
+            <values>
+                <fullName>ACCRUAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NON ACCRUAL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OT_ACH_Account_Type__c</picklist>
+            <values>
+                <fullName>CHECKING</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAVING</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>OT_ACH_Relationship_Type__c</picklist>
+            <values>
+                <fullName>COSIGNER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COSIGNER SPOUSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COSIGNER2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COSIGNER2 SPOUSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PRIMARY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SECONDARY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SPOUSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>THIRD PARTY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>ANNUAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BI-WEEKLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MONTHLY</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>QUARTERLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEMI-ANNUAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEMI-MONTHLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WEEKLY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Method__c</picklist>
+            <values>
+                <fullName>ADVANCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ARREARS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Prepayment_Method__c</picklist>
+            <values>
+                <fullName>FIXED</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Sub_Type__c</picklist>
+            <values>
+                <fullName>FINANCE LEASE</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>OPERATING LEASE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product_Type__c</picklist>
+            <values>
+                <fullName>LEASE</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Repayment_Billing_Method__c</picklist>
+            <values>
+                <fullName>Interest Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Percentage Of Remaining Balance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Principal Plus Interest</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Repayment_Procedure__c</picklist>
+            <values>
+                <fullName>Equal Monthly Installments</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Flexible</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Residual_Owner__c</picklist>
+            <values>
+                <fullName>DEALER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LESSEE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LESSOR</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Residual_Type__c</picklist>
+            <values>
+                <fullName>FMV</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sales_Division__c</picklist>
+            <values>
+                <fullName>DEALER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DIRECT</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subvention_Stream_Basis__c</picklist>
+            <values>
+                <fullName>Income Basis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Straight Line</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tax_Treatment__c</picklist>
+            <values>
+                <fullName>EXEMPT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MIXED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>STREAM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UPFRONT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UPFRONT GROSS RECEIPTS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Term_Residual_Frequency__c</picklist>
+            <values>
+                <fullName>ANNUAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BI-WEEKLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MONTHLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QUARTERLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEMI-ANNUAL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEMI-MONTHLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WEEKLY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Upfront_Tax_Basis__c</picklist>
+            <values>
+                <fullName>EQUIPMENT COST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GROSS RENT</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Who_remitted_Upfront_Tax__c</picklist>
+            <values>
+                <fullName>LESSOR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTHER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VENDOR</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>application_number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lease_Product_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Amount_to_Current__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Days_Past_Due__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Next_Due_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Payment_Amount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lease_Status__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>ACH_Fields_Check</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND( ACH_Active__c ,
+OR(ISBLANK( ACH_Routing_Number__c ),ISBLANK( ACH_Account_Number__c ), ISBLANK( ACH_Debit_Amount__c ), ISBLANK( ACH_Next_Debit_Date__c ))
+)</errorConditionFormula>
+        <errorMessage>One of the required ACH fields is missing:
+Routing number, Account number, Debit amount or Next debit date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Check_Product_Type</fullName>
+        <active>false</active>
+        <errorConditionFormula>ISPICKVAL(Product_Type__c,&quot;&quot;)</errorConditionFormula>
+        <errorMessage>Product Type Cannot be Null</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Close_Date_Validation</fullName>
+        <active>false</active>
+        <errorConditionFormula>Closed_Date__c  &gt;  TODAY()</errorConditionFormula>
+        <errorMessage>Close Date cant not be greater than System date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Currency_Change_check</fullName>
+        <active>true</active>
+        <description>Currency code should not change once contract created with one currency.</description>
+        <errorConditionFormula>if( Currency_Code__c ==null, false ,  ISCHANGED(Currency_Code__c) )</errorConditionFormula>
+        <errorMessage>Currency for contract cannot be changed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Dealer_Payment_Date_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>Dealer_Payment_Date__c &gt; Maturity_Date__c  ||  Dealer_Payment_Date__c   &lt; Contract_Date__c</errorConditionFormula>
+        <errorDisplayField>Dealer_Payment_Date__c</errorDisplayField>
+        <errorMessage>Dealer Payment Date cannot be beyond Contract Maturity Date or before Contract Start Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Excess_Negative_check</fullName>
+        <active>false</active>
+        <description>Excess has to be put as positive.</description>
+        <errorConditionFormula>Excess__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Excess__c</errorDisplayField>
+        <errorMessage>Excess Cannot Be Negative.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expected_Disbursal_Date_check</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(
+ ISCHANGED(Contract_Date__c), Contract_Date__c &lt;   Branch__r.Current_System_Date__c
+)</errorConditionFormula>
+        <errorMessage>Expected Disbursal Date cannot be less than current system date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>First_Payment_Date_Validation</fullName>
+        <active>true</active>
+        <description>First Payment Date can not be prior to the Contract Date.
+OR
+First Payment Date should be equal or greater than Contract Date.</description>
+        <errorConditionFormula>First_Payment_Date__c  &lt;  Contract_Date__c</errorConditionFormula>
+        <errorMessage>First Payment Date cannot be prior to the Contract Date!</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Recurring_OT_ACH_Conflict_Check</fullName>
+        <active>false</active>
+        <errorConditionFormula>NOT( ISBLANK( ACH_Next_Debit_Date__c ))  &amp;&amp;  NOT( ISBLANK( OT_ACH_Debit_Date__c )) &amp;&amp; (ACH_Next_Debit_Date__c == OT_ACH_Debit_Date__c )</errorConditionFormula>
+        <errorMessage>System Limitation - You cannot set up a One Time ACH and Recurring ACH transaction on the same day.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Term_Residual_Months_Check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Term_Residual_Months__c !=0,    OR(ISBLANK(TEXT(Residual_Type__c)),ISPICKVAL( Residual_Type__c, &quot;FMV&quot;)))</errorConditionFormula>
+        <errorMessage>Term Residual Months only valid for Residual type: TERM RESIDUAL. Not valid for either Residual type is not mentioned or FMV</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Activate_Contract</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Activate Contract</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/13.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+var namespacePrefix = &quot;{!$Setup.Org_Parameters__c.Namespace_Prefix__c}&quot;;
+if (namespacePrefix != null &amp;&amp; namespacePrefix != &quot;&quot;)
+namespacePrefix += &quot;/&quot;;
+var className = namespacePrefix + &quot;ActivateContractCtrl&quot;;
+var methodName = &quot;activateContract&quot;;
+var parameter1 = &quot;{!Lease_Account__c.Id}&quot;;
+var retVal = sforce.apex.execute(className,&quot;activateContract&quot;, {leaseAccId:parameter1});
+window.alert(retVal);
+window.location.reload();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Charge_Off</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Charge Off</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/13.0/connection.js&quot;)}
+	{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+	var namespacePrefix = &quot;{!$Setup.Org_Parameters__c.Namespace_Prefix__c}&quot;;
+	if (namespacePrefix != null &amp;&amp; namespacePrefix != &quot;&quot;)
+	namespacePrefix += &quot;/&quot;;
+	var className = namespacePrefix + &quot;chargeOffController&quot;;
+	var methodName = &quot;chargeOffTxnCreation&quot;;
+	var parameter1 = &quot;{!Lease_Account__c.Id}&quot;;
+	var retVal = sforce.apex.execute(className,methodName, {leaseId:parameter1});
+	window.alert(retVal);
+	window.location.reload();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Chargee_Off</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Charge Off</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/13.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+var namespacePrefix = &quot;{!$Setup.Org_Parameters__c.Namespace_Prefix__c}&quot;;
+if (namespacePrefix != null &amp;&amp; namespacePrefix != &quot;&quot;)
+namespacePrefix += &quot;/&quot;;
+var className = namespacePrefix + &quot;chargeOffController&quot;;
+var methodName = &quot;chargeOffTxnCreation&quot;;
+var parameter1 = &quot;{!Lease_Account__c.Id}&quot;;
+var retVal = sforce.apex.execute(className,methodName, {leaseId:parameter1});
+window.alert(retVal);
+window.location.reload();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Copy_Contract</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Copy Contract</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/13.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+var namespacePrefix = &quot;{!$Setup.Org_Parameters__c.Namespace_Prefix__c}&quot;;
+if (namespacePrefix != null &amp;&amp; namespacePrefix != &quot;&quot;)
+namespacePrefix += &quot;/&quot;;
+var className = namespacePrefix + &quot;CopyContractCtrl&quot;;
+var methodName = &quot;copyContract&quot;;
+var parameter1 = &quot;{!Lease_Account__c.Id}&quot;;
+var retVal = sforce.apex.execute(className,&quot;copyContract&quot;, {leaseAccId:parameter1});
+window.alert(retVal);
+window.location.reload();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Fund_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Fund Dealer (Deprecated)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/13.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+// Deprecated</url>
+    </webLinks>
+    <webLinks>
+        <fullName>One_Time_ACH</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>One Time ACH (Deprecated)</masterLabel>
+        <openType>sidebar</openType>
+        <page>oneTimeACHTxn</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Payment_Tolerance</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Payment Tolerance (Deprecated)</masterLabel>
+        <openType>sidebar</openType>
+        <page>refundTxn</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Recurring_ACH</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Recurring ACH (Deprecated)</masterLabel>
+        <openType>sidebar</openType>
+        <page>recurringACHTxn</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Refund</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Refund</masterLabel>
+        <openType>sidebar</openType>
+        <page>refundTxn</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Regenerate_Streams</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>(Re)Generate Streams</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/13.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+var namespacePrefix = &quot;{!$Setup.Org_Parameters__c.Namespace_Prefix__c}&quot;;
+if (namespacePrefix != null &amp;&amp; namespacePrefix != &quot;&quot;)
+namespacePrefix += &quot;/&quot;;
+var className = namespacePrefix + &quot;RegenerateStreamsCtrl&quot;;
+var methodName = &quot;FinregenerateStreams&quot;;
+var parameter1 = &quot;{!Lease_Account__c.Id}&quot;;
+var parameter2 = &quot;{!Lease_Account__c.Financed_Amount__c}&quot;;
+var retVal = sforce.apex.execute(className,&quot;FinregenerateStreams&quot;, {leaseAccId:parameter1,FinancedAmount1:parameter2});
+window.alert(retVal);
+window.location.reload();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Restructure</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Restructure</masterLabel>
+        <openType>sidebar</openType>
+        <page>restructure</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Transaction_Summary</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Transaction Summary</masterLabel>
+        <openType>sidebar</openType>
+        <page>txnSummary</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

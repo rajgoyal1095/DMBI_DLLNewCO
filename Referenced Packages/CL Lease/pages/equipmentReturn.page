@@ -1,0 +1,54 @@
+<apex:page standardController="cllease__Asset_Return__c" id="assetReturnListPage"
+    recordSetVar="assetReturnSet" tabStyle="Organization_Preference__tab">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:form >
+        <apex:sectionHeader title="Asset Return" />
+        <apex:pageblock id="assetReturnList">
+            <apex:actionRegion >
+                <apex:outputText value="Records per page: "></apex:outputText>
+                <apex:selectList value="{!pagesize}" size="1">
+                    <apex:selectOption itemLabel="2" itemValue="2"></apex:selectOption>
+                    <apex:selectOption itemLabel="15" itemValue="15"></apex:selectOption>
+                    <apex:selectOption itemLabel="20" itemValue="20"></apex:selectOption>
+                    <apex:selectOption itemLabel="20" itemValue="25"></apex:selectOption>
+                    <apex:actionSupport event="onchange"
+                        rerender="assetReturnTable, navigation" />
+                </apex:selectList>
+            </apex:actionRegion>
+
+            <apex:pageblockTable value="{!assetReturnSet}" id="assetReturnTable" var="repo">
+                <apex:column headerValue="assetReturn Name">
+                    <apex:commandLink value="{!repo.name}" reRender="assetReturnListPage:assetReturnDetail">
+                        <apex:param name="assetReturnID" value="{!repo.ID}" />
+                    </apex:commandLink>
+                </apex:column>
+                <apex:repeat value="{!$ObjectType.cllease__Asset_Return__c.FieldSets.cllease__assetReturnFieldSet}" var="field">
+                    <apex:column headerValue="{!field.Label}" >
+                        <apex:outputField value="{!repo[field]}"  rendered="{!IF(field.Label == 'Id', false, true)}"/>
+                    </apex:column>
+                </apex:repeat>
+            </apex:pageblockTable>
+        </apex:pageblock>
+        <apex:panelGrid columns="2" id="navigation">
+            <apex:commandLink action="{!previous}" rendered="{!hasPrevious}"> Previous </apex:commandLink>
+            <apex:commandLink action="{!next}" rendered="{!hasNext}"> Next </apex:commandLink>
+        </apex:panelGrid>
+    </apex:form>
+
+    <apex:outputPanel id="assetReturnDetail">
+        <apex:detail subject="{!$CurrentPage.parameters.assetReturnID}"
+            inlineEdit="true"></apex:detail>
+    </apex:outputPanel>
+
+    <!-- <apex:sectionHeader title="Create New assetReturn" />
+    <apex:pageblock >
+        <table>
+            <tr>
+                <td><a href="{!URLFOR($Action.Asset_Return__c.New)}"><br/>
+                    <b>Define New Asset Return</b></a></td>
+            </tr>
+        </table>
+    </apex:pageblock> -->
+
+</apex:page>

@@ -1,0 +1,54 @@
+<apex:page standardController="cllease__Page_Setup__c" id="pageSetupPage"
+	recordSetVar="pageSetupSet" tabStyle="Organization_Preference__tab">
+<apex:include pageName="clcommon__mintTheme"/>
+
+	<apex:form >
+		<apex:sectionHeader title="Calculation Setup" />
+		<apex:pageblock id="pageSetupList">
+			<apex:actionRegion >
+				<apex:outputText value="Records per page: "></apex:outputText>
+				<apex:selectList value="{!pagesize}" size="1">
+					<apex:selectOption itemLabel="2" itemValue="2"></apex:selectOption>
+					<apex:selectOption itemLabel="15" itemValue="15"></apex:selectOption>
+					<apex:selectOption itemLabel="20" itemValue="20"></apex:selectOption>
+					<apex:selectOption itemLabel="20" itemValue="25"></apex:selectOption>
+					<apex:actionSupport event="onchange"
+						rerender="pageSetupTable, navigation" />
+				</apex:selectList>
+			</apex:actionRegion>
+
+			<apex:pageblockTable value="{!pageSetupSet}" id="pageSetupTable" var="JA">
+				<apex:column headerValue="Calculation Setup">
+					<apex:commandLink value="{!JA.name}" reRender="pageSetupPage:pageSetupDetail">
+						<apex:param name="pageSetupID" value="{!JA.ID}" />
+					</apex:commandLink>
+				</apex:column>
+				<apex:repeat value="{!$ObjectType.cllease__Page_Setup__c.FieldSets.cllease__PageSetupFieldSet}" var="field">
+                	<apex:column headerValue="{!field.Label}" >
+                    	<apex:outputField value="{!JA[field]}"  rendered="{!IF(field.Label == 'Id', false, true)}"/>
+                    </apex:column>
+                </apex:repeat>
+			</apex:pageblockTable>
+		</apex:pageblock>
+		<apex:panelGrid columns="2" id="navigation">
+			<apex:commandLink action="{!previous}" rendered="{!hasPrevious}"> Previous </apex:commandLink>
+			<apex:commandLink action="{!next}" rendered="{!hasNext}"> Next </apex:commandLink>
+		</apex:panelGrid>
+	</apex:form>
+
+	<apex:outputPanel id="pageSetupDetail">
+		<apex:detail subject="{!$CurrentPage.parameters.pageSetupID}"
+			inlineEdit="true"></apex:detail>
+	</apex:outputPanel>
+
+	<apex:sectionHeader title="Define a New Calculation Setup" />
+	<apex:pageblock >
+		<table>
+			<tr>
+				<td><a href="{!URLFOR($Action.Page_Setup__c.New)}"><br></br>
+					<b>Define New Calculation Setup</b></a></td>
+			</tr>
+		</table>
+	</apex:pageblock>
+
+</apex:page>

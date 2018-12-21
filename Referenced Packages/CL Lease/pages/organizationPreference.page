@@ -1,0 +1,122 @@
+<apex:page id="orgPage" tabStyle="Organization_Preference__tab">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:stylesheet value="{!$Resource.cllease__MFIStyles}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.sidebarMenuTemplate)}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+
+    <style>
+.subDataImport {
+    left: 199px !important;
+    width: 150px !important;
+}
+
+div.createNewModule.sidebarModule.navMenu {
+    padding: 5px !important;
+}
+
+.manageActivities {
+    margin-left: 70px !important;
+    margin-top: 1px !important;
+}
+
+
+</style>
+    <script>
+    var j$ = jQuery.noConflict();
+    j$(document).ready(function(){
+       j$('.productManagement').append(j$(addMenuHeader('Product Management...','110px')));
+       j$('.productManagement .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Lease_Product__c.New)}','createLeaseProductMru','','Create New Lease Product'));
+       j$('.productManagement .quickleasemenu').append(addMenuItemWithLink('leaseProduct','viewEditLeaseProductMru','','View/Edit Lease Products'));
+       j$('.productManagement .quickleasemenu').append(addMenuItemWithLink('leaseProductAssignment','assignLeaseProductMru','','Assign Product To Company'));
+       j$('.productManagement .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Payment_Spread__c.List, $ObjectType.Payment_Spread__c)}','paymentSpreadSetupMru','','Payment Spread'));
+
+       j$('.feeSetup').append(j$(addMenuHeader('Manage...','60px')));
+       j$('.feeSetup .quickleasemenu').append(addMenuItemWithLink('fee','feesMru','','Manage Fees'));
+       j$('.feeSetup .quickleasemenu').append(addMenuItemWithLink('feeSet','feeSetMru','','Manage Fee Set'));
+       j$('.feeSetup .quickleasemenu').append(addMenuItemWithLink('pageSetup','pageSetupMru','','Calculation Setup'));
+       j$('.feeSetup .quickleasemenu').append(addMenuItemWithLink('calculationSet','calculationSetMru','','Manage Calculation Set'));
+
+
+
+       j$('.manageActivities').append(j$(addMenuHeader('Setup...','100px')));
+       j$('.manageActivities .quickleasemenu').append(addMenuItemWithLink('paymentMode','paymentModeMru','','Payment Mode'));
+       j$('.manageActivities .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Tax_Setup__c.List, $ObjectType.Tax_Setup__c)}','taxSetupMru','','Tax Setup'));
+
+       j$('.userAssignSetup').append(j$(addMenuHeader('User Assignment Setup...','80px')));
+       j$('.userAssignSetup .quickleasemenu').append(addMenuItemWithLink('userBranchAssignment','userBranchMru','','Assign User To Company'));
+       j$('.userAssignSetup .quickleasemenu').append(addMenuItemWithLink('changeBranch','changeBranchMru','','Change Company'));
+
+       j$('.batchJobs').append(j$(addMenuHeader('Data Management...','60px')));
+       j$('.batchJobs .quickleasemenu').append(addMenuItemWithLink('runDiagnostics','runDiagnosticMru','','Run Diagnostics'));
+
+       j$('.companyManagement').append(j$(addMenuHeader('Company Management...','110px')));
+       j$('.companyManagement .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Office_Type__c.New)}','branchTypeMru','','New Company Type'));
+       j$('.companyManagement .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Branch_Location__c.New)}','branchLocationMru','','New Location'));
+       j$('.companyManagement .quickleasemenu').append(addMenuItemWithLink('{!URLFOR($Action.Office_Name__c.New)}','branchMru','','New Company'));
+       j$('.companyManagement .quickleasemenu').append(addMenuItemWithLink('{!URLFOR("branchManagement")}','viewBranchMru','','View/Edit Companies'));
+       j$('.companyManagement .quickleasemenu').append(addMenuItemWithLink('fiscalYearSetup','fiscalMru','','Fiscal Year setup'));
+       j$('.companyManagement .quickleasemenu').append(addMenuItemWithLink('bank','bankInformationMru','','Bank Information'));
+
+       j$('.mainMenu').live('mouseenter', function() {
+       j$('.subMenu').hide();
+       j$(this).next('.subMenu').show();
+       });
+
+       j$(document).mouseup(function (e) {
+            var container = j$(".navMenu #createNewMenu");
+            if (container.has(e.target).length === 0) {
+                j$('.subMenu').hide();
+            }
+       });
+
+    });
+
+</script>
+    <style>
+</style>
+    <apex:form id="setupForm">
+        <div style="min-width: 800px">
+            <div style="float: left; ! important; width: 50%;">
+                <div class="mfiflexBlock" style="width: 100%; height: 250px;">
+                    <div class="mfiflexBlockHeading" id="bottomWrapper">
+                        <h1 class="heading">Product</h1>
+                    </div>
+                    <div style="text-align: center; margin-top: 40px">
+                        <div class="collapsible sidebar productManagement" id="sidebarDiv"
+                            style="display: inline-block;margin: auto;padding-right: 40px;"></div>
+                        <div class="collapsible sidebar feeSetup" id="sidebarDiv"
+                            style="display: inline-block;margin: auto; position: relative;"></div> 
+                    </div>
+                </div>
+                
+                <div class="mfiflexBlock" style="width: 100%; height: 250px;">
+                     <div class="mfiflexBlockHeading" id="bottomWrapper">
+                        <h1 class="heading">Misc.</h1>
+                    </div>
+                    <div style="text-align: center; margin-top: 40px">
+                    	<div class="collapsible sidebar manageActivities" id="sidebarDiv"
+                        	style="display: inline-block;margin: auto;padding-right: 40px;"></div>
+                    </div>
+                </div>                
+            </div>
+            
+            <div class="mfiflexBlock" style="height: 512px; float: left; width: 46%;margin-left:13px">
+                <div class="mfiflexBlockHeading" id="bottomWrapper">
+                    <h1 class="heading">User And Data</h1>
+                </div>
+                <div style="text-align: center; margin-top: 40px">
+                    <div class="collapsible sidebar userAssignSetup" id="sidebarDiv"
+                    	style="display: inline-block; margin: auto;"></div><br/>
+                    <div class="collapsible sidebar batchJobs" id="sidebarDiv"
+                        style="display: inline-block; margin: auto;"></div><br/>
+                    <div class="collapsible sidebar companyManagement" id="sidebarDiv"
+                        style="display: inline-block; margin: auto;"></div>
+                </div>
+            </div>
+            
+        </div>
+    </apex:form>
+</apex:page>

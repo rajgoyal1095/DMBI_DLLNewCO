@@ -1,0 +1,177 @@
+<apex:page id="leaseRegularPaymentPage"
+           standardController="cllease__Lease_Payment_Transaction__c"
+           extensions="cllease.LeaseRegularPaymentTxnController"
+           sidebar="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}"
+           title="Record A New Payment" docType="html-5.0" >
+
+    <apex:include pageName="clcommon__mintTheme"/>
+    <apex:sectionHeader title="Record a payment" id="leasePaymentSection" />
+
+    <apex:form id="frmMain">
+        <apex:pageBlock mode="edit" id="createLeasePaymentTxn">
+            <apex:pageMessages />
+            <apex:pageBlockButtons id="blkButtons" location="both">
+                <apex:actionStatus onstart="disableButtons()" id="validateStatus" />
+                <c:BusyButton name="Validate" busyname="Validating..."
+                              actionTo="{!validate}" reRenderTo="createLeasePaymentTxn"
+                              disabled="{!(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}"/>
+                <c:BusyButton name="Save" busyName="Saving" actionTo="{!save}"
+                              id="sBtn" reRenderTo="frmMain"
+                              disabled="{!(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}" />
+                <c:BusyButton name="Apply Payment" busyName="Processing" actionTo="{!clearTransaction}"
+                              id="clrBtn" reRenderTo="frmMain" disabled="{!(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}"
+                              rendered="{!AND(NOT($Setup.Transaction_Approval_Config__c.Auto_Clear_Payment__c),cllease__Lease_Payment_Transaction__c.Id != NULL)}"/>
+                <c:BusyButton name="Reject Payment" busyName="Processing" actionTo="{!rejectTransaction}"
+                              id="rejectBtn" reRenderTo="frmMain" disabled="{!(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}" rendered="{!AND(NOT($Setup.Transaction_Approval_Config__c.Auto_Clear_Payment__c),cllease__Lease_Payment_Transaction__c.Id != NULL)}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Payment Transaction" columns="2" id="transaction">
+                <apex:inputField id="contractId" value="{!cllease__Lease_Payment_Transaction__c.cllease__Contract__c}" >
+                    <apex:actionSupport event="onchange" action="{!restore}" reRender="contractId" />
+                </apex:inputField>
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Manual_Payment__c}"
+                                 label="Spread Manually"
+                                 rendered="{!AND(NOT(Lease_Payment_Transaction__c.Manual_Payment__c),
+                                         NOT(OR(paymentByInvoice, paymentByCharge)),
+                                         NOT(OR(Lease_Payment_Transaction__c.Cleared__c, Lease_Payment_Transaction__c.Rejected__c)))}">
+                    <apex:actionSupport action="{!setManualPaymentMode}"
+                                        rerender="spreadId,createLeasePaymentTxn,transaction" event="onchange" />
+                </apex:inputField>
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Transaction_Date__c}"
+                                 required="true"
+                                 rendered="{!NOT(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}" />
+                <apex:inputCheckbox value="{!paymentByInvoice}" label="Payment By Invoice"
+                                    rendered="{!NOT(OR(paymentByCharge, cllease__Lease_Payment_Transaction__c.cllease__Manual_Payment__c))}" >
+                    <apex:actionSupport rerender="spreadId, transaction" event="onchange" />
+                </apex:inputCheckbox>
+                <!-- This is a dummy field to align payment by invoice and payment by charge -->
+                <apex:pageBlockSectionItem > <!-- empty selectItem--> </apex:pageBlockSectionItem>
+                <apex:inputCheckbox value="{!paymentByCharge}" label="Payment By Charge"
+                                    rendered="{!NOT(OR(paymentByInvoice, cllease__Lease_Payment_Transaction__c.cllease__Manual_Payment__c))}" >
+                    <apex:actionSupport rerender="spreadId, transaction" event="onchange" />
+                </apex:inputCheckbox>
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Early_Total_Repayment_of_the_Lease__c}"
+                                  rendered="{!cllease__Lease_Payment_Transaction__c.cllease__Early_Total_Repayment_of_the_Lease__c}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Spread" columns="1" id="spreadId">
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Payment_Mode__c}"
+                                 required="true"
+                                 rendered="{!NOT(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}" >
+                    <apex:actionSupport status="loadExcess" action="{!populateTransactionAmount}" event="onchange"  rerender="spreadId" />
+                    <apex:actionSupport action="{!renderInvoiceCredit}" event="onchange"  rerender="spreadId" />                  
+                    <apex:actionStatus id="loadExcess">
+                        <apex:facet name="start">
+                            <apex:image value="/img/loading32.gif" style="height:15px;" />
+                        </apex:facet>
+                    </apex:actionStatus>
+                </apex:inputField>
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Payment_Mode__c}"
+                                  rendered="{!(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}" />
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Invoice_Credit__c}"
+                                 rendered="{!(AND(invoiceCreditOptionSelected, NOT(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))))}" >
+                    <apex:actionSupport action="{!renderCreditBalance}" event="onchange"  rerender="spreadId" />  
+                </apex:inputField>
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Invoice_Credit__c}"
+                                 rendered="{!(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}" />
+                
+                 <apex:pageBlockSectionItem rendered="{!invoiceCreditSelected}">
+                    <apex:outputLabel >Credit Balance </apex:outputLabel>
+                    <apex:outputField value="{!invoiceCreditUsed.cllease__Credit_Balance__c}">                                  
+                    </apex:outputField>
+                 </apex:pageBlockSectionItem>
+                
+                
+                
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Cheque_Number__c}"
+                                 rendered="{!NOT(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}" />
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Cheque_Number__c}"
+                                  rendered="{!(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Rejected__c))}" />
+                                  
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Receivable_Billed__c}"
+                                 required="true"
+                                 rendered="{!(AND(Lease_Payment_Transaction__c.Manual_Payment__c,
+                                         NOT(OR(Lease_Payment_Transaction__c.Cleared__c, Lease_Payment_Transaction__c.Rejected__c))))}" >
+                    <apex:actionSupport action="{!updateTransactionAmount}" event="onchange" rerender="spreadId"/>
+                </apex:inputField>
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Receivable_Billed__c}"
+                                  rendered="{!AND(Lease_Payment_Transaction__c.Manual_Payment__c, OR(NOT(Lease_Payment_Transaction__c.Manual_Payment__c),
+                                          OR(Lease_Payment_Transaction__c.Cleared__c, Lease_Payment_Transaction__c.Rejected__c)))}" />
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Tax_Billed__c}"
+                                 required="true"
+                                 rendered="{!(AND(Lease_Payment_Transaction__c.Manual_Payment__c,
+                                         NOT(OR(Lease_Payment_Transaction__c.Cleared__c, Lease_Payment_Transaction__c.Rejected__c))))}"
+                >
+                    <apex:actionSupport action="{!updateTransactionAmount}" event="onchange" rerender="spreadId"/>
+                </apex:inputField>
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Tax_Billed__c}"
+                                  rendered="{!AND(Lease_Payment_Transaction__c.Manual_Payment__c, OR(NOT(Lease_Payment_Transaction__c.Manual_Payment__c),
+                                          OR(Lease_Payment_Transaction__c.Cleared__c, Lease_Payment_Transaction__c.Rejected__c)))}" />
+                <apex:pageblockSectionItem rendered="{!(AND(Lease_Payment_Transaction__c.Manual_Payment__c,
+                        NOT(OR(Lease_Payment_Transaction__c.Cleared__c, Lease_Payment_Transaction__c.Rejected__c))))}">
+
+                    <apex:outputlabel >Fees</apex:outputlabel>
+                    <apex:outputPanel >
+                        <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Fees__c}"
+                                         required="true"
+                                         rendered="{!(AND(Lease_Payment_Transaction__c.Manual_Payment__c,
+                                         NOT(OR(Lease_Payment_Transaction__c.Cleared__c, Lease_Payment_Transaction__c.Rejected__c))))}"
+                        >
+
+                            <apex:actionSupport action="{!updateTransactionAmount}" event="onchange" rerender="spreadId"/>
+                        </apex:inputField>
+                        <a href="#" class="hlinkPopup" popup="selectFee"><img
+                                src="/img/arrowRight.gif" /></a>
+                        <div id="selectFee" class="contextualActionContent"
+                             style="display: none">
+                            <apex:pageBlock mode="maindetail">
+                                <apex:inlineEditSupport disabled="true" />
+                                <apex:pageblockTable var="c" value="{!leaseAccount.Charges__r}">
+                                    <apex:column headerValue="Charge" value="{!c.Name}" />
+                                    <apex:column headerValue="Date" value="{!c.cllease__Date__c}" />
+                                    <apex:column headerValue="Type"
+                                                 value="{!c.Fee_Definition__r.clcommon__Type__c}" />
+                                    <apex:column headerValue="Total Due Amount"
+                                                 value="{!c.cllease__Total_Due_Amount__c}" />
+                                </apex:pageblockTable>
+                            </apex:pageBlock>
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Transaction_Amount__c}"
+                                  rendered="{!OR(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c), excessSelected)}" />
+
+
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Receivable_Billed__c}"
+                                  rendered="{!OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c)}" />
+
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Tax_Billed__c}"
+                                  rendered="{!OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c)}" />
+                <!-- <apex:outputField value="{!Lease_Payment_Transaction__c.Tax_Upfront__c}"
+                    rendered="{!OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c)}" />-->
+
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Fees__c}"
+                                  rendered="{!OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c)}" />
+
+
+                <apex:outputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Excess__c}"
+                                  rendered="{!OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c)}" />
+
+                <!--<apex:inputField value="{!Lease_Payment_Transaction__c.Account__c}" rendered="{!paymentByInvoice}"/>-->
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Bill__c}" rendered="{!paymentByInvoice}" />
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Charge__c}" rendered="{!paymentByCharge}" />
+
+                <apex:inputField value="{!cllease__Lease_Payment_Transaction__c.cllease__Transaction_Amount__c}"
+                                 required="true"
+                                 rendered="{!NOT(OR(OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c), excessSelected))}" />
+
+
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:relatedList list="Lease_Payment_Details__r"
+                      rendered="{!OR(cllease__Lease_Payment_Transaction__c.cllease__Cleared__c, cllease__Lease_Payment_Transaction__c.cllease__Reversed__c)}" />
+    <apex:relatedList list="Repayment_Transaction_Adjustment__r"/>
+</apex:page>

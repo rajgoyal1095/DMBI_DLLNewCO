@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fee Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Capitalize__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Capitalize</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Equipment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract Equipment</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Contract__c</field>
+                <operation>equals</operation>
+                <valueField>Contract_Equipment__c.Contract__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contract_Equipment__c</referenceTo>
+        <relationshipLabel>Fee Schedule</relationshipLabel>
+        <relationshipName>Fee_Schedule</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipLabel>Contract Fees</relationshipLabel>
+        <relationshipName>Contract_Fees</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Due_Day__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Due Day</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expense_Fee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract Fee</label>
+        <referenceTo>Expense_Fees__c</referenceTo>
+        <relationshipLabel>Fee Schedule (Contract Fee)</relationshipLabel>
+        <relationshipName>Fee_Schedule</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Definition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fee</label>
+        <referenceTo>clcommon__Fee_Definition__c</referenceTo>
+        <relationshipLabel>Contract Fees</relationshipLabel>
+        <relationshipName>Contract_Fees</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Fee Type value will be assigned from dynamic picklist values from contractFeesController. Need to update the picklist list values as Fee object&apos;s type of charge.</description>
+        <externalId>false</externalId>
+        <label>Fee Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SECURITY DEPOSIT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LATE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MAINTENANCE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAY-OFF FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NSF FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WIRE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PERIODIC FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OTHER FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AMORTIZED FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DOCUMENTATION FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>INTERIM RENT</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Fee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Please use Fee Definition field that references Fee Definition from CL Common.</inlineHelpText>
+        <label>Fee Deprecated</label>
+        <referenceTo>Fee__c</referenceTo>
+        <relationshipLabel>Contract Fees</relationshipLabel>
+        <relationshipName>Contract_Fees</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Frequency</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI-WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MONTHLY</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>QUARTERLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LeaseApplicationNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; &amp;Contract__c, Contract__r.Name+&quot;-&quot;+ Contract__r.application_number__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LeaseApplicationNumber</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Periods__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of Periods</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Includes fee amount and tax together.</description>
+        <externalId>false</externalId>
+        <label>Total Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>VAT__c</fullName>
+        <deprecated>false</deprecated>
+        <description>For inclusive VAT</description>
+        <externalId>false</externalId>
+        <label>Tax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>net_termination_quote__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field is only valid when fee type is &quot;SECURITY DEPOSIT&quot;</description>
+        <externalId>false</externalId>
+        <label>net termination quote</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>one_time__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>contract fee applies as one time per contract if this field is true, or contract fee will be applied on term frequency.</description>
+        <externalId>false</externalId>
+        <label>one time</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>start_date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Fee Schedule</label>
+    <nameField>
+        <displayFormat>CFI-{00000000}</displayFormat>
+        <label>Contract Fees Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Fee Schedule</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

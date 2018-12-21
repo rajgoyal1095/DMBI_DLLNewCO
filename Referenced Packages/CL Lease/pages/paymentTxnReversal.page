@@ -1,0 +1,61 @@
+<apex:page id="leaseRegularPaymentReversalPage"
+    standardController="cllease__Repayment_Transaction_Adjustment__c"
+    extensions="cllease.LeasePaymentReversalTxnController"
+    sidebar="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}"
+    title="Record A New Payment">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:stylesheet value="{!IF($CurrentPage.Parameters.modal == 'true', $Resource.cllease__modalheaderStyle,'')}" />
+    <script src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script type="text/javascript" src="{!URLFOR($Resource.MFICustomWidgets, 'js/MFIWidgets.js')}"></script>
+    <link rel="stylesheet" href="{!URLFOR($Resource.MFICustomWidgets, 'css/MFIWidgets.css')}" type="text/css"></link>
+    <script src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script src="{!URLFOR($Resource.helperclose)}" />
+
+    <script>
+        j$ = jQuery.noConflict();
+        function setFocusOnLoad() {}
+    </script>
+    <apex:sectionHeader title="New Payment Transaction Reversal" id="leasePaymentRevSection" />
+
+    <apex:form id="frmMain">
+        <apex:pageBlock mode="edit" id="createLeasePaymentTxnReversal">
+            <apex:inlineEditSupport disabled="{!(OR(cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c))}" />
+            <apex:pageMessages />
+            <apex:pageBlockButtons id="blkButtons" location="both">
+                <apex:actionStatus onstart="disableButtons()" id="validateStatus" />
+                <c:BusyButton name="Save" busyName="Saving" actionTo="{!save}"
+                    id="sBtn" reRenderTo="frmMain"
+                    oncomplete="({!closeModal}===true) ? closeIframe('{!cllease__Repayment_Transaction_Adjustment__c.cllease__Lease_Payment_Transaction__c}') : {};"
+                    disabled="{!(OR(cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c))}" />
+                <c:BusyButton name="Clear Payment" busyName="Processing" actionTo="{!clearTransaction}"
+                    id="clrBtn" reRenderTo="frmMain" disabled="{!(OR(cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c))}"
+                    rendered="{!AND(NOT($Setup.Transaction_Approval_Config__c.Auto_Clear_Payment_Reversal__c),cllease__Repayment_Transaction_Adjustment__c.Id != NULL)}"
+                    oncomplete="({!closeModal}===true) ? closeIframe('{!cllease__Repayment_Transaction_Adjustment__c.cllease__Lease_Payment_Transaction__c}') : {};"/>    
+                <apex:commandButton value="Cancel" action="{!cancel}" onclick="closeIframe()" id="cBtn" />
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection title="Payment Transaction Reversal" columns="2"> 
+                    <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.Id}" />
+                    <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c}" />
+                </apex:pageBlockSection>
+            <apex:pageBlockSection title="Payment Transaction Reversal Details" columns="2"> 
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Lease_Payment_Transaction__c}" />
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__LS_Contract__c}" />
+                <apex:inputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Reason_Code__c}" rendered="{!NOT(cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c)}"/>
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Adjusted_Amount__c}" />
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Reason_Code__c}" rendered="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c}" />
+                <apex:inputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Adjustment_Txn_Date__c}" rendered="{!NOT(cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c)}"/>
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Adjustment_Txn_Date__c}" rendered="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c}" /> 
+                <apex:inputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Reference__c}" rendered="{!NOT(cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c)}"/>
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Reference__c}" rendered="{!cllease__Repayment_Transaction_Adjustment__c.cllease__Cleared__c}" /> 
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="GL Accounting details" columns="2"> 
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__GL_Posted_Flag__c}" />
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__GL_Process_Date__c}" />                
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__GL_Processing_Message__c}" />
+                <apex:outputField value="{!cllease__Repayment_Transaction_Adjustment__c.cllease__GL_Transaction_Flag__c}" />                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:relatedList list="GL_Accounting_Entries__r"/>
+</apex:page>

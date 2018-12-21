@@ -1,0 +1,97 @@
+<apex:page id="contractFees" standardController="cllease__Lease_Account__c" extensions="cllease.ContractFeesController" tabStyle="cllease__Lease_Account__c">
+<apex:include pageName="clcommon__mintTheme"/>
+
+
+    <!--<apex:form >
+        <apex:pageBlock mode="maindetail">
+            <apex:pageMessages id="pageMessageId"/>
+            <apex:pageBlockButtons rendered="{!(contract.Active_flag__c == false)}" location="Top">
+                <apex:commandButton value="Validate" action="{!validate}" rendered="{!AND(showInEditMode,contract.Active_flag__c == false)}"/>
+                <apex:commandButton value="Save" action="{!save}" rendered="{!AND(showInEditMode,contract.Active_flag__c == false)}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" rendered="{!AND(showInEditMode,contract.Active_flag__c == false)}"/>
+                <apex:commandButton value="Edit" action="{!showFormInEditMode}" rendered="{!AND(NOT(showInEditMode),contract.Active_flag__c == false)}"/>
+            </apex:pageBlockButtons>
+            
+           <apex:outputPanel id="contractFeePanelNotEdit" rendered="{!AND(NOT(showInEditMode),contract.Active_flag__c == false)}">
+                <apex:pageblockTable id="defContractFeesTable1" value="{!contractFeesList}"  var="confees" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                    <apex:variable var="rowNumber" value="{!-1}" />
+                    <apex:column headerValue="Fee">
+                        <apex:outputField value="{!confees.Fee_Definition__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Fee Type">
+                        <apex:outputField value="{!confees.Fee_Type__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Capitalize">
+                        <apex:outputField value="{!confees.Capitalize__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Payment Amount" >
+                        <apex:outputField value="{!confees.Amount__c}"  />
+                    </apex:column> 
+                    <apex:column headerValue="No of Payments" >
+                        <apex:outputField value="{!confees.Number_of_Periods__c}"  />
+                    </apex:column> 
+                    <apex:column headerValue="Start date" >
+                        <apex:outputField value="{!confees.start_date__c}"  />
+                    </apex:column>
+                    </apex:pageblockTable>           
+            </apex:outputPanel>
+           <apex:outputPanel id="contractFeePanel" rendered="{!AND(showInEditMode,contract.Active_flag__c == false)}">
+                <apex:pageblockTable id="defContractFeesTable2" value="{!contractFeesList}"  var="confees" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                    <apex:variable var="rowNumber" value="{!-1}" />
+                    <apex:column headerValue="Fee">
+                        <apex:selectList value="{!confees.Fee_Definition__c}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!FeeTypeList}"/>
+                            <apex:actionSupport event="onchange" reRender="defContractFeesTable2" />
+                        </apex:selectList>
+                    </apex:column>
+                    <apex:column headerValue="Payment Amount" >
+                        <apex:inputField value="{!confees.Amount__c}" required="False" />
+                    </apex:column>
+                    <apex:column headerValue="No of Payments" >
+                        <apex:inputField value="{!confees.Number_of_Periods__c}" required="False" />
+                    </apex:column>
+                    <apex:column headerValue="Start Date" >
+                        <apex:inputField value="{!confees.start_date__c}" required="False"/>
+                    </apex:column>
+                    <apex:column >
+                      <apex:commandButton title="Remove Row" value="Remove" image="{!URLFOR($Resource.Delete_Button_Red)}" action="{!deleteRow}" reRender="contractFeePanel,contractFeePanel,pageMessageId" >
+                          <apex:param name="removeRec" value="{!rowNumber}" assignTo="{!numberOfRowClicked}"/>
+                      </apex:commandButton>
+                    </apex:column>
+                    <apex:column >
+                        <apex:variable var="rowNumber" value="{!rowNumber+1}" />
+                    </apex:column>
+                </apex:pageblockTable>
+                <apex:panelGrid columns="1" id="addAnotherRow">
+                    <apex:commandButton title="Add Another Row" value="Add Another Row" image="{!URLFOR($Resource.Add_Button_Green)}" action="{!addRow}" reRender="contractFeePanel,contractFeePanel,pageMessageId"/>
+                </apex:panelGrid>
+            
+            </apex:outputPanel>                        
+
+            <apex:outputPanel id="contractFeePanelReadOnly" rendered="{!(contract.Active_flag__c)}" >
+                <apex:pageblockTable id="defContractFeesTable3" value="{!contractFeesList}"  var="confees" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                    <apex:variable var="rowNumber" value="{!-1}" />
+                    <apex:column headerValue="Fee">
+                        <apex:outputField value="{!confees.Fee_Definition__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Fee Type">
+                        <apex:outputField value="{!confees.Fee_Type__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Capitalize">
+                        <apex:outputField value="{!confees.Capitalize__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Payment Amount" >
+                        <apex:outputField value="{!confees.Amount__c}"  />
+                    </apex:column>
+                    <apex:column headerValue="No of Payments" >
+                        <apex:outputField value="{!confees.Number_of_Periods__c}"  />
+                    </apex:column>
+                    <apex:column headerValue="Start Date" >
+                        <apex:outputField value="{!confees.start_date__c}"  />
+                    </apex:column>
+            </apex:pageblockTable>
+            </apex:outputPanel>
+        
+        </apex:pageBlock>
+    </apex:form>-->
+</apex:page>

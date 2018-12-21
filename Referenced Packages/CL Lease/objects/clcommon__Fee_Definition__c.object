@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <validationRules>
+        <fullName>Check_Passthrough_inputs</fullName>
+        <active>true</active>
+        <description>Passthrough Event, Withhold basis and Withhold Values are mandatory in case of Type is Passthrough.</description>
+        <errorConditionFormula>IF(AND(
+                                        INCLUDES(clcommon__Fee_Type__c, &quot;Passthrough&quot;), 
+                                        OR(  
+                                            ISPICKVAL(clcommon__Passthrough_Event__c, &quot;&quot;),
+                                            ISPICKVAL(clcommon__Withhold_Basis__c, &quot;&quot;),
+                                            ISBLANK(clcommon__Withhold_Value__c)
+                                        )
+                                    ),
+                                    true, 
+                                    false)</errorConditionFormula>
+        <errorMessage>Passthrough Event , Withhold Basis and Withhold Value are mandatory for Passthrough Setup.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Class_cannot_be_empty</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(ISBLANK(TEXT(clcommon__Class__c)),  ISNULL(TEXT(clcommon__Class__c)))</errorConditionFormula>
+        <errorMessage>Please specify the class for the fee.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Income_Fee_Validation</fullName>
+        <active>true</active>
+        <description>Only income fees can be of type Evergreen or Passthrough.</description>
+        <errorConditionFormula>AND(TEXT(clcommon__Class__c) == &apos;Expense&apos;,   OR(INCLUDES( clcommon__Fee_Type__c , &apos;Evergreen&apos;), INCLUDES( clcommon__Fee_Type__c , &apos;Passthrough&apos;)))</errorConditionFormula>
+        <errorMessage>Expense fee cannot be of Evergreen or Passthrough type.</errorMessage>
+    </validationRules>
+</CustomObject>

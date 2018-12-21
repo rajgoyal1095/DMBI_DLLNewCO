@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Skip_ACH_Processing_Job__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the ACH Processing Job
+true: skip the ACH Processing Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the ACH Processing Job
+true: skip the ACH Processing Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>(Deprecated) Skip ACH Processing Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Allocate_Excess_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Allocate Excess Job
+true: skip the Allocate Excess Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Allocate Excess Job
+true: skip the Allocate Excess Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Allocate Excess Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Apply_Tax_Rates_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Skip Apply Tax Rates Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Credit_ACH_Processing_Job__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Credit ACH Processing Job
+true: skip the Credit ACH Processing Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This job is to Skip the Credit ACH Processing Job
+true: skip the Credit ACH Processing Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Credit ACH Processing Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Dealer_Funding_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Dealer Funding Job
+true: skip the Dealer Funding Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This job is to Skip the Dealer Funding Job
+true: skip the Dealer Funding Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Dealer Funding Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Delinquency_Processing_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Delinquency Processing Job
+true: skip the Delinquency Processing Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Delinquency Processing Job
+true: skip the Delinquency Processing Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Delinquency Processing Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Evergreen_Processing_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the  Evergreen Processing Job
+true: skip the  Evergreen Processing Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This job is to Skip the  Evergreen Processing Job
+true: skip the  Evergreen Processing Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Evergreen Processing Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Fee_Tax_Rate_Collector_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the  Fee Tax Rates for Avalara Job
+true: skip the Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This job is to Skip the  Fee Tax Rates for Avalara Job
+true: skip the Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Fee Tax Rate Collector Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Fetch_Tax_Rates_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Skip Fetch Tax Rates Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Generate_GL_Entries_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Generate GL Entries Job
+true: skip the Generate GL Entries Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Generate GL Entries Job
+true: skip the Generate GL Entries Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Generate GL Entries Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Generate_GL_Reversal_Entries_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Generate GL Reversal Entries Job
+true: skip the Generate GL Reversal Entries Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Generate GL Reversal Entries Job
+true: skip the Generate GL Reversal Entries Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Generate GL Reversal Entries Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Installation_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Skip Installation Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Late_Charges_Generate_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Late Charges Generate Job
+true: skip the Late Charges Generate Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option to Skip the Late Charges Generate Job
+true: skip the Late Charges Generate Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Late Charges Generate Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Accrual_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Lease Accrual Job
+true: skip the Lease Accrual Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Lease Accrual Job
+true: skip the Lease Accrual Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Lease Accrual Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Billing_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Lease Billing Job
+true: skip the Lease Billing Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Lease Billing Job
+true: skip the Lease Billing Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Lease Billing Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Diagnostics_Job__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This option provided to skip the Lease Diagnostics job
+True: Skip the job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>option provided to skip the Lease Diagnostics job
+True: Skip the job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Lease Diagnostics Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Disbursement_Txn_ACH_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Skip Lease Disbursement Txn ACH Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Evergreen_Billing_Job__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Lease Evergreen Billing Job
+true: skip the Lease Evergreen Billing Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This job is to Skip the Lease Evergreen Billing Job
+true: skip the Lease Evergreen Billing Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>(Deprecated)Skip Lease Evergreen Bil...</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Maturity_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Lease Maturity Job
+true: skip the Lease maturity job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This job is to Skip the Lease Maturity Job
+true: skip the Lease maturity job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Lease Maturity Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Payment_Txn_ACH_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Skip Lease Payment Txn ACH Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Payment_Txn_Clearing_Job__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Lease Payment Txn Clearing Job
+true: skip the Lease Payment Txn Clearing Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Lease Payment Txn Clearing Job
+true: skip the Lease Payment Txn Clearing Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Lease Payment Txn Clearing Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Payment_Txn_Generator_Job__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Lease Payment Txn Generator Job
+true: skip the Lease Payment Txn Generator Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Lease Payment Txn Generator Job
+true: skip the Lease Payment Txn Generator Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Lease Payment Txn Generator Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Lease_Payment_Txn_Sweep_To_ACH_Job__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Lease Payment Txn Sweep To ACH Job
+true: skip the Lease Payment Txn Sweep To ACH Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Lease Payment Txn Sweep To ACH Job
+true: skip the Lease Payment Txn Sweep To ACH Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>(Deprecated)Skip Lease Payment Txn Swe..</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Passthrough_Disbursement_Gen_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Passthrough Disbursement Generator Job
+true: skip the job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Passthrough Disbursement Generator Job
+true: skip the  Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Passthrough Disbursement Gen Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Skip_Periodic_Charge_Job__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This job is to Skip the Periodic Charge Job
+true: skip the Periodic Charge Job
+false: don&apos;t skip job</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Option is to Skip the Periodic Charge Job
+true: skip the Periodic Charge Job
+false: don&apos;t skip job</inlineHelpText>
+        <label>Skip Periodic Charge Job</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Batch Jobs Setting</label>
+    <visibility>Public</visibility>
+</CustomObject>

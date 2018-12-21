@@ -1,0 +1,112 @@
+<apex:page controller="cllease.UpdateInstallationOrSaleController" extensions="cllease.InstallationCtrl,cllease.SaleOfContractController">
+<apex:include pageName="clcommon__mintTheme"/>
+     <apex:form >
+     	<!-- <apex:pageBlock>
+            <apex:pageMessages />
+     		
+     	</apex:pageBlock> -->
+     	<apex:pageBlock id="saleOfContractPageBlock">
+            <apex:pageMessages />
+            <apex:outputpanel id="contractSaleAndInstallation">
+                <apex:pageBlockSection columns="2" id="contractSaleInstallation" title="Contract Sale and Installtion"> 
+			        <apex:selectRadio value="{!selected}">
+			            <apex:selectOptions value="{!items}"/>
+			            <apex:actionSupport action="{!setSelected}" event="onchange" rerender="saleOfContractPageBlock"/>
+			        </apex:selectRadio><p/>
+			    </apex:pageBlockSection>
+			</apex:outputpanel>
+
+			<!-- Save Action of Installtion  -->
+			<apex:pageBlockButtons rendered="{!isInstallation}" location="bottom">
+           			<apex:commandButton value="Save" action="{!updateInstallDate}"/>
+  			</apex:pageBlockButtons>
+
+  			<!-- Sale button -->
+  			 <apex:pageBlockButtons id="buttonSection" rendered="{!isSaleContract}" location="bottom">
+                 <apex:commandButton value="Sale" action="{!saleContract}" disabled="{!IF(leaseAccount == null,true,false)}"/>
+            </apex:pageBlockButtons>
+
+
+
+	     	<!-- Installtion Part  -->
+            <apex:outputPanel id="InstallationOutputPanel" rendered="{!isInstallation}" title="Installation">
+	     		<apex:pageBlockSection columns="2" title="Contract Details">
+	           		<apex:inputField id="contract" value="{!assetWorkbench1.cllease__Contract__c}">
+	           			<apex:actionSupport event="onchange" rerender="saleOfContractPageBlock" />
+	           		</apex:inputField>
+                   	<apex:inputField label="Install Date" value="{!assetWorkbench1.cllease__Date_Returned__c}"/><br/> 
+  				</apex:pageBlockSection>
+	     	</apex:outputPanel>
+
+            <!-- Contract Sale  -->
+	     	<apex:outputPanel id="IContractSaleOutputPanel" rendered="{!isSaleContract}" >
+	     		<apex:pageBlockSection title="Contract" columns="1">
+	                <apex:inputField id="contract" value="{!assetWorkbench.cllease__Contract__c} ">
+	                    <apex:actionSupport action="{!setRendering}" event="onchange" rerender="contactInfo,contractSaleInfo,paymentAndTaxInfo,saleOfContractPageBlock"/>
+	                </apex:inputField>
+            	</apex:pageBlockSection>
+	            <apex:outputpanel id="contactInfo" rendered="{!renderContract}">
+	                <apex:pageBlockSection columns="2" title="Contract Details" rendered="{!renderContract}">
+	                    <apex:outputField value="{!leaseAccount.name}"/>
+	                    <apex:outputField value="{!leaseAccount.cllease__Financed_Amount__c}"/>
+	                    <apex:outputField value="{!leaseAccount.cllease__First_Payment_Date__c}"/>
+	                    <apex:outputField value="{!leaseAccount.cllease__Residual_Amount__c}"/>
+	                    <apex:outputField value="{!leaseAccount.cllease__Maturity_Date__c}"/>
+	                    <apex:outputField value="{!leaseAccount.cllease__Term__c}"/>
+	                    <apex:outputField value="{!leaseAccount.cllease__Yield__c}"/>
+	                    <apex:outputField value="{!leaseAccount.cllease__Account__c}"/>
+	                </apex:pageBlockSection>
+	                <!--LS Contract's Payment schedyle read only mode display-->
+	                <apex:pageBlockTable value="{!leaseAccount.Payment_Schedule__r}" var="pmtSch" rendered="{!renderContract}">
+	                    <apex:column headerValue="Sequence">
+	                        <apex:outputField value="{!pmtSch.cllease__Sequence__c}" />
+	                    </apex:column>
+	                    <apex:column headerValue="No of Payments">
+	                        <apex:outputField value="{!pmtSch.cllease__Number_Of_Payments__c}" style="width:70px" />
+	                    </apex:column>
+	                    <apex:column headerValue="Frequency">
+	                        <apex:outputField value="{!pmtSch.cllease__Frequency__c}" />
+	                    </apex:column>
+	                    <apex:column headerValue="Payment Amount">
+	                        <apex:outputField value="{!pmtSch.cllease__Total_Payment__c}" style="width:70px" />
+	                    </apex:column>
+	                    <apex:column headerValue="Tax" rendered="{!IF(AND(leaseAccount.Branch__r.cllease__Tax_Basis__c == 'VAT', leaseAccount.Branch__r.cllease__Tax_Method__c == 'Inclusive'),true, false)}">
+	                        <apex:outputField value="{!pmtSch.cllease__VAT__c}" style="width:70px" />
+	                    </apex:column>
+	                    <apex:column headerValue="Rent" rendered="{!IF(AND(leaseAccount.Branch__r.cllease__Tax_Basis__c == 'VAT', leaseAccount.Branch__r.cllease__Tax_Method__c == 'Inclusive'),true, false)}">
+	                        <apex:outputField value="{!pmtSch.cllease__Payment_Amount__c}" style="width:70px" />
+	                    </apex:column>
+	                    <apex:column headerValue="Start Date">
+	                        <apex:outputField value="{!pmtSch.cllease__Payment_Date__c}" />
+	                    </apex:column>
+	                </apex:pageBlockTable>
+	            </apex:outputpanel>
+	            <apex:outputpanel id="contractSaleInfo" rendered="{!renderContract}">
+	                <apex:pageBlockSection columns="2" id="contractSaleInfoPageBlock" title="Sale Information" rendered="{!renderContract}" > 
+	                    <apex:inputField value="{!funderParty.cllease__Party_Account_Name__c}" label="Funder Name" />  
+	                    <apex:inputField value="{!saleTransaction.cllease__Txn_Date__c}" label="Date of Sale" />
+	                    <apex:inputField value="{!saleTransaction.cllease__Txn_Amt__c}" label="Sale Amount"/>
+	                    <apex:selectList value="{!selecteduserId}" size="1" multiselect="false"  label="Serviced By">
+	                        <apex:selectOptions value="{!ListOfUser}" />
+	                        <apex:actionSupport action="{!setTermination}" event="onchange" rerender="contractSaleInfo"/>
+	                    </apex:selectList>
+	                     <apex:selectList value="{!selectedType}" size="1" multiselect="false"  label="Sale Of">
+	                        <apex:selectOptions value="{!ListOfType}" />
+	                    </apex:selectList>
+	                    <apex:inputCheckbox value="{!terminateContract}" label="Terminate Contract" rendered="{!isInvestor}"/>
+	                </apex:pageBlockSection>
+	            </apex:outputpanel>
+	            <apex:outputpanel id="paymentAndTaxInfo" rendered="{!renderContract}">
+	                <apex:pageBlockSection columns="2" id="paymentAndTaxInfoPageBlock" title=" Processing Options" rendered="{!renderContract}">
+	                   <apex:inputCheckbox value="{!leaseAccount.cllease__Bill_Rent__c}" label="Bill Rent"/>
+	                    <apex:inputCheckbox value="{!leaseAccount.cllease__Accrue_Lease_Income__c}" label="Accrue Lease Income"/>
+	                    <!-- <apex:inputCheckbox value="{!leaseAccount.Process_Fee__c}" label="Process Fee"/> -->
+	                    <apex:inputCheckbox value="{!leaseAccount.cllease__Accrue_Fee__c}" label="Accrue Fee" selected="false"/>
+	                </apex:pageBlockSection>
+	            </apex:outputpanel>
+	     	</apex:outputPanel>
+
+
+	     </apex:pageblock>
+	 </apex:form>
+</apex:page>

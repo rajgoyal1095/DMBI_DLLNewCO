@@ -1,0 +1,240 @@
+<apex:page id="contractFees" standardController="cllease__Lease_Account__c" extensions="cllease.ContractFeesController" tabStyle="cllease__Lease_Account__c"
+        sidebar="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}" >
+    <apex:include pageName="clcommon__mintTheme"/>    
+    <script src="{!URLFOR($Resource.cllease__jQueryFiles, 'js/jquery-1.8.3.min.js')}"/>
+    <script src="{!URLFOR($Resource.cllease__helperclose)}"/>
+    <script> function setFocusOnLoad(){} </script>
+    <script>
+        j$ = jQuery.noConflict();
+    </script>
+    <apex:stylesheet value="{!IF($CurrentPage.Parameters.modal == 'true', $Resource.cllease__modalheaderStyle,'')}"/>
+
+    
+
+    <apex:form id="mainDetailForm">
+        <apex:pageBlock mode="mainDetail">
+            <apex:pageMessages id="pageMessageId"/>
+            <apex:pageBlockButtons rendered="{!(contract.cllease__Active_flag__c == false)}" location="Top">
+                <apex:commandButton value="Validate" reRender="mainDetailForm" action="{!validate}" rendered="{!AND(showInEditMode,contract.cllease__Active_flag__c == false)}"/>
+                <apex:commandButton value="Save" action="{!save}" reRender="mainDetailForm" rendered="{!AND(showInEditMode,contract.cllease__Active_flag__c == false)}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" reRender="mainDetailForm" rendered="{!AND(showInEditMode,contract.cllease__Active_flag__c == false)}"/>
+                <apex:commandButton value="Edit" action="{!showFormInEditMode}" reRender="mainDetailForm" rendered="{!NOT(showInEditMode)}" disabled="{!isDisabled}"/>
+            </apex:pageBlockButtons>
+           <apex:outputPanel id="contractFeePanelNotEdit" rendered="{!NOT(showInEditMode)}">
+                <apex:pageBlock title="Income Fees">
+                    <apex:pageBlockTable id="defContractFeesTable1" value="{!incomeContractFees}"  var="confees" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                        <apex:variable var="rowNumber" value="{!-1}" />
+                        <apex:column headerValue="Fee">
+                            <apex:outputField value="{!confees.cllease__Fee_Definition__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Class">
+                            <apex:outputField value="{!confees.Fee_Definition__r.clcommon__Class__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Type">
+                            <apex:outputField value="{!confees.cllease__Fee_Type__c}" />
+                        </apex:column>                    
+                        <apex:column headerValue="No of Payments">
+                            <apex:outputField value="{!confees.cllease__Number_of_Periods__c}" style="width:70px" />
+                        </apex:column> 
+                        <apex:column headerValue="Frequency" >
+                            <apex:outputField value="{!confees.cllease__Frequency__c}"  style="width:70px"/>
+                        </apex:column> 
+                        <apex:column headerValue="Amount" >
+                            <apex:outputField value="{!confees.cllease__Amount__c}" style="width:70px" />
+                        </apex:column> 
+                        <apex:column headerValue="Tax" rendered="{!IF(AND(contract.Branch__r.cllease__Tax_Basis__c == 'VAT', contract.Branch__r.cllease__Tax_Method__c != null),true, false)}">
+                            <apex:outputField value="{!confees.cllease__VAT__c}" style="width:70px" />
+                        </apex:column>
+                        <apex:column headerValue="Total Amount" rendered="{!IF(AND(contract.Branch__r.cllease__Tax_Basis__c == 'VAT', contract.Branch__r.cllease__Tax_Method__c != null),true, false)}">
+                            <apex:outputField value="{!confees.cllease__Total_Payment_Amount__c}" style="width:70px" />
+                        </apex:column>
+                        <apex:column headerValue="Start date" >
+                            <apex:outputField value="{!confees.cllease__start_date__c}"  />
+                        </apex:column>
+                        <apex:column headerValue="Due Day" >
+                            <apex:outputField value="{!confees.cllease__Due_Day__c}"  />
+						</apex:column>
+						<apex:column headerValue="Equipment" >
+                            <apex:outputField value="{!confees.cllease__Contract_Equipment__c}"/>    
+                        </apex:column>
+                        <apex:column headerValue="Contract Fee">
+                            <apex:outputField value="{!confees.cllease__Expense_Fee__c}" />
+                        </apex:column>
+                    </apex:pageblockTable> 
+                </apex:pageBlock>
+                <apex:pageBlock title="Expense Fees">
+                    <apex:pageBlockTable id="defContractFeesTable1" value="{!expenseContractFees}"  var="confees" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                        <apex:variable var="rowNumber" value="{!-1}" />
+                        <apex:column headerValue="Fee">
+                            <apex:outputField value="{!confees.cllease__Fee_Definition__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Class">
+                            <apex:outputField value="{!confees.Fee_Definition__r.clcommon__Class__c}" />
+                        </apex:column>
+                        <apex:column headerValue="Type">
+                            <apex:outputField value="{!confees.cllease__Fee_Type__c}" />
+                        </apex:column>                    
+                        <apex:column headerValue="No of Payments" >
+                            <apex:outputField value="{!confees.cllease__Number_of_Periods__c}" style="width:70px" />
+                        </apex:column> 
+                        <apex:column headerValue="Frequency" >
+                            <apex:outputField value="{!confees.cllease__Frequency__c}"  style="width:70px"/>
+                        </apex:column> 
+                        <apex:column headerValue="Amount" >
+                            <apex:outputField value="{!confees.cllease__Amount__c}" style="width:70px" />
+                        </apex:column> 
+                        <apex:column headerValue="Tax" rendered="{!IF(AND(contract.Branch__r.cllease__Tax_Basis__c == 'VAT', contract.Branch__r.cllease__Tax_Method__c != null),true, false)}">
+                            <apex:outputField value="{!confees.cllease__VAT__c}" style="width:70px" />
+                        </apex:column>
+                        <apex:column headerValue="Total Amount" rendered="{!IF(AND(contract.Branch__r.cllease__Tax_Basis__c == 'VAT', contract.Branch__r.cllease__Tax_Method__c != null),true, false)}">
+                            <apex:outputField value="{!confees.cllease__Total_Payment_Amount__c}" style="width:70px" />
+                        </apex:column>
+                        <apex:column headerValue="Start date" >
+                            <apex:outputField value="{!confees.cllease__start_date__c}"  />
+                        </apex:column>
+                        <apex:column headerValue="Due Day" >
+                            <apex:outputField value="{!confees.cllease__Due_Day__c}"  />
+                        </apex:column>
+                        <apex:column headerValue="Contract Fee">
+                            <apex:outputField value="{!confees.cllease__Expense_Fee__c}" />
+                        </apex:column>
+                    </apex:pageblockTable> 
+                </apex:pageBlock>
+            </apex:outputPanel>
+        <apex:outputPanel id="contractFeePanel" rendered="{!showInEditMode}">
+            <apex:pageBlock title="Income Fees">
+                <apex:pageblockTable id="defContractFeesTable2" value="{!incomeContractFees}"  var="confees" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                    <apex:variable var="rowNumber" value="{!-1}" />
+                    <apex:column headerValue="Fee">
+                        <apex:selectList value="{!confees.cllease__Expense_Fee__c}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!incomeFeeTypes}"/>
+                            <apex:actionSupport event="onchange" action="{!initializeDefaultForIncomeFee}" reRender="defContractFeesTable2" >
+                                <apex:param name="removeRec" value="{!rowNumber}" assignTo="{!numberOfRowClicked}"/>
+                            </apex:actionSupport>
+                        </apex:selectList>
+                    </apex:column>
+                    <apex:column headerValue="No of Payments" >
+                        <apex:inputField value="{!confees.cllease__Number_of_Periods__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Frequency" >
+                        <apex:inputField value="{!confees.cllease__Frequency__c}" style="width:100px" />
+                    </apex:column>
+                    <apex:column headerValue="Payment Amount" >
+                        <apex:inputField value="{!confees.cllease__Amount__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Start Date" >
+                        <apex:inputField value="{!confees.cllease__start_date__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Due Day" >
+                        <apex:inputField value="{!confees.cllease__Due_Day__c}" style="width:30px" />
+					</apex:column>
+					<apex:column headerValue="Equipment" >
+                        <apex:inputField value="{!confees.cllease__Contract_Equipment__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column >
+                      <apex:commandButton title="Remove Row" 
+                                    value="Remove" 
+                                    image="{!URLFOR($Resource.cllease__Delete_Button_Red)}" 
+                                    action="{!deleteRow}"  accesskey=""
+                                    reRender="contractFeePanel,contractFeePanel,pageMessageId" 
+                                    rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}">
+                          <apex:param name="removeRec" value="{!rowNumber}" assignTo="{!numberOfRowClicked}"/>                          
+                          <apex:param name="type" value="{!INCOME_TYPE}" assignTo="{!typeOfTable}"/>
+                      </apex:commandButton>
+                      <apex:commandButton title="Remove Row" 
+                                    value="Remove" 
+                                    action="{!deleteRow}" 
+                                    reRender="contractFeePanel,contractFeePanel,pageMessageId" 
+                                    rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}">
+                          <apex:param name="removeRec" value="{!rowNumber}" assignTo="{!numberOfRowClicked}"/>
+                      </apex:commandButton>
+                    </apex:column>
+                    <apex:column >
+                        <apex:variable var="rowNumber" value="{!rowNumber+1}" />
+                    </apex:column>                   
+                </apex:pageblockTable>
+                 <apex:panelGrid columns="1" id="addAnotherRow">
+                        <apex:commandButton title="Add Row" 
+                                value="Add Another Row" 
+                                image="{!URLFOR($Resource.cllease__Add_Button_Green)}" 
+                                action="{!addRow}" 
+                                reRender="contractFeePanel,contractFeePanel,pageMessageId"
+                                rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}">                            
+                              <apex:param name="type" value="{!INCOME_TYPE}" assignTo="{!typeOfTable}"/>
+                        </apex:commandButton>
+                        <apex:commandButton title="Add Row" 
+                                value="Add Another Row" 
+                                action="{!addRow}" 
+                                reRender="contractFeePanel,contractFeePanel,pageMessageId"
+                                rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}"/>
+                    </apex:panelGrid>
+            </apex:pageBlock>
+             <apex:pageBlock title="Expense Fees">
+                <apex:pageblockTable id="defContractFeesTable3" value="{!expenseContractFees}"  var="confees" headerClass="fixedHeader" styleClass="scrollableFixedHeader">
+                    <apex:variable var="expenseRowNumber" value="{!-1}" />
+                    <apex:column headerValue="Fee">
+                        <apex:selectList value="{!confees.cllease__Expense_Fee__c}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!expenseFeeTypes}"/>
+                            <apex:actionSupport event="onchange" action="{!initializeDefaultForExpenseFee}" reRender="defContractFeesTable3">
+                                <apex:param name="removeRec" value="{!expenseRowNumber}" assignTo="{!numberOfRowClicked}"/>
+                            </apex:actionSupport>
+                        </apex:selectList>
+                    </apex:column>
+                    <apex:column headerValue="No of Payments" >
+                        <apex:inputField value="{!confees.cllease__Number_of_Periods__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Frequency" >
+                        <apex:inputField value="{!confees.cllease__Frequency__c}" style="width:100px" />
+                    </apex:column>
+                    <apex:column headerValue="Payment Amount" >
+                        <apex:inputField value="{!confees.cllease__Amount__c}" style="width:70px" />
+                    </apex:column>                    
+                    <apex:column headerValue="Start Date" >
+                        <apex:inputField value="{!confees.cllease__start_date__c}" style="width:70px" />
+                    </apex:column>
+                    <apex:column headerValue="Due Day" >
+                        <apex:inputField value="{!confees.cllease__Due_Day__c}" style="width:30px" />
+                    </apex:column>
+                    <apex:column >
+                      <apex:commandButton title="Remove Row" 
+                                    value="Remove" 
+                                    image="{!URLFOR($Resource.cllease__Delete_Button_Red)}" 
+                                    action="{!deleteRow}" 
+                                    reRender="contractFeePanel,contractFeePanel,pageMessageId" 
+                                    rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}">
+                          <apex:param name="removeRec" value="{!expenseRowNumber}" assignTo="{!numberOfRowClicked}"/>
+                          <apex:param name="type" value="{!EXPENSE_TYPE}" assignTo="{!typeOfTable}"/>
+                      </apex:commandButton>
+                      <apex:commandButton title="Remove Row" 
+                                    value="Remove" 
+                                    action="{!deleteRow}" 
+                                    reRender="contractFeePanel,contractFeePanel,pageMessageId" 
+                                    rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}">
+                          <apex:param name="removeRec" value="{!expenseRowNumber}" assignTo="{!numberOfRowClicked}"/>
+                      </apex:commandButton>
+                    </apex:column>
+                    <apex:column >
+                        <apex:variable var="expenseRowNumber" value="{!expenseRowNumber+1}" />
+                    </apex:column>                   
+                </apex:pageblockTable>
+             
+                 <apex:panelGrid columns="1" id="addAnotherRow">
+                        <apex:commandButton title="Add Row" 
+                                value="Add Another Row" 
+                                image="{!URLFOR($Resource.cllease__Add_Button_Green)}" 
+                                action="{!addRow}" 
+                                reRender="contractFeePanel,contractFeePanel,pageMessageId"
+                                rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}">                            
+                              <apex:param name="type" value="{!EXPENSE_TYPE}" assignTo="{!typeOfTable}"/>
+                        </apex:commandButton>
+                        <apex:commandButton title="Add Row" 
+                                value="Add Another Row" 
+                                action="{!addRow}" 
+                                reRender="contractFeePanel,contractFeePanel,pageMessageId"
+                                rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}"/>
+                    </apex:panelGrid>
+                </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

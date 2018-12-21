@@ -1,0 +1,128 @@
+/*
+This file is generated and isn't the actual source code for this
+managed global class.
+This read-only file shows the class's global constructors,
+methods, variables, and properties.
+To enable code to compile, all methods return null.
+*/
+global class AccountingConstants {
+    global static String ACCOUNT_TYPE_ASSETS;
+    global static String ACCOUNT_TYPE_EXPENDITURE;
+    global static String ACCOUNT_TYPE_INCOME;
+    global static String ACCOUNT_TYPE_LIABILITIES;
+    global static String ACCOUNT_TYPE_LIABILITY;
+    global static String ACCOUNTING_AMOUNT_TYPE_C_A;
+    global static String ACCOUNTING_AMOUNT_TYPE_C_BC;
+    global static String ACCOUNTING_AMOUNT_TYPE_C_CDA;
+    global static String ACCOUNTING_AMOUNT_TYPE_C_CWA;
+    global static String ACCOUNTING_AMOUNT_TYPE_EXCESS;
+    global static String ACCOUNTING_AMOUNT_TYPE_FA;
+    global static String ACCOUNTING_AMOUNT_TYPE_FANP;
+    global static String ACCOUNTING_AMOUNT_TYPE_FAP;
+    global static String ACCOUNTING_AMOUNT_TYPE_FU;
+    global static String ACCOUNTING_AMOUNT_TYPE_IAA;
+    global static String ACCOUNTING_AMOUNT_TYPE_IAA_REV;
+    global static String ACCOUNTING_AMOUNT_TYPE_IAND;
+    global static String ACCOUNTING_AMOUNT_TYPE_IANP;
+    global static String ACCOUNTING_AMOUNT_TYPE_IAP;
+    global static String ACCOUNTING_AMOUNT_TYPE_IOOANP;
+    global static String ACCOUNTING_AMOUNT_TYPE_IOOAP;
+    global static String ACCOUNTING_AMOUNT_TYPE_IOOU;
+    global static String ACCOUNTING_AMOUNT_TYPE_IOTO;
+    global static String ACCOUNTING_AMOUNT_TYPE_IP;
+    global static String ACCOUNTING_AMOUNT_TYPE_IS;
+    global static String ACCOUNTING_AMOUNT_TYPE_IU;
+    global static String ACCOUNTING_AMOUNT_TYPE_LLPA;
+    global static String ACCOUNTING_AMOUNT_TYPE_OF;
+    global static String ACCOUNTING_AMOUNT_TYPE_OI;
+    global static String ACCOUNTING_AMOUNT_TYPE_OP;
+    global static String ACCOUNTING_AMOUNT_TYPE_OPN;
+    global static String ACCOUNTING_AMOUNT_TYPE_PANYD;
+    global static String ACCOUNTING_AMOUNT_TYPE_PD;
+    global static String ACCOUNTING_AMOUNT_TYPE_PDR;
+    global static String ACCOUNTING_AMOUNT_TYPE_PIP;
+    global static String ACCOUNTING_AMOUNT_TYPE_PNP;
+    global static String ACCOUNTING_AMOUNT_TYPE_PP;
+    global static String ACCOUNTING_AMOUNT_TYPE_PR;
+    global static String ACCOUNTING_AMOUNT_TYPE_RAC;
+    global static String ACCOUNTING_AMOUNT_TYPE_REFUND;
+    global static String ACCOUNTING_AMOUNT_TYPE_S_AIE;
+    global static String ACCOUNTING_AMOUNT_TYPE_S_D;
+    global static String ACCOUNTING_AMOUNT_TYPE_S_IA;
+    global static String ACCOUNTING_AMOUNT_TYPE_S_IAC;
+    global static String ACCOUNTING_AMOUNT_TYPE_S_TIA;
+    global static String ACCOUNTING_AMOUNT_TYPE_S_W;
+    global static String ACCOUNTING_AMOUNT_TYPE_TAI;
+    global static String ACCOUNTING_EVENT_TYPE_CRNA;
+    global static String ACCOUNTING_EVENT_TYPE_CRNA_BP;
+    global static String ACCOUNTING_EVENT_TYPE_CRNA_EXCESS;
+    global static String ACCOUNTING_EVENT_TYPE_CRSA;
+    global static String ACCOUNTING_EVENT_TYPE_DADJ;
+    global static String ACCOUNTING_EVENT_TYPE_FD_MATURED;
+    global static String ACCOUNTING_EVENT_TYPE_IA;
+    global static String ACCOUNTING_EVENT_TYPE_IA_REV;
+    global static String ACCOUNTING_EVENT_TYPE_ICB;
+    global static String ACCOUNTING_EVENT_TYPE_ICC;
+    global static String ACCOUNTING_EVENT_TYPE_ICP;
+    global static String ACCOUNTING_EVENT_TYPE_LD;
+    global static String ACCOUNTING_EVENT_TYPE_LLP;
+    global static String ACCOUNTING_EVENT_TYPE_LPNA;
+    global static String ACCOUNTING_EVENT_TYPE_LPSA;
+    global static String ACCOUNTING_EVENT_TYPE_LWO;
+    global static String ACCOUNTING_EVENT_TYPE_LWO_REV;
+    global static String ACCOUNTING_EVENT_TYPE_OCB;
+    global static String ACCOUNTING_EVENT_TYPE_OCC;
+    global static String ACCOUNTING_EVENT_TYPE_OCD;
+    global static String ACCOUNTING_EVENT_TYPE_RADJ;
+    global static String ACCOUNTING_EVENT_TYPE_REFUND;
+    global static String ACCOUNTING_EVENT_TYPE_SD;
+    global static String ACCOUNTING_EVENT_TYPE_SIA;
+    global static String ACCOUNTING_EVENT_TYPE_SIE;
+    global static String ACCOUNTING_EVENT_TYPE_SODNA;
+    global static String ACCOUNTING_EVENT_TYPE_SODSA_OSD;
+    global static String ACCOUNTING_EVENT_TYPE_SODSA_PSD;
+    global static String ACCOUNTING_EVENT_TYPE_SW;
+    global static String ACCOUNTING_EVENT_TYPE_WOR;
+    global static String ACCOUNTING_PERIOD_STATUS_CLOSE;
+    global static String ACCOUNTING_PERIOD_STATUS_OPEN;
+    global static List<String> CLIENT_IDENTIFICATION_DOC_TYPE;
+    global static String FISCAL_YEAR_STATUS_CLOSED;
+    global static String FISCAL_YEAR_STATUS_FINALLY_CLOSED;
+    global static String FISCAL_YEAR_STATUS_FUTURE;
+    global static String FISCAL_YEAR_STATUS_OPEN;
+    global static String GL_ACCOUNT_STATUS_CLOSE;
+    global static String GL_ACCOUNT_STATUS_OPEN;
+    global static String RECOVERY_ORDER_FEES;
+    global static String RECOVERY_ORDER_INTEREST;
+    global static String RECOVERY_ORDER_IOTO;
+    global static String RECOVERY_ORDER_PRINCIPAL;
+    global static String RULE_PARAM_USE_DYNAMIC_ACCOUNT_FOR_CR;
+    global static String RULE_PARAM_USE_DYNAMIC_ACCOUNT_FOR_DR;
+    global static String TRANSACTION_SOURCE_END_OF_DAY;
+    global static String TRANSACTION_SOURCE_INTEREST_AMORTIZATION;
+    global static String TRANSACTION_SOURCE_INTEREST_AMORTIZATION_REV;
+    global static String TRANSACTION_SOURCE_INTERNAL_TRANSFER;
+    global static String TRANSACTION_SOURCE_JOURNAL_VOUCHER;
+    global static String TRANSACTION_SOURCE_LEASE_DISBURSAL;
+    global static String TRANSACTION_SOURCE_LEASE_DISBURSAL_ADJ;
+    global static String TRANSACTION_SOURCE_LEASE_LOSS_PROVISION;
+    global static String TRANSACTION_SOURCE_LEASE_PAY_OFF;
+    global static String TRANSACTION_SOURCE_LEASE_REPAYMENT;
+    global static String TRANSACTION_SOURCE_LEASE_REPAYMENT_ADJ;
+    global static String TRANSACTION_SOURCE_LEASE_WRITE_OFF;
+    global static String TRANSACTION_SOURCE_LEASE_WRITE_OFF_RECOVERY;
+    global static String TRANSACTION_SOURCE_LEASE_WRITE_OFF_REV;
+    global static String TRANSACTION_SOURCE_MONTH_END;
+    global static String TRANSACTION_SOURCE_REFUND;
+    global static String TRANSACTION_SOURCE_REG_FEES;
+    global static String TRANSACTION_SOURCE_SAVINGS_DEPOSIT;
+    global static String TRANSACTION_SOURCE_SAVINGS_INTEREST_ACCRUAL;
+    global static String TRANSACTION_SOURCE_SAVINGS_INTEREST_ADJUSTMENT;
+    global static String TRANSACTION_SOURCE_SAVINGS_INTEREST_EXPENSE;
+    global static String TRANSACTION_SOURCE_SAVINGS_WITHDRAWAL;
+    global static String TRANSACTION_SOURCE_START_OF_DAY;
+    global static String TRANSACTION_SOURCE_YEAR_END;
+    global AccountingConstants() {
+
+    }
+}

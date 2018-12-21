@@ -1,0 +1,44 @@
+<apex:page extensions="cllease.assetProcessingCtrl" standardController="cllease__Asset_workbench__c">
+<apex:include pageName="clcommon__mintTheme"/>
+
+	<apex:outputpanel title="Asset Return Workbench">
+		<apex:form >
+		<apex:pageBlock id="assetSearch">
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton value="Search" action="{!search}" title="Search" reRender="searchResults"/>
+				<!-- <apex:commandButton value="Create Asset Processing" action="{!createAssetProcessing}" title="Report Inspection " /> -->
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection >
+				<apex:inputField value="{!assetWorkbench.cllease__Contract_Equipment__c}"/>
+				<apex:inputField value="{!assetWorkbench.cllease__Contract__c}"/>
+				<apex:inputField value="{!assetWorkbench.cllease__Return_Status__c}"/>
+				<apex:inputField value="{!assetWorkbench.cllease__Serial_Number__c}"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection id="searchResults" columns="1">
+				<apex:pageBlockTable title="Assets" var="asset" value="{!assetList}">
+					<apex:variable var="rowNumber" value="{!-1}" />
+					<apex:column >
+						<apex:outputLabel value="{!rowNumber}" />
+					</apex:column>
+
+					<apex:repeat value="{!$ObjectType.cllease__Asset_workbench__c.FieldSets.cllease__assetWorkbenchFieldSet}" var="field">
+	                    <apex:column headerValue="{!field.Label}" >
+	                        <apex:outputField value="{!asset[field]}"/>
+	                    </apex:column>
+	                </apex:repeat>
+
+					<apex:column >
+                      <apex:commandButton title="Create Asset Process" value="process" action="{!createAssetProcessing}" rerender="assetSearch" >
+                      	<apex:param name="rowNumber" value="{!rowNumber}" assignTo="{!rowProcessing}"/>
+                      </apex:commandButton>
+                    </apex:column>
+                    <apex:column >
+                        <apex:variable var="rowNumber" value="{!rowNumber+1}" />
+                    </apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+		</apex:form>
+	</apex:outputpanel>
+
+</apex:page>

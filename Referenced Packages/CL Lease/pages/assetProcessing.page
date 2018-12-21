@@ -1,0 +1,55 @@
+<apex:page standardController="cllease__Asset_workbench__c" id="assetProcessingListPage"
+    recordSetVar="assetProcessingSet" tabStyle="Organization_Preference__tab">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:form >
+        <apex:sectionHeader title="Asset Processing" />
+        <apex:pageblock id="assetProcessingList">
+            <apex:actionRegion >
+                <apex:outputText value="Records per page: "></apex:outputText>
+                <apex:selectList value="{!pagesize}" size="1">
+                    <apex:selectOption itemLabel="2" itemValue="2"></apex:selectOption>
+                    <apex:selectOption itemLabel="15" itemValue="15"></apex:selectOption>
+                    <apex:selectOption itemLabel="20" itemValue="20"></apex:selectOption>
+                    <apex:selectOption itemLabel="20" itemValue="25"></apex:selectOption>
+                    <apex:actionSupport event="onchange"
+                        rerender="repossessionTable, navigation" />
+                </apex:selectList>
+            </apex:actionRegion>
+
+            <apex:pageblockTable value="{!assetProcessingSet}" id="assetProcessingTable" var="asset">
+                <apex:column headerValue="Asset Processing Name">
+					<apex:commandLink value="{!asset.name}" reRender="assetProcessingListPage:assetProcessingDetail">
+						<apex:param name="assetProcessingID" value="{!asset.ID}" />
+					</apex:commandLink>
+				</apex:column>
+                <apex:repeat value="{!$ObjectType.cllease__Asset_workbench__c.FieldSets.cllease__assetWorkbenchFieldSet}" var="field">
+                	<apex:column headerValue="{!field.Label}" >
+                    	<apex:outputField value="{!asset[field]}"  rendered="{!IF(field.Label == 'Id', false, true)}"/>
+                    </apex:column>
+                </apex:repeat>
+            </apex:pageblockTable>
+        </apex:pageblock>
+        <apex:panelGrid columns="2" id="navigation">
+            <apex:commandLink action="{!previous}" rendered="{!hasPrevious}"> Previous </apex:commandLink>
+            <apex:commandLink action="{!next}" rendered="{!hasNext}"> Next </apex:commandLink>
+        </apex:panelGrid>
+    </apex:form>
+
+    <apex:outputPanel id="assetProcessingDetail">
+        <apex:detail subject="{!$CurrentPage.parameters.assetProcessingID}"
+            inlineEdit="true"></apex:detail>
+    </apex:outputPanel>
+
+    <apex:sectionHeader title="Start New Asset Processing" />
+    <apex:pageblock >
+        <table>
+            <tr>
+                <td><apex:outputLink value="createAssetProcessing" id="page"><br/><b>New Asset Processing</b></apex:outputlink></td>
+                <!-- <<td><a href="{!URLFOR($Action.Asset_workbench__c.New)}"><br/>
+                    <b>New Asset Processing</b></a></td> -->
+            </tr>
+        </table>
+    </apex:pageblock>
+
+</apex:page>

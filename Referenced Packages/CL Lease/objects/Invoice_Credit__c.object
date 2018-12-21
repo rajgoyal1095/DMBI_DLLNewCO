@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>invoiceCredit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <comment>Invoice Credit VisualForce page</comment>
+        <content>invoiceCredit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>invoiceCredit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Invoice credit is a fund that is recorded in the system but has not been allocated to invoices or dues. This in a way represents a liability on the lessor towards their customers.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Represents the customer for whom the Invoice Credit is created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The customer for whom the Invoice Credit is created</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Invoice Credit</relationshipLabel>
+        <relationshipName>Invoice_Credit</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>User entered comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>User entered comments.</inlineHelpText>
+        <label>Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Represents the contract for which the Invoice Credit is created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contract for which the Invoice Credit is created</inlineHelpText>
+        <label>LS Contract</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipLabel>Invoice Credit</relationshipLabel>
+        <relationshipName>Invoice_Credit</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Credit_Balance__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Represents the balance available for application towards charges or rent or for refund. Must be reduced every time a cash application is performed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Balance available for application towards charges or rent or for refund</inlineHelpText>
+        <label>Credit Balance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Original_Credit_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the credit amount that is set when an Invoice Credit  is created. It should not change after that.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The credit amount that is set when an Invoice Credit is created.</inlineHelpText>
+        <label>Credit Amount</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Represents status of unallocated credit. Possible options are.
+Unapplied: Represents active status indicating that the record is available for application or cancellation. When newly created and will remain in active status unless cancelled or applied.
+Partially Applied: Indicates that the record has been partially applied. When Unallocated Credit Balance &gt; 0 and &lt; Unallocated Credit Amount.
+Fully Applied: Indicates that the record has been Fully applied. When Unallocated Credit Balance = 0.
+Cancelled: Indicates that the record has been cancelled.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unapplied</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Partially Applied</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fully Applied</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Invoice Credit</label>
+    <nameField>
+        <displayFormat>IC-{0000}</displayFormat>
+        <label>Invoice Credit</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Invoice Credit</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Create_New_Invoice_Credit</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create New Invoice Credit</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>showURLInModalWindow(&apos;/apex/invoiceCredit?leaseId=&quot;{!Invoice_Credit__c.Contract__c}&quot;&amp;modal=true&apos;)</url>
+    </webLinks>
+</CustomObject>

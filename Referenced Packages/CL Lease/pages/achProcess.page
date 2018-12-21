@@ -1,0 +1,63 @@
+<apex:page controller="cllease.ACHProcessController" id="achUploadPage">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:sectionHeader title="Upload ACH file" />
+
+    <apex:form >
+        <apex:pageBlock mode="edit" id="createLeaseApplication">
+            <apex:pageMessages />
+            <apex:pageBlockButtons location="top">
+                <apex:inputFile value="{!achFileContent}" filename="{!achFileName}" />
+                <apex:commandButton value="Upload ACH File"
+                    action="{!uploadACHLockBox}" />
+                <!--<c:BusyButton name="Upload ACH return file" busyname="Processing file..." actionTo="{!uploadACHLockBox}"
+                           reRenderTo="createLeaseApplication,transactionNameTable"/>-->
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Payment Summary"
+                rendered="{!lockBoxResult.processedPayments!=null && lockBoxResult.processedPayments.size!=0}"
+                columns="1">
+                <apex:pageblockTable value="{!lockBoxResult.processedPayments}"
+                    id="processedTxnTableId" var="PP" width="100%">
+                    <apex:column value="{!PP.cllease__Contract__c}" width="20%" />
+                    <apex:column value="{!PP.cllease__Receipt_ID__c}" width="20%" />
+                    <apex:column value="{!PP.cllease__Transaction_Date__c}" width="20%" />
+                    <apex:column value="{!PP.cllease__Transaction_Amount__c}" width="20%" />
+                    <apex:column value="{!PP.cllease__Payment_Mode__c}" width="20%" />
+                    <apex:column value="{!PP.cllease__Reversed__c}" width="20%" />
+                </apex:pageblockTable>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Payments Reversed"
+                rendered="{!lockBoxResult.reversedPayments!=null && lockBoxResult.reversedPayments.size!=0}"
+                columns="1">
+                <apex:pageblockTable value="{!lockBoxResult.reversedPayments}"
+                    id="reversedTxnTableId" var="JA" width="100%">
+                    <apex:column value="{!JA.Lease_Payment_Transaction__r.cllease__Contract__c}"
+                        width="20%" />
+                    <apex:column value="{!JA.Lease_Payment_Transaction__r.cllease__Receipt_ID__c}"
+                        width="20%" />
+                    <apex:column value="{!JA.Lease_Payment_Transaction__r.cllease__Transaction_Date__c}"
+                        width="20%" />
+                    <apex:column value="{!JA.Lease_Payment_Transaction__r.cllease__Transaction_Amount__c}"
+                        width="20%" />
+                    <apex:column value="{!JA.Lease_Payment_Transaction__r.cllease__Payment_Mode__c}"
+                        width="20%" />
+                    <apex:column value="{!JA.Lease_Payment_Transaction__r.cllease__Reversed__c}"
+                        width="20%" />
+                </apex:pageblockTable>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="NSF summary"
+                rendered="{!lockBoxResult.leasesChargedWithNSF!=null && lockBoxResult.leasesChargedWithNSF.size!=0}"
+                columns="1">
+                <apex:pageblockTable value="{!lockBoxResult.leasesChargedWithNSF}"
+                    id="nsfTableId" var="NSF" width="100%">
+                    <apex:column value="{!NSF.Name}" width="33%" />
+                    <apex:column value="{!NSF.cllease__Fee_Set1__c}" width="34%" />
+                </apex:pageblockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

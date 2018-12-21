@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pay to (Deprecated)</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Expense Fees</relationshipLabel>
+        <relationshipName>Expense_Fees</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Periodic Amount (Deprecated)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Apply_Pre_Bill_Days__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Apply Pre Bill Days</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>clcommon__Checkbox_Values</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipLabel>Contract Fees</relationshipLabel>
+        <relationshipName>Expense_Fees</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Evergreen_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If fee is of type Evergreen, this field specifies the fee amount for evergreen term.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If fee is of type Evergreen, this field specifies the fee amount for evergreen term.</inlineHelpText>
+        <label>Evergreen Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Definition__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Fee Name</inlineHelpText>
+        <label>Fee</label>
+        <lookupFilter>
+            <active>false</active>
+            <filterItems>
+                <field>clcommon__Fee_Definition__c.clcommon__Class__c</field>
+                <operation>equals</operation>
+                <value>EXPENSE</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>clcommon__Fee_Definition__c</referenceTo>
+        <relationshipLabel>Expense Fees</relationshipLabel>
+        <relationshipName>Expense_Fees</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fee__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Please use Fee Definition field that references Fee Definition from CL Common.</inlineHelpText>
+        <label>Fee (Deprecated)</label>
+        <lookupFilter>
+            <active>false</active>
+            <filterItems>
+                <field>Fee__c.Fee_Type__c</field>
+                <operation>equals</operation>
+                <value>EXPENSE</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Fee__c</referenceTo>
+        <relationshipLabel>Expense Fees</relationshipLabel>
+        <relationshipName>Expense_Fees</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Frequency (Deprecated)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SEMI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUARTERLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Number_of_Periods__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of Periods (Deprecated)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Passthrough_Event__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Passthrough Event</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>On Billing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Partial Payment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>On Full Payment</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Payment_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Method</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ADVANCE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ARREARS</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Referral_Points__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Referral Points (Deprecated)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Exempt__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Select this check box to exempt tax on the fee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select this check box to exempt tax on the fee.</inlineHelpText>
+        <label>Tax Exempt</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This tax rate overrides the tax setup defined at the company level.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This tax rate overrides the tax setup defined at the company level.</inlineHelpText>
+        <label>Tax Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Sub_Type__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Transaction Sub Type (Deprecated)</label>
+        <referenceTo>Transaction_Sub_Type__c</referenceTo>
+        <relationshipLabel>Expense Fees</relationshipLabel>
+        <relationshipName>Expense_Fees</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Describes the method for collecting the fee on the contract</inlineHelpText>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Passthrough</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Evergreen</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Withhold_Basis__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Withhold Basis</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Amount</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Percentage</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Withhold_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Withhold Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>disabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field will be used in expense fee generation in the process of restructure</description>
+        <externalId>false</externalId>
+        <label>Disabled (Deprecated)</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Contract Fee</label>
+    <nameField>
+        <displayFormat>CF-{0000000000}</displayFormat>
+        <label>Fee Configuration ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contract Fees</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Check_Passthrough_inputs</fullName>
+        <active>true</active>
+        <description>Passthrough Event, Withhold basis and Withhold Values are mandatory in case of Type is Passthrough.</description>
+        <errorConditionFormula>IF(AND(
+          INCLUDES(Type__c, &quot;Passthrough&quot;), 
+          OR(  
+                ISPICKVAL(Passthrough_Event__c, &quot;&quot;),
+                ISPICKVAL(Withhold_Basis__c, &quot;&quot;),
+                ISBLANK(Withhold_Value__c)
+              )
+         ),
+   true, 
+   false
+)</errorConditionFormula>
+        <errorMessage>Passthrough Event , Withhold Basis and Withhold Value are mandatory for Passthrough Setup.</errorMessage>
+    </validationRules>
+</CustomObject>

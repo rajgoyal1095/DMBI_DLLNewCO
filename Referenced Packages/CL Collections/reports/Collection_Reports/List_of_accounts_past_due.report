@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Collection_Configuration__c.Collection_Activities__r$Loan_Account_Name__c</field>
+    </columns>
+    <columns>
+        <field>Collection_Configuration__c$Name</field>
+    </columns>
+    <columns>
+        <field>Collection_Configuration__c.Collection_Activities__r$Account__c</field>
+    </columns>
+    <columns>
+        <field>Collection_Configuration__c.Collection_Activities__r$Contact__c</field>
+    </columns>
+    <columns>
+        <field>Collection_Configuration__c.Collection_Activities__r$Days_Past_Due__c</field>
+    </columns>
+    <columns>
+        <field>Collection_Configuration__c.Collection_Activities__r$Delinquent_Amount__c</field>
+    </columns>
+    <columns>
+        <field>Collection_Configuration__c.Collection_Activities__r$Owner</field>
+    </columns>
+    <description>List of accounts past due</description>
+    <filter>
+        <criteriaItems>
+            <column>Collection_Configuration__c$Product_Type__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Loan,Lease</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>List of accounts past due</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Collection_Strategies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Collection_Configuration__c$CreatedDate</dateColumn>
+        <endDate>2017-08-22</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-08-22</startDate>
+    </timeFrameFilter>
+</Report>

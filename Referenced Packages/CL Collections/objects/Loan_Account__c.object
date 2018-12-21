@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Contract object for 3rd party contracts</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>ACH_On__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field indicates whether the ACH functionality should be executed or not</description>
+        <externalId>false</externalId>
+        <label>ACH</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Account__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the collection Account</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Loan_Accounts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Aging__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The time-period range for which the contract has been overdue</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(Days_Past_Due__c&gt;0,Days_Past_Due__c&lt;=30), &quot;0-30&quot;, IF(AND(Days_Past_Due__c&gt;30,Days_Past_Due__c&lt;=60),&quot;31-60&quot;,
+IF(AND(Days_Past_Due__c&gt;60,Days_Past_Due__c&lt;=90),&quot;61-90&quot;,
+IF(AND(Days_Past_Due__c&gt;90,Days_Past_Due__c&lt;=120),&quot;91-120&quot;,
+IF(AND(Days_Past_Due__c&gt;120,Days_Past_Due__c&lt;=180),&quot;121-180&quot;,
+IF(Days_Past_Due__c&gt;180,&quot;180+&quot;,
+&quot;&quot;))))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Aging</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amount_to_Current__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The total principal due plus interest and any other applicable charges</description>
+        <externalId>false</externalId>
+        <label>Amount to Current</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Collection_Status__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the Collection Status</description>
+        <externalId>false</externalId>
+        <label>Collection Status</label>
+        <referenceTo>Contract_Status__c</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Contact__r.FirstName &amp; &quot; &quot; &amp;  Contact__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the borrower&apos;s Contact</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Loan_Accounts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Current_Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The current EMI amount only</description>
+        <externalId>false</externalId>
+        <label>Current Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Past_Due__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the number of days for which the payment is due</description>
+        <externalId>false</externalId>
+        <label>Days Past Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Delinquent_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total outstanding amount till the current date</description>
+        <externalId>false</externalId>
+        <label>Delinquent Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>External_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Reference to any external contract</description>
+        <externalId>true</externalId>
+        <label>External ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Fee_Set__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to the Fee Set</description>
+        <externalId>false</externalId>
+        <label>Fee Set</label>
+        <referenceTo>Fee_Set__c</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Loan_Accounts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fees_Remaining__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Fees due for this particular contract</description>
+        <externalId>false</externalId>
+        <label>Fees Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invalid_Data__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the contract data is invalid</description>
+        <externalId>false</externalId>
+        <label>Invalid Data</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Last_Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The last EMI amount paid</description>
+        <externalId>false</externalId>
+        <label>Last Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Payment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date on which the last payment should be made for the particular contract</description>
+        <externalId>false</externalId>
+        <label>Last_Payment_Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Loan_Product_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to the Lending Product</description>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Loan_Product__c</referenceTo>
+        <relationshipName>Loan_Accounts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Loan_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status of the loan</description>
+        <externalId>false</externalId>
+        <label>Loan Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Days_Overdue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Days past due for the payment</description>
+        <externalId>false</externalId>
+        <label>Number of Days Overdue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Debit_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The debit date for the one time ACH transaction</description>
+        <externalId>false</externalId>
+        <label>OT ACH Debit Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Debit_Day__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The first day of debit for one time ACH</description>
+        <externalId>false</externalId>
+        <label>OT ACH Debit Day</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The end date for the one time ACH transaction</description>
+        <externalId>false</externalId>
+        <label>OT ACH End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Fee_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Fee amount for the one time ACH transaction</description>
+        <externalId>false</externalId>
+        <label>OT ACH Fee Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Next_Debit_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The debit date for the next cycle</description>
+        <externalId>false</externalId>
+        <label>OT ACH Next Debit Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The total due for one time ACH transaction amount excluding fees</description>
+        <externalId>false</externalId>
+        <label>OT ACH Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OT_ACH_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The start date for the one time ACH transaction</description>
+        <externalId>false</externalId>
+        <label>OT ACH Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OT_Borrower_ACH__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the Bank Account of the borrower</description>
+        <externalId>false</externalId>
+        <label>OT Borrower ACH</label>
+        <referenceTo>Bank_Account__c</referenceTo>
+        <relationshipLabel>CL Contracts (OT Borrower ACH)</relationshipLabel>
+        <relationshipName>Lending1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Oldest_Due_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The very first due date for payment</description>
+        <externalId>false</externalId>
+        <label>Oldest Due Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pay_Off_Amount_As_Of_Today__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field specifies (principle + interest + charges) to be paid</description>
+        <externalId>false</externalId>
+        <label>Pay Off Amount As Of Today</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pmt_Amt_Cur__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The total principal due plus interest and any other applicable charges</description>
+        <externalId>false</externalId>
+        <label>Pmt Amt Cur</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Previous_Installment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The due date for the last payment</description>
+        <externalId>false</externalId>
+        <label>Last Due Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Source_System__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup relationship with the Source System</description>
+        <externalId>false</externalId>
+        <label>Source System</label>
+        <referenceTo>Source_System__c</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Dev_Contracts</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Source_System_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Source_System__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Source System</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tolerance_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The maximum tolerance amount that will be waived for the current cycle</description>
+        <externalId>false</externalId>
+        <label>Tolerance Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tolerance_Days__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number of days that will be tolerated for payment past due date</description>
+        <externalId>false</externalId>
+        <label>Tolerance Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tolerance_Percentage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The percentage of the outstanding amount that will be tolerated for the current cycle</description>
+        <externalId>false</externalId>
+        <label>Tolerance Percentage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <label>Contract</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Delinquent_Amount__c</columns>
+        <columns>Days_Past_Due__c</columns>
+        <columns>Loan_Status__c</columns>
+        <columns>Source_System__c</columns>
+        <columns>Pmt_Amt_Cur__c</columns>
+        <columns>Oldest_Due_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Contract Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Contracts</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

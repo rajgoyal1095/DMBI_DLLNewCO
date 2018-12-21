@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Contract_Fee__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used when we want to pay some amount to a party. e.g. passthrough and expense fee</description>
+        <externalId>false</externalId>
+        <label>Contract Fee</label>
+        <referenceTo>Expense_Fees__c</referenceTo>
+        <relationshipLabel>Contract Fee Payment</relationshipLabel>
+        <relationshipName>Contract_Fee_Payments</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipLabel>Contract Fee Payments</relationshipLabel>
+        <relationshipName>Contract_Fee_Payments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pay_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The party to which the fee must be paid.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The party to which the fee must be paid.</inlineHelpText>
+        <label>Pay To</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contract_Parties__c.Contract__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Contract__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Contract_Parties__c.Party_Type__c</field>
+                <operation>equals</operation>
+                <value>VENDOR, DEALER, SUPPLIER, BROKER</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contract_Parties__c</referenceTo>
+        <relationshipLabel>Contract Fee Payment</relationshipLabel>
+        <relationshipName>Contract_Fee_Payments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Percentage__c</fullName>
+        <defaultValue>1</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This is applicable for Income fee type. Percentage specified here is paid to the party specified in the Pay To field.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is applicable for Income fee type. Percentage specified here is paid to the party specified in the Pay To field.</inlineHelpText>
+        <label>Payment %ge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Contract Fee Payment</label>
+    <nameField>
+        <displayFormat>CFP-{000000}</displayFormat>
+        <label>Contract Fee Payment Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contract Fee Payments</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Check_For_Pay_To</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISBLANK( Pay_To__c )</errorConditionFormula>
+        <errorMessage>Pay To is mandatory.</errorMessage>
+    </validationRules>
+</CustomObject>

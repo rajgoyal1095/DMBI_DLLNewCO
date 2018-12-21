@@ -1,0 +1,48 @@
+<apex:page controller="cllease.AvalaraTestsController"
+    sidebar="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}">
+    <apex:include pageName="clcommon__mintTheme"/>
+    <apex:pageMessages />
+    <apex:form >
+    <apex:pageBlock id="ConnectionTestId2">
+        <apex:pageBlockButtons location="bottom">
+            <apex:commandButton value="Back To Record" action="{!goBackRecord}"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+    </apex:form>
+    <apex:sectionHeader title="Connection Test" />
+    <apex:form id="ConnectionTestForm">
+        <apex:pageBlock id="ConnectionTestId">
+            <apex:outputPanel >
+                <apex:pageBlockSection columns="1" title="Avalara Credentials">
+                    <apex:outputLabel > Account ID: {!$Setup.CustomAvalaraAPICredentials__c.Avalara_User_Account_ID__c} </apex:outputLabel>
+                    <apex:outputLabel > Email: {!$Setup.CustomAvalaraAPICredentials__c.Avalara__c} </apex:outputLabel>
+                    <apex:outputLabel > Password: {!$Setup.CustomAvalaraAPICredentials__c.Avalara_Password__c} </apex:outputLabel>
+                    <apex:outputLabel > Company ID: {!$Setup.CustomAvalaraAPICredentials__c.Avalara_Company_ID__c} </apex:outputLabel>
+                    <apex:outputLabel > User ID: {!$Setup.CustomAvalaraAPICredentials__c.Avalara_Created_User_ID__c} </apex:outputLabel>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="Test Connection" action="{!testAvalaraHTTPConnection}"/>
+                </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+
+    <apex:sectionHeader title="Installed Address Validation" />
+    <apex:form id="AddressValidationForm">
+        <apex:pageBlock id="AddressValidationTestId">
+            <apex:outputPanel >
+                <apex:pageBlockSection columns="1" title="Location details">
+                    <apex:outputLabel value="Street Address: {!streetAddress}"/>
+                    <apex:outputLabel value="City: {!city}"/>
+                    <apex:outputLabel value="county: {!county}"/>                
+                    <apex:outputLabel value="State: {!stateProvince}"/>
+                    <apex:outputLabel value="Country: {!country}"/>      
+                    <apex:outputLabel value="Zip Code: {!zipCode}"/>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Validate Address" action="{!validateInstalledLocationAddress}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

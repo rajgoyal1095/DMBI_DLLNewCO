@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Account_Email__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Email id of account/ customer</description>
+        <externalId>false</externalId>
+        <label>Account Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Refer to organization user indicated as account manager.</description>
+        <externalId>false</externalId>
+        <label>Account Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Collection Activities</relationshipLabel>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Action_Configuration__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This is a look up on the &apos;Action Configuration&apos; object. It is used to configure actions than the hard-coded list of actions. This field is populated by the value in the similar field on Strategy Actions.</description>
+        <externalId>false</externalId>
+        <label>Action Configuration</label>
+        <referenceTo>Action_Configuration__c</referenceTo>
+        <relationshipLabel>Collection Activities</relationshipLabel>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Action__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the action taken when activity is processed. Example: email, message etc.</description>
+        <externalId>false</externalId>
+        <label>Action</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Message</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dialer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fee</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manual Call</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Follow Up</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HTML Email</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Activity_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The date on which the activity is to be performed.</inlineHelpText>
+        <label>Activity Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Collection_Configuration_Action__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to Strategy Action.</description>
+        <externalId>false</externalId>
+        <label>Collection Configuration Action</label>
+        <referenceTo>Collection_Configuration_Actions__c</referenceTo>
+        <relationshipLabel>Collection Activities</relationshipLabel>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Collection_Configuration__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to collection&apos;s strategy.</description>
+        <externalId>false</externalId>
+        <label>Collection Configuration</label>
+        <referenceTo>Collection_Configuration__c</referenceTo>
+        <relationshipLabel>Collection Activities</relationshipLabel>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates if activity is completed or not.</description>
+        <externalId>false</externalId>
+        <label>Completed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Completion_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date on which activity is completed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the activity is completed.</inlineHelpText>
+        <label>Completion Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Configuration__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Configuration[deprecated]</label>
+        <referenceTo>cnotify__Configuration__c</referenceTo>
+        <relationshipLabel>Collection Activities</relationshipLabel>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Configuration_common__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Configuration</label>
+        <referenceTo>clcommon__Event_Configuration__c</referenceTo>
+        <relationshipLabel>Collection Activities (Configuration common)</relationshipLabel>
+        <relationshipName>Collection_Activities_common</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Collection Activities</relationshipLabel>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Days_Past_Due__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the days past due of contract related to this collection activity.</description>
+        <externalId>false</externalId>
+        <label>Days Past Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Delinquent_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the delinquent amount of contract which is related to this collection activity.</description>
+        <externalId>false</externalId>
+        <formula>Principal_Interest_Due__c  +  Fees_Due__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Delinquent Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Dev_Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Loan_Account__c</referenceTo>
+        <relationshipLabel>Collection Activities</relationshipLabel>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dunning_Letter_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Reference to letter / notification generated for this activity.</description>
+        <externalId>false</externalId>
+        <label>Dunning Letter Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exclusion_Applied__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates if activity was executed (eg. SMS/Email was sent).</description>
+        <externalId>false</externalId>
+        <label>Activity Executed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Execution_Failure_Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If &apos;Activity Executed&apos; is selected, then this field indicates reason for failure in executing activity.</description>
+        <externalId>false</externalId>
+        <label>Execution Failure Reason</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Failure_Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Failure Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Fees_Due__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fees Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Account_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Reference to lease account</description>
+        <externalId>false</externalId>
+        <label>Lease Account Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Loan_Account_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Reference to loan account</description>
+        <externalId>false</externalId>
+        <label>Loan Account Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Loan_Account_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of related contract</description>
+        <externalId>false</externalId>
+        <label>Loan Contract</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Oldest_Due_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the oldest due date of contract which is related to this collection activity.</description>
+        <externalId>false</externalId>
+        <label>Oldest Due Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Principal_Interest_Due__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates the principal and interest due for contract which is related to this collection activity.</description>
+        <externalId>false</externalId>
+        <label>Principal &amp; Interest Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Promise_To_Pay__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to promise to pay of contract</description>
+        <externalId>false</externalId>
+        <label>Promise To Pay</label>
+        <referenceTo>Promise_To_Pay__c</referenceTo>
+        <relationshipLabel>Collection Activities</relationshipLabel>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Reminder_Day__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The day when borrower should be reminded of related contract.</description>
+        <externalId>false</externalId>
+        <label>Reminder Day</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Send_Communication_To_All__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates if send Communication to all is allowed  or not.</description>
+        <externalId>false</externalId>
+        <label>Send Communication To All</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Template_Configuration__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Template Configuration[deprecated]</label>
+        <referenceTo>cnotify__Template_Configuration__c</referenceTo>
+        <relationshipLabel>Collection Activities</relationshipLabel>
+        <relationshipName>Collection_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Template_Configuration_common__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Template Configuration</label>
+        <referenceTo>clcommon__Template_Configuration__c</referenceTo>
+        <relationshipLabel>Collection Activities (Template Configuration)</relationshipLabel>
+        <relationshipName>Collection_Activities_common</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Collection Activity</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Loan_Account_Name__c</columns>
+        <columns>Account_Manager__c</columns>
+        <columns>Reminder_Day__c</columns>
+        <columns>Days_Past_Due__c</columns>
+        <columns>Action__c</columns>
+        <columns>Completed__c</columns>
+        <columns>Account__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Oldest_Due_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CAT-{00000000}</displayFormat>
+        <label>Collection Activities Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Collection Activities</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

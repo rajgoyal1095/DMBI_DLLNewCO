@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Fee</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Amortization_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amortization Method</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Amortize__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>STRAIGHT LINE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>INCOME BASIS</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>STRAIGHT LINE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>INCOME BASIS</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Amortization_Period__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amortization Period</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Amortize__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>FEE TERM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CONTRACT TERM</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>FEE TERM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>CONTRACT TERM</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Amortize__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amortize</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number or %
+Amount, is a flat amount. For other fee calculation methods, this is a % amount.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number or %
+Amount, is a flat amount. For other fee calculation methods, this is a % amount.</inlineHelpText>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Capitalize__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Capitalize</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Default_fees__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default fees</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Calculation_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Fee Calculation Method</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fee Calculation Method</inlineHelpText>
+        <label>Fee Calculation Method</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AMOUNT CALCULATED AS % OF CONTRACT AMOUNT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AMOUNT CALCULATED AS % OF PAYOFF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AMOUNT CALCULATED AS % OF PAYMENT AMOUNT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AMOUNT CALCULATED AS % OF RECEIVABLE BALANCE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FIXED</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>CUSTOM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AMOUNT CALCULATED AS % OF OUTSTANDING BALANCE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Fee_Category__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Fee Category</description>
+        <externalId>false</externalId>
+        <label>Fee Category</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CONTRACT</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Fee_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fee Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>INCOME</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EXPENSE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Interest_Bearing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Interest Bearing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Interest_Rate__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Interest Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Maintenance_Fee_s_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Maintenance Fee&apos;s Frequency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Monthly</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Yearly</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Maximum_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Maximum Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Minimum_Amount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Minimum Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Refundable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Refundable</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <deprecated>false</deprecated>
+        <description>State</description>
+        <externalId>false</externalId>
+        <inlineHelpText>State</inlineHelpText>
+        <label>State</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Taxable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field informs the system whether the fees are taxable or not.</description>
+        <externalId>false</externalId>
+        <label>Taxable</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Time_of_charge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of charge</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Time of charge</inlineHelpText>
+        <label>Time of charge</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>BOOKING</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type_of_charge__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type of charge</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>LATE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NSF FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WIRE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OTHER FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DOCUMENTATION FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SECURITY DEPOSIT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>INTERIM RENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL PAYMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TERMINATION QUOTE FEES</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Fee</label>
+    <nameField>
+        <label>Fee Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Fees</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Time_of_charge__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Amortization_Method_Not_Null</fullName>
+        <active>true</active>
+        <description>Check if the amortization method is not null if  fee is amortized.</description>
+        <errorConditionFormula>Amortize__c == true  &amp;&amp; (TEXT(Amortization_Method__c) == null || TEXT(Amortization_Period__c) == null)</errorConditionFormula>
+        <errorMessage>Amortization Method / Amortization period cannot be null</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Amount_limits_Check</fullName>
+        <active>true</active>
+        <description>Entered Amount should be between maximum and minimum amounts entered.</description>
+        <errorConditionFormula>if(AND(Minimum_Amount__c&lt;=Amount__c, Amount__c&lt;=Maximum_Amount__c), false, true) || Amount__c &lt; 0</errorConditionFormula>
+        <errorMessage>Amount entered cannot be negative and should be between Maximum and Minimum amounts entered. Maximum and Minimum Amount default value 0.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Check_Max_Amount</fullName>
+        <active>true</active>
+        <errorConditionFormula>Maximum_Amount__c &lt; 0</errorConditionFormula>
+        <errorMessage>Maximum Amount cannot be negative</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Check_Min_Amount</fullName>
+        <active>true</active>
+        <errorConditionFormula>Minimum_Amount__c &lt; 0</errorConditionFormula>
+        <errorMessage>Minimum Amount cannot be negative</errorMessage>
+    </validationRules>
+</CustomObject>

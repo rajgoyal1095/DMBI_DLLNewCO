@@ -1,0 +1,20 @@
+<apex:page standardController="cllease__Non_Cash_Account_Balance__c"
+extensions="cllease.NonCashBalancesController"
+ id="nonCashAccountBalancesPage">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:form >
+        <apex:sectionHeader title="Non Cash Balances" />
+        <apex:pageblock id="nonCashAccountBalancesList">
+            <apex:pageblockTable value="{!nonCashBalance}" id="cashAccountBalancesTable"
+                var="JA">
+                <apex:column value="{!JA.cllease__Opening_Balance_Amount__c}" />
+                <apex:column value="{!JA.cllease__Transactions_Amount__c}" />
+                <apex:column value="{!JA.cllease__Closing_Balance_Amount__c}" />
+                
+            </apex:pageblockTable>
+        </apex:pageblock>
+
+    </apex:form>
+
+</apex:page>

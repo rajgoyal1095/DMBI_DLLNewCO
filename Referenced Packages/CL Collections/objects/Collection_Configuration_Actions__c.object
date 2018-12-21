@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Action_Configuration__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This is a look up on the &apos;Action Configuration&apos; object. It is used to configure actions than the hard-coded list of actions.</description>
+        <externalId>false</externalId>
+        <label>Action Configuration</label>
+        <referenceTo>Action_Configuration__c</referenceTo>
+        <relationshipLabel>Strategy Actions</relationshipLabel>
+        <relationshipName>Strategy_Actions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Action_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Enter the date when the Action has to performed. This is populated only if the Action Input from the chosen Actions Configuration is Date.</description>
+        <externalId>false</externalId>
+        <label>Action Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Action_Details__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field will hold the values for the Action Configuration as entered in the vf page, in the form of a map.</description>
+        <externalId>false</externalId>
+        <label>Action Details</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Action__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Lists the actions which will be performed when contracts satisfies the criteria.</description>
+        <externalId>false</externalId>
+        <label>Action</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assign to Queue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dialer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Letter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Manual Call</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Message</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Apply_Contact_Preference__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked, contact preference is checked first and applied for customer communication. If contact preference is not available, then action as per this action record is applied.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, contact preference is checked first and applied for customer communication. If contact preference is not available, then action as per this action record is applied.</inlineHelpText>
+        <label>Apply Contact Preference</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Collection_Configuration__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Collection Configuration</label>
+        <referenceTo>Collection_Configuration__c</referenceTo>
+        <relationshipLabel>Collection Configuration Actions</relationshipLabel>
+        <relationshipName>Collection_Configuration_Actions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description / Comments related to strategy actions.</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Simple reminder advice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Immediate contact</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact &amp; obtain arrangement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reconfirm payment arrangement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Calls daily till arrangement obtained</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Issued if applicable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Further fees and adverse credit pending Issued if applicable</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Approval required</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Escalation due to days overdue</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Configuration__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Configuration[deprecated]</label>
+        <referenceTo>cnotify__Configuration__c</referenceTo>
+        <relationshipLabel>Collection Configuration Actions</relationshipLabel>
+        <relationshipName>Collection_Configuration_Actions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Configuration_common__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Configuration</label>
+        <referenceTo>clcommon__Event_Configuration__c</referenceTo>
+        <relationshipLabel>Collection Configuration Actions (Common)</relationshipLabel>
+        <relationshipName>Collection_Configuration_Actions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Value of type date or date time.</description>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Days_in_Arrear__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of Arrear Days.</description>
+        <externalId>false</externalId>
+        <label>Days in Arrear</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dunning_Letter_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of related notification.</description>
+        <externalId>false</externalId>
+        <label>Dunning Letter Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Event__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Event on which the action will be triggered.</description>
+        <externalId>false</externalId>
+        <label>Event</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Delinquency Reminder</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Promise To Pay</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Field_API_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the field name of object for which the strategy action is to be triggered.</description>
+        <externalId>false</externalId>
+        <label>Field API Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Label__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of field corresponding to field api name</description>
+        <externalId>false</externalId>
+        <label>Field Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Data type of field api</description>
+        <externalId>false</externalId>
+        <label>Field Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manual_Activity__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>To be checked if the action in the action picklist is to be performed manually</description>
+        <externalId>false</externalId>
+        <label>Manual Activity</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Object_API_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to store API name of object on which the strategy will be executed.</description>
+        <externalId>false</externalId>
+        <label>Object API Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Object_Label__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Fully qualified name of object related to object api name</description>
+        <externalId>false</externalId>
+        <label>Object Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Operator__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to select criteria operator.</description>
+        <externalId>false</externalId>
+        <label>Operator</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>equals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>not equal to</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>less than</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>greater than</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>less or equal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>greater or equal</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Queue__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Queue</label>
+        <referenceTo>Queue__c</referenceTo>
+        <relationshipLabel>Strategy Actions</relationshipLabel>
+        <relationshipName>Strategy_Actions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Template__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Template[deprecated]</label>
+        <referenceTo>cnotify__Template__c</referenceTo>
+        <relationshipLabel>Strategy Actions</relationshipLabel>
+        <relationshipName>Strategy_Actions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Template_common__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Template</label>
+        <referenceTo>clcommon__Template__c</referenceTo>
+        <relationshipLabel>Strategy Actions (Common)</relationshipLabel>
+        <relationshipName>Strategy_Actions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to store value corresponding to field selected for strategy.</description>
+        <externalId>false</externalId>
+        <label>Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Strategy Action</label>
+    <nameField>
+        <displayFormat>CCN-{00000000}</displayFormat>
+        <label>Collection Configuration Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Strategy Actions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

@@ -1,0 +1,51 @@
+<apex:page id="leaseTerminationTxnPage" controller="cllease.LeaseTerminationTxnCtrl" sidebar="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}" title="Record A Pay-Off">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    
+    <apex:stylesheet value="{!IF($CurrentPage.Parameters.modal == 'true', $Resource.cllease__modalheaderStyle,'')}" />
+    <script
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script src="{!URLFOR($Resource.helperclose)}" />
+    <script>
+      function setFocusOnLoad() {}
+  </script>
+
+    <apex:variable value="lease_Payment_Transaction__c" var="payment" />
+    <apex:sectionHeader title="Record a Termination Transaction" id="leaseTerminationSection" />
+    <apex:form id="terminationForm">
+        <apex:pageBlock mode="edit" id="createleasePaymentTxn">
+            <apex:pageMessages />
+
+            <apex:pageBlockButtons location="both">
+                <c:BusyButton name="Save" busyName="Saving" actionTo="{!save}"
+                    reRenderTo="terminationForm"
+                    oncomplete="({!closeModal}===true) ? closeIframe('{!leasePayment.cllease__Contract__c}') : {};"
+                    style="margin-left:120px;" />
+                <apex:commandButton value="Cancel" action="{!cancel}"
+                    onclick="closeIframe()" immediate="true" />
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Payment Transaction" columns="2">
+                <apex:outputField value="{!leasePayment.cllease__Contract__c}" />
+                <apex:outputField value="{!leasePayment.Name}" />
+               <!--  <apex:outputField value="{!leasePayment.Early_Total_Repayment_of_the_lease__c}" /> -->
+                <apex:inputField value="{!leasePayment.cllease__Transaction_Date__c}" required="true" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Spread" columns="1">
+                <!-- <apex:inputField value="{!leasePayment.cllease__Payment_Mode__c}" required="true" rendered="{!NOT(refinancePayOff)}"/> -->
+                <apex:outputField value="{!leasePayment.cllease__Payment_Mode__c}"/>
+                <!-- <apex:inputField value="{!leasePayment.cllease__Cheque_Number__c}" rendered="{!NOT(refinancePayOff)}"/> -->
+                <apex:outputField value="{!leasePayment.cllease__Cheque_Number__c}"/>
+                <!-- <apex:inputText value="{!prepaymentFeeAmount}" label="Prepayment Fees"
+                    rendered="{!NOT(prepaymentPenaltyDisabled)}" /> -->
+                <apex:outputText label="Termination Amount" value="{!terminationAmount}" />
+                
+                <!--<apex:outputField value="{!leaseAccount.Pay_Off_Amount_As_Of_Today__c}" />-->
+                <apex:inputField value="{!leasePayment.cllease__Transaction_Amount__c}" required="true" />
+            </apex:pageBlockSection>
+            <c:FieldSetPanel value2="Lease_Payment_Transaction__c" value3="{!leasePayment}" value4="false"/>
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

@@ -1,0 +1,94 @@
+<apex:page standardController="cllease__Lease_Account__c" id="leaseAccountPage">
+<apex:include pageName="clcommon__mintTheme"/>
+
+	<p>This page is deprecated.</p>
+	<!--
+  <apex:sectionHeader title="Create a new Lease Application" id="leaseAppSection"/>
+    
+        <apex:form >
+        <apex:pageBlock mode="edit" id="createLeaseApplication">
+            <apex:pageMessages />
+            <apex:pageBlockButtons location="top">
+               <apex:commandButton value="Save" action="{!save}"/>
+               <apex:commandButton value="Cancel" immediate="true" action="{!URLFOR($Action.Lease_Account__c.Tab,$ObjectType.Lease_Account__c)}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:outputpanel id="leaseAppStartPanel">
+                <apex:pageBlockSection columns="2" id="leaseAppStartPageBlock" title="Lease Application Type">
+                    <apex:inputCheckbox value="{!individualLease}" label="Lease to a Contact">
+                        <apex:actionSupport action="{!setLeaseTypeAsIndividual}" rerender="createLeaseApplication,leaseAppStartPanel,leaseApplicationInfoPanel" event="onchange"/>
+                    </apex:inputCheckbox>
+                    <apex:inputCheckbox value="{!groupLease}" label="Lease to an Account">
+                        <apex:actionSupport action="{!setLeaseTypeAsGroup}" rerender="createLeaseApplication,leaseAppStartPanel,leaseApplicationInfoPanel" event="onchange"/>
+                    </apex:inputCheckbox>
+                    <apex:inputField value="{!leaseAccount.Client__c}" rendered="{!individualLease && NOT(renderSFCRMAccount)}"/>
+                    <apex:inputField value="{!leaseAccount.Contact__c}" rendered="{!individualLease && renderSFCRMAccount}"/>
+                    <apex:inputField value="{!leaseAccount.Account__c}" rendered="{!groupLease && renderSFCRMAccount}"/>
+                </apex:pageBlockSection>
+            </apex:outputpanel>
+            
+            <apex:outputpanel id="leaseApplicationInfoPanel">
+                
+                <apex:pageBlockSection columns="2" id="LAPageBlock" title="Lease Application Information" rendered="{!individualLease || groupLease}">
+                    <apex:inputField value="{!leaseAccount.Lease_Purpose__c}"/>
+                    <apex:inputField value="{!leaseAccount.Lease_Product_Name__c}">
+                        <apex:actionSupport action="{!getLPInfo}" rerender="leaseAmntPanel,createLeaseApplication, LAPageBlock" event="onchange" status="productChange"/>
+                    </apex:inputField>
+                    
+                    <apex:outputField value="{!leaseAccount.Lease_Status__c}" />
+                    <apex:outputField value="{!leaseAccount.Branch__c}" />
+                    <apex:outputField value="{!leaseAccount.Source_Lease_Officer__c}" />                    
+                    <apex:outputField value="{!leaseAccount.Fee_Set__c}" />
+                </apex:pageBlockSection>
+            </apex:outputpanel>
+            <center><apex:actionStatus id="productChange">
+                <apex:facet name="start" >
+                    <apex:image value="/img/loading32.gif" style="height:15px;"/>
+                </apex:facet>
+            </apex:actionStatus></center>
+            <apex:outputpanel id="leaseAmntPanel">
+                <apex:pageBlockSection columns="2" id="leaseAmntPageBlock" title="Lease Amount" rendered="{!renderLeaseAmountPage}">
+                    <apex:inputField value="{!leaseAccount.Lease_Amount__c}" required="false"/>
+                    <apex:outputField value="{!leaseAccount.Interest_Rate__c}"  />
+                    <apex:inputField value="{!leaseAccount.Interest_Calculation_Method__c}">
+                        <apex:actionSupport rerender="leaseAmntPanel" event="onchange"/>
+                    </apex:inputField>
+                    <apex:inputField value="{!leaseAccount.Time_Counting_Method__c}" required="true"/>                    
+                    <apex:inputField value="{!leaseAccount.Interest_Only_Period__c}" rendered="{!leaseAccount.Interest_Calculation_Method__c == 'Interest Only'}"/>
+                    <apex:inputField value="{!leaseAccount.Balloon_Payment__c}"/>
+                    <apex:inputField value="{!leaseAccount.Funder__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection columns="1" rendered="{!leaseAccount.Interest_Calculation_Method__c == 'Flexible Repayment'}">  
+                    <c:RateSchedule rateScheduleList="{!rateSchedule}"
+                                    paymentStartDate="{!leaseAccount.Expected_Disbursal_Date__c}"
+                                    interestRate="{!Lease_Account__c.Interest_Rate__c}"
+                                    paymentFrequency="{!Lease_Account__c.Frequency_of_Lease_Payment__c}"
+                                    showButtons="Add,Validate,Clear"/>
+              </apex:pageBlockSection>
+            </apex:outputpanel>
+            
+            <apex:outputpanel id="repaymentsPanel">
+                <apex:pageBlockSection columns="2" id="paymentPageBlock" title="Payment Information" rendered="{!renderLeaseAmountPage}">
+                    <apex:outputField value="{!leaseAccount.Repayment_Procedure__c}"/>
+                    
+                    <apex:inputField value="{!leaseAccount.Expected_Disbursal_Date__c}">
+                        <apex:actionSupport action="{!validateExpectedDD}" rerender="createLeaseApplication" event="onblur"/>
+                    </apex:inputField>
+                    
+                    <apex:inputField value="{!leaseAccount.Number_of_Installments__c}" required="false" />
+                    
+                    <apex:inputField value="{!leaseAccount.Frequency_of_Lease_Payment__c}" required="true" />
+                    
+                    <apex:inputField value="{!leaseAccount.Expected_Repayment_Start_Date__c}" rendered="{!renderRepaymentFields}" required="true"/>
+                    
+                    <apex:inputCheckbox value="{!generateRepaymentSchedule}" label="Generate Repayment Schedule"  disabled="true"/>
+                    
+                </apex:pageBlockSection>
+                
+            </apex:outputpanel>
+
+
+        </apex:pageBlock>
+        </apex:form>
+            -->
+</apex:page>

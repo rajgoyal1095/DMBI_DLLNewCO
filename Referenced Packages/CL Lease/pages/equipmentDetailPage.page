@@ -1,0 +1,17 @@
+<apex:page id="eqpDetailPage" standardController="clcommon__Equipment_Detail__c" extensions="cllease.EquipmentDetailController" showHeader="true" sidebar="true">
+	<apex:sectionHeader title="Equipment Detail Record" id="eqpDetailSection" />
+    <apex:form id="createForm">
+        <apex:pageBlock id="EqpDetailRecordBlockId">
+            <apex:pageMessages />
+
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton value="Save" action="{!saveRecord}" rendered="{!IF(enableOperation == 'Save', true, false)}"/>
+                <apex:commandButton value="Edit" action="{!editRecord}" reRender="EqpDetailRecordBlockId" rendered="{!IF(enableOperation == 'Edit', true, false)}"/>
+                <apex:commandButton value="Delete" action="{!deleteRecord}" rendered="{!IF(enableOperation == 'Delete', true, false)}"/>
+                <apex:commandButton value="Cancel" action="{!redirectToContractEquipmentPage}"/>
+            </apex:pageBlockButtons>
+
+            <c:FieldSetPanel value1="eqpDetailFieldset" value2="clcommon__Equipment_Detail__c" value3="{!uiEqpDetail}" value4="{!showInEdit}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,79 @@
+<apex:page standardController="cllease__Repossession__c" extensions="cllease.RepossessionCtrl">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <script type="text/javascript">
+        function selectAllCheckboxes(obj,receivedInputID){
+            var inputCheckBox = document.getElementsByTagName("input");                  
+            for(var i=0; i<inputCheckBox.length; i++){          
+                if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){                                     
+                    inputCheckBox[i].checked = obj.checked;
+                }
+            }
+        }
+    </script>
+    <apex:outputpanel >
+        <apex:form id="RepoReqForm" >
+            <apex:pageBlock >
+                <apex:messages />
+                <apex:pageBlockButtons location="top">
+                    <apex:CommandButton value="Save" action="{!saveRepRequest}" />
+                    <!--<apex:CommandButton value="Create New" action="{!createNew}" /> -->
+                    <apex:CommandButton value="Add Response" action="{!addRepResponse}"/>
+                    <apex:CommandButton value="Cancel" action="{!cancelorExitRepRequest}" />
+                    <apex:CommandButton value="Exit" action="{!cancelorExitRepRequest}" />
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection title="Repossession Request">
+                    <!--<apex:outputText>{!inResponse}</apex:outputText> -->
+                    <apex:inputField value="{!reposessionRequest.cllease__Contract__c}">
+                        <apex:actionSupport action="{!getCustomerDetails}" event="onchange" reRender="RepoReqForm"/>
+                    </apex:inputField><br/>
+                    <apex:outputField value="{!reposessionRequest.cllease__Customer__c}"/><br/>
+                    <apex:inputField value="{!reposessionRequest.cllease__Repossession_Agent__c}">
+                        <apex:actionSupport action="{!getEmailDetails}" event="onchange" reRender="RepoReqForm"/>
+                    </apex:inputField>
+                    <apex:inputField value="{!reposessionRequest.cllease__Email_ID__c}"/>
+                    <apex:inputField value="{!reposessionRequest.cllease__Status__c}"/>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Select Equipment" columns="1">
+                    <apex:pageBlockTable value="{!equipmentList}" var="repoEqp" >
+                       <apex:column width="5%" headerValue="Select All">
+                           <apex:facet name="header">
+                                <apex:inputCheckbox onclick="selectAllCheckboxes(this,'inputId')"/>
+                            </apex:facet>
+                           <apex:inputCheckbox value="{!repoEqp.checked}" id="inputId"/>
+                   	   </apex:column>
+                   	   <apex:repeat value="{!$ObjectType.cllease__Contract_Equipment__c.FieldSets.cllease__EqpFieldSet}" var="field">
+                           <apex:column headerValue="{!field.Label}" value="{!repoEqp.eqp[field]}"/>
+                       </apex:repeat>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Other information">
+                    <apex:inputField value="{!reposessionRequest.cllease__Delivery_Location_Type__c}"/><br/>
+                    <apex:inputTextArea value="{!reposessionRequest.cllease__Delivery_Location__c}"/>
+                    <apex:inputTextArea value="{!reposessionRequest.cllease__Information_to_Lessor__c}"/>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            
+            <apex:pageBlock >
+                <apex:pageBlockSection columns="1" title="Attachments">
+                    <apex:pageBlockTable value="{!attachments}" var="doc">
+                        <apex:column headerValue="Name" width="40%">
+                             <apex:outputLabel value="{!doc.name}"></apex:outputLabel>
+                       </apex:column>
+                        <apex:column headerValue="Attachment" width="40%">
+                             <apex:outputLink value="/servlet/servlet.FileDownload?file={!doc.Id}" target="_blank">
+                                <apex:outputtext value="{!doc.name}"></apex:outputtext>
+                            </apex:outputLink>
+                        </apex:column>
+                        <apex:column width="20%" headerValue="Action">
+                            <apex:commandLink value="delete" action="{!deleteAttachment}" styleClass="btn" 
+                            onclick="return confirm('You will not able to Edit application once finalize. Please confirm:  \'OK\' to Proceed \'Cancel\' to Revert');">
+                                <apex:param name="AttachmentId" value="{!doc.Id}" assignTo="{!attachmentId}"/>
+                            </apex:commandLink>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>      
+            </apex:pageBlock>
+        </apex:form>
+    </apex:outputpanel>
+</apex:page>

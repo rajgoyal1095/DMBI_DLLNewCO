@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>InDevelopment</deploymentStatus>
+    <description>Int Junction Object for Collateral &amp; Agreement objects.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Agreement_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Agreement Name</description>
+        <externalId>false</externalId>
+        <label>Agreement Name</label>
+        <referenceTo>Int_Agreement__c</referenceTo>
+        <relationshipLabel>Int Collaterals Agreements</relationshipLabel>
+        <relationshipName>Int_Collaterals_Agreements</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Agreement_Number__c</fullName>
+        <description>Agreement Number</description>
+        <externalId>false</externalId>
+        <label>Agreement Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Agreement_Source_System__c</fullName>
+        <description>Agreement Source System</description>
+        <externalId>false</externalId>
+        <label>Agreement Source System</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Collateral_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Collateral Name</description>
+        <externalId>false</externalId>
+        <label>Collateral Name</label>
+        <referenceTo>Int_Collateral__c</referenceTo>
+        <relationshipLabel>Int Collaterals Agreements</relationshipLabel>
+        <relationshipName>Int_Collaterals_Agreements</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Collateral_Number__c</fullName>
+        <description>Collateral Number</description>
+        <externalId>false</externalId>
+        <label>Collateral Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Collateral_Source_System__c</fullName>
+        <description>Collateral Source System</description>
+        <externalId>false</externalId>
+        <label>Collateral Source System</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Collateral_Type__c</fullName>
+        <description>Collateral Type</description>
+        <externalId>false</externalId>
+        <label>Collateral Type</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Committed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Committed check box</description>
+        <externalId>false</externalId>
+        <label>Committed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Int Collateral Agreement</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Agreement_Source_System__c</columns>
+        <columns>Agreement_Number__c</columns>
+        <columns>Collateral_Source_System__c</columns>
+        <columns>Collateral_Number__c</columns>
+        <columns>Collateral_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CAI-{00000000}</displayFormat>
+        <label>Collateral Agreement Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Int Collaterals Agreements</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

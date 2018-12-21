@@ -1,0 +1,54 @@
+<apex:page controller="cllease.GLFilterCtrl" docType="html-5.0" id="glEntriesPage">
+    <apex:form >     
+         <apex:sectionHeader title="GL Entries" />   
+         <apex:pageBlock title="Filter">
+        	<apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Filter" action="{!filter}"/>
+            </apex:pageBlockButtons>
+             <apex:pageBlockSection columns="2">
+                 <apex:inputField value="{!tempGLTrans.cllease__Contract__c}"/>
+                 <apex:input type="date" value="{!startDate}" label="State Date"/>
+                 <apex:inputField value="{!tempGLTrans.cllease__Credit_GL_Account__c}" label="GL Account" required="false"/>
+                 <apex:input type="date" value="{!endDate}" label="End Date"/>
+                 
+             </apex:pageBlockSection>
+         </apex:pageBlock>
+         <apex:pageblock id="glEntriesList">
+            <apex:actionRegion >
+                <apex:outputText value="Records per page: "></apex:outputText>
+                <apex:selectList value="{!pagesize}" size="1">
+                    <apex:selectOption itemLabel="5" itemValue="5"></apex:selectOption>
+                    <apex:selectOption itemLabel="10" itemValue="10"></apex:selectOption>
+                    <apex:selectOption itemLabel="15" itemValue="15"></apex:selectOption>
+                    <apex:selectOption itemLabel="20" itemValue="20"></apex:selectOption>
+                    <apex:actionSupport event="onchange" action="{!refreshPagination}"
+                        rerender="glEntriesTable, navigation" />
+                </apex:selectList>
+            </apex:actionRegion>
+
+            <apex:pageblockTable value="{!glEntriesSet}" id="glEntriesTable"
+                var="JA">
+                <apex:column headerValue="GL Transaction">
+          					<apex:commandLink value="{!JA.name}" reRender="glEntriesPage:glEntriesDetail">
+          						<apex:param name="glEntriesMode" value="{!JA.ID}" />
+          					</apex:commandLink>
+        				</apex:column>
+                <apex:repeat value="{!$ObjectType.cllease__GL_Transaction_Detail__c.FieldSets.cllease__glTransactionFieldSet}" var="field">
+                  	<apex:column headerValue="{!field.Label}" >
+                      	<apex:outputField value="{!JA[field]}"  rendered="{!IF(field.Label == 'Id', false, true)}"/>
+                    </apex:column>
+                </apex:repeat>
+                
+            </apex:pageblockTable>
+          </apex:pageblock>
+          <apex:panelGrid columns="2" id="navigation">
+            <apex:commandLink action="{!previous}" rendered="{!hasPrevious}"> Previous </apex:commandLink>
+            <apex:commandLink action="{!next}" rendered="{!hasNext}"> Next </apex:commandLink>
+          </apex:panelGrid>
+    </apex:form>
+           
+       <apex:outputPanel id="glEntriesDetail">
+        <apex:detail subject="{!$CurrentPage.parameters.glEntriesMode}"></apex:detail>
+      </apex:outputPanel>
+
+</apex:page>

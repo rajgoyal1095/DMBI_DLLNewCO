@@ -1,0 +1,312 @@
+<apex:page standardController="cllease__Lease_Account__c" showHeader="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}"
+    tabStyle="cllease__Lease_Account__c" title="Lease Contract Details"
+    standardStylesheets="true"
+    extensions="cllease.LeaseRateScheduleController,cllease.TabbedLeaseAccountController,cllease.PeriodicFeeSetupController">
+
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <style type="text/css">
+.pvtlbl {
+    color: black !important;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+</style>
+<apex:outputPanel rendered="{!cllease__Lease_Account__c.cllease__Active_flag__c}">
+        <style>
+/*.actionColumn {
+    text-indent: 110%;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #ffffff;
+}*/
+
+</style>
+    </apex:outputPanel>
+    <c:modalIFrameWindow />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-ui-1.9.2.custom.min.js')}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.sidebarMenuTemplate)}" />
+    <script type="text/javascript"
+        src="{!URLFOR('/soap/ajax/13.0/connection.js')}" />
+    <script type="text/javascript"
+        src="{!URLFOR('/soap/ajax/10.0/apex.js')}" />
+
+    <script>
+    function regenerateSchedule(){
+        var retVal = sforce.apex.execute("RegenerateStreamsCtrl","regenerateStreams", {leaseAccId:j$('#hiddenLeaseId').text()});
+        window.alert(retVal);
+        window.location.reload();
+    }
+    j$ = jQuery.noConflict();
+    </script>
+    <style>
+div#mfiflexFragmentWrapper {
+    display: none;
+    height: auto;
+    width: 100%;
+    background: white;
+    overflow: auto
+}
+</style>
+    <apex:stylesheet value="/sCSS/Theme3/default/versioning.css" />
+    <apex:stylesheet value="/sCSS/Theme3/default/extended.css" />
+
+<apex:variable var="mintMenu" value="mintMenu" rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}" >
+    <apex:stylesheet value="{!URLFOR($Resource.cllease__MintCLLeasePack, 'mint-menubar.css')}"/>
+    <apex:includeScript loadOnReady="true" value="{!URLFOR($Resource.cllease__MintCLLeasePack, 'mint-menubar.js')}"/>
+</apex:variable>
+
+<apex:variable var="plainMenu" value="plainMenu" rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}" >
+    <apex:includeScript loadOnReady="true" value="{!URLFOR($Resource.cllease__PlainThemeJSPack)}"/>
+</apex:variable>
+
+   <apex:outPutPanel id="global-header" layout="block" rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}" >
+       <apex:image id="theImage" url="{!URLFOR($Resource.cllease__MintCLLeasePack, 'CL_Lease.png')}"/>
+       <c:branchAndSODHeaderMintTheme />
+   </apex:outPutPanel>
+
+   <apex:outPutPanel id="page-title" layout="block" rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}" >
+       <apex:sectionHeader title="{!$ObjectType.cllease__Lease_Account__c.Label}" subtitle="{!cllease__Lease_Account__c.Name}"/>
+       <div id="menu-button">
+           <div class="icons">
+               <span class="fa fa-bars"></span>
+           </div>
+       </div>
+       <div id="menu"></div>
+       <div class="arrow"></div>
+   </apex:outPutPanel>
+
+    <chatter:feedWithFollowers entityId="{!cllease__Lease_Account__c.Id}" rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}" />
+    <apex:tabPanel switchType="client"
+        value="{!IF($CurrentPage.Parameters.selectedTab==null, 'AccDetails', $CurrentPage.Parameters.selectedTab)}"
+        id="theTabPanel" styleClass="theTabPanel" tabClass="theTabPanel"
+        contentClass="tabContent" activeTabClass="activeTab"
+        inactiveTabClass="inactiveTab">
+        <apex:tab label="Details" name="AccDetails" id="tabdetails">
+
+
+            <apex:form >
+                <apex:inputField value="{!cllease__Lease_Account__c.Name}" rendered="false" />
+            </apex:form>
+
+            <!--Start : Added for demo to OrionFirstFinancials : SNEHA -->
+            <div class="pvtlbl">
+                <apex:pageblock rendered="{!IF(cllease__Lease_Account__c.cllease__Private_Label__c != '',true,false)}">
+                    <apex:pageblockSection >
+                        <apex:outputfield value="{!cllease__Lease_Account__c.cllease__Private_Label__c}" />
+                    </apex:pageblockSection>
+                </apex:pageblock>
+            </div>
+            <!--End : Added for demo to OrionFirstFinancials : SNEHA -->
+
+            <apex:form styleClass="mint-lightning-page">
+           <apex:detail subject="{!cllease__Lease_Account__c}" relatedList="false"
+                    title="true" inlineEdit="{!NOT(cllease__Lease_Account__c.cllease__Active_flag__c)}" id="leaseDetailIframe"/>
+            </apex:form>
+
+            <apex:relatedList list="Termination_Quote_Header__r" />
+            <apex:relatedList list="Automated_Payment_Setup__r" />
+            <apex:relatedList list="NPA_History_Records__r" />
+            <apex:outputpanel >
+                <c:GenericHistoryComponent recordCount="50" objectName="{!cllease__Lease_Account__c}"/>
+            </apex:outputpanel>
+        </apex:tab>
+        <apex:tab label="Fees" name="fees" id="fees">
+            <apex:tabPanel switchType="client" id="feesTabPanel" tabClass="activeTab"
+                    inactiveTabClass="inactiveTab">
+                <apex:tab label="Fee Schedule" id="feeSchedule" name="feeSchedule">
+                    <apex:outputPanel id="contractFees">
+                        <apex:include pagename="cllease__contractFees" />
+                    </apex:outputPanel>
+                </apex:tab> 
+                <apex:tab label="Contract Fees" id="feeConf" name="feeConf">                    
+                    <apex:relatedList list="Expense_Fees__r" pageSize="100"/>
+                </apex:tab>                
+            </apex:tabPanel>           
+        </apex:tab>
+        <apex:tab label="Streams" id="Streams" >
+            <apex:tabPanel switchType="client" id="StreamsTabPanel" tabClass="activeTab"
+                inactiveTabClass="inactiveTab">
+
+                <apex:tab label="Payment Streams" name="PaymentTab"
+                    id="tabPaymentStrm" >
+                        <apex:relatedList list="Payment_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Lease Income Streams" name="LeaseIncomeTab"
+                    id="LeasetabIncome" rendered="{!IF(AND(cllease__Lease_Account__c.cllease__Calculation_Method__c!="SYD", incomeStream),  true, false)}">
+                        <apex:relatedList list="Rental_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Amortization Streams" name="AmzTab" id="tabAmzStrm" rendered="{!IF(cllease__Lease_Account__c.cllease__Calculation_Method__c == "SYD",  true, false)}">
+                    <apex:relatedList list="Amz_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Rental Accrual Streams" name="RentAccrTab"
+                    id="tabRentAccr" rendered="{!rentStream}">
+                        <apex:relatedList list="Rental_Accrual_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Residual Streams" name="ResidualTab"
+                    id="residual" rendered="{!residualStream}">
+                        <apex:relatedList list="Residual_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Depreciation Streams" name="depTab"
+                    id="dep" rendered="{!depreciationStream}">
+                        <apex:relatedList list="Dep_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="IDC Streams" name="idcTab"
+                    id="idc" rendered="{!idcStream}">
+                        <apex:relatedList list="IDC_Stream__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Fee Streams" name="feeTab"
+                    id="fee" >
+                        <apex:relatedList list="Fee_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Subsidy/Subvention Streams" name="subsidyTab"
+                    id="subsidy" rendered="{!OR(subsidyStream, subventionStream)}">
+                        <apex:relatedList list="Subsidy_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Tax Depreciation Streams" name="taxDepTab"
+                    id="taxDepTab" >
+                        <apex:relatedList list="Tax_Dep_Streams__r" pageSize="100"/>
+                </apex:tab>
+
+            </apex:tabPanel>
+        </apex:tab>
+
+
+
+        <apex:tab label="Account Balances" name="tabAccountBalances"
+
+            rendered="{!applicationFunded == true}">
+            <apex:tabPanel switchType="client" selectedTab="Transactions"
+                id="TxnsTabPanel" tabClass="activeTab"
+                inactiveTabClass="inactiveTab">
+                <apex:tab label="Cash Balances" name="CashBalancesTab"
+                    id="cashAccBalList">
+                    <apex:relatedList list="Cash_Account_Balances__r"  pageSize="100"/>
+                </apex:tab>
+                <apex:tab label="Non Cash Balances" name="NonCashBalancesTab"
+                    id="nonCashAccBalList">
+                    <apex:relatedList list="Non_Cash_Account_Balances__r"  pageSize="100"/>
+                </apex:tab>
+
+            </apex:tabPanel>
+        </apex:tab>
+
+        <apex:tab label="Transactions" name="Other_Lease_Transaction__c"
+            id="transaction" rendered="{!applicationFunded == true}">
+            <apex:tabPanel switchType="client" id="TransactionTabPanel" tabClass="activeTab"
+                inactiveTabClass="inactiveTab">
+
+                <apex:tab label="Other(s)" name="othTxnTab" id="tabOthTxn" rendered="{!applicationFunded == true}">
+                    <apex:relatedList list="Other_Lease_Transactions__r"  pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Bill(s)" name="Lease_Account_Due_Details__c"
+                    id="tabDue" rendered="{!applicationFunded == true}">
+                    <apex:relatedList list="Dues_Details__r"  pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Accrual(s)" name="accrualTransactionsTab"
+                    id="tabAccrual" rendered="{!applicationFunded == true}">
+                    <apex:relatedList list="Lease_Transaction_Header__r"  pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Payment(s)" name="paymentsTab"
+                    id="tabPayment" rendered="{!applicationFunded == true}">
+                    <apex:relatedList list="Contract_Payment_Transactions__r"  pageSize="100"/>
+                </apex:tab>
+
+                <apex:tab label="Disbursement" name="disbTab"
+                    id="tabDisbursement" rendered="{!applicationFunded == true}">
+                    <apex:relatedList list="Disbursement_Transactions__r"  pageSize="100"/>
+                </apex:tab>
+
+
+
+                <apex:tab label="Charge(s)" name="chargesTab" id="tabCharge"   rendered="{!applicationFunded == true}">
+                    <apex:form >
+                        <div style="text-align: center;">
+                            <apex:commandButton value="Create New Charge" reRender="dummy"
+                                onclick="openFragment()" />
+                        </div>
+                        <apex:actionFunction name="refreshParent"
+                            reRender="relatedCharges, accDetails, leaseDetailIframe" />
+                    </apex:form>
+                    <div id="mfiflexFragmentWrapper">
+                        <apex:outputPanel id="iCop">
+                            <apex:include pagename="cllease__newChargeFragment" />
+                        </apex:outputPanel>
+                    </div>
+                    <apex:relatedList list="Charges__r" id="relatedCharges"  pageSize="100"/>
+                </apex:tab>
+
+
+                <apex:tab label="Invoice Credit" name="invoiceCreditTab" id="tabInvoiceCredit"   rendered="{!applicationFunded == true}">
+                    <apex:form >
+                        <div style="text-align: center;">
+                            <apex:commandButton value="Create New Invoice Credit" reRender="dummy"
+                                onclick="openFragment()" />
+                        </div>
+                        <apex:actionFunction name="refreshParent"
+                            reRender="relatedInvoiceCredits, accDetails, leaseDetailIframe" />
+                    </apex:form>
+                    <div id="mfiflexFragmentWrapper">
+                        <apex:outputPanel id="invoiceCreditOP">
+                            <apex:include pagename="cllease__newInvoiceCreditFragment" />
+                        </apex:outputPanel>
+                    </div>
+		    <apex:relatedList list="Invoice_Credit__r" id="relatedInvoiceCredits"  pageSize="100"/>
+
+                </apex:tab>
+
+
+
+            </apex:tabPanel>
+        </apex:tab>
+        <apex:tab label="Parties" id="tabParties">
+            <apex:relatedList list="Contract_Parties__r"  pageSize="100"/>
+        </apex:tab>
+        <apex:tab label="Equipment" id="tabEquipment">
+            <apex:tabPanel switchType="client" id="EquipmentTabPanel" tabClass="activeTab" inactiveTabClass="inactiveTab">
+                <apex:tab label="Equipment" name="EquipmentTab">
+                    <apex:relatedList list="Contract_Equipments__r"  pageSize="100"/>
+                </apex:tab>
+            </apex:tabPanel>
+        </apex:tab>
+        <apex:tab label="Insurance" id="tabinsurance">
+            <apex:relatedList list="Insurance_Policies__r"  pageSize="100"/>
+        </apex:tab>       
+        <apex:tab label="Debt" id="tabDebt">
+            <apex:outputPanel id="debt">
+                <apex:include pagename="cllease__DebtManagement" />
+            </apex:outputPanel>
+        </apex:tab>
+
+        <apex:tab label="Documents" id="tabNotes">
+            <apex:relatedList list="NotesAndAttachments"  pageSize="100"/>
+        </apex:tab>
+
+        <apex:tab label="Lessee Statement" id="tabStmt">
+            <apex:relatedList list="Lessee_Statements__r"  pageSize="100"/>
+        </apex:tab>
+        <apex:tab label="Chatter" name="ChatterTab" id="tabChatter" rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}">
+            <chatter:feedWithFollowers entityId="{!cllease__Lease_Account__c.Id}"/>
+        </apex:tab>
+    </apex:tabPanel>
+    <form>
+        <label id="hiddenLeaseId" style="display: none;">{!cllease__Lease_Account__c.Id}</label>
+    </form>
+</apex:page>

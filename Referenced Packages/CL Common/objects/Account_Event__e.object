@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This event will be published when an account record is inserted or updated</description>
+    <fields>
+        <fullName>Event_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field stores the event type for the published event. The event includes CREATE and UPDATE</description>
+        <externalId>false</externalId>
+        <isFilteringDisabled>false</isFilteringDisabled>
+        <isNameField>false</isNameField>
+        <isSortingDisabled>false</isSortingDisabled>
+        <label>Event Type</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Record_Ids__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field stores the Id of the records on which the action will be taken when Account Event gets published</description>
+        <externalId>false</externalId>
+        <isFilteringDisabled>false</isFilteringDisabled>
+        <isNameField>false</isNameField>
+        <isSortingDisabled>false</isSortingDisabled>
+        <label>Record Ids</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>Account Event</label>
+    <pluralLabel>Account Event</pluralLabel>
+</CustomObject>

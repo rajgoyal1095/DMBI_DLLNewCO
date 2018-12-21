@@ -1,0 +1,1 @@
+<div class="links iconic" title = "Search">     <div class="nav-link fa  fa-search" navigate="SearchPage" style = "float:right;margin-right:3%; margin-top:1%;"> </div>

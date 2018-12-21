@@ -1,0 +1,148 @@
+<apex:page standardController="cllease__Lease_Account__c"
+    extensions="cllease.TransactionSummaryController" id="txnSummaryPage"
+    sidebar="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:stylesheet value="{!$Resource.cllease__MFIStyles}" />
+    <apex:stylesheet value="{!IF($CurrentPage.Parameters.modal == 'true', $Resource.cllease__modalheaderStyle,'')}" />
+    <script type="text/javascript" src="{!$Resource.PageScroll}"></script>
+    <script
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script src="{!URLFOR($Resource.helperclose)}" />
+    <script>
+       j$ = jQuery.noConflict();
+</script>
+    <script>
+        function setFocusOnLoad(){}
+         
+         
+        function confirmCancel() {
+            var isConfirm = confirm("Are you sure you want to cancel?");
+            if(isConfirm){
+                return this.parent.parent.window.close();
+            }
+        }
+        function pageScroll(){
+            window.scrollBy(0,10);
+            scrolldelay = setTimeout('pageScroll()',10); // scrolls every 10 milliseconds
+        }
+
+        function stopScroll(){
+            clearTimeout(scrolldelay);
+        }
+     </script>
+
+    <apex:sectionHeader title="Transaction history for the lease: {!cllease__Lease_Account__c.Name}" />
+    <apex:outputPanel >
+        <apex:form >
+            <apex:pageblock id="dateBlock" mode="edit">
+                <apex:pageblockSection title="Search Transactions" columns="2">
+                    <apex:inputField value="{!search.cllease__Start_Date__c}" />
+                    <apex:inputField value="{!search.cllease__End_Date__c}" />
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockButtons location="bottom">
+                        <c:BusyButton name="Search" busyName="Searching"
+                            actionTo="{!getSummaryList}" style="margin-left:150px" />
+                    </apex:pageBlockButtons>
+
+                    </apex:pageBlock>
+
+                    <apex:pageBlock id="txnSummaryPBId" mode="edit">
+                        <apex:pageMessages />
+                        <apex:pageBlockButtons location="top" id="buttonsBlock">
+                            <apex:commandButton value="Cancel" immediate="true"
+                                action="{!URLFOR($Action.Lease_Account__c.View,Lease_Account__c.Id)}"
+                                onclick="closeIframe()" style="margin-left:150px" />
+                            <!--  
+                   <c:BusyButton name="Reverse" busyname="Reversing..." actionTo="{!previewReversal}"
+                      reRenderTo="previewReversalPanel"
+                      disabled="{!NOT(enableReverse)}"
+                      style="margin-left:5px;"/>
+                   -->
+                        </apex:pageBlockButtons>
+
+                        <apex:outputpanel id="txnSummaryPanel">
+                            <apex:pageblockTable value="{!txnList}" id="txnTable" var="JA"
+                                headerClass="tableRight" styleClass="tableRight">
+                                <!--  <apex:column headerValue="Reverse" >
+                            <apex:inputCheckbox value="{!JA.selected}">
+                                <apex:actionSupport action="{!enableReverseButton}" rerender="txnSummaryPBId,buttonsBlock" event="onchange"/>
+                            </apex:inputCheckbox>
+                        </apex:column>
+                        -->
+                                <apex:column headerValue="Transaction Type" width="20%"
+                                    headerClass="tableLeft" styleClass="tableLeft">
+                                    <apex:commandLink value="{!JA.txn.cllease__Transaction_Type__c}"
+                                        reRender="txnSummaryDetail" status="TransactionLoad">
+                                        <apex:param name="txnID" value="{!JA.txn.cllease__Transaction_Id__c}" />
+                                    </apex:commandLink>
+                                    <!--<c:modalSpinner statusText="Loading ...."/>-->
+                                </apex:column>
+                                <apex:column headerValue="Transaction Date"
+                                    value="{!JA.txn.cllease__Txn_Date__c}" headerClass="tableLeft"
+                                    styleClass="tableLeft" />
+                                  <apex:column headerValue="Lease Rental"
+                                    value="{!JA.txn.cllease__Receivable_Billed__c}" />
+                                <apex:column headerValue="Tax"
+                                    value="{!JA.txn.cllease__Tax_Billed__c}" />
+                                <apex:column headerValue="Fees" value="{!JA.txn.cllease__Fees__c}" />
+                                <apex:column headerValue="Excess" value="{!JA.txn.cllease__Excess__c}" />
+                                <apex:column headerValue="Txn Amt" value="{!JA.txn.cllease__Txn_Amt__c}" />
+                            </apex:pageblockTable>
+
+                        </apex:outputpanel>
+
+                        <apex:outputpanel id="previewReversalPanel"
+                            rendered="{!showPreview}">
+                            <apex:pageblock id="dateBlock" mode="edit">
+                                <apex:pageblockSection title="Preview - Following transactions will be reversed">
+                                    <apex:pageblockTable value="{!txnsToReverse}"
+                                        id="txnToReverseTable" var="JA" headerClass="tableRight"
+                                        styleClass="tableRight">
+
+                                        <apex:column headerValue="Transaction Type" width="20%"
+                                            headerClass="tableLeft" styleClass="tableLeft">
+                                            <apex:commandLink value="{!JA.cllease__Transaction_Type__c}"
+                                                reRender="txnSummaryDetail" status="TransactionLoad">
+                                                <apex:param name="txnID" value="{!JA.cllease__Transaction_Id__c}" />
+                                            </apex:commandLink>
+                                        </apex:column>
+
+                                        <apex:column headerValue="Transaction Date"
+                                            value="{!JA.cllease__Txn_Date__c}" headerClass="tableLeft"
+                                            styleClass="tableLeft" />
+                                        <apex:column headerValue="Principal"
+                                            value="{!JA.cllease__Principal__c}" />
+                                        <apex:column headerValue="Interest" value="{!JA.cllease__Interest__c}" />
+                                        <apex:column headerValue="Fees" value="{!JA.cllease__Fees__c}" />
+                                        <apex:column headerValue="Excess" value="{!JA.cllease__Excess__c}" />
+                                        <apex:column headerValue="Interest Rate"
+                                            value="{!JA.cllease__Interest_Rate__c}" />
+                                        <apex:column headerValue="Txn Amt" value="{!JA.cllease__Txn_Amt__c}" />
+                                    </apex:pageblockTable>
+                                    </apex:pageBlockSection>
+
+                                    <apex:pageBlockButtons location="bottom">
+                                        <c:BusyButton name="Confirm" busyName="Reversing.."
+                                            actionTo="{!reverseTxn}" style="margin-left:150px" />
+                                    </apex:pageBlockButtons>
+                    </apex:pageBlock>
+                    </apex:outputpanel>
+                    </apex:pageBlock>
+
+                    <center>
+                        <apex:actionStatus id="TransactionLoad">
+                            <apex:facet name="start">
+                                <apex:image value="/img/loading32.gif" style="height:15px;" />
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </center>
+                    <apex:outputPanel id="txnSummaryDetail" onmouseover="stopScroll()">
+                        <apex:detail subject="{!$CurrentPage.parameters.txnID}"
+                            title="true" relatedList="false" inlineEdit="false"></apex:detail>
+                    </apex:outputPanel>
+        </apex:form>
+
+    </apex:outputPanel>
+</apex:page>

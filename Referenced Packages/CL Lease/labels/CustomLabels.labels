@@ -1,0 +1,1480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ACCOUNTING_HEADER_TEMPLATES_POPULATED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ACCOUNTING_HEADER_TEMPLATES_POPULATED</shortDescription>
+        <value>Populating Accounting Header Template Seed Data...</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNTING_HEADER_TEMPLATE_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ACCOUNTING_HEADER_TEMPLATE_ERROR</shortDescription>
+        <value>Error : NO accounting header template should create for running Populate Accouting Header Template:</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNTING_OBJECT_COLUMNS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ACCOUNTING_OBJECT_COLUMNS</shortDescription>
+        <value>Please setup accounting object.</value>
+    </labels>
+    <labels>
+        <fullName>ACCOUNT_INFO_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ACCOUNT_INFO_REQUIRED</shortDescription>
+        <value>Please provide account information</value>
+    </labels>
+    <labels>
+        <fullName>ACH_CANNOT_SETUP_FOR_NONACTIVE_LEASE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ACH_CANNOT_SETUP_FOR_NONACTIVE_LEASE</shortDescription>
+        <value>You cannot setup ACH for a non-active lease.</value>
+    </labels>
+    <labels>
+        <fullName>ACH_CANNOT_STOP_NON_ACTIVE_LEASE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ACH_CANNOT_STOP_NON_ACTIVE_LEASE</shortDescription>
+        <value>You cannot Cancel/Stop ACH for a non-active lease.</value>
+    </labels>
+    <labels>
+        <fullName>ACH_ENDDATE_SHOULD_BE_BEYOND_CONTRACT_STARTDATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ACH_ENDDATE_SHOULD_BE_BEYOND_CONTRACT_STARTDATE</shortDescription>
+        <value>ACH end date should be greater than start date.</value>
+    </labels>
+    <labels>
+        <fullName>ACH_LOCKBOX_FILE_UPLOAD_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ACH_LOCKBOX_FILE_UPLOAD_SUCCESS</shortDescription>
+        <value>ACH Lock Box file uploaded successfully</value>
+    </labels>
+    <labels>
+        <fullName>ACTIVE_TO_FUND_DEALER</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ACTIVE_TO_FUND_DEALER</shortDescription>
+        <value>Contract status should be in ACTIVE to initiate funds to Dealer...</value>
+    </labels>
+    <labels>
+        <fullName>ADVANCE_PAYMENT_CONT_START_SAME_AS_PAYMENT_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ADVANCE_PAYMENT_CONT_START_SAME_AS_PAYMENT_DATE</shortDescription>
+        <value>For Advance Payments, Contract Start Date must match with First Payment Date</value>
+    </labels>
+    <labels>
+        <fullName>AMORT_START_DATE_NOT_LESS_CONT_START_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AMORT_START_DATE_NOT_LESS_CONT_START_DATE</shortDescription>
+        <value>Amortization Start Date cannot be less than contract Start Date</value>
+    </labels>
+    <labels>
+        <fullName>API_EXCEPTION_MESSAGE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>API_EXCEPTION_MESSAGE</shortDescription>
+        <value>INTERNAL_API_EXCEPTION</value>
+    </labels>
+    <labels>
+        <fullName>ATTACH_FILE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ATTACH_FILE</shortDescription>
+        <value>Please select a proper file to attach.</value>
+    </labels>
+    <labels>
+        <fullName>BATCHJOBS_STARTED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BATCHJOBS_STARTED</shortDescription>
+        <value>Selected Jobs Started Successfully...</value>
+    </labels>
+    <labels>
+        <fullName>BILL_FIELD_CANNOT_BE_NULL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BILL_FIELD_CANNOT_BE_NULL</shortDescription>
+        <value>Bill field cannot be null</value>
+    </labels>
+    <labels>
+        <fullName>BILL_HAS_ALREADY_BEEN_SATISFIED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BILL_HAS_ALREADY_BEEN_SATISFIED</shortDescription>
+        <value>Bill has already been satisfied</value>
+    </labels>
+    <labels>
+        <fullName>BRANCH_CANNOT_CHANGED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BRANCH_CANNOT_CHANGED</shortDescription>
+        <value>Branch could not be changed</value>
+    </labels>
+    <labels>
+        <fullName>BRANCH_SWITCH_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BRANCH_SWITCH_SUCCESS</shortDescription>
+        <value>Branch Switched Successfully</value>
+    </labels>
+    <labels>
+        <fullName>BULK_FAILURE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BULK_FAILURE</shortDescription>
+        <value>Bulk failure of the Batch as error list is same as payment list</value>
+    </labels>
+    <labels>
+        <fullName>CAPITALIZED_FEE_PAYMENT_PERIOD_ZERO</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CAPITALIZED_FEE_PAYMENT_PERIOD_ZERO</shortDescription>
+        <value>Capitalized Fee should have 0 payment period</value>
+    </labels>
+    <labels>
+        <fullName>CHARGE_FIELD_CANNOT_BE_NULL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CHARGE_FIELD_CANNOT_BE_NULL</shortDescription>
+        <value>Charge field cannot be null</value>
+    </labels>
+    <labels>
+        <fullName>CHARGE_HAS_ALREADY_BEEN_SATISFIED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CHARGE_HAS_ALREADY_BEEN_SATISFIED</shortDescription>
+        <value>Charge has already been satisfied</value>
+    </labels>
+    <labels>
+        <fullName>CONTACT_INFO_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTACT_INFO_REQUIRED</shortDescription>
+        <value>Please provide contact information.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACTUAL_PAYMENT_AMOUNT_IS_NULL_OR_ZERO_ON_THE_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACTUAL_PAYMENT_AMOUNT_IS_NULL_OR_ZERO_ON_THE_ACCOUNT</shortDescription>
+        <value>Contractual Payment Amount is null or zero on the account.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_ACTIVATE_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_ACTIVATE_ERROR</shortDescription>
+        <value>Error : Cannot activate the contract, please review the error messages and correct them...</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_ACTIVATE_LABEL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_ACTIVATE_LABEL</shortDescription>
+        <value>Contract Activated</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_ALREADY_ACTIVATED_LABEL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_ALREADY_ACTIVATED_LABEL</shortDescription>
+        <value>Contract Already Activated...</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_ALREADY_CHARGED_OFF</fullName>
+        <categories>ERROR</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_ALREADY_CHARGED_OFF</shortDescription>
+        <value>The contract is charged off.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_ALREADY_FUNDED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_ALREADY_FUNDED</shortDescription>
+        <value>Contract is already Funded.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_CHANGE_OFF_REV_SUCCESSFUL</fullName>
+        <categories>ERROR</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_CHANGE_OFF_REV_SUCCESSFUL</shortDescription>
+        <value>The contract charge-off is reversed.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_CHANGE_OFF_SUCCESSFUL</fullName>
+        <categories>ERROR</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_CHANGE_OFF_SUCCESSFUL</shortDescription>
+        <value>contract charge off successful</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_CHARGE_OFF_REVERSED</fullName>
+        <categories>ERROR</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_CHARGE_OFF_REVERSED</shortDescription>
+        <value>contract charge off transaction already reversed.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_CHARGE_OFF_REV_ERROR</fullName>
+        <categories>ERROR</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_CHARGE_OFF_REV_ERROR</shortDescription>
+        <value>contract status not in charge off status to reverse it, please check contract status.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_CHARGE_OFF_TXN_NOT_AVAILABLE</fullName>
+        <categories>ERROR</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_CHARGE_OFF_TXN_NOT_AVAILABLE</shortDescription>
+        <value>contract charge off transaction not available</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_COPY_SUCCESSFUL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_COPY_SUCCESSFUL</shortDescription>
+        <value>Contract Copied Sucessfully, new contract</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_DATE_IS_NULL_ON_LEASE_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_DATE_IS_NULL_ON_LEASE_ACCOUNT</shortDescription>
+        <value>Contract Date is null on the lease account.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_FEE_START_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_ FEE_START_DATE</shortDescription>
+        <value>Please specify period start date for fee on or after contract start date.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_NOT_ACTIVATED</fullName>
+        <categories>ERROR</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_NOT_ACTIVATED</shortDescription>
+        <value>Contract not activated, please activate it...</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_NOT_AVAILABLE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_NOT_AVAILABLE</shortDescription>
+        <value>Contract not available</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_SALE_TRANSACTION_PAYMENT_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_SALE_TRANSACTION_PAYMENT_ERROR</shortDescription>
+        <value>The contract sale transaction cannot be made with Excess Payment Mode.</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_STATUS_STREAMS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_STATUS_STREAMS</shortDescription>
+        <value>Contract Status should be in PARTIAL APPLICATION to generate Streams</value>
+    </labels>
+    <labels>
+        <fullName>CONTRACT_TERMINATION_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CONTRACT_TERMINATION_SUCCESS</shortDescription>
+        <value>SUCCESSFULLY_TERMINATED_CONTRACTS</value>
+    </labels>
+    <labels>
+        <fullName>CURRENT_PAYMENT_AMOUNT_IS_NULL_OR_ZERO_ON_THE_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CURRENT_PAYMENT_AMOUNT_IS_NULL_OR_ZERO_ON_THE_ACCOUNT</shortDescription>
+        <value>Current Payment Amount is null or zero on the account.</value>
+    </labels>
+    <labels>
+        <fullName>DATE_BEYOND_TODAY</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DATE_BEYOND_TODAY</shortDescription>
+        <value>Date is beyond the current system date.</value>
+    </labels>
+    <labels>
+        <fullName>DATE_CANNOT_EARLIER_TXN_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DATE_CANNOT_EARLIER_TXN_DATE</shortDescription>
+        <value>Date cannot be less than Payment Transaction Date</value>
+    </labels>
+    <labels>
+        <fullName>DAY_PROCESS_RECORDS_NOT_FOUND</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DAY_PROCESS_RECORDS_NOT_FOUND</shortDescription>
+        <value>Day process records not found. Please contact admin.</value>
+    </labels>
+    <labels>
+        <fullName>DAY_SETUP_MISSING</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DAY_SETUP_MISSING</shortDescription>
+        <value>Day Setup Missing for this branch.</value>
+    </labels>
+    <labels>
+        <fullName>DB_COMMIT_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DB_COMMIT_ERROR</shortDescription>
+        <value>Error while committing charge to database.</value>
+    </labels>
+    <labels>
+        <fullName>DEALER_CHARGES_SHOULD_BE_GREATERTHAN_ZERO</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DEALER_CHARGES_SHOULD_BE_GREATERTHAN_ZERO</shortDescription>
+        <value>Dealer charges should be great than zero...</value>
+    </labels>
+    <labels>
+        <fullName>DEALER_FUND_SHOULD_ON_OR_LATER_DEALER_PAYMENT_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DEALER_FUND_SHOULD_ON_OR_LATER_CURRENT_SYS_DATE</shortDescription>
+        <value>Dealer funding can be done on or after current system date...</value>
+    </labels>
+    <labels>
+        <fullName>DEALER_FUND_TXN_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DEALER_FUND_TXN_SUCCESS</shortDescription>
+        <value>Dealer Funding Transaction created</value>
+    </labels>
+    <labels>
+        <fullName>DEFAULT_BRANCH_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DEFAULT_BRANCH_REQUIRED</shortDescription>
+        <value>Default Branch must be selected.</value>
+    </labels>
+    <labels>
+        <fullName>DEP_STREAMS_BASIS_FLAG_IN_PRODUCT_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DEP_STREAMS_BASIS_FLAG_IN_PRODUCT_REQUIRED</shortDescription>
+        <value>Please Set the Depreciation Stream Basis on Product</value>
+    </labels>
+    <labels>
+        <fullName>DUEDAY_CHANGE_SUCCESSFUL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DUEDAY_CHANGE_SUCCESSFUL</shortDescription>
+        <value>Changed due date sucessfully</value>
+    </labels>
+    <labels>
+        <fullName>DUE_DAY_IS_NULL_OR_ZERO_ON_THE_LEASE_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DUE_DAY_IS_NULL_OR_ZERO_ON_THE_LEASE_ACCOUNT</shortDescription>
+        <value>Due Day is null or zero on the lease account.</value>
+    </labels>
+    <labels>
+        <fullName>DUPLICATE_FEE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DUPLICATE_FEE</shortDescription>
+        <value>Duplicate Records for Fee Name</value>
+    </labels>
+    <labels>
+        <fullName>EMPTY_FEE_SET</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EMPTY_FEE_SET</shortDescription>
+        <value>The attached Fee Set is empty. Please add Fee into the Fee Set.</value>
+    </labels>
+    <labels>
+        <fullName>ENTER_PAYMENT_SCHEDULE_FREQUENCY</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ENTER_PAYMENT_SCHEDULE_FREQUENCY</shortDescription>
+        <value>Please enter Frequency for Payment Schedule</value>
+    </labels>
+    <labels>
+        <fullName>EQUIPMENT_NOT_ATTACHED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EQUIPMENT_NOT_ATTACHED</shortDescription>
+        <value>Please associate equipment to contract.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_ACH</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ERROR_ACH</shortDescription>
+        <value>Unable to stop ACH. Please try again after some time.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_COPY</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ERROR_COPY</shortDescription>
+        <value>Contract could not be copied.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_UPLOAD_ACH_FILE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ERROR_UPLOAD_ACH_FILE</shortDescription>
+        <value>Unable to upload ACH file. Please review and resolve errors before trying again.</value>
+    </labels>
+    <labels>
+        <fullName>EXCEPTION</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EXCEPTION</shortDescription>
+        <value>Exception</value>
+    </labels>
+    <labels>
+        <fullName>EXPENSE_FEE_FREQUENCY_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EXPENSE_FEE_FREQUENCY_REQUIRED</shortDescription>
+        <value>Frequency Required for Expense fee...</value>
+    </labels>
+    <labels>
+        <fullName>EXPENSE_FEE_PERIODS_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EXPENSE_FEE_PERIODS_REQUIRED</shortDescription>
+        <value>No of Periods Required for Expense fee...</value>
+    </labels>
+    <labels>
+        <fullName>FAILED_LABEL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FAILED_LABEL</shortDescription>
+        <value>FAILED</value>
+    </labels>
+    <labels>
+        <fullName>FATAL_ERROR_SOD</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FATAL_ERROR_SOD</shortDescription>
+        <value>Could not start the SOD Batch Process. Contact System Administrator</value>
+    </labels>
+    <labels>
+        <fullName>FEE_AMORTIZATION_PERIOD</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FEE_AMORTIZATION_PERIOD</shortDescription>
+        <value>Please enter amortization period for fee</value>
+    </labels>
+    <labels>
+        <fullName>FEE_END_DATE_EXCEED_MATURITY</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FEE_END_DATE_EXCEED_MATURITY</shortDescription>
+        <value>Fee End Date should not go beyond Maturity Date.</value>
+    </labels>
+    <labels>
+        <fullName>FEE_SHOULD_BE_OF_AMZ_OR_PERIODIC</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FEE_SHOULD_BE_OF_AMZ_OR_PERIODIC</shortDescription>
+        <value>Fee should be of type - Periodic or Amortized.</value>
+    </labels>
+    <labels>
+        <fullName>FEE_STARTDATE_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FEE_STARTDATE_REQUIRED</shortDescription>
+        <value>Fee start date must be entered</value>
+    </labels>
+    <labels>
+        <fullName>FEE_STARTDATE_SHOULD_AFTER_CONTRACT_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FEE_STARTDATE_SHOULD_AFTER_CONTRACT_DATE</shortDescription>
+        <value>Fee start date should be after Lease Contract date</value>
+    </labels>
+    <labels>
+        <fullName>FEE_START_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FEE_START_DATE</shortDescription>
+        <value>Please specify Start Date for fee</value>
+    </labels>
+    <labels>
+        <fullName>FEE_TYPE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FEE_TYPE</shortDescription>
+        <value>Please specify fee type for fee</value>
+    </labels>
+    <labels>
+        <fullName>FEE_TYPE_IS_NOT_AVAILABLE_FOR_THE_FEE_SET_ASSOCIATED_WITH_THIS_CONTRACT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FEE_TYPE_IS_NOT_AVAILABLE_FOR_THE_FEE_SET_ASSOCIATED_WITH_THIS_CONTRACT</shortDescription>
+        <value>Fee type is not available for the fee set associated with this contract</value>
+    </labels>
+    <labels>
+        <fullName>FINANCED_AMOUNT_MAX_CHECK</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Financed amount max check</shortDescription>
+        <value>Total financed amount for this contract exceeds the maximum financed amount allowed for this lease product.</value>
+    </labels>
+    <labels>
+        <fullName>FINANCED_AMOUNT_NULL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FINANCED_AMOUNT_NULL</shortDescription>
+        <value>Financed amount cannot be &apos;0&apos;</value>
+    </labels>
+    <labels>
+        <fullName>FIRST_PAYMENT_DATE_IS_NULL_ON_LEASE_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FIRST_PAYMENT_DATE_IS_NULL_ON_LEASE_ACCOUNT</shortDescription>
+        <value>First Payment Date is null on the lease account.</value>
+    </labels>
+    <labels>
+        <fullName>FIRST_PAYMENT_DATE_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FIRST_PAYMENT_DATE_REQUIRED</shortDescription>
+        <value>First Payment Date Must be Entered</value>
+    </labels>
+    <labels>
+        <fullName>FIRST_PAYMENT_SCHEDULE_SHOULD_MATCH_CONTRACT_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FIRST_PAYMENT_SCHEDULE_SHOULD_MATCH_CONTRACT_DATE</shortDescription>
+        <value>First Payment Schedule Date should match First Payment Date on Contract</value>
+    </labels>
+    <labels>
+        <fullName>FIRST_PAYMENT_SCHEDULE_SHOULD_MATCH_CONTRACT_DATE_ARREARS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FIRST_PAYMENT_SCHEDULE_SHOULD_MATCH_CONTRACT_DATE_ARREARS</shortDescription>
+        <value>First Payment Schedule Period Start Date Falls Before The Contract Start Date</value>
+    </labels>
+    <labels>
+        <fullName>FISCAL_YEAR_CLOSE_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FISCAL_YEAR_CLOSE_ERROR</shortDescription>
+        <value>You cannot close this fiscal year today.</value>
+    </labels>
+    <labels>
+        <fullName>FISCAL_YEAR_CLOSE_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FISCAL_YEAR_CLOSE_SUCCESS</shortDescription>
+        <value>Current fiscal year is closed successfully.</value>
+    </labels>
+    <labels>
+        <fullName>FISCAL_YEAR_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FISCAL_YEAR_ERROR</shortDescription>
+        <value>Fiscal year error. please contact administrator</value>
+    </labels>
+    <labels>
+        <fullName>FISCAL_YEAR_OPEN_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FISCAL_YEAR_OPEN_ERROR</shortDescription>
+        <value>Error while opening fiscal year. Contact Admin.</value>
+    </labels>
+    <labels>
+        <fullName>FISCAL_YEAR_SETUP_MISSING</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FISCAL_YEAR_SETUP_MISSING</shortDescription>
+        <value>Could not retrieve running fiscal year. Fiscal Year Setup missing.</value>
+    </labels>
+    <labels>
+        <fullName>FQEQUENCY_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FQEQUENCY_REQUIRED</shortDescription>
+        <value>Frequency must be entered</value>
+    </labels>
+    <labels>
+        <fullName>INSUFFICIENT_ACCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>INSUFFICIENT_ACCESS</shortDescription>
+        <value>You do not have access to Object. Please contact your System Administrator.</value>
+    </labels>
+    <labels>
+        <fullName>INSUFFICIENT_ACCESS_ON_OBJECT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>INSUFFICIENT_ACCESS_ON_OBJECT</shortDescription>
+        <value>Insufficient Access on custom object</value>
+    </labels>
+    <labels>
+        <fullName>INVALID_AMOUNT_IN_SEQUENCE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>INVALID_AMOUNT_IN_SEQUENCE</shortDescription>
+        <value>Invalid amount on sequence</value>
+    </labels>
+    <labels>
+        <fullName>INVALID_CLASS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>INVALID_CLASS</shortDescription>
+        <value>invalid class</value>
+    </labels>
+    <labels>
+        <fullName>INVALID_FEE_IN_SEQUENCE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>INVALID_FEE_IN_SEQUENCE</shortDescription>
+        <value>Invalid Fee in sequence</value>
+    </labels>
+    <labels>
+        <fullName>INVOICE_CREDIT_NOT_SELECTED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>INVOICE_CREDIT_NOT_SELECTED</shortDescription>
+        <value>An Invoice Credit needs to be selected for this Payment Mode</value>
+    </labels>
+    <labels>
+        <fullName>LEASE_ACCOUNT_INVALID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LEASE_ACCOUNT_INVALID</shortDescription>
+        <value>Need a valid lease account</value>
+    </labels>
+    <labels>
+        <fullName>LEASE_FREQUENCY_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LEASE_FREQUENCY_ERROR</shortDescription>
+        <value>Please note that this lease frequency will not be honored if the repayments are tied to a meeting schedule.</value>
+    </labels>
+    <labels>
+        <fullName>LEASE_NOT_IN_PROPER_STATUS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LEASE_NOT_IN_PROPER_STATUS</shortDescription>
+        <value>Lease is not in proper status to generate payment schedule</value>
+    </labels>
+    <labels>
+        <fullName>LEASE_PRODUCT_ASSOCIATED_WITH_THIS_CONTRACT_HAS_NO_FEE_SET</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LEASE_PRODUCT_ASSOCIATED_WITH_THIS_CONTRACT_HAS_NO_FEE_SET</shortDescription>
+        <value>Lease product associated with this contract has no fee set.</value>
+    </labels>
+    <labels>
+        <fullName>LEASE_PRODUCT_ASSOCIATED_WITH_THIS_CONTRACT_HAS_NO_PAYMENT_SPREAD</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LEASE_PRODUCT_ASSOCIATED_WITH_THIS_CONTRACT_HAS_NO_PAYMENT_SPREAD</shortDescription>
+        <value>Lease product associated with this contract has no payment spread.</value>
+    </labels>
+    <labels>
+        <fullName>LEASE_PRODUCT_DOESNT_SUPPORT_ACCRUAL_ON_IDC_iDC_STREAMS_CANNOT_BE_GENERATED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LEASE_PRODUCT_DOESNT_SUPPORT_ACCRUAL_ON_IDC_iDC_STREAMS_CANNOT_BE_GENERATED</shortDescription>
+        <value>Lease product doesnt support Accrual on IDC, IDC streams cannot be generated</value>
+    </labels>
+    <labels>
+        <fullName>MATURITY_DATE_CURRENT_MATURITY_DATE_IS_NULL_iN_LEASE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MATURITY_DATE_CURRENT_MATURITY_DATE_IS_NULL_iN_LEASE</shortDescription>
+        <value>Maturity Date/Current Maturity Date is null on the lease account.</value>
+    </labels>
+    <labels>
+        <fullName>MISMATCH_BETWEEN_DUE_DAY_AND_THE_FIRST_PAYMENT_DATE_DAY</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MISMATCH_BETWEEN_DUE_DAY_AND_THE_FIRST_PAYMENT_DATE_DAY</shortDescription>
+        <value>Mismatch between due day and the first payment date day.</value>
+    </labels>
+    <labels>
+        <fullName>MISMATCH_BETWEEN_NEXT_DUE_DATE_VS_NEXT_DUE_GENERATION_DATE_AND_PRE_BILL_DAYS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MISMATCH_BETWEEN_NEXT_DUE_DATE_VS_NEXT_DUE_GENERATION_DATE_AND_PRE_BILL_DAYS</shortDescription>
+        <value>Mismatch between Next Due Date vs Next Due Generation Date and Pre Bill Days.</value>
+    </labels>
+    <labels>
+        <fullName>MONTH_CLOSE_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MONTH_CLOSE_ERROR</shortDescription>
+        <value>MONTH_CLOSE_ERROR</value>
+    </labels>
+    <labels>
+        <fullName>MOVE_SAME_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MOVE_SAME_DATE</shortDescription>
+        <value>moveToDate same as current System Date not allowed</value>
+    </labels>
+    <labels>
+        <fullName>NEED_ATLEAST_ONE_SEQUENCE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NEED_ATLEAST_ONE_SEQUENCE</shortDescription>
+        <value>Need atleast one sequence!</value>
+    </labels>
+    <labels>
+        <fullName>NEED_NON_NEGATIVE_SEQUENCE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NEED_NON_NEGATIVE_SEQUENCE</shortDescription>
+        <value>Need non-negative number as sequence</value>
+    </labels>
+    <labels>
+        <fullName>NEED_UNIQUE_SEQUENCE_NUMBERING</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NEED_UNIQUE_SEQUENCE_NUMBERING</shortDescription>
+        <value>Need unique sequence nos for flexible repayment</value>
+    </labels>
+    <labels>
+        <fullName>NEGATIVE_YIELD_VALUE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NEGATIVE_YIELD_VALUE</shortDescription>
+        <value>Negative yield is not valid. Please update contract before regenerating streams.</value>
+    </labels>
+    <labels>
+        <fullName>NEXT_DUE_DATE_NEXT_DUE_GENERATION_DATE_IS_NULL_ON_LEASE_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NEXT_DUE_DATE_NEXT_DUE_GENERATION_DATE_IS_NULL_ON_LEASE_ACCOUNT</shortDescription>
+        <value>Next Due Date/Next Due Generation Date is null on lease account.</value>
+    </labels>
+    <labels>
+        <fullName>NEXT_DUE_GENERATION_DATE_IS_IN_PAST_ON_THE_LEASE_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NEXT_DUE_GENERATION_DATE_IS_IN_PAST_ON_THE_LEASE_ACCOUNT</shortDescription>
+        <value>Next Due Generation date is in past on the lease account.</value>
+    </labels>
+    <labels>
+        <fullName>NEXT_DUE_GENERATION_DATE_IS_NOT_SET_TO_MAX_DATE_FOR_THE_MATURED_LL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NEXT_DUE_GENERATION_DATE_IS_NOT_SET_TO_MAX_DATE_FOR_THE_MATURED_LL</shortDescription>
+        <value>Next Due generation date is not set to Max Date for the matured ll.</value>
+    </labels>
+    <labels>
+        <fullName>NO_ASSET_LIFE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_ASSET_LIFE</shortDescription>
+        <value>Asset life not specified. Please update asset life on product for depreciation for asset life.</value>
+    </labels>
+    <labels>
+        <fullName>NO_CALENDAR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_CALENDAR</shortDescription>
+        <value>Please associate calendar for company</value>
+    </labels>
+    <labels>
+        <fullName>NO_CONTRACT_FEE_SET</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_CONTRACT_FEE_SET</shortDescription>
+        <value>Please attach a Fee Set to the contract.</value>
+    </labels>
+    <labels>
+        <fullName>NO_DEALER_FUNDING</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_DEALER_FUNDING</shortDescription>
+        <value>Please specify dealer to be funded.</value>
+    </labels>
+    <labels>
+        <fullName>NO_EQUIPMENT_FUNDING</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_EQUIPMENT_FUNDING</shortDescription>
+        <value>Please specify equipment to be funded.</value>
+    </labels>
+    <labels>
+        <fullName>NO_EXCESS_BALANCE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_EXCESS_BALANCE</shortDescription>
+        <value>No Balance Exists in Excess Balance</value>
+    </labels>
+    <labels>
+        <fullName>NO_OT_ACH_SETUP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_OT_ACH_SETUP</shortDescription>
+        <value>No Unprocessed One Time ACH transactions exist for cancellation.</value>
+    </labels>
+    <labels>
+        <fullName>NO_PAYMENT_SCHEDULE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_PAYMENT_SCHEDULE</shortDescription>
+        <value>Please specify the payment schedule.</value>
+    </labels>
+    <labels>
+        <fullName>NO_RECURRING_ACH_SETUP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_RECURRING_ACH_SETUP</shortDescription>
+        <value>No Recurring ACH is setup on this account.</value>
+    </labels>
+    <labels>
+        <fullName>NO_REVERSAL_MIGRATION_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_REVERSAL_MIGRATION_DATE</shortDescription>
+        <value>You cannot reverse this transaction. Payment transaction date is before the migration date of this lease.</value>
+    </labels>
+    <labels>
+        <fullName>NO_TERMINATION_QUOTE_ACCEPTED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NO_TERMINATION_QUOTE_ACCEPTED</shortDescription>
+        <value>NO ACCEPTED TERMINATION QUOTES ON THIS LEASE CONTRACT</value>
+    </labels>
+    <labels>
+        <fullName>OT_ACH_STOPPED_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OT_ACH_STOPPED_SUCCESS</shortDescription>
+        <value>One Time ACH has been Stopped Successfully</value>
+    </labels>
+    <labels>
+        <fullName>OVERLAPPING_PAYMENTS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OVERLAPPING_PAYMENTS</shortDescription>
+        <value>Overlapping Payments. Please Change Payment Start Date on Sequence</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENTS_SHOULD_MORETHAN_ZERO</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENTS_SHOULD_MORETHAN_ZERO</shortDescription>
+        <value>Number of Payments should be greater than zero</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_DATE</shortDescription>
+        <value>First payment date cannot be earlier than contract start date. Please update first payment date.</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_MANUAL_CONTRACT_STATUS_NOT_ALLOWED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PAYMENT_MANUAL_CONTRACT_STATUS_NOT_ALLOWED</shortDescription>
+        <value>Manual payment is not supported on contracts with statuses</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_MODE_NOT_ALLOWED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_MODE_NOT_ALLOWED</shortDescription>
+        <value>Payment Mode not allowed for a manual payment</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_NOT_ALLOWED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_NOT_ALLOWED</shortDescription>
+        <value>Payment Mode not allowed for a closed lease.</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_NO_CONTRACT_CHANGE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PAYMENT_NO_CONTRACT_CHANGE</shortDescription>
+        <value>Contract cannot be changed.</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_RECEIVED_TERMINATION_CANNOT_WITHDRAWN</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_RECEIVED_TERMINATION_CANNOT_WITHDRAWN</shortDescription>
+        <value>PAYMENT ALREADY RECEIVED AGAINST THIS TERMINATION QUOTE, CANNOT WITHDRAW</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_REVERSAL_CAN_BE_APPLIED_ONLY_ON_THE_LAST_PAYMENT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_REVERSAL_CAN_BE_APPLIED_ONLY_ON_THE_LAST_PAYMENT</shortDescription>
+        <value>Payment Reversal can be applied only on the last payment</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_SCHEDULE_EXCEED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_SCHEDULE_EXCEED</shortDescription>
+        <value>Payment Schedule End Date should not exceed Rental maturity date.</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_SCHEDULE_START_FIRST_PAYMENT_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_SCHEDULE_START_FIRST_PAYMENT_DATE</shortDescription>
+        <value>Payment Schedule must start from First Payment Date on Contract</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_SHOULD_MORETHAN_ZERO</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_SHOULD_MORETHAN_ZERO</shortDescription>
+        <value>Payment amount must be greater than zero</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_SPREAD_MODIFY_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_SPREAD_MODIFY_ERROR</shortDescription>
+        <value>Payment Spread can\&apos;t edit/delete as it is used is used in activated contract</value>
+    </labels>
+    <labels>
+        <fullName>PAYMENT_STREAM_IS_EMPTY</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PAYMENT_STREAM_IS_EMPTY</shortDescription>
+        <value>Payment Stream is empty</value>
+    </labels>
+    <labels>
+        <fullName>PERIODS_ALREADY_POPULATED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PERIODS_ALREADY_POPULATED</shortDescription>
+        <value>Periods Already Populated</value>
+    </labels>
+    <labels>
+        <fullName>PERIODS_CREATION_EXCEPTION</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PERIODS_CREATION_EXCEPTION</shortDescription>
+        <value>Unexpected Error while creating Periods</value>
+    </labels>
+    <labels>
+        <fullName>PERIODS_CREATION_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PERIODS_CREATION_SUCCESS</shortDescription>
+        <value>Periods Created for the Calendar...</value>
+    </labels>
+    <labels>
+        <fullName>PERIODS_NOT_POPULATED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PERIODS_NOT_POPULATED</shortDescription>
+        <value>Please generate periods for calendar</value>
+    </labels>
+    <labels>
+        <fullName>PERIOD_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PERIOD_REQUIRED</shortDescription>
+        <value>Number of Periods must be entered</value>
+    </labels>
+    <labels>
+        <fullName>PERIOD_SHOULD_MORETHAN_ZERO</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PERIOD_SHOULD_MORETHAN_ZERO</shortDescription>
+        <value>Number of Periods must be grerater than zero</value>
+    </labels>
+    <labels>
+        <fullName>PREVIEW_GENERATE_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PREVIEW_GENERATE_SUCCESS</shortDescription>
+        <value>Preview generated sucessfully.</value>
+    </labels>
+    <labels>
+        <fullName>PRE_BILL_DAYS_IS_NULL_ON_LEASE_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PRE_BILL_DAYS_IS_NULL_ON_LEASE_ACCOUNT</shortDescription>
+        <value>Pre Bill Days is null on lease account.</value>
+    </labels>
+    <labels>
+        <fullName>PRODUCT_ACCRUAL_DATE_SETUP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PRODUCT_ACCRUAL_DATE_SETUP</shortDescription>
+        <value>The Product Accrual Date Option is not Set, Please set it to End of Month or On Due Date</value>
+    </labels>
+    <labels>
+        <fullName>PRODUCT_NOT_EXIST</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PRODUCT_NOT_EXIST</shortDescription>
+        <value>Lease Product does not exist</value>
+    </labels>
+    <labels>
+        <fullName>RECURRING_ACH_POSTED_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RECURRING_ACH_POSTED_SUCCESS</shortDescription>
+        <value>Recurring ACH posted successfully.</value>
+    </labels>
+    <labels>
+        <fullName>RECURRING_ACH_STOPPED_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RECURRING_ACH_STOPPED_SUCCESS</shortDescription>
+        <value>Recurring ACH has been Stopped Successfully</value>
+    </labels>
+    <labels>
+        <fullName>RESIDUAL_FREQUENCY_REQUIRED_TERM_RESIDUAL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RESIDUAL_FREQUENCY_REQUIRED_TERM_RESIDUAL</shortDescription>
+        <value>For Term Residual, Residual Frequency must be entered</value>
+    </labels>
+    <labels>
+        <fullName>RESIDUAL_PERIOD_REQUIRED_TERM_RESIDUAL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RESIDUAL_PERIOD_REQUIRED_TERM_RESIDUAL</shortDescription>
+        <value>For Term Residual, Residual Period must be entered</value>
+    </labels>
+    <labels>
+        <fullName>RESIDUAL_TYPE_NOT_REQUIRED_OP_LEASE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RESIDUAL_TYPE_NOT_REQUIRED_OP_LEASE</shortDescription>
+        <value>Residual Type Value must not be entered for Operating Lease</value>
+    </labels>
+    <labels>
+        <fullName>RESIDUAL_TYPE_REQUIRED_FINANCE_LEASE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RESIDUAL_TYPE_REQUIRED_FINANCE_LEASE</shortDescription>
+        <value>Residual Type Value must be entered for Finance Lease</value>
+    </labels>
+    <labels>
+        <fullName>ROLLBACK_BATCHJOB</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ROLLBACK_BATCHJOB</shortDescription>
+        <value>Rolling back the batch</value>
+    </labels>
+    <labels>
+        <fullName>SAVED_SUCCESSFULLY</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SAVED SUCCESSFULLY</shortDescription>
+        <value>Saved Sucessfully</value>
+    </labels>
+    <labels>
+        <fullName>SAVE_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SAVE_ERROR</shortDescription>
+        <value>Error. Save Failed</value>
+    </labels>
+    <labels>
+        <fullName>SAVE_REPOSSESSION_REQUEST</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SAVE_REPOSSESSION_REQUEST</shortDescription>
+        <value>Please save the Repossession Request before adding response...</value>
+    </labels>
+    <labels>
+        <fullName>SAVE_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SAVE_SUCCESS</shortDescription>
+        <value>Saved Successfully</value>
+    </labels>
+    <labels>
+        <fullName>SELECT_ALTEAST_ONE_EQUIPMENT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SELECT_ALTEAST_ONE_EQUIPMENT</shortDescription>
+        <value>At Least One Equipment must be Selected.</value>
+    </labels>
+    <labels>
+        <fullName>SELECT_FEE_FROM_FEESET</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SELECT_FEE_FROM_FEESET</shortDescription>
+        <value>Please select Fee from feeSet</value>
+    </labels>
+    <labels>
+        <fullName>SELECT_PRODUCT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SELECT_PRODUCT</shortDescription>
+        <value>Please select a lending product.</value>
+    </labels>
+    <labels>
+        <fullName>SETUP_FISCAL_YEAR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SETUP_FISCAL_YEAR</shortDescription>
+        <value>Please setup next fiscal year. You cannot start SOD for this day.</value>
+    </labels>
+    <labels>
+        <fullName>SET_AMZ_METHOD_IN_FEE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SET_AMZ_METHOD_IN_FEE</shortDescription>
+        <value>Please set Amortization method in Fee Setup for Fee</value>
+    </labels>
+    <labels>
+        <fullName>STATUS_CHANGE_NOT_ALLOWED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>STATUS_CHANGE_NOT_ALLOWED</shortDescription>
+        <value>This Status Change is not Allowed</value>
+    </labels>
+    <labels>
+        <fullName>STREAMS_GENERATION_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>STREAMS_GENERATION_SUCCESS</shortDescription>
+        <value>Generating Streams...</value>
+    </labels>
+    <labels>
+        <fullName>STREAM_RESIDUAL_VALUE_INCORRECT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>STREAM_RESIDUAL_VALUE_INCORRECT</shortDescription>
+        <value>Stream residual value incorrect.</value>
+    </labels>
+    <labels>
+        <fullName>TAX_IS_EXEMPTED_ON_THIS_CONTRACT_EQUIPMENT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TAX_IS_EXEMPTED_ON_THIS_CONTRACT_EQUIPMENT</shortDescription>
+        <value>Tax is exempted on this Contract Equipment</value>
+    </labels>
+    <labels>
+        <fullName>TAX_RATE_NEGATIVE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tax rate negative/positive check</shortDescription>
+        <value>Please enter a positive value for the tax rate.</value>
+    </labels>
+    <labels>
+        <fullName>TERMINATION_QUOTE_ACCEPTED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERMINATION_QUOTE_ACCEPTED</shortDescription>
+        <value>TERMINATION QUOTE ACCEPTED</value>
+    </labels>
+    <labels>
+        <fullName>TERMINATION_QUOTE_ALREADY_ACCEPTED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERMINATION_QUOTE_ALREADY_ACCEPTED</shortDescription>
+        <value>TERMINATION QUOTE ALREADY ACCEPTED ON THIS LEASE CONTRACT</value>
+    </labels>
+    <labels>
+        <fullName>TERMINATION_QUOTE_EFFECTIVE_FROMDATE_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERMINATION_QUOTE_EFFECTIVE_FROMDATE_REQUIRED</shortDescription>
+        <value>Quote Effective From Date must be Entered.</value>
+    </labels>
+    <labels>
+        <fullName>TERMINATION_QUOTE_TYPE_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERMINATION_QUOTE_TYPE_REQUIRED</shortDescription>
+        <value>Termination quote Type must be entered</value>
+    </labels>
+    <labels>
+        <fullName>TERMINATION_QUOTE_VALID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERMINATION_QUOTE_VALID</shortDescription>
+        <value>TERMINATION QUOTE VALIDITY IS ALREADY PASSED</value>
+    </labels>
+    <labels>
+        <fullName>TERMINATION_QUOTE_WITHDRAWN</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERMINATION_QUOTE_WITHDRAWN</shortDescription>
+        <value>TERMINATION QUOTE WITHDRAWN</value>
+    </labels>
+    <labels>
+        <fullName>TERMINATION_REASON_REQUIRED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERMINATION_REASON_REQUIRED</shortDescription>
+        <value>Termination quote reason must be entered.</value>
+    </labels>
+    <labels>
+        <fullName>TERMINATION_SHOULD_ACCEPT_BEFORE_WITHDRAWN</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERMINATION_SHOULD_ACCEPT_BEFORE_WITHDRAWN</shortDescription>
+        <value>TERMINATION QUOTE MUST BE ACCEPTED BEFORE IT CAN BE WITHDRAWN</value>
+    </labels>
+    <labels>
+        <fullName>TERM_CANNOT_BE_NEGATIVE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERM_ZERO</shortDescription>
+        <value>Contract term cannot be negative. Please update term.</value>
+    </labels>
+    <labels>
+        <fullName>TERM_CURRENT_TERM_IS_NULL_OR_ZERO_IN_LEASE_ACCOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERM_CURRENT_TERM_IS_NULL_OR_ZERO_IN_LEASE_ACCOUNT</shortDescription>
+        <value>Term/Current Term is null or zero on the lease account.</value>
+    </labels>
+    <labels>
+        <fullName>TERM_EXTENSION_SUCCESSFUL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TERM_EXTENSION_SUCCESSFUL</shortDescription>
+        <value>Term Extension was sucessful!</value>
+    </labels>
+    <labels>
+        <fullName>THIS_CONTRACT_DOESNT_HAVE_A_LEASE_PRODUCT_ASSOCIATED_WITH_IT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>THIS_CONTRACT_DOESNT_HAVE_A_LEASE_PRODUCT_ASSOCIATED_WITH_IT</shortDescription>
+        <value>This contract does not have a lease product associated with it.</value>
+    </labels>
+    <labels>
+        <fullName>THIS_CONTRACT_NEITHER_HAS_AN_ACCOUNT_NOR_A_CONTACT_ASSOCIATED_WITH_THE_LESSEE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>THIS_CONTRACT_NEITHER_HAS_AN_ACCOUNT_NOR_A_CONTACT_ASSOCIATED_WITH_THE_LESSEE</shortDescription>
+        <value>This contract neither has an account or a contact associated with the Lessee.</value>
+    </labels>
+    <labels>
+        <fullName>TOLERANCE_CANNOT_BE_CHANGED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TOLERANCE_CANNOT_BE_CHANGED</shortDescription>
+        <value>You cannot change tolerance setting of a lease with the status - Partial Application, Pending Approval,Matured,Cancelled and Closed.</value>
+    </labels>
+    <labels>
+        <fullName>TOLERANCE_SHOULD_BE_BETWEEN_0_100</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TOLERANCE_SHOULD_BE_BETWEEN_0_100</shortDescription>
+        <value>Tolerance rate should a percentage value between 0 and 100</value>
+    </labels>
+    <labels>
+        <fullName>TOTAL_PAYMENT_AMOUNT_SHOULDBE_MORETHAN_ZERO</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TOTAL_PAYMENT_AMOUNT_SHOULDBE_MORETHAN_ZERO</shortDescription>
+        <value>Payment amount must be greater than zero</value>
+    </labels>
+    <labels>
+        <fullName>TRANSACTIONTYPE_AVAILABLE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TRANSACTIONTYPE_AVAILABLE</shortDescription>
+        <value>Transaction Sub-Type Already Available</value>
+    </labels>
+    <labels>
+        <fullName>TRANSACTION_SUB_TYPE_INVALID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TRANSACTION_SUB_TYPE_INVALID</shortDescription>
+        <value>Transaction_Sub_Type transaction sub type not defined. Please setup transaction sub type.</value>
+    </labels>
+    <labels>
+        <fullName>TXN_AMOUNT_ADJUSTED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_AMOUNT_ADJUSTED</shortDescription>
+        <value>This account is in bad standing. The transaction amount has been adjusted to the amount to current.</value>
+    </labels>
+    <labels>
+        <fullName>TXN_AMOUNT_SHOULD_BE_LESSTHAN_CASH_BALANCE_CLOSING_AMOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_AMOUNT_SHOULD_BE_LESSTHAN_CASH_BALANCE_CLOSING_AMOUNT</shortDescription>
+        <value>The transaction amount must be less than or equal to the excess amount in the cash balance.</value>
+    </labels>
+    <labels>
+        <fullName>TXN_AMOUNT_SHOULD_BE_LESSTHAN_EXCESS_AMOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_AMOUNT_SHOULD_BE_LESSTHAN_EXCESS_AMOUNT</shortDescription>
+        <value>The transaction amount must be less than or equal to the excess amount in the contract.</value>
+    </labels>
+    <labels>
+        <fullName>TXN_AMOUNT_SHOULD_BE_LESSTHAN_INVOICE_CREDIT_BALANCE_AMOUNT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_AMOUNT_SHOULD_BE_LESSTHAN_INVOICE_CREDIT_BALANCE_AMOUNT</shortDescription>
+        <value>The transaction amount must be less than or equal to the balance amount for the selected Invoice Credit, which is</value>
+    </labels>
+    <labels>
+        <fullName>TXN_AMOUNT_SHOULD_BE_MORETHAN_ZERO</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_AMOUNT_SHOULD_BE_MORETHAN_ZERO</shortDescription>
+        <value>Transaction amount should be greater than zero.</value>
+    </labels>
+    <labels>
+        <fullName>TXN_DATE_SHOULD_BEYOND_LAST_PAYMENT_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_DATE_SHOULD_BEYOND_LAST_PAYMENT_DATE</shortDescription>
+        <value>Transaction Date cannot be less than Last Payment Date</value>
+    </labels>
+    <labels>
+        <fullName>TXN_DATE_SHOULD_NOT_AHEAD_CURRENT_SYSTEM_DATE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_DATE_SHOULD_NOT_AHEAD_CURRENT_SYSTEM_DATE</shortDescription>
+        <value>Transaction Date cannot be greater than Current System Date</value>
+    </labels>
+    <labels>
+        <fullName>TXN_NOT_PERMITTED_DAY_NOT_STARTED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_NOT_PERMITTED_DAY_NOT_STARTED</shortDescription>
+        <value>Day has not started. Transactions are not permitted.</value>
+    </labels>
+    <labels>
+        <fullName>TXN_NOT_PERMITTED_SYSTEM_JOB_RUNNING</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_NOT_PERMITTED_SYSTEM_JOB_RUNNING</shortDescription>
+        <value>System job is running. Transactions are not permitted.</value>
+    </labels>
+    <labels>
+        <fullName>TXN_REJECT_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_REJECT_SUCCESS</shortDescription>
+        <value>Transaction successfully rejected.</value>
+    </labels>
+    <labels>
+        <fullName>TXN_SUCCESS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TXN_SUCCESS</shortDescription>
+        <value>Transaction successfully saved.</value>
+    </labels>
+    <labels>
+        <fullName>Tax_rate_City_check</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tax rate City check</shortDescription>
+        <value>Please remove the City TaxRate as City not entered in tax setup.</value>
+    </labels>
+    <labels>
+        <fullName>Tax_rate_county_check</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tax rate county check</shortDescription>
+        <value>Please remove the county TaxRate as County not entered in tax setup.</value>
+    </labels>
+    <labels>
+        <fullName>Tax_rate_time_period_check</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tax rate time period check</shortDescription>
+        <value>The tax rate end date must be later than the start date.</value>
+    </labels>
+    <labels>
+        <fullName>Tax_rate_time_period_collision_check</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tax rate time period collision check</shortDescription>
+        <value>Time period collision in TaxRate time periods.. Please check.</value>
+    </labels>
+    <labels>
+        <fullName>Tax_setup_validation_check_existing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tax setup validation</shortDescription>
+        <value>Tax setup already exists</value>
+    </labels>
+    <labels>
+        <fullName>USER_NO_COMPANY</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>USER_NO_COMPANY</shortDescription>
+        <value>Please assign user to a company.</value>
+    </labels>
+    <labels>
+        <fullName>VALID_LABEL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>VALID_LABEL</shortDescription>
+        <value>Valid...</value>
+    </labels>
+    <labels>
+        <fullName>VERIFY_BRANCH_NAME_SETUP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>VERIFY_BRANCH_NAME_SETUP</shortDescription>
+        <value>Please verify branch setup</value>
+    </labels>
+    <labels>
+        <fullName>VERIFY_FEE_SETUP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>VERIFY_FEE_SETUP</shortDescription>
+        <value>Fee name cache not setup</value>
+    </labels>
+    <labels>
+        <fullName>VERIFY_LEASE_PRODUCT_SETUP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>VERIFY_LEASE_PRODUCT_SETUP</shortDescription>
+        <value>Please verify Lease product setup</value>
+    </labels>
+    <labels>
+        <fullName>VERIFY_PAYMENT_MODE_SETUP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>VERIFY_PAYMENT_MODE_SETUP</shortDescription>
+        <value>Please verify payment mode setup</value>
+    </labels>
+    <labels>
+        <fullName>VERIFY_PAYMENT_SPREAD_SETUP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>VERIFY_PAYMENT_SPREAD_SETUP</shortDescription>
+        <value>Please verify payment spread setup</value>
+    </labels>
+    <labels>
+        <fullName>WRITE_FAILED</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WRITE_FAILED</shortDescription>
+        <value>Failed to write file</value>
+    </labels>
+</CustomLabels>

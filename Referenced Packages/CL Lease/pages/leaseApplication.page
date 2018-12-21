@@ -1,0 +1,66 @@
+<apex:page standardController="cllease__Lease_Account__c" extensions="cllease.LeaseApplicationController" id="leaseAccountPage" title="Create new lease">
+<apex:include pageName="clcommon__mintTheme"/>
+
+  <apex:sectionHeader title="Create New Contract" id="leaseAppSection"/>
+
+        <apex:form >
+        <apex:pageBlock mode="edit" id="createLeaseApplication">
+            <apex:pageMessages />
+            <apex:pageBlockButtons id="buttonSection">
+               <apex:commandButton value="Save" action="{!save}" disabled="{!IF(leaseAccount.cllease__Lease_Product_Name__c == null,true,false)}"/>
+               <apex:commandButton value="Save and New" action="{!saveAndNext}" disabled="{!IF(leaseAccount.cllease__Lease_Product_Name__c == null,true,false)}" />
+               <apex:commandButton value="Cancel" immediate="true" action="{!URLFOR($Action.Lease_Account__c.Tab,$ObjectType.Lease_Account__c)}"/>
+            </apex:pageBlockButtons>
+
+            <apex:outputpanel id="leaseAppStartPanel">
+                <apex:pageBlockSection columns="2" id="leaseAppStartPageBlock" title="Customer Information">
+                    <apex:inputField value="{!leaseAccount.cllease__Account__c}" label="Account Name"/>
+                </apex:pageBlockSection>
+            </apex:outputpanel>
+
+            <apex:outputpanel id="leaseApplicationInfoPanel">
+                <apex:pageBlockSection columns="2" id="LAPageBlock" title="Contract Information">
+                    <apex:inputField value="{!leaseAccount.cllease__Lease_Product_Name__c}">
+                        <apex:actionSupport action="{!getLPInfo}" rerender="leaseAmntPanel,LocAmntPanel,createLeaseApplication, LAPageBlock,buttonSection" event="onchange" status="productChange"/>
+                    </apex:inputField>
+                    <apex:outputField value="{!leaseAccount.cllease__Lease_Status__c}" />
+                    <apex:outputField value="{!leaseAccount.cllease__Branch__c}" />
+                    <apex:outputField value="{!leaseAccount.cllease__Fee_Set1__c}" />
+                </apex:pageBlockSection>
+            </apex:outputpanel>
+            <center>
+                <apex:actionStatus id="productChange">
+                    <apex:facet name="start" >
+                        <apex:image value="/img/loading32.gif" style="height:15px;"/>
+                    </apex:facet>
+                </apex:actionStatus>
+            </center>
+
+            <apex:outputpanel id="leaseAmntPanel">
+                <apex:pageBlockSection columns="2" id="leaseAmntPageBlock" title="Contract Dates" rendered="{!leaseaccount.cllease__Lease_Product_Name__c!=null}">
+                <apex:inputField value="{!leaseAccount.cllease__Contract_Date__c}" required="true"/>
+                <apex:inputField value="{!leaseAccount.cllease__First_Payment_Date__c}" required="true"/>
+                <apex:inputField value="{!leaseAccount.cllease__Term__c}" required="true"/>
+                <apex:inputField value="{!leaseAccount.cllease__Payment_Frequency__c}" required="true"/>
+                <apex:inputField value="{!leaseAccount.cllease__Amort_Start_Date__c}" required="false"/>
+                <apex:inputField value="{!leaseAccount.cllease__Install_Date__c}" required="false"/>
+                <apex:selectList value="{!leaseAccount.cllease__Currency_Code__c}"
+                            rendered="{!isOrgMultiCurrencyEnabled}"
+                            multiselect="false"  size="1">
+                    <apex:selectOptions value="{!currencyCodes}"/>
+                </apex:selectList>
+                <apex:inputField value="{!leaseAccount.cllease__Payment_Method__c}" required="false"/>
+                </apex:pageBlockSection>
+            </apex:outputpanel>
+
+            <apex:outputpanel id="graceAndTolerancePanelLease">
+                <apex:pageBlockSection columns="2" id="gTPageBlock" title="Grace period and Pre bill days" rendered="{!leaseaccount.cllease__Lease_Product_Name__c!=null}">
+                    <apex:inputField value="{!leaseAccount.cllease__Grace_Period_for_Repayments__c}" required="true"/>
+                    <apex:inputField value="{!leaseAccount.cllease__Pre_Bill_Days__c}" required="true"/>
+                    <apex:inputField value="{!leaseAccount.cllease__Delinquency_Grace_Days__c}" required="true"/>
+                </apex:pageBlockSection>
+            </apex:outputpanel>
+
+        </apex:pageBlock>
+        </apex:form>
+</apex:page>

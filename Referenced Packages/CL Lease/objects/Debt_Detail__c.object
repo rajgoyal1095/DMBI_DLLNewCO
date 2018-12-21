@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Used to track debt taken by business to service a lease</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Debt amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Debt amount</inlineHelpText>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Balloon_Payment__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Balloon payment at the end of payment cycle</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Balloon payment at the end of payment cycle</inlineHelpText>
+        <label>Balloon Payment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Lease contract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lease contract</inlineHelpText>
+        <label>Contract</label>
+        <referenceTo>Lease_Account__c</referenceTo>
+        <relationshipLabel>Debt Details</relationshipLabel>
+        <relationshipName>Debt_Details</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Day_Count_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Day count method used by debtor for interest computation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Day count method used by debtor for interest computation</inlineHelpText>
+        <label>Day Count Method</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>30/360</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>365/365</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ACTUAL/ACTUAL</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Debt_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Debt name</description>
+        <externalId>false</externalId>
+        <label>Debt Name</label>
+        <length>32</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Debt repayment end date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Debt repayment end date</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>First_Payment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>First payment date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>First payment date</inlineHelpText>
+        <label>First Payment Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Interest_Compounding_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Frequency for compounding interest</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Frequency for compounding interest</inlineHelpText>
+        <label>Interest Compounding Frequency</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI-WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUARTERLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SINGLE-PAYMENT</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Interest_Only_Term__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Interest only period for debt repayment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Interest only period for debt repayment</inlineHelpText>
+        <label>Interest Only Term</label>
+        <precision>4</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Interest_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Interest rate charged by debtor. Leave this field blank when entering a repayment plan with equal number of payments as debt&apos;s term. In case repayment plan has fewer payments than term, then interest rate is required.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Interest rate charged by debtor. Leave this field blank when entering a repayment plan with equal number of payments as debt&apos;s term. In case repayment plan has fewer payments than term, then interest rate is required.</inlineHelpText>
+        <label>Interest Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Repayment_Computation_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Method used by debtor for computing repayment amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Method used by debtor for computing repayment amount</inlineHelpText>
+        <label>Repayment Computation Method</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>EQUATED PAYMENT</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>EQUATED PRINCIPAL</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Repayment_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Debt repayment frequency</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Debt repayment frequency</inlineHelpText>
+        <label>Repayment Frequency</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BI-WEEKLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MONTHLY</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>BI-MONTHLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUARTERLY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SEMI-ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ANNUAL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SINGLE-PAYMENT</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Debt contract start date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Debt contract start date</inlineHelpText>
+        <label>Start Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Term__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of payment terms for debt repayment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of payment terms for debt repayment</inlineHelpText>
+        <label>Term</label>
+        <precision>4</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Debt type (recourse / non-recourse)</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>RECOURSE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NON RECOURSE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Debt Detail</label>
+    <nameField>
+        <displayFormat>LDD-{00000000}</displayFormat>
+        <label>Debt Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Debt Details</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

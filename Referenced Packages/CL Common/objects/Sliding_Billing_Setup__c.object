@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Sliding Billing Setup contains configuration for sliding billing, applicable for Line Of Credit contracts.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Bill_Component__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Bill Component decides what component of the bill should the amount evaluated from sliding billing ranges be applicable.The amount is the maximum value for that component of the bill.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The selection indicates what billed components like principal, interest or total bill should the maximum amount be set by the amount evaluated from sliding billing ranges. Any left out billed components will be added on top of the bill.</inlineHelpText>
+        <label>Bill Component</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Principal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Principal + Interest</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Total Bill</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Evaluation_Component__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Evaluation Component is the amount to be considered and checked against sliding billing ranges to determine the range and range amount. Bill amount or bill components is/are calculated from the range amount.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select evaluation component on whose amount the billing range is selected and hence the bill amount or bill components is/are calculated.</inlineHelpText>
+        <label>Evaluation Component</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Principal Remaining</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Evaluation_Time__c</fullName>
+        <deprecated>false</deprecated>
+        <description>When evaluation time is Bill Generation, the value of evaluation component at the time of bill generation is considered. If Last Disbursement is selected, the value of evaluation component after the last disbursement is considered.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When evaluation time is Bill Generation, the value of evaluation component at the time of bill generation is considered. If Last Disbursement is selected, the value of evaluation component after the last disbursement is considered.</inlineHelpText>
+        <label>Evaluation Time</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Bill Generation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Last Disbursement</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Sliding Billing Setup</label>
+    <nameField>
+        <label>Sliding Billing Setup Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Sliding Billing Setups</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Evaluation_Component__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Evaluation_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Bill_Component__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Evaluation_Component__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Evaluation_Time__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Bill_Component__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Evaluation_Component__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Evaluation_Time__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Bill_Component__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

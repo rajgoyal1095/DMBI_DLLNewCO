@@ -1,0 +1,20 @@
+<apex:page standardController="cllease__Lease_Account__c">
+    <apex:include pageName="clcommon__mintTheme"/>
+    <c:HighlightsPanelMintTheme labels="Delinquent Amount, Oldest Unpaid Due Date, Payment Amount, Status"
+                       value1="{!cllease__Lease_Account__c.cllease__Delinquent_Amount__c}"
+                       value2="{!cllease__Lease_Account__c.cllease__Oldest_Due_Date__c}"
+                       value3="{!IF(cllease__Lease_Account__c.cllease__Contract_Date__c != null,IF(cllease__Lease_Account__c.cllease__Closed_Date__c == null, cllease__Lease_Account__c.cllease__Current_Payment_Amount__c,0.0),0.0)}"
+                       value4="{!cllease__Lease_Account__c.cllease__Lease_Status__c}"
+                       class4="{!IF(cllease__Lease_Account__c.cllease__Lease_Status__c='ACTIVE - BAD STANDING', 'red', 'green')}"
+                       highlight="true"
+                       rendered="{!$Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint'}" />
+
+    <c:HighlightsPanel labels="Delinquent Amount, Oldest Unpaid Due Date, Payment Amount, Status"
+                       value1="{!cllease__Lease_Account__c.cllease__Delinquent_Amount__c}"
+                       value2="{!cllease__Lease_Account__c.cllease__Oldest_Due_Date__c}"
+                       value3="{!IF(cllease__Lease_Account__c.cllease__Contract_Date__c != null,IF(cllease__Lease_Account__c.cllease__Closed_Date__c == null, cllease__Lease_Account__c.cllease__Current_Payment_Amount__c,0.0),0.0)}"
+                       value4="{!cllease__Lease_Account__c.cllease__Lease_Status__c}"
+                       class4="{!IF(cllease__Lease_Account__c.cllease__Lease_Status__c='ACTIVE - BAD STANDING', 'red', 'green')}"
+                       highlight="true"
+                       rendered="{!NOT($Setup.clcommon__CL_Platform_Settings__c.clcommon__Theme_Name__c == 'Mint')}"/>
+</apex:page>

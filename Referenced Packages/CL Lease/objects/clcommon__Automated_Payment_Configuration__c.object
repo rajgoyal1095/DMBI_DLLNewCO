@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Batch_Number__c</fullName>
+        <defaultValue>&quot;0000123&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Value should be Numeric</inlineHelpText>
+        <label>Batch Number</label>
+        <length>7</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Discretionary_Data__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Company Discretionary Data</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Entry_Description__c</fullName>
+        <defaultValue>&quot;PAYMENT&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Nacha Standard Field</description>
+        <externalId>false</externalId>
+        <label>Company Entry Description</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Class_Code__c</fullName>
+        <defaultValue>&quot;200&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Service Class Code</label>
+        <length>3</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Standard_Entry_Class_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Nacha Standard field.</description>
+        <externalId>false</externalId>
+        <label>Standard Entry Class Code</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PPD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CTX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TEL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WEB</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+</CustomObject>

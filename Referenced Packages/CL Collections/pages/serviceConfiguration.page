@@ -1,0 +1,78 @@
+<apex:page id="serviceConfigPage">
+
+    <apex:stylesheet value="{!$Resource.collect__MFIStyles}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.sidebarMenuTemplate)}" />
+    <script type="text/javascript"
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+
+    <style>
+        .subDataImport {
+            left: 199px !important;
+            width: 150px !important;
+        }
+
+        div.createNewModule.sidebarModule.navMenu {
+            padding: 5px !important;
+        }
+
+    </style>
+    <script>
+    var j$ = jQuery.noConflict();    
+    j$(document).ready(function(){
+       j$('.sourceSystemSetup').append(j$(addMenuHeader('Source System Configuration','70px')));
+       j$('.sourceSystemSetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.Source_System__c.List, $ObjectType.Source_System__c)}','sourceSystemConfiguration','','View/Edit Source Systems'));
+
+       j$('.statusSetup').append(j$(addMenuHeader('Status Configuration','70px')));
+       j$('.statusSetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.Status_Config__c.List, $ObjectType.Status_Config__c)}','statusConfiguration','','View/Edit Status Configuration'));
+
+       j$('.actionSetup').append(j$(addMenuHeader('Action Code Configuration','80px')));
+       j$('.actionSetup .quickloanmenu').append(addMenuItemWithLink('{!URLFOR($Action.Action_Code__c.List, $ObjectType.Action_Code__c)}','actionCodeConfiguration','','View/Edit Action Codes'));
+       j$('.actionSetup .quickloanmenu').append(addMenuItemWithLink('configActions','configActions','','View/Edit Action Code Configuration'));
+
+       j$('.batchJobs').append(j$(addMenuHeader('Batch Jobs','80px')));
+       j$('.batchJobs .quickloanmenu').append(addMenuItemWithLink('batchJobScheduler','batchJobScheduler','','Batch Job Scheduler'));
+
+       j$('.mainMenu').live('mouseenter', function() {
+       j$('.subMenu').hide();
+       j$(this).next('.subMenu').show();
+       });
+    
+       j$(document).mouseup(function (e) {
+            var container = j$(".navMenu #createNewMenu");
+            if (container.has(e.target).length === 0) {
+                j$('.subMenu').hide();
+            }
+       });
+    
+    });   
+    </script>
+    <style></style>
+    <apex:form id="setupForm">
+        <div style="min-width: 800px">
+
+            <div class="mfiflexBlock"
+                style="height: 460px; float: left; width: 48%; margin-right: 1%;">
+                <div class="mfiflexBlockHeading" id="bottomWrapper">
+                    <h1 class="heading">Setup</h1>
+                </div>
+                <div class="collapsible sidebar sourceSystemSetup" id="sidebarDiv"
+                    style="margin: auto; margin-top: 30px"></div>
+                <div class="collapsible sidebar statusSetup" id="sidebarDiv"
+                    style="margin: auto;"></div>
+                <div class="collapsible sidebar actionSetup" id="sidebarDiv"
+                    style="margin: auto;"></div>
+            </div>
+
+            <div class="mfiflexBlock"
+                style="height: 460px; float: left; width: 48%; margin-left: 1%;">
+                <div class="mfiflexBlockHeading" id="bottomWrapper">
+                    <h1 class="heading">Batch Jobs</h1>
+                </div>
+                <div class="collapsible sidebar batchJobs" id="sidebarDiv"
+                    style="margin: auto; margin-top: 30px"></div>
+            </div>
+
+        </div>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>This object records the Holidays of Accounts and Contacts.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This field relates to the account for which this holiday is set up</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Holidays</relationshipLabel>
+        <relationshipName>Holidays</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ActivityDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the date of a non-recurring holiday</description>
+        <externalId>false</externalId>
+        <label>Activity Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This field relates to the contact for which this holiday is set up</description>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Holidays</relationshipLabel>
+        <relationshipName>Holidays</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field holds the holiday description</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>EndTimeInMinutes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the time of the day when the holiday ends when it is not an all day event.</description>
+        <externalId>false</externalId>
+        <label>End Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <fields>
+        <fullName>IsAllDay__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This checkbox indicates if this Holiday applies for an entire day or not.</description>
+        <externalId>false</externalId>
+        <label>All day</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IsRecurrence__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field indicated if the holiday is recurring or occurs only on the activity date.</description>
+        <externalId>false</externalId>
+        <label>Recurring</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RecurrenceDayOfMonth__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field indicates the day of the month on which the holiday occurs</description>
+        <externalId>false</externalId>
+        <label>Recurrence Day of Month</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RecurrenceDayOfWeekMask__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the field that stores the bit mask value of all the week days on which the holiday applies.</description>
+        <externalId>false</externalId>
+        <label>Recurrence Day of Week Mask</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RecurrenceEndDateOnly__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field holds the date when the holiday recurrence ends.</description>
+        <externalId>false</externalId>
+        <label>Recurrence End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RecurrenceInstance__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field indicates the frequency of occurrence of the holiday. Ex: Every &apos;First&apos; week of March, Every &apos;Second&apos; Sunday of every month etc..</description>
+        <externalId>false</externalId>
+        <label>Recurrence Instance</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>First</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Second</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Third</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fourth</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Last</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RecurrenceInterval__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field indicates the number of intervals after which the holiday will recur. Ex: 1,2,3,...10,11,...</description>
+        <externalId>false</externalId>
+        <label>Recurrence Interval</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RecurrenceMonthOfYear__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This indicates the month of the year when the holiday will recur</description>
+        <externalId>false</externalId>
+        <label>Recurrence Month of Year</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>January</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>February</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>March</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>April</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>May</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>June</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>July</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>August</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>September</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>October</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>November</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>December</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>RecurrenceStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field holds the date from which the holiday recurrence applies.</description>
+        <externalId>false</externalId>
+        <label>Recurrence Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RecurrenceType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field holds the pattern of recurrence of the holiday.</description>
+        <externalId>false</externalId>
+        <label>Recurrence Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>RecursDaily</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RecursEveryWeekday</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RecursWeekly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RecursMonthly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RecursMonthlyNth</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RecursYearly</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RecursYearlyNth</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>StartTimeInMinutes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the time of the day when the holiday starts when it is not an all day event.</description>
+        <externalId>false</externalId>
+        <label>Start Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Time</type>
+    </fields>
+    <label>Holiday</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Contact__c</columns>
+        <columns>IsAllDay__c</columns>
+        <columns>ActivityDate__c</columns>
+        <columns>IsRecurrence__c</columns>
+        <columns>RecurrenceStartDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Holiday Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Holidays</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Activity_Date_if_recurring_or_one_day</fullName>
+        <active>true</active>
+        <description>This date should not be populated if the holiday is marked recurring.
+Also, this date should be populated if the holiday is not marked recurring.</description>
+        <errorConditionFormula>OR(AND(IsRecurrence__c, NOT(ISBLANK(ActivityDate__c))), AND(NOT(IsRecurrence__c), ISBLANK(ActivityDate__c)))</errorConditionFormula>
+        <errorDisplayField>ActivityDate__c</errorDisplayField>
+        <errorMessage>One of the following :
+1. Activity date MUST NOT be set if the holiday is marked RECURRING.
+2. Activity date MUST be set if the holiday is marked NOT RECURRING.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EndTime_not_less_or_equal_to_StartTime</fullName>
+        <active>true</active>
+        <description>The End Time for the Holiday cannot be less than or equal to the Start Time of the Holiday.</description>
+        <errorConditionFormula>TIMEVALUE(EndTimeInMinutes__c) &lt;=  TIMEVALUE(StartTimeInMinutes__c)</errorConditionFormula>
+        <errorDisplayField>EndTimeInMinutes__c</errorDisplayField>
+        <errorMessage>Holiday end time should occur after the start time.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>End_Date_cannot_be_less_than_Start_Date</fullName>
+        <active>true</active>
+        <description>The End Date for the Holiday should be greater than or equal to the Start Date of the Holiday.</description>
+        <errorConditionFormula>RecurrenceEndDateOnly__c &lt; RecurrenceStartDate__c</errorConditionFormula>
+        <errorDisplayField>RecurrenceEndDateOnly__c</errorDisplayField>
+        <errorMessage>Holiday end date should be greater than or equal to the start date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Is_DayOfMonth_valid_for_MonthOfYear</fullName>
+        <active>true</active>
+        <description>This is a validation rule that checks if the given Recurring Day of Month is valid for the chosen Recurring Month of Year.</description>
+        <errorConditionFormula>OR(AND(OR(ISPICKVAL(RecurrenceMonthOfYear__c, &quot;February&quot;),ISPICKVAL(RecurrenceMonthOfYear__c, &quot;April&quot;),ISPICKVAL(RecurrenceMonthOfYear__c, &quot;June&quot;),ISPICKVAL(RecurrenceMonthOfYear__c, &quot;September&quot;),ISPICKVAL(RecurrenceMonthOfYear__c, &quot;November&quot;)),RecurrenceDayOfMonth__c = 31),AND(ISPICKVAL(RecurrenceMonthOfYear__c, &quot;February&quot;),RecurrenceDayOfMonth__c = 30))</errorConditionFormula>
+        <errorDisplayField>RecurrenceDayOfMonth__c</errorDisplayField>
+        <errorMessage>Recurring Day of Month is not a valid day for the chosen Recurring Month of Year</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_End_Time_if_all_day</fullName>
+        <active>true</active>
+        <description>This validation rule is applied if a holiday is marked as an all day event and then tries to set the end time as well.</description>
+        <errorConditionFormula>AND(AND(IsAllDay__c, NOT(ISBLANK(EndTimeInMinutes__c))),NOT(IsRecurrence__c))</errorConditionFormula>
+        <errorDisplayField>EndTimeInMinutes__c</errorDisplayField>
+        <errorMessage>End time cannot be defined if the holiday is an all day event.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Recurrence_Day_Mask_if_not_recurring</fullName>
+        <active>true</active>
+        <description>Recurrence day of week mask cannot be set if the holiday is not marked as Recurring</description>
+        <errorConditionFormula>AND(NOT(IsRecurrence__c), NOT(ISBLANK(RecurrenceDayOfWeekMask__c)))</errorConditionFormula>
+        <errorDisplayField>RecurrenceDayOfWeekMask__c</errorDisplayField>
+        <errorMessage>Recurrence day of week mask cannot be set if the holiday is not marked as Recurring</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Recurrence_Day_if_not_recurring</fullName>
+        <active>true</active>
+        <description>Recurrence Day of Month cannot be set if the holiday is not marked as Recurring</description>
+        <errorConditionFormula>AND(NOT(IsRecurrence__c), NOT(ISBLANK(RecurrenceDayOfMonth__c)))</errorConditionFormula>
+        <errorDisplayField>RecurrenceDayOfMonth__c</errorDisplayField>
+        <errorMessage>Recurrence Day of Month cannot be set if the holiday is not marked as Recurring</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Recurrence_Instance_if_not_recurring</fullName>
+        <active>true</active>
+        <description>Recurrence Instance cannot be selected if the holiday is not marked as Recurring</description>
+        <errorConditionFormula>AND(NOT(IsRecurrence__c), NOT(ISBLANK(TEXT(RecurrenceInstance__c))))</errorConditionFormula>
+        <errorDisplayField>RecurrenceInstance__c</errorDisplayField>
+        <errorMessage>Recurrence Instance cannot be selected if the holiday is not marked as Recurring</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Recurrence_Interval_if_not_recurring</fullName>
+        <active>true</active>
+        <description>Recurrence Interval cannot be provided if the holiday is not marked as Recurring</description>
+        <errorConditionFormula>AND(NOT(IsRecurrence__c), NOT(ISBLANK(RecurrenceInterval__c )))</errorConditionFormula>
+        <errorDisplayField>RecurrenceInterval__c</errorDisplayField>
+        <errorMessage>Recurrence Interval cannot be provided if the holiday is not marked as Recurring</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Recurrence_Month_if_not_recurring</fullName>
+        <active>true</active>
+        <description>Recurrence Month of Year cannot be selected if the holiday is not marked as Recurring</description>
+        <errorConditionFormula>AND(NOT(IsRecurrence__c), NOT(ISBLANK(TEXT(RecurrenceMonthOfYear__c))))</errorConditionFormula>
+        <errorDisplayField>RecurrenceMonthOfYear__c</errorDisplayField>
+        <errorMessage>Recurrence Month of Year cannot be selected if the holiday is not marked as Recurring</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Recurrence_Type_if_not_recurring</fullName>
+        <active>true</active>
+        <description>Recurrence Type cannot be selected if the holiday is not marked as Recurring</description>
+        <errorConditionFormula>AND(NOT(IsRecurrence__c), NOT(ISBLANK(TEXT(RecurrenceType__c))))</errorConditionFormula>
+        <errorDisplayField>RecurrenceType__c</errorDisplayField>
+        <errorMessage>Recurrence Type cannot be selected if the holiday is not marked as Recurring</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Recurring_End_Date_if_not_recurring</fullName>
+        <active>true</active>
+        <description>Recurrence End Date cannot be set if the holiday is not marked as Recurring</description>
+        <errorConditionFormula>AND(NOT(IsRecurrence__c), NOT(ISBLANK(RecurrenceEndDateOnly__c)))</errorConditionFormula>
+        <errorDisplayField>RecurrenceEndDateOnly__c</errorDisplayField>
+        <errorMessage>Recurrence End Date cannot be set if the holiday is not marked as Recurring</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Recurring_Start_Date_if_not_recurring</fullName>
+        <active>true</active>
+        <description>Recurrence Start Date cannot be set if the holiday is not marked as Recurring</description>
+        <errorConditionFormula>AND(NOT(IsRecurrence__c), NOT(ISBLANK(RecurrenceStartDate__c)))</errorConditionFormula>
+        <errorDisplayField>RecurrenceStartDate__c</errorDisplayField>
+        <errorMessage>Recurrence Start Date cannot be set if the holiday is not marked as Recurring</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Start_Time_if_all_day</fullName>
+        <active>true</active>
+        <description>This validation rule is applied if a holiday is marked as an all day event and then tries to set the start time as well.</description>
+        <errorConditionFormula>AND(AND(IsAllDay__c, NOT(ISBLANK(StartTimeInMinutes__c))),NOT(IsRecurrence__c))</errorConditionFormula>
+        <errorDisplayField>StartTimeInMinutes__c</errorDisplayField>
+        <errorMessage>Start time cannot be defined if the holiday is an all day event.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Recurring_Daily_must_have_Interval</fullName>
+        <active>true</active>
+        <description>If recurrence type if RecursDaily, then the Recurrence Interval must be provided.
+Also, if recurrence type is RecursEveryWeekday, then the Recurrence Interval must not be provided.</description>
+        <errorConditionFormula>OR(AND(ISPICKVAL(RecurrenceType__c, &quot;RecursDaily&quot;), ISBLANK(RecurrenceInterval__c)), AND(ISPICKVAL(RecurrenceType__c, &quot;RecursEveryWeekday&quot;), NOT(ISBLANK(RecurrenceInterval__c))))</errorConditionFormula>
+        <errorDisplayField>RecurrenceInterval__c</errorDisplayField>
+        <errorMessage>One of the following :
+1. Recurrence interval MUST be set if the recurrence type is recursDAILY.
+2. Recurrence interval MUST NOT be set if the recurrence type is recursEVERYWEEKDAY.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Start_and_End_time_must_if_not_All_day</fullName>
+        <active>true</active>
+        <description>Start time and End time of the holiday must be mentioned if it is not an All Day holiday.
+Also, Start time and End time of the holiday must not be mentioned if it is an All Day holiday.</description>
+        <errorConditionFormula>OR(AND(NOT(IsAllDay__c), OR(ISBLANK(StartTimeInMinutes__c), ISBLANK(EndTimeInMinutes__c))), AND(IsAllDay__c, OR(NOT(ISBLANK(StartTimeInMinutes__c)), NOT(ISBLANK(EndTimeInMinutes__c)))))</errorConditionFormula>
+        <errorDisplayField>IsAllDay__c</errorDisplayField>
+        <errorMessage>One of the following :
+1. Start time and End time of the holiday MUST be mentioned if it is NOT ALL DAY holiday.
+2. Start time and End time of the holiday MUST NOT be mentioned if it IS ALL DAY holiday.</errorMessage>
+    </validationRules>
+</CustomObject>

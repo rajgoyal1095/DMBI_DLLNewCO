@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>This is a generic template for Custom Object.  With this template, you may adjust the default elements and values and add new elements and values.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Read</externalSharingModel>
+    <fields>
+        <fullName>Enabled__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Spread_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Spread Description</label>
+        <length>200</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Configuration__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates how payment will be distributed between rent (lease receivable) and tax or between fees and tax. 
+Tax First: When this option is selected the system must apply payment to the tax first. Only if payment amount is more than the tax amount, would the system proceed to apply payment towards receivable (rent or fees).
+
+Receivable First: When this option is selected the system must apply payment to the receivable first. Only if the payment amount is more than the receivable amount would the system proceed to apply payment towards tax.
+
+Distribute: When this option is selected the system must distribute payment between receivable and tax in the same proportion. e.g. if C and T are charge and tax amount respectively, then the payment must be distributed in the proportion of C/(C+T) and T/(C+T) towards charge and tax respectively.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the order in which payment will be applied towards rent and tax, or fee and tax.</inlineHelpText>
+        <label>Tax Configuration</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>TAX FIRST</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RECEIVABLE FIRST</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DISTRIBUTE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Payment Spread</label>
+    <nameField>
+        <displayFormat>PSD-{0000000000}</displayFormat>
+        <label>Payment Application Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Payment Spreads</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Spread_Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Enabled__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Spread_Description__c</searchFilterFields>
+        <searchFilterFields>Enabled__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Account_Balance_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account Balance Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>LEASE RECEIVABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SERVICE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EVERGREEN LEASE RECEIVABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EXCESS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VENDOR PAYABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REFERRAL PAYABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COMMISSION PAYABLE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Add_To_Quote_Amount__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>True in case if amount adds to Termination Quote Amount , 
+false to subtract from termination Quote amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>True in case if amount adds to Termination Quote Amount , 
+false to subtract from termination Quote amount</inlineHelpText>
+        <label>Add To Quote Amount</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Bill_Field_API_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field will be used for having Bill Field API name for Termination line in case of Billable</description>
+        <externalId>false</externalId>
+        <label>Bill Field API Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_API_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Field API Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Account_Balancable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field will be used to check either Termination configuration line consider for Account balances or not</description>
+        <externalId>false</externalId>
+        <label>Is Account Balanceable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Billable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Is Billable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Object_API_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Object API Name</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quote_Line__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote Line</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>QUOTE UNBILLED RECEIVABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUOTE DISCOUNT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILLED NOT PAID - RENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILLED NOT PAID - TAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILLED NOT PAID - CHARGES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SECURITY DEPOSIT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TAX ON QUOTE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUOTE PURCHASE AMOUNT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILL NOT PAID - EST PROPERTY TAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILL NOT PAID - FINANCE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILL NOT PAID - INSURANCE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILL NOT PAID - LATE FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILL NOT PAID - ORIGINATION FEES</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUOTE ESTIMATED PROPERTY TAX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUOTE ROLLOVER INCENTIVE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUOTE SERVICE AND MAINTENANCE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUOTE FEE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUOTE TERMINATION PENALTY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QUOTE PURCHASE PREMIUM AMOUNT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BILL NOT PAID - SERVICE FEES</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Termination_Config__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Termination Config</label>
+        <referenceTo>Termination_Config__c</referenceTo>
+        <relationshipLabel>Termination Config Lines</relationshipLabel>
+        <relationshipName>Termination_Config_Lines</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Termination Config Line</label>
+    <nameField>
+        <label>Termination Config Line Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Termination Config Lines</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

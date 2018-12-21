@@ -1,0 +1,55 @@
+<apex:page standardController="cllease__Lease_Account__c"
+    extensions="cllease.RecurringACHController"
+    sidebar="{!IF($CurrentPage.Parameters.modal == 'true', false, true)}">
+<apex:include pageName="clcommon__mintTheme"/>
+
+    <apex:stylesheet value="{!IF($CurrentPage.Parameters.modal == 'true', $Resource.cllease__modalheaderStyle,'')}" />
+    <script
+        src="{!URLFOR($Resource.jQueryFiles, 'js/jquery-1.8.3.min.js')}" />
+    <script src="{!URLFOR($Resource.helperclose)}" />
+
+    <script> function setFocusOnLoad(){} </script>
+
+    <script>
+        j$ = jQuery.noConflict();
+        
+    </script>
+
+    <apex:sectionHeader title="Recurring ACH setup against the lease: {!cllease__Lease_Account__c.Name}" />
+    <apex:outputPanel >
+        <apex:form id="recurringACHForm">
+            <apex:pageBlock id="achPBId" mode="edit">
+                <apex:pageMessages />
+                <apex:pageBlockButtons location="both">
+                    <c:BusyButton name="Save" busyName="Saving"
+                        actionTo="{!recurringACH}" id="sBtn" reRenderTo="recurringACHForm"
+                        oncomplete="({!closeModal}===true) ? closeIframe('{!cllease__Lease_Account__c.Id}') : {};"
+                        style="margin-left:120px;" disabled="{!achTxn.Id != null}" />
+                    <apex:commandButton value="Cancel" immediate="true"
+                        action="{!URLFOR($Action.Lease_Account__c.View,Lease_Account__c.Id)}"
+                        onclick="closeIframe()" />
+                </apex:pageBlockButtons>
+                <apex:outputpanel id="achLeasePanel">
+                    <apex:pageBlockSection columns="2"
+                        id="leaseTermsPanelPageBlockSection" title="ACH Parameters">
+                        <apex:outputField id="LeaseId" value="{!achTxn.cllease__Lease_Account__c}" />
+                        <apex:outputField value="{!achTxn.cllease__Txn_Date__c}" />
+                        <apex:outputField id="txnTypeId"
+                            value="{!achSetup.cllease__Type__c}" />
+                        <apex:inputField value="{!achSetup.cllease__Bank__c}" required="true" />
+                        <apex:inputField value="{!achSetup.cllease__Start_Date__c}" required="true" />
+                        <apex:inputField value="{!achSetup.cllease__Debit_Date__c}"
+                            required="true" />
+                        <apex:inputField value="{!achSetup.cllease__End_Date__c}" />
+                        <apex:inputField value="{!achSetup.cllease__Debit_Amount__c}"
+                            required="true" />
+                        <apex:inputField value="{!achSetup.cllease__Frequency__c}"
+                            required="true" />
+                    </apex:pageBlockSection>
+                </apex:outputpanel>
+
+            </apex:pageBlock>
+        </apex:form>
+
+    </apex:outputPanel>
+</apex:page>
